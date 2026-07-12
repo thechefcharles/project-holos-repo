@@ -70,24 +70,26 @@ Last updated: 2026-07-12
       * street_segment: 0% (0/50 correct, 50 escalated) ← Stage 4 returns None
       * multi_location: 0% (0/15 correct, 15 escalated) ← Fallback escalation
       * **Overall: 30.4% (76/250)**
-    - ⊘ BLOCKING: Reference data mismatch (CRITICAL)
-      * address_points: 582k rows, 1,232 unique street names (from Ward Wise CSV)
-      * centerlines: 56k segments, 2,076 unique street names (from different source; mostly numbered streets)
-      * **Overlap: only 22 matching streets** — 98% of geocoding fails because street names don't match
-      * Example: "FLETCHER" is in address_points but NOT in centerlines → Stage 2 always returns None
-      * Root cause: loaded reference layers from mismatched data sources (Ward Wise vs. USGS/TIGER or other)
-    - ✓ Cascade architecture working correctly:
-      * Grammar classification & routing: 91%+ accuracy on benchmarks
-      * Parse pipeline: extracting number/street correctly
-      * SQL parameterization: secure, no injection
-      * PostGIS integration: ST_LineInterpolatePoint correctly implemented
-    - ✓ Stage 1 (address_points) is production-ready at 76%; 4 wrong hits need investigation
-    - ⊘ Stages 2–5 cannot proceed until centerlines match address_points street names
-    - ⊘ Stage 6 Census API hangs; disabled pending timeout + error handling
-    - Next: MUST resolve reference data mismatch before re-measuring; either:
-      * (A) Reload centerlines from Ward Wise or matching source, OR
-      * (B) Reload address_points from a centerlines-compatible source, OR
-      * (C) Build a street-name mapping/repair layer (rapidfuzz fuzzy match)
+    - ✓ FIXED: Format/wiring bugs (not data bugs):
+      * Bug 1: Street-name format mismatch (centerlines: "FLETCHER ST", address_points: "FLETCHER") → FIXED with REGEXP_REPLACE
+      * Bug 2: Missing predir filter in Stage 1 (1919 N/S HARDING collision) → FIXED with normalized predir matching
+      * Bug 3: MultiLineString geometry handling → FIXED with ST_LineMerge
+      * Bug 4: Missing grammar routing cases (address_range, hundred_block, alley_block_polygon) → FIXED
+      * Bug 5: Intersection regex missing & delimiter → FIXED
+      * Bug 6: Intersection street normalization order → FIXED (strip predir before suffix)
+    - ✓ Cascade measurement (250-row benchmark, stages 1–5):
+      * **single_address: 92%** (92 correct, 2 escalated, 6 wrong)
+      * **intersection: 82.9%** (58 correct, 12 escalated, 0 wrong) ← MAJOR IMPROVEMENT from 0%
+      * **address_range: 53.3%** (8 correct, 6 escalated, 1 wrong) ← FROM 0%
+      * **multi_location: 20.0%** (3 correct, 1 escalated, 11 wrong) ← PARTIAL (split+geocode first)
+      * **street_segment: 0%** (0 correct, 50 escalated, 0 wrong) ← SAFE ESCALATION (FROM 30 wrong)
+      * **TOTAL: 64.4%** (161/250 correct or escalated, 18 wrong)
+    - ⊘ Remaining gap to 90% gate:
+      * street_segment needs FROM/TO bounding algorithm (currently escalates all 50 rows)
+      * multi_location needs proper multi-point handling (currently 20%, tries only first part)
+      * single_address: 6 wrong hits need trace (4 are HARDING collisions in data, 2 others)
+      * Verify 18 wrong hits: are they cascade bugs or benchmarks answer-key errors?
+    - ⊘ Stage 6 (external geocoders): Census API hangs; disabled. Re-enable with timeout once stages 1–5 plateauing.
 
 ### Phase 1C — Review & promotion
 
