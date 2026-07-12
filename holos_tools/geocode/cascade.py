@@ -145,17 +145,13 @@ class GeocodeCascade:
                 return result
 
         elif grammar.grammar == 'multi_location':
-            # Multi-location: "X & Y & Z; address"
-            # For now: split on semicolon, geocode first part
-            # TODO: implement proper multi-location handling (return centroid of all parts)
-            parts = location_text.split(';')
-            if parts:
-                first_part = parts[0].strip()
-                if first_part:
-                    # Recursively geocode first part
-                    result = self.geocode(first_part)
-                    if result and result.score > 0:
-                        return result
+            # Multi-location: "X & Y & Z; address" or multiple locations
+            # Real algorithm: split, geocode all parts, return multi-point or centroid
+            # GUARD: Do NOT return partial results as if they're complete answers.
+            # This is the same confidently-wrong trap as stage 4's arbitrary LIMIT 1.
+            # Until we implement full multi-point handling, escalate.
+            # TODO: implement proper multi-location (split, geocode each, centroid or multi-point)
+            pass
 
         # Stage 6: External geocoders (Census + Nominatim) — fallback for any unmatched grammar
         # SKIP for now: Census API hangs; need timeout + error handling
@@ -393,7 +389,7 @@ class GeocodeCascade:
     def stage_5_gazetteer(self, norm_text: str, parsed: Dict, raw_text: str) -> Optional[GeocodeResult]:
         """Stage 5: Named place match (gazetteer)."""
         # Try to find a gazetteer match
-        place_search = parsed.get('street', '')
+        place_search = parsed.get('street', '') if isinstance(parsed, dict) else getattr(parsed, 'street', '')
         if not place_search:
             return None
 
