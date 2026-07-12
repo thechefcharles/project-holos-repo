@@ -81,6 +81,16 @@ levels: QL-C default (reference data), QL-B if surveyor-stamped, QL-D if datum m
 Depth normalization handles meters/feet unit conversion; CLI wired as `holos extract pdf-vector`.
 Golden fixtures + pytest tests cover 5 scenarios (simple, mix, surveyor-stamped, ambiguous, no datum).
 
+### 2026-07-11 — Phase 2 B2 (Raster plates) extraction: OCR + line detection
+B2RasterExtractor handles scanned documents (Sanborn Fire Insurance maps, utility blueprints, 
+legacy engineering plans). Extracts text via tesseract OCR, detects line features (pipes/cables) 
+using OpenCV edge detection + Hough line detection. Image quality heuristics flag degraded scans 
+(faded, water-stained, illegible). QL-D default (OCR fallible; depth extraction heuristic); QL-C 
+if surveyor-reviewed. Line traces extracted but flagged for human classification (water vs. gas 
+vs. electric). Depth normalization supports feet (common on US blueprints) and meters; unit 
+inference from context. CLI wired as `holos extract raster-plate`. Golden fixtures cover 5 quality 
+scenarios (good Sanborn, utility blueprint, faded scan, line detection, handwritten annotations).
+
 ---
 
 *Add new decisions below this line.*
