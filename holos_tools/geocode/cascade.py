@@ -277,9 +277,10 @@ class GeocodeCascade:
 
         return None
 
-    def stage_4_segment(self, norm_text: str, parsed: Dict, raw_text: str) -> Optional[GeocodeResult]:
+    def stage_4_segment(self, norm_text: str, parsed, raw_text: str) -> Optional[GeocodeResult]:
         """Stage 4: Block/segment match (return whole segment as LINESTRING)."""
-        if not parsed.get("street"):
+        street = parsed.get("street") if isinstance(parsed, dict) else getattr(parsed, "street", None)
+        if not street:
             return None
 
         # Find all centerline segments for this street (parameterized to prevent SQL injection)
@@ -289,7 +290,7 @@ class GeocodeCascade:
             WHERE UPPER(street_name) = UPPER(%(street_name)s)
             LIMIT 1
         """
-        result = self.query(sql, {"street_name": parsed['street']})
+        result = self.query(sql, {"street_name": street})
 
         if result:
             row = result[0]
