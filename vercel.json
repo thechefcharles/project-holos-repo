@@ -1,0 +1,13 @@
+{
+  "buildCommand": "echo 'Phase 1A: no web service yet'",
+  "outputDirectory": ".",
+  "env": {
+    "NOTION_TOKEN": "@notion_token",
+    "ANTHROPIC_API_KEY": "@anthropic_api_key"
+  },
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  }
+}
