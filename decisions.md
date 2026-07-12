@@ -327,9 +327,11 @@ Example: "FLETCHER" exists in address_points but NOT in centerlines → Stage 2 
 
 Until this is resolved, stages 2–5 will continue to escalate 100% because street names simply do not match between the two reference layers.
 
-**Stage 1 next steps (ready to ship if 4 wrong hits resolve):**
-- Trace the 4 wrong hits to identify if they're (a) cascade bugs (picked wrong street/direction/suffix), (b) benchmark answer key errors, or (c) inherent ambiguity in spending records
-- If (a): fix cascade logic. If (b): update benchmark. If (c): document as known limitation and escalate to review.
+**Stage 1 wrong-hit diagnosis (4 misses at >100m):**
+- **1919 N HARDING AVE:** Two matching addresses in database (41.85441 and 41.91597). Query returns LIMIT 1, picks wrong one (17km from benchmark answer).
+- **4533 S HARDING AVE:** One match in database (41.96377), but benchmark expects 41.8105129 (17km away). Either database has wrong coordinates or benchmark answer key is wrong.
+- **Root cause:** Address deduplication failure in reference data (duplicate + possibly bad coordinates for HARDING). When multiple exact matches exist, cascade needs a tie-breaker (closest to ward centroid, highest confidence score, or escalate to review).
+- **Fix for ≥90% gate:** Implement tie-breaker (e.g., distance to ward boundary centroid) OR escalate multi-matches to review (count as "escalated", not wrong).
 
 **Stage 6 (external geocoders) status:**
 Census Geocoder API hangs; temporarily disabled. Needs timeout + error handling before re-enabling. Nominatim (OSM) is a reliable fallback once Stage 6 integration resumes.
