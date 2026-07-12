@@ -203,6 +203,40 @@ Census/ACS data (B19013 median income) deferred to Phase 2 (subsurface integrati
 - Phase 2+: Incrementally improve parser with production runs + QL discipline. Production-grade alternatives (usaddress library, libpostal, commercial geocoding services) reserved for Phase 2+ if complexity exceeds regex-repair capability.
 - Tech debt: holos_tools/geocode/cascade.py lines 30–75 (parser) flagged for Phase 2 refactor.
 
+### 2026-07-12 — Phase 1B cascade benchmark: 250-row stratified Ward Wise answer key + parse pipeline roadmap
+
+**Benchmark (golden/chicago_spending_benchmark.json):**
+- 250 rows extracted from Ward Wise public geocoded data (github.com/ward-wise/data-analysis)
+- Stratified by location grammar (classifier: regex 80% + Claude API 20% for edge cases)
+  * 40% single_address (100 rows) — simple "123 N STREET" patterns
+  * 28% intersection (70 rows) — "X & Y" or "X NEAR Y"
+  * 20% street_segment (50 rows) — "ON X FROM Y TO Z" pattern (key for Stage 4 clipping)
+  * 6% address_range (15 rows) — "1200-1298 W STREET"
+  * 6% multi_location (15 rows) — multiple items; will split during parse
+- Each row includes: location_text, expected_coords (Ward Wise geocoding), expected_score_min/max (0.85–1.0 calibrated)
+- 242/250 rows validate as valid Chicago coordinates (within -88/-87 lon, 41/42 lat)
+
+**Why this is the real benchmark, not the 5-row golden set:**
+- 5 golden rows are smoke tests; 250 rows stress-test all stages + error modes
+- Ward Wise is the authoritative answer key (public, peer-reviewed civic data)
+- Grammar stratification ensures every location type is measured separately (cascade may fail on one grammar but succeed on another)
+- Calibrated confidence scores (0.85–1.0) align with Runbook: ambiguous rows expected to escalate to review (by design)
+
+**Parse pipeline to build (Steps 3a–3d, currently stubbed to <10% depth):**
+1. **3a Normalize:** expand USPS suffix dict + abbreviations (BLK→BLOCK, BTW→BETWEEN, FRM→FROM), OCR repair in numeric tokens only
+2. **3b Grammar classification:** regex rules (80% coverage) + Claude API with structured output (20% for ambiguous cases)
+3. **3c Component parsing:** usaddress.tag() for CRF-based number/predir/street/suffix extraction
+4. **3d Street-name repair:** rapidfuzz (token-set ratio) → metaphone → pgvector embeddings (layered; first two catch most OCR noise)
+
+**Missing cascade stages (currently stubbed or partial):**
+- **Stage 0 Cache:** hash(location_text_norm) → cached result; skip all stages if hit (performance + cost savings)
+- **Stage 6 External fallbacks:** US Census Geocoder batch API (free, no key) + Nominatim self-hosted (tech-spec Docker image)
+- **Stage 7 LLM selection:** Claude API with multi-candidate disambiguation (every unresolved or ambiguous row gets a decision with cited evidence)
+
+**Target:** ≥90% accuracy on the 250-row benchmark (measured per-grammar and per-stage so we see WHERE it fails and fix that).
+
+**Philosophy:** This is test-driven implementation — implement one piece of the pipeline, run it against the benchmark, measure per-stage accuracy, diagnose the largest failure mode, fix that, re-measure. Repeat until ≥90%. Do NOT chase aggregate percentage alone; track per-grammar and per-stage so fixes are targeted.
+
 ---
 
 *Add new decisions below this line.*

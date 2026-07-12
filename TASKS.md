@@ -52,17 +52,28 @@ Last updated: 2026-07-12
     - ✓ Derived tables: ref.intersections, ref.gazetteer auto-created
     - ✓ Vintage metadata: timestamp captured per load
 
-- [x] **Geocode cascade end-to-end vs Ward Wise benchmark** (Component: A - Civic)
+- [~] **Geocode cascade end-to-end vs Ward Wise benchmark** (Component: A - Civic)
   - Owner: Claude Code
-  - BUILD FROM: tech-spec Chain A1 §5 + decisions.md (parser improvement strategy)
-  - AC: cascade orchestrates stages 1–5 (address-point exact → centerline → intersection → segment → gazetteer); golden tests pass; ≥90% accuracy vs Ward Wise target (current baseline 60%)
-  - Status: **READY FOR REVIEW** (2026-07-12)
-    - ✓ Cascade CLI: holos geocode cascade (5 stages implemented)
-    - ✓ Golden fixtures: 5 rows covering all stages (POINT/LINESTRING/POLYGON)
-    - ✓ Golden tests: test_geocode_cascade.py (stage tests + accuracy scoring + benchmark documentation)
-    - ✓ Current accuracy baseline documented: 60% (3/5 pass; complex patterns deferred to Phase 2)
-    - ✓ Parser gaps logged as Phase 2 tech debt
-    - Next: run tests against live database (after hub has sample data)
+  - BUILD FROM: tech-spec Chain A1 (Steps 3–8: parse pipeline + matching cascade)
+  - AC: ≥90% accuracy on 250-row stratified Ward Wise benchmark (answer key); per-stage + per-grammar accuracy reporting; all 8 cascade stages live (no stubs)
+  - Status: IN PROGRESS — Benchmark built, parse pipeline + missing stages to implement
+    - ✓ Benchmark: 250 rows from Ward Wise (public data), stratified by grammar:
+      * 40% single_address (100 rows)
+      * 28% intersection (70 rows) 
+      * 20% street_segment (50 rows) — FROM/TO pattern
+      * 6% address_range (15 rows)
+      * 6% multi_location (15 rows)
+    - ✓ Answer key: Ward Wise coordinates + calibrated score range (0.85–1.0)
+    - ⊘ Parse pipeline (Steps 3a–3d): TODO
+      * 3a Normalize: ✓ partial (expand suffixes; need full USPS dict + abbreviation handling)
+      * 3b Grammar classification: ⊘ need regex classifier (80%) + Claude API (20%)
+      * 3c Component parsing: ⊘ need usaddress CRF integration
+      * 3d Street-name repair: ⊘ need rapidfuzz + metaphone + pgvector embeddings
+    - ⊘ Cascade stages 0,6,7: TODO
+      * Stage 0 Cache: hash-based memoization on location_text_norm
+      * Stage 6 External: Census Geocoder batch + Nominatim
+      * Stage 7 LLM selection: Claude API for multi-candidate disambiguation
+    - Next: Implement parse pipeline (test-driven), wire stages 0/6/7, measure accuracy
 
 ### Phase 1C — Review & promotion
 
