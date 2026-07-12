@@ -141,9 +141,13 @@ class GeocodeCascade:
             reason="No match found; escalate to human review"
         )
 
-    def stage_1_address_point(self, norm_text: str, parsed: Dict, raw_text: str) -> Optional[GeocodeResult]:
+    def stage_1_address_point(self, norm_text: str, parsed, raw_text: str) -> Optional[GeocodeResult]:
         """Stage 1: Exact match on address point."""
-        if not parsed.get("number") or not parsed.get("street"):
+        # Support both dict and AddressComponents objects
+        number = parsed.get("number") if isinstance(parsed, dict) else getattr(parsed, "number", None)
+        street = parsed.get("street") if isinstance(parsed, dict) else getattr(parsed, "street", None)
+
+        if not number or not street:
             return None
 
         # Query address_points for exact match (parameterized to prevent SQL injection)
@@ -155,8 +159,8 @@ class GeocodeCascade:
             LIMIT 1
         """
         result = self.query(sql, {
-            "address_number": parsed['number'],
-            "street_name": parsed['street']
+            "address_number": number,
+            "street_name": street
         })
 
         if result:
@@ -172,9 +176,12 @@ class GeocodeCascade:
 
         return None
 
-    def stage_2_centerline(self, norm_text: str, parsed: Dict, raw_text: str) -> Optional[GeocodeResult]:
+    def stage_2_centerline(self, norm_text: str, parsed, raw_text: str) -> Optional[GeocodeResult]:
         """Stage 2: Interpolate on centerline."""
-        if not parsed.get("number") or not parsed.get("street"):
+        number = parsed.get("number") if isinstance(parsed, dict) else getattr(parsed, "number", None)
+        street = parsed.get("street") if isinstance(parsed, dict) else getattr(parsed, "street", None)
+
+        if not number or not street:
             return None
 
         # Find centerline segment (parameterized to prevent SQL injection)
@@ -186,7 +193,7 @@ class GeocodeCascade:
             WHERE UPPER(street_name) = UPPER(%(street_name)s)
             LIMIT 1
         """
-        result = self.query(sql, {"street_name": parsed['street']})
+        result = self.query(sql, {"street_name": street})
 
         if result:
             row = result[0]
