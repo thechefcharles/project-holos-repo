@@ -23,7 +23,7 @@ Two rules govern everything below:
 **Tracking Rule:** When a step is complete, change `[ ]` → `[x]` and add date `(YYYY-MM-DD)`. Commit the progress tracker update along with step completion work. Do not modify after-the-fact; append only.
 
 - [x] **Step 1: Acquire** — OBM/DBM discovery + PDF harvesting with manifests (2026-07-12: 14 PDFs, 36 MB, 2012–2025 complete)
-- [ ] **Step 2: Classify PDF** — pdfplumber text/scanned detection + table extraction/OCR
+- [x] **Step 2: Classify PDF** — pdfplumber text/scanned detection + table extraction/OCR (2026-07-12: all 14 text-native, 100% confidence)
 - [ ] **Step 3: Normalize** — Pandas schema mapping for year-variant layouts
 - [x] **Step 4: Parse location** — usaddress/libpostal + grammar classification (2026-07-12)
 - [x] **Step 5: Geocode cascade** — exact match → census → centerline → nominatim (94.1% accuracy, 2026-07-12)
