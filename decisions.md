@@ -73,6 +73,14 @@ incrementally improved with real-world data as pipeline scales. Production-grade
 (usaddress library, commercial services) reserved for Phase 2+ if complexity grows beyond 
 regex-repair capability. Tracked as tech debt: holos_tools/geocode/cascade.py lines 30–75.
 
+### 2026-07-11 — Phase 2 B1 (Vector PDFs) extraction: annotation-driven feature discovery
+Phase 2 subsurface extraction starts with B1 (CAD-exported engineering plans). B1VectorExtractor 
+parses text annotations for depth and feature type ("12m water main", "4.5ft gas service", 
+"@ 1.8m"), extracts title-block metadata (vertical datum, scale, engineer), and assigns QL 
+levels: QL-C default (reference data), QL-B if surveyor-stamped, QL-D if datum missing. 
+Depth normalization handles meters/feet unit conversion; CLI wired as `holos extract pdf-vector`.
+Golden fixtures + pytest tests cover 5 scenarios (simple, mix, surveyor-stamped, ambiguous, no datum).
+
 ---
 
 *Add new decisions below this line.*
