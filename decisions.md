@@ -36,6 +36,33 @@ Repo owns code/config/CLAUDE.md/decisions.md; Notion owns trackers/planning/huma
 decisions log. Nothing owned by both; non-owner side is a labeled mirror. Data-source
 IDs/thresholds live in /config (repo); acquisition status lives in the Notion tracker.
 
+### 2026-07-12 — Phase 1 infrastructure: agents, not scripts
+Five pipeline agents (harvester, extractor, geolocator, verifier, normalizer) with explicit
+output contracts per `schemas/agent_output.schema.json`. Each agent owns a stage of the
+pipeline; human gates live in ops.review_items and ops.jobs (state machine: queued → running
+→ needs_review → approved → promoted). Deterministic tools (holos CLI commands) execute
+decisions made by agents. Agent definitions in `.claude/agents/` specify tools, model, effort,
+and workflow per agent.
+
+### 2026-07-12 — RLS policy substring bypass fixed
+Changed `LIKE '%' || access_tier || '%'` to `access_tier = ANY (string_to_array(...))` in
+core.spending_projects RLS policy to prevent substring injection. Hardcoded role password
+removed; password must be set via `ALTER ROLE ... WITH PASSWORD` from environment variable.
+
+### 2026-07-12 — Five-command CLI hierarchy
+- holos harvest: discover, download, manifest sources (Socrata, HTTP URLs)
+- holos extract: convert PDFs/CADs/scans to rows (chains A1/B1/B2/B3)
+- holos geocode: normalize, parse, cascade-match (stages 0–8)
+- holos validate: schema, geography (ward containment), deduplication, QL discipline
+- holos load: promote staging → core (with human gates)
+
+Subcommands follow chain/stage naming from CLAUDE.md rule 1 (agents decide, tools execute).
+
+### 2026-07-12 — Golden fixtures + Ward Wise benchmark
+Five golden rows in golden/chicago_spending_golden.json: POINT, LINESTRING, POLYGON covering
+stages 1–5 (address_point_exact, centerline_interpolation, intersection, gazetteer).
+Phase 1 target: ≥90% geocode accuracy vs Ward Wise (documented as test_benchmark_target).
+
 ---
 
 *Add new decisions below this line.*
