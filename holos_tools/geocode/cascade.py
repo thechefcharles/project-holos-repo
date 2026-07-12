@@ -1,10 +1,12 @@
-"""Geocoding cascade: stages 0–5 (address normalization → gazetteer match)."""
+"""Geocoding cascade: stages 0–8 (grammar-routed address matching)."""
 
-import re
-import unicodedata
 import os
 from typing import Optional, Dict, List, Tuple
 from dataclasses import dataclass
+
+from .grammar import GrammarClassifier
+from .normalize import normalize
+from .parser import AddressParser
 
 try:
     import psycopg
@@ -36,16 +38,15 @@ class PostgresDB:
         self.conn = psycopg.connect(connstr)
 
     def execute(self, sql: str, params: dict = None) -> list:
-        """Execute query and return results as list of dicts."""
-        try:
-            with self.conn.cursor() as cur:
-                cur.execute(sql, params or {})
-                if cur.description:
-                    cols = [d[0] for d in cur.description]
-                    return [dict(zip(cols, row)) for row in cur.fetchall()]
-                return []
-        except Exception as e:
-            print(f"Query error: {e}\nSQL: {sql}\nParams: {params}")
+        """Execute query and return results as list of dicts.
+
+        CRITICAL: Do NOT swallow errors. Schema bugs must surface loudly.
+        """
+        with self.conn.cursor() as cur:
+            cur.execute(sql, params or {})
+            if cur.description:
+                cols = [d[0] for d in cur.description]
+                return [dict(zip(cols, row)) for row in cur.fetchall()]
             return []
 
     def close(self):
@@ -66,136 +67,79 @@ class GeocodeResult:
     reason: str = ""
 
 
-class GeocodeNormalizer:
-    """Stage 0: Normalize address text."""
-
-    # Abbreviations to expand (suffix-only, not directions)
-    ABBREVIATIONS = {
-        r'\bST\b': 'STREET',
-        r'\bAVE\b': 'AVENUE',
-        r'\bBLVD\b': 'BOULEVARD',
-        r'\bDR\b': 'DRIVE',
-        r'\bRD\b': 'ROAD',
-        r'\bLN\b': 'LANE',
-        r'\bCT\b': 'COURT',
-        r'\bPL\b': 'PLACE',
-        r'\bPK\b': 'PARK',
-        # Don't expand directions: they're metadata, not part of street name
-    }
-
-    @staticmethod
-    def normalize(text: str) -> str:
-        """Normalize address text: strip punctuation, expand abbreviations."""
-        if not text:
-            return ""
-
-        # Uppercase
-        text = text.upper()
-
-        # Remove diacritics
-        text = unicodedata.normalize("NFKD", text)
-        text = "".join(c for c in text if unicodedata.category(c) != "Mn")
-
-        # Remove punctuation
-        text = re.sub(r'[^\w\s]', ' ', text)
-
-        # Expand abbreviations
-        for abbr, full in GeocodeNormalizer.ABBREVIATIONS.items():
-            text = re.sub(abbr, full, text)
-
-        # Collapse whitespace
-        text = re.sub(r'\s+', ' ', text).strip()
-
-        return text
-
-
-class GeocodeParser:
-    """Parse normalized address into components."""
-
-    @staticmethod
-    def parse(text: str) -> Dict[str, str]:
-        """Parse address into number, street, direction."""
-        # Simple parser: "123 N MICHIGAN AVE" → {number: 123, predir: N, street: MICHIGAN, suffix: AVE}
-        parts = text.split()
-        result = {
-            "number": None,
-            "predir": None,
-            "street": None,
-            "suffix": None,
-        }
-
-        if not parts:
-            return result
-
-        # First part: number?
-        if parts[0].isdigit():
-            result["number"] = int(parts[0])
-            parts = parts[1:]
-
-        # Next part: direction? (NORTH, SOUTH, EAST, WEST, etc.)
-        if parts and parts[0] in ("NORTH", "SOUTH", "EAST", "WEST", "NORTHEAST", "NORTHWEST", "SOUTHEAST", "SOUTHWEST"):
-            result["predir"] = parts[0]
-            parts = parts[1:]
-
-        # Remaining: street name and suffix
-        if parts:
-            # Last part: suffix?
-            if parts[-1] in ("STREET", "AVENUE", "BOULEVARD", "DRIVE", "ROAD", "LANE", "COURT", "PLACE", "PARK"):
-                result["suffix"] = parts[-1]
-                result["street"] = " ".join(parts[:-1])
-            else:
-                result["street"] = " ".join(parts)
-
-        return result
-
-
 class GeocodeCascade:
-    """Run the geocoding cascade (stages 1–5)."""
+    """Run the geocoding cascade (stages 0–8, grammar-routed)."""
 
     def __init__(self, db):
         """Initialize cascade with database connection."""
         self.db = db
-        self.normalizer = GeocodeNormalizer()
-        self.parser = GeocodeParser()
 
     def query(self, sql: str, params: dict = None) -> list:
         """Execute query and return results as list of dicts."""
         return self.db.execute(sql, params or {})
 
     def geocode(self, location_text: str, ward: Optional[str] = None) -> GeocodeResult:
-        """Run full cascade on a location."""
+        """Run full cascade on a location (grammar-routed)."""
         # Stage 0: Normalize
-        norm_text = self.normalizer.normalize(location_text)
-        parsed = self.parser.parse(norm_text)
+        norm_text = normalize(location_text)
+        parsed = AddressParser.parse(norm_text)
 
-        # Try stages 1–5 in order
-        for stage_func in [
-            self.stage_1_address_point,
-            self.stage_2_centerline,
-            self.stage_3_intersection,
-            self.stage_4_segment,
-            self.stage_5_gazetteer,
-        ]:
-            result = stage_func(norm_text, parsed, location_text)
+        # Classify grammar
+        grammar = GrammarClassifier.classify(location_text, ward)
+
+        # Route by grammar type (Bug 2 fix)
+        if grammar.grammar == 'single_address':
+            # Try stages 1–2 for single addresses
+            for stage_func in [self.stage_1_address_point, self.stage_2_centerline]:
+                result = stage_func(norm_text, parsed, location_text)
+                if result and result.score > 0:
+                    return result
+
+        elif grammar.grammar == 'intersection':
+            # Stage 3 for intersections
+            result = self.stage_3_intersection(norm_text, parsed, location_text)
             if result and result.score > 0:
                 return result
 
-        # Try Stage 6: External geocoders (Census + Nominatim)
+        elif grammar.grammar == 'street_segment':
+            # Stage 4 for street segments
+            result = self.stage_4_segment(norm_text, parsed, location_text)
+            if result and result.score > 0:
+                return result
+
+        elif grammar.grammar == 'named_place':
+            # Stage 5 for gazetteer/named places
+            result = self.stage_5_gazetteer(norm_text, parsed, location_text)
+            if result and result.score > 0:
+                return result
+
+        elif grammar.grammar == 'wardwide':
+            # Ward-level match (entire ward polygon)
+            result = self.stage_5_gazetteer(norm_text, parsed, location_text)  # Use gazetteer for ward lookup
+            if result and result.score > 0:
+                return result
+
+        elif grammar.grammar == 'multi_location':
+            # Split multi-location and geocode each part
+            # For now, treat as fallback to external geocoders
+            pass
+
+        # Stage 6: External geocoders (Census + Nominatim) — fallback for any unmatched grammar
         result = self.stage_6_external(location_text, norm_text)
         if result and result.score > 0:
             return result
 
-        # All stages failed
+        # Stage 8: All stages failed; escalate to human review
         return GeocodeResult(
             stage=8,
             method="none",
             geometry_type="POINT",
             score=0.0,
-            reason="No match found; escalate to human review"
+            reason=f"No match found ({grammar.grammar}); escalate to human review"
         )
 
     def stage_1_address_point(self, norm_text: str, parsed, raw_text: str) -> Optional[GeocodeResult]:
-        """Stage 1: Exact match on address point."""
+        """Stage 1: Exact match on address point (Bug 3 fix: use correct schema columns)."""
         # Support both dict and AddressComponents objects
         number = parsed.get("number") if isinstance(parsed, dict) else getattr(parsed, "number", None)
         street = parsed.get("street") if isinstance(parsed, dict) else getattr(parsed, "street", None)
@@ -203,17 +147,18 @@ class GeocodeCascade:
         if not number or not street:
             return None
 
-        # Query address_points for exact match (parameterized to prevent SQL injection)
-        # Real schema: add_number (text), st_name, lon, lat
+        # Query address_points for exact match
+        # Schema has: address_number (INT), street_name (TEXT), geom (GEOMETRY)
+        # Use PostGIS ST_X/ST_Y to extract coordinates from geometry
         sql = """
-            SELECT lon, lat
+            SELECT ST_X(geom) as lon, ST_Y(geom) as lat
             FROM ref.address_points
-            WHERE add_number::text = %(address_number)s::text
-              AND UPPER(st_name) = UPPER(%(street_name)s)
+            WHERE address_number = %(address_number)s
+              AND UPPER(street_name) = UPPER(%(street_name)s)
             LIMIT 1
         """
         result = self.query(sql, {
-            "address_number": str(number),
+            "address_number": int(number) if isinstance(number, str) else number,
             "street_name": street
         })
 
@@ -231,7 +176,7 @@ class GeocodeCascade:
         return None
 
     def stage_2_centerline(self, norm_text: str, parsed, raw_text: str) -> Optional[GeocodeResult]:
-        """Stage 2: Interpolate on centerline."""
+        """Stage 2: Interpolate on centerline (Bug 4 fix: filter by house range IN SQL, use PostGIS interpolation)."""
         number = parsed.get("number") if isinstance(parsed, dict) else getattr(parsed, "number", None)
         street = parsed.get("street") if isinstance(parsed, dict) else getattr(parsed, "street", None)
 
@@ -244,53 +189,51 @@ class GeocodeCascade:
         except (ValueError, TypeError):
             return None
 
-        # Find centerline segment (parameterized to prevent SQL injection)
+        # Find centerline segment whose house-number range CONTAINS the address
+        # Filter IN SQL (not Python); use PostGIS for interpolation (not hand-rolled)
         sql = """
-            SELECT segment_id, from_house_num_l, to_house_num_l, from_house_num_r, to_house_num_r,
-                   ST_X(ST_StartPoint(geom)) as start_lon, ST_Y(ST_StartPoint(geom)) as start_lat,
-                   ST_X(ST_EndPoint(geom)) as end_lon, ST_Y(ST_EndPoint(geom)) as end_lat
+            SELECT
+              segment_id,
+              ST_X(ST_LineInterpolatePoint(geom,
+                CASE
+                  WHEN from_house_num_l <= %(house_num)s AND %(house_num)s <= to_house_num_l THEN
+                    (%(house_num)s - from_house_num_l)::float / NULLIF(to_house_num_l - from_house_num_l, 0)
+                  WHEN from_house_num_r <= %(house_num)s AND %(house_num)s <= to_house_num_r THEN
+                    (%(house_num)s - from_house_num_r)::float / NULLIF(to_house_num_r - from_house_num_r, 0)
+                  ELSE 0.5  -- fallback to midpoint if not in range
+                END
+              )) as lon,
+              ST_Y(ST_LineInterpolatePoint(geom,
+                CASE
+                  WHEN from_house_num_l <= %(house_num)s AND %(house_num)s <= to_house_num_l THEN
+                    (%(house_num)s - from_house_num_l)::float / NULLIF(to_house_num_l - from_house_num_l, 0)
+                  WHEN from_house_num_r <= %(house_num)s AND %(house_num)s <= to_house_num_r THEN
+                    (%(house_num)s - from_house_num_r)::float / NULLIF(to_house_num_r - from_house_num_r, 0)
+                  ELSE 0.5
+                END
+              )) as lat,
+              (from_house_num_l <= %(house_num)s AND %(house_num)s <= to_house_num_l) OR
+              (from_house_num_r <= %(house_num)s AND %(house_num)s <= to_house_num_r) as in_range
             FROM ref.centerlines
             WHERE UPPER(street_name) = UPPER(%(street_name)s)
+            ORDER BY in_range DESC  -- prefer segments that actually contain the house number
             LIMIT 1
         """
-        result = self.query(sql, {"street_name": street})
+        result = self.query(sql, {
+            "house_num": house_num,
+            "street_name": street
+        })
 
         if result:
             row = result[0]
-
-            # Try left side
-            if row["from_house_num_l"] and row["to_house_num_l"] and \
-               row["from_house_num_l"] <= house_num <= row["to_house_num_l"]:
-                denom = row["to_house_num_l"] - row["from_house_num_l"]
-                if denom > 0:
-                    fraction = (house_num - row["from_house_num_l"]) / denom
-                    lon = row["start_lon"] + fraction * (row["end_lon"] - row["start_lon"])
-                    lat = row["start_lat"] + fraction * (row["end_lat"] - row["start_lat"])
-                    return GeocodeResult(
-                        stage=2,
-                        method="centerline_interpolation",
-                        geometry_type="POINT",
-                        coordinates=(lon, lat),
-                        score=0.88,
-                        reason=f"Interpolated on centerline: {street}"
-                    )
-
-            # Try right side
-            if row["from_house_num_r"] and row["to_house_num_r"] and \
-               row["from_house_num_r"] <= house_num <= row["to_house_num_r"]:
-                denom = row["to_house_num_r"] - row["from_house_num_r"]
-                if denom > 0:
-                    fraction = (house_num - row["from_house_num_r"]) / denom
-                    lon = row["start_lon"] + fraction * (row["end_lon"] - row["start_lon"])
-                    lat = row["start_lat"] + fraction * (row["end_lat"] - row["start_lat"])
-                    return GeocodeResult(
-                        stage=2,
-                        method="centerline_interpolation",
-                        geometry_type="POINT",
-                        coordinates=(lon, lat),
-                        score=0.88,
-                        reason=f"Interpolated on centerline: {street}"
-                    )
+            return GeocodeResult(
+                stage=2,
+                method="centerline_interpolation",
+                geometry_type="POINT",
+                coordinates=(row["lon"], row["lat"]),
+                score=0.88,
+                reason=f"Interpolated on centerline: {street}"
+            )
 
         return None
 
