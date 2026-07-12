@@ -145,24 +145,41 @@ class GeocodeCascade:
         # Support both dict and AddressComponents objects
         number = parsed.get("number") if isinstance(parsed, dict) else getattr(parsed, "number", None)
         street = parsed.get("street") if isinstance(parsed, dict) else getattr(parsed, "street", None)
+        predir = parsed.get("predir") if isinstance(parsed, dict) else getattr(parsed, "predir", None)
 
         if not number or not street:
             return None
 
+        # Normalize predir: parser returns spelled-out (NORTH/SOUTH/EAST/WEST),
+        # but database stores abbreviations (N/S/E/W)
+        predir_map = {
+            "NORTH": "N", "SOUTH": "S", "EAST": "E", "WEST": "W",
+            "N": "N", "S": "S", "E": "E", "W": "W"  # Already abbreviated
+        }
+        predir_normalized = predir_map.get(predir.upper()) if predir else None
+
         # Query address_points for exact match
-        # SCHEMA DRIFT FIX: table has add_number (float string), st_name (text), geom
-        # Use numeric comparison to handle float-formatted house numbers (3327.0 vs 3327)
+        # Use numeric comparison for house numbers (3327.0 vs 3327)
+        # Include predir to disambiguate when multiple entries exist for same address
         sql = """
             SELECT ST_X(geom) as lon, ST_Y(geom) as lat
             FROM ref.address_points
             WHERE add_number::numeric = %(house_num)s::numeric
               AND UPPER(st_name) = UPPER(%(street_name)s)
-            LIMIT 1
         """
-        result = self.query(sql, {
+        params = {
             "house_num": int(number) if isinstance(number, str) else number,
             "street_name": street
-        })
+        }
+
+        # If predir is present and normalized, match it; otherwise return any match
+        if predir_normalized:
+            sql += " AND predir = %(predir)s"
+            params["predir"] = predir_normalized
+
+        sql += " LIMIT 1"
+
+        result = self.query(sql, params)
 
         if result:
             row = result[0]
@@ -192,20 +209,24 @@ class GeocodeCascade:
             return None
 
         # Find centerline segment whose house-number range CONTAINS the address
-        # Filter IN SQL (not Python); use PostGIS for interpolation (not hand-rolled)
+        # FIX: centerlines.street_name has type suffix baked in (e.g., "FLETCHER ST")
+        # but address_points.st_name has only base name (e.g., "FLETCHER").
+        # Strip the trailing type word from centerlines.street_name when joining.
+        # Also: centerlines.geom is ST_MultiLineString, but ST_LineInterpolatePoint needs a line.
+        # Use ST_LineMerge to merge multilinestring into a single linestring.
         sql = """
             SELECT
               segment_id,
-              ST_X(ST_LineInterpolatePoint(geom,
+              ST_X(ST_LineInterpolatePoint(ST_LineMerge(geom),
                 CASE
                   WHEN from_house_num_l <= %(house_num)s AND %(house_num)s <= to_house_num_l THEN
                     (%(house_num)s - from_house_num_l)::float / NULLIF(to_house_num_l - from_house_num_l, 0)
                   WHEN from_house_num_r <= %(house_num)s AND %(house_num)s <= to_house_num_r THEN
                     (%(house_num)s - from_house_num_r)::float / NULLIF(to_house_num_r - from_house_num_r, 0)
-                  ELSE 0.5  -- fallback to midpoint if not in range
+                  ELSE 0.5
                 END
               )) as lon,
-              ST_Y(ST_LineInterpolatePoint(geom,
+              ST_Y(ST_LineInterpolatePoint(ST_LineMerge(geom),
                 CASE
                   WHEN from_house_num_l <= %(house_num)s AND %(house_num)s <= to_house_num_l THEN
                     (%(house_num)s - from_house_num_l)::float / NULLIF(to_house_num_l - from_house_num_l, 0)
@@ -217,8 +238,8 @@ class GeocodeCascade:
               (from_house_num_l <= %(house_num)s AND %(house_num)s <= to_house_num_l) OR
               (from_house_num_r <= %(house_num)s AND %(house_num)s <= to_house_num_r) as in_range
             FROM ref.centerlines
-            WHERE UPPER(street_name) = UPPER(%(street_name)s)
-            ORDER BY in_range DESC  -- prefer segments that actually contain the house number
+            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%(street_name)s)
+            ORDER BY in_range DESC
             LIMIT 1
         """
         result = self.query(sql, {
@@ -248,21 +269,20 @@ class GeocodeCascade:
 
         street1, street2 = and_match.group(1).strip(), and_match.group(2).strip()
 
-        # Find intersection of two centerlines (parameterized to prevent SQL injection)
+        # Find intersection of two centerlines
+        # FIX: centerlines.street_name has type suffix baked in; strip it when matching
         sql = """
             SELECT ST_X(ST_Intersection(c1.geom, c2.geom)) as lon,
                    ST_Y(ST_Intersection(c1.geom, c2.geom)) as lat
             FROM ref.centerlines c1
             JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
-            WHERE (UPPER(c1.street_name) = UPPER(%(street1)s) OR UPPER(c1.street_name) LIKE UPPER(%(street1_like)s))
-              AND (UPPER(c2.street_name) = UPPER(%(street2)s) OR UPPER(c2.street_name) LIKE UPPER(%(street2_like)s))
+            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%(street1)s)
+              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+\w+$', '')) = UPPER(%(street2)s)
             LIMIT 1
         """
         result = self.query(sql, {
             "street1": street1,
-            "street1_like": f"%{street1}%",
-            "street2": street2,
-            "street2_like": f"%{street2}%"
+            "street2": street2
         })
 
         if result and result[0].get("lon") is not None:
@@ -284,44 +304,48 @@ class GeocodeCascade:
         if not street:
             return None
 
-        # Find all centerline segments for this street (parameterized to prevent SQL injection)
+        # Find all centerline segments for this street
+        # FIX: centerlines.street_name has type suffix baked in; strip it when matching
         sql = """
             SELECT ST_AsText(geom) as geom_wkt, segment_id
             FROM ref.centerlines
-            WHERE UPPER(street_name) = UPPER(%(street_name)s)
+            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%(street_name)s)
             LIMIT 1
         """
         result = self.query(sql, {"street_name": street})
 
         if result:
             row = result[0]
+            street_name_display = street if isinstance(parsed, dict) else street
             return GeocodeResult(
                 stage=4,
                 method="segment_clipping",
                 geometry_type="LINESTRING",
                 geometry_wkt=row["geom_wkt"],
                 score=0.92,
-                reason=f"Block face: {parsed['street']}"
+                reason=f"Block face: {street_name_display}"
             )
 
         return None
 
     def stage_5_gazetteer(self, norm_text: str, parsed: Dict, raw_text: str) -> Optional[GeocodeResult]:
         """Stage 5: Named place match (gazetteer)."""
-        # Try to find a gazetteer match (parameterized to prevent SQL injection)
+        # Try to find a gazetteer match
         place_search = parsed.get('street', '')
         if not place_search:
             return None
 
+        # Gazetteer may also have type suffix (e.g., "MILLENNIUM PARK" stored as is, or normalized)
+        # Try both exact match and match after stripping suffix
         sql = """
             SELECT ST_X(geom) as lon, ST_Y(geom) as lat, name
             FROM ref.gazetteer
-            WHERE UPPER(name) = UPPER(%(place)s) OR UPPER(name) LIKE UPPER(%(place_like)s)
+            WHERE UPPER(name) = UPPER(%(place)s)
+               OR UPPER(REGEXP_REPLACE(name, '\s+\w+$', '')) = UPPER(%(place)s)
             LIMIT 1
         """
         result = self.query(sql, {
-            "place": place_search,
-            "place_like": f"%{place_search}%"
+            "place": place_search
         })
 
         if result:
