@@ -15,10 +15,20 @@ chicago:
     # address_points: "[[verify ID]]"
     # building_permits: "[[verify ID]]"
 
+  # Menu (AMP) spending PDFs — Chicago does not publish as Socrata dataset
+  menu_pdfs:
+    role: "source — Aldermanic Menu Fund spend, only format is PDF"
+    archive_base: "https://www.chicago.gov/content/dam/city/depts/obm"
+    url_patterns:
+      - "general/CIP/CIPDocs/AldermanicMenuPostings/{YEAR}Menu.pdf"           # older
+      - "supp_info/CIP_Archive/Aldermanic Menu/Quarterly Menu Reports Q{N} {YEAR}.pdf"  # newer quarterly
+    years_local: "2012–present"  # Charlie's files cover this range
+    notes: "Socrata has NO spending dataset; PDF archive-index discovery + local file import"
+
 ward_wise:
   repo: "https://github.com/ward-wise/data-analysis"
   api: "https://www.wardwisechicago.org/api/spendingitems"
-  role: "answer-key benchmark for Component A"
+  role: "answer-key benchmark for Component A + permitted bootstrap source (label as Ward Wise-derived)"
 
 census:
   acs_api: "https://api.census.gov/data"

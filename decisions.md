@@ -110,6 +110,22 @@ to ops.review_audit_log (immutable audit trail). CLI: `holos review {list-stagin
 Blocks auto-promotion: every core subsurface feature requires explicit human approval. Enables testing 
 B1/B2/B3 extraction against real Chicago data.
 
+### 2026-07-12 — Phase 1 harvester data sources (resolved ambiguity)
+Four clarifications on Phase 1 harvester scope:
+1. **No Socrata dataset for menu spending** — Chicago does not publish AMP spend as structured data; 
+   only as 300-page PDF archive. `holos harvest socrata` fetches reference layers only (centerlines, 
+   wards, 311, address points).
+2. **Menu PDFs via OBM archive + local files** — Chicago.gov OBM CIP archive URL patterns documented 
+   in config/sources.yaml (older + quarterly variants); Charlie's 2012–present AMP PDFs ingest locally; 
+   archive-index discovery deferred to Phase 2. Harvester seeds with known URLs, skips re-download 
+   (idempotent).
+3. **Ward Wise: dual role** — API-pulled as answer-key benchmark (grading our geocoding) AND as 
+   permitted bootstrap source for Phase 1 speed (never shipped as "our extraction"; always labeled 
+   Ward Wise-derived). Separate benchmark/ storage; grade our scraper against it.
+4. **Harvester golden tests** — mocked HTTP, no network in CI. Test: Socrata download+manifest, 
+   PDF download+checksum, only-config sources enforced, idempotency (skip if already present). 
+   Distinct from geocoding golden set (chicago_spending_golden.json is for location→geometry validation).
+
 ---
 
 *Add new decisions below this line.*
