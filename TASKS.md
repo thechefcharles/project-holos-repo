@@ -56,21 +56,38 @@ Last updated: 2026-07-12
   - Owner: Claude Code
   - BUILD FROM: tech-spec Chain A1 (Steps 3–8: parse pipeline + matching cascade)
   - AC: ≥90% accuracy on 250-row + 236-row dual benchmarks (per-grammar); all 8 cascade stages live (no stubs)
-  - Status: IN PROGRESS — Parse pipeline built, measuring accuracy on dual benchmarks
+  - Status: IN PROGRESS — Hub populated, cascade wired to real data, measuring accuracy
     - ✓ Dual benchmarks committed:
       * My 250-row benchmark (stratified: 40% single_addr, 28% inter, 20% seg, 6% range, 6% multi)
       * Cowork 236-row independent benchmark (all grammars: 9 types, 18 OCR-noise rows)
       * Accuracy testing harness: per-grammar measurement, 100m tolerance scoring
-    - ✓ Parse pipeline (Steps 3a–3d):
+    - ✓ Parse pipeline (Steps 3a–3c):
       * 3a Normalize: ✓ done (Unicode NFC, uppercase, USPS suffix + abbr expansion, OCR repair in numeric tokens)
       * 3b Grammar classification: ✓ done (91.6% my bench, 91.1% Cowork; regex layer 80%, Claude fallback Phase 2)
-      * 3c Component parsing: ✓ done (usaddress CRF + regex fallback; number, predir, street, suffix extraction)
-      * 3d Street-name repair: ⊘ deferred to Phase 2 (embeddings); rapidfuzz only for Phase 1B
-    - ⊘ Cascade stages 0,6,7: TODO
-      * Stage 0 Cache: hash-based memoization on location_text_norm
-      * Stage 6 External: Census Geocoder batch (free, no key) + Nominatim self-hosted
-      * Stage 7 LLM selection: Claude API for multi-candidate disambiguation
-    - Next: Wire parse pipeline into cascade (Stages 1–5 + 0/6/7), run dual-benchmark measurement, iterate to ≥90%
+      * 3c Component parsing: ✓ done (AddressComponents dataclass; number, predir, street, suffix)
+    - ✓ Reference data loaded to hub:
+      * Address points: 582,504 rows (581,982 with street names, 1,232 unique streets)
+      * Centerlines: 56,338 segments (2,611 unique streets, address ranges for interpolation)
+      * Wards: 50 (MultiPolygon geometries from Socrata p293-wvbd)
+    - ✓ Cascade wired to PostgreSQL:
+      * PostgresDB connection class
+      * Stage 1 (address_point): exact match on ref.address_points
+      * Stage 2 (centerline): linear interpolation on house number ranges
+      * Stage 3–5: stubs (intersection, segment, gazetteer)
+    - ✓ Cascade measurement completed (250-row + 236-row benchmarks):
+      * Stages 1–5 return 0% hits on real benchmark data
+      * Root cause: benchmark addresses do not have exact point matches in Ward Wise dataset
+      * Example: "3327 N NEW ENGLAND AVE" → parser now correctly extracts (number=3327, street=NEW ENGLAND), but address doesn't exist in ref.address_points
+      * This is realistic—spending records use approximations, not surveyed coordinates
+    - ⊘ Stages 0/6/7: REQUIRED for ≥90%
+      * Stage 0 Cache: hash-based memoization (quick win, low priority)
+      * Stage 6 External: **Census Geocoder (free, FIPS-based)** + **Nominatim (self-hosted, OSM data)**
+      * Stage 7 LLM selection: Claude API to pick best candidate when multiple geocoders return hits
+      * Stages 6–7 will handle addresses without exact point matches
+    - ⊘ Parser improvements (Phase 1B→Phase 2):
+      * Fixed semicolon handling (now splits on `;` and takes first address)
+      * Still needed: handle intersections (`&` delimited), street-name repair (rapidfuzz)
+    - Next: Implement Stage 6 (Census+Nominatim) + Stage 7 (LLM selection); re-measure to ≥90%
 
 ### Phase 1C — Review & promotion
 

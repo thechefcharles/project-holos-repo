@@ -61,14 +61,18 @@ class AddressParser:
         if not location_text:
             return AddressComponents(confidence=0.0)
 
+        # Preprocess: split on semicolon and take first part (primary address)
+        # e.g., "6150 W FLETCHER; 6144-6156 W FLETCHER" -> "6150 W FLETCHER"
+        text_to_parse = location_text.split(';')[0].strip()
+
         # Try usaddress library first (if available)
         if HAS_USADDRESS:
-            result = cls._parse_with_usaddress(location_text)
+            result = cls._parse_with_usaddress(text_to_parse)
             if result.number or result.street:  # At least some components parsed
                 return result
 
         # Fallback: simple regex parser
-        return cls._parse_with_regex(location_text)
+        return cls._parse_with_regex(text_to_parse)
 
     @classmethod
     def _parse_with_usaddress(cls, text: str) -> AddressComponents:
