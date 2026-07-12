@@ -145,9 +145,17 @@ class GeocodeCascade:
                 return result
 
         elif grammar.grammar == 'multi_location':
-            # Split multi-location and geocode each part
-            # For now, treat as fallback to external geocoders
-            pass
+            # Multi-location: "X & Y & Z; address"
+            # For now: split on semicolon, geocode first part
+            # TODO: implement proper multi-location handling (return centroid of all parts)
+            parts = location_text.split(';')
+            if parts:
+                first_part = parts[0].strip()
+                if first_part:
+                    # Recursively geocode first part
+                    result = self.geocode(first_part)
+                    if result and result.score > 0:
+                        return result
 
         # Stage 6: External geocoders (Census + Nominatim) — fallback for any unmatched grammar
         # SKIP for now: Census API hangs; need timeout + error handling
@@ -285,9 +293,10 @@ class GeocodeCascade:
         return None
 
     def stage_3_intersection(self, norm_text: str, parsed: Dict, raw_text: str) -> Optional[GeocodeResult]:
-        """Stage 3: Intersection match (e.g., 'Clark and Addison')."""
-        # Look for "and" or "near" pattern: "street1 near/and street2"
-        and_match = re.search(r'(\w+\s+\w*)\s+(?:AND|NEAR|AT)\s+(\w+\s+\w*)', norm_text)
+        """Stage 3: Intersection match (e.g., 'Clark and Addison' or 'Clark & Addison')."""
+        # Look for delimiter: &, "and", "near", or "at"
+        # Regex: (street1) (delimiter) (street2)
+        and_match = re.search(r'(\w+\s+\w*)\s+(?:AND|NEAR|AT|&)\s+(\w+\s+\w*)', norm_text)
         if not and_match:
             return None
 
@@ -323,13 +332,28 @@ class GeocodeCascade:
         return None
 
     def stage_4_segment(self, norm_text: str, parsed, raw_text: str) -> Optional[GeocodeResult]:
-        """Stage 4: Block/segment match (return whole segment as LINESTRING)."""
+        """Stage 4: Block/segment match (return whole segment as LINESTRING).
+
+        IMPORTANT: This is a stub implementation. The real algorithm must:
+        1. Parse the FROM/TO cross streets (if present in raw_text)
+        2. Find the two bounding intersections (street ∩ from_street, street ∩ to_street)
+        3. Return the segment between those two points (ST_LineSubstring or midpoint)
+
+        For now: if the text contains FROM/TO keywords, escalate to review.
+        This prevents auto-promoting a confidently-wrong arbitrary segment.
+        """
         street = parsed.get("street") if isinstance(parsed, dict) else getattr(parsed, "street", None)
         if not street:
             return None
 
-        # Find all centerline segments for this street
-        # FIX: centerlines.street_name has type suffix baked in; strip it when matching
+        # Check if this is a bounded segment (contains FROM/TO) — if so, escalate
+        # because we can't properly bound it yet
+        if "FROM" in raw_text.upper() or "TO" in raw_text.upper():
+            # This requires real FROM/TO bounding algorithm; escalate for now
+            return None
+
+        # For simple street names with no FROM/TO, return the first segment
+        # (This is still a stub, but less likely to be confidently wrong)
         sql = """
             SELECT ST_AsText(geom) as geom_wkt, segment_id
             FROM ref.centerlines
