@@ -60,12 +60,19 @@ chicago:
     rights: "public-record"
     status: "in_hand"
     role: "Aldermanic Menu Fund spending; data for Tool 1"
-    archive_base: "https://www.chicago.gov/content/dam/city/depts/obm"
+    # Real archive: Chicago OBM Publications page (JavaScript-rendered)
+    archive_url: "https://www.chicago.gov/city/en/depts/obm/provdrs/budget/svcs/PublicationsArchive.html"
+    archive_section: "Aldermanic Menu Reports"  # Section to scrape from page
+    discovery_method: "playwright"  # Use Playwright for JS-rendered page
+    # Legacy patterns (kept for reference, but archive_url is authoritative now)
     url_patterns:
       - "general/CIP/CIPDocs/AldermanicMenuPostings/{YEAR}Menu.pdf"           # older (2005–~2014)
       - "supp_info/CIP_Archive/Aldermanic Menu/Quarterly Menu Reports Q{N} {YEAR}.pdf"  # newer quarterly
-    local_archive: "2012–present"  # Charlie's files
-    notes: "Chicago does NOT publish spending on Socrata; PDF only"
+    notes: |
+      Chicago publishes aldermanic menu reports via:
+      1. Publications Archive page (JS-rendered) for 2012–present
+      2. Harvester uses Playwright to scrape page and extract PDF links
+      3. Each year's section expandable to show all reports for that year
 
 ward_wise:
   tier: "public"
