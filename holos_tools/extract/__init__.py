@@ -4,7 +4,6 @@ import json
 from pathlib import Path
 from typing import Optional
 import typer
-import pdfplumber
 
 app = typer.Typer(help="Extract structured data from documents (PDFs, CADs, scans)")
 
@@ -16,6 +15,8 @@ def pdf_tables(
     source_id: str = typer.Option("pdf_tables", help="Source registry ID"),
 ):
     """Extract tables from a text-native PDF (Chain A1)."""
+    import pdfplumber
+
     doc_file = Path(doc_path)
     if not doc_file.exists():
         typer.echo(f"✗ File not found: {doc_path}", err=True)
@@ -73,32 +74,34 @@ def pdf_vector(
     source_id: str = typer.Option("pdf_vector", help="Source registry ID"),
 ):
     """Extract vector linework from a CAD-exported PDF (Chain B1)."""
+    from .b1_vector import B1VectorExtractor
+
     doc_file = Path(doc_path)
     if not doc_file.exists():
         typer.echo(f"✗ File not found: {doc_path}", err=True)
         raise typer.Exit(1)
 
     try:
-        result = {
-            "source_id": source_id,
-            "doc_path": str(doc_file),
-            "extraction_method": "pdf_vector_stub",
-            "linework": [],
-            "notes": "Vector extraction requires pdfminer.six or fitz integration",
-        }
+        extractor = B1VectorExtractor()
+        result = extractor.extract(str(doc_file))
+        result["source_id"] = source_id
 
         if output_path is None:
-            output_path = doc_file.with_stem(doc_file.stem + "_vectors").with_suffix(".json")
+            output_path = doc_file.with_stem(doc_file.stem + "_features").with_suffix(".json")
 
         out_file = Path(output_path)
         out_file.parent.mkdir(parents=True, exist_ok=True)
         out_file.write_text(json.dumps(result, indent=2))
 
-        typer.echo(f"✓ Vector extraction stub for {doc_file}")
+        typer.echo(f"✓ Extracted {result['features_extracted']} features from {doc_file}")
+        typer.echo(f"  Confidence: {result['extraction_conf']:.2f}")
         typer.echo(f"  Output: {out_file}")
 
+        if result["needs_review"]:
+            typer.echo(f"  ⚠ Needs review: {result['reasons']}")
+
     except Exception as e:
-        typer.echo(f"✗ Failed to extract vector from {doc_path}: {e}", err=True)
+        typer.echo(f"✗ Failed to extract from {doc_path}: {e}", err=True)
         raise typer.Exit(1)
 
 

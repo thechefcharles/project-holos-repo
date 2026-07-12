@@ -1,0 +1,116 @@
+{
+  "fixtures": [
+    {
+      "name": "b1_water_main_simple",
+      "description": "Simple water main from engineering drawing",
+      "extraction_method": "vector_pdf",
+      "source": "mock_engineering_plan",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "Water Main",
+          "depth_raw": "12m",
+          "depth_normalized": 12.0,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.92,
+          "needs_review": false,
+          "reason": "Clear annotation on engineering plan with scale and datum"
+        }
+      ]
+    },
+    {
+      "name": "b1_utility_mix",
+      "description": "Multiple utilities at varying depths",
+      "extraction_method": "vector_pdf",
+      "source": "mock_engineering_plan",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "Water Main",
+          "depth_raw": "1.2m",
+          "depth_normalized": 1.2,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.90
+        },
+        {
+          "feature_type": "utility_gas",
+          "name": "Gas Service",
+          "depth_raw": "4.5ft",
+          "depth_normalized": 1.372,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.88
+        },
+        {
+          "feature_type": "utility_electric",
+          "name": "Electric Conduit",
+          "depth_raw": "3.2m",
+          "depth_normalized": 3.2,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.89
+        }
+      ]
+    },
+    {
+      "name": "b1_surveyor_stamped",
+      "description": "Engineering plan stamped by licensed surveyor (QL-B)",
+      "extraction_method": "vector_pdf",
+      "source": "surveyed_plan",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "Water Main",
+          "depth_raw": "1.5m",
+          "depth_normalized": 1.5,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-B",
+          "extraction_conf": 0.94,
+          "surveyor": "John Smith, PE #12345",
+          "survey_date": "2024-03-15"
+        }
+      ]
+    },
+    {
+      "name": "b1_ambiguous_depth",
+      "description": "Depth range or ambiguous annotation",
+      "extraction_method": "vector_pdf",
+      "source": "mock_plan",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "Water Main",
+          "depth_raw": "approx. 1-2m",
+          "depth_normalized": 1.5,
+          "depth_to": 2.0,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.72,
+          "needs_review": true,
+          "reason": "Ambiguous depth range; needs verification"
+        }
+      ]
+    },
+    {
+      "name": "b1_no_datum",
+      "description": "Extracted feature without vertical datum specification",
+      "extraction_method": "vector_pdf",
+      "source": "legacy_plan",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "Water Main",
+          "depth_raw": "12",
+          "depth_normalized": null,
+          "vertical_datum": null,
+          "ql_level": "QL-D",
+          "extraction_conf": 0.45,
+          "needs_review": true,
+          "reason": "No vertical datum specified; cannot normalize"
+        }
+      ]
+    }
+  ]
+}
