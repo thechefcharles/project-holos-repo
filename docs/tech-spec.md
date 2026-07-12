@@ -24,8 +24,8 @@ Two rules govern everything below:
 
 - [x] **Step 1: Acquire** — OBM/DBM discovery + PDF harvesting with manifests (2026-07-12: 14 PDFs, 36 MB, 2012–2025 complete)
 - [x] **Step 2: Classify PDF** — pdfplumber text/scanned detection + table extraction/OCR (2026-07-12: all 14 text-native, 100% confidence)
-- [ ] **Step 3: Normalize** — Pandas schema mapping for year-variant layouts
-- [x] **Step 4: Parse location** — usaddress/libpostal + grammar classification (2026-07-12)
+- [~] **Step 3: Normalize** — Pandas schema mapping for year-variant layouts (2026-07-12: adapters built + 2012–2016 extraction working; 2017+ text parser in progress)
+- [ ] **Step 4: Parse location** — usaddress/libpostal + grammar classification
 - [x] **Step 5: Geocode cascade** — exact match → census → centerline → nominatim (94.1% accuracy, 2026-07-12)
 - [ ] **Step 6: Verify** — deterministic validation (point-in-ward, segment sanity, dedup)
 - [ ] **Step 7: Load** — GeoPandas → GeoParquet → PostGIS core.spending_projects

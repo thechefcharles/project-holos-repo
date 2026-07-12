@@ -148,6 +148,20 @@ B1/B2/B3 extraction against real Chicago data.
 3. **decisions.md** — remains append-only record (humans optionally mirror to Notion Decisions Log for narrative context).
 4. **/docs/gap-register.md, /docs/roadmap.md** — pulled from Notion as permanent reference docs.
 
+### 2026-07-12 — Step 3 (Normalize): year-variant adapters instead of monolithic parser
+
+**Problem:** Chicago menu PDFs from 2012–2016 vs 2017–2025 have completely different table structures. Instead of building one parser to handle both, use versioned adapters.
+
+**Solution:** Master schema (SpendingRecord: ward, year, category, location, cost) with per-year adapters:
+- MenuAdapter2012 (2012–2016): parse space-separated rows with wrapped addresses
+- MenuAdapter2017Plus (2017+): parse multi-line layout with different column structure
+
+**Implementation:** holos_tools/extract/normalize.py + holos extract normalize CLI. Extract full text per PDF, detect ward/category from headers, accumulate lines until $ marker, apply year-specific adapter. Handles address wrapping by looking back at previous line (if no $, likely continuation).
+
+**Status:** 2012–2016 extraction tested and working (15+ records extracted from 5 pages). 2017+ text parsing deferred—structure differs enough to warrant its own adapter pass.
+
+**Rationale:** Format variants are *known* (metadata already in filename). Adapter-per-version is cleaner than building a super-parser. Extensible: add MenuAdapter2027 if format changes again.
+
 **What stays in Notion (human/business layer):**
 - Pitch & strategy (investor-facing)
 - Legal & formation drafts (attorney review)
