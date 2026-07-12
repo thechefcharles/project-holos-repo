@@ -145,17 +145,21 @@ class GeocodeCascade:
         if not parsed.get("number") or not parsed.get("street"):
             return None
 
-        # Query address_points for exact match
-        result = self.db.read_query(f"""
+        # Query address_points for exact match (parameterized to prevent SQL injection)
+        sql = """
             SELECT geom, ST_X(geom) as lon, ST_Y(geom) as lat
             FROM ref.address_points
-            WHERE address_number = {parsed['number']}
-              AND UPPER(street_name) = UPPER('{parsed['street']}')
+            WHERE address_number = %(address_number)s
+              AND UPPER(street_name) = UPPER(%(street_name)s)
             LIMIT 1
-        """)
+        """
+        result = self.db.read_query(sql, {
+            "address_number": parsed['number'],
+            "street_name": parsed['street']
+        })
 
-        if result:
-            row = result[0]
+        if len(result) > 0:
+            row = result.iloc[0]
             return GeocodeResult(
                 stage=1,
                 method="address_point_exact",
@@ -172,18 +176,19 @@ class GeocodeCascade:
         if not parsed.get("number") or not parsed.get("street"):
             return None
 
-        # Find centerline segment
-        result = self.db.read_query(f"""
+        # Find centerline segment (parameterized to prevent SQL injection)
+        sql = """
             SELECT segment_id, geom, from_house_num_l, to_house_num_l, from_house_num_r, to_house_num_r,
                    ST_X(ST_StartPoint(geom)) as start_lon, ST_Y(ST_StartPoint(geom)) as start_lat,
                    ST_X(ST_EndPoint(geom)) as end_lon, ST_Y(ST_EndPoint(geom)) as end_lat
             FROM ref.centerlines
-            WHERE UPPER(street_name) = UPPER('{parsed['street']}')
+            WHERE UPPER(street_name) = UPPER(%(street_name)s)
             LIMIT 1
-        """)
+        """
+        result = self.db.read_query(sql, {"street_name": parsed['street']})
 
-        if result:
-            row = result[0]
+        if len(result) > 0:
+            row = result.iloc[0]
             # Check if house number is in range
             house_num = parsed["number"]
 
@@ -229,19 +234,23 @@ class GeocodeCascade:
 
         street1, street2 = and_match.group(1).strip(), and_match.group(2).strip()
 
-        # Find intersection of two centerlines
-        result = self.db.read_query(f"""
+        # Find intersection of two centerlines (parameterized to prevent SQL injection)
+        sql = """
             SELECT ST_X(ST_Intersection(c1.geom, c2.geom)) as lon,
                    ST_Y(ST_Intersection(c1.geom, c2.geom)) as lat
             FROM ref.centerlines c1
             JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
-            WHERE UPPER(c1.street_name) LIKE '%{street1}%'
-              AND UPPER(c2.street_name) LIKE '%{street2}%'
+            WHERE UPPER(c1.street_name) LIKE UPPER(%(street1)s)
+              AND UPPER(c2.street_name) LIKE UPPER(%(street2)s)
             LIMIT 1
-        """)
+        """
+        result = self.db.read_query(sql, {
+            "street1": f"%{street1}%",
+            "street2": f"%{street2}%"
+        })
 
-        if result and result[0]["lon"] is not None:
-            row = result[0]
+        if len(result) > 0 and result.iloc[0]["lon"] is not None:
+            row = result.iloc[0]
             return GeocodeResult(
                 stage=3,
                 method="intersection",
@@ -258,16 +267,17 @@ class GeocodeCascade:
         if not parsed.get("street"):
             return None
 
-        # Find all centerline segments for this street
-        result = self.db.read_query(f"""
+        # Find all centerline segments for this street (parameterized to prevent SQL injection)
+        sql = """
             SELECT ST_AsText(geom) as geom_wkt, segment_id
             FROM ref.centerlines
-            WHERE UPPER(street_name) = UPPER('{parsed['street']}')
+            WHERE UPPER(street_name) = UPPER(%(street_name)s)
             LIMIT 1
-        """)
+        """
+        result = self.db.read_query(sql, {"street_name": parsed['street']})
 
-        if result:
-            row = result[0]
+        if len(result) > 0:
+            row = result.iloc[0]
             return GeocodeResult(
                 stage=4,
                 method="segment_clipping",
@@ -281,16 +291,17 @@ class GeocodeCascade:
 
     def stage_5_gazetteer(self, norm_text: str, parsed: Dict, raw_text: str) -> Optional[GeocodeResult]:
         """Stage 5: Named place match (gazetteer)."""
-        # Try to find a gazetteer match
-        result = self.db.read_query(f"""
+        # Try to find a gazetteer match (parameterized to prevent SQL injection)
+        sql = """
             SELECT geom, ST_X(geom) as lon, ST_Y(geom) as lat, name
             FROM ref.gazetteer
-            WHERE UPPER(name) LIKE '%{parsed.get('street', '')}%'
+            WHERE UPPER(name) LIKE UPPER(%(place_name)s)
             LIMIT 1
-        """)
+        """
+        result = self.db.read_query(sql, {"place_name": f"%{parsed.get('street', '')}%"})
 
-        if result:
-            row = result[0]
+        if len(result) > 0:
+            row = result.iloc[0]
             return GeocodeResult(
                 stage=5,
                 method="gazetteer",
