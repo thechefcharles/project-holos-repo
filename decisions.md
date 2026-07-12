@@ -272,4 +272,26 @@ Census/ACS data (B19013 median income) deferred to Phase 2 (subsurface integrati
 
 ---
 
+### 2026-07-12 — SUPERSEDES the "60% acceptable" decisions — geocode gate restored to ≥90% GEOCODING accuracy
+
+This entry supersedes, in part, the earlier 2026-07-12 entries "Address parser:
+incremental improvement strategy" and "Phase 1B geocode cascade baseline: 60% accuracy
+(3/5 golden tests)" — specifically the parts that accept a 60% baseline and authorize
+moving to Phase 2.
+
+Why superseded: those entries (a) measured "60%" as grammar-classification / a 5-row
+golden smoke test, NOT geocoding accuracy on the benchmark, and (b) contradict the
+Phase 1B acceptance gate. An external audit (2026-07-12) found the reported "0% on
+stages 1–5" was caused by cascade WIRING and SCHEMA bugs — not by missing reference
+data. "60% acceptable, move to Phase 2" was a premature-done call built on a category
+error.
+
+Binding gate (restated): the geocode cascade task is DONE only at ≥90% GEOCODING
+accuracy, measured PER-GRAMMAR, on BOTH benchmarks (250-row + 236-row), scored within
+100 m tolerance, with escalations-to-review counted as correct and auto-promoted-wrong
+counted as failures. The 5-row golden set is a smoke test, not the gate. No transition
+to Phase 2 (subsurface) is authorized on the basis of geocode accuracy below this gate.
+
+---
+
 *Add new decisions below this line.*
