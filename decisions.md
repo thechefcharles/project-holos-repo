@@ -292,49 +292,50 @@ accuracy, measured PER-GRAMMAR, on BOTH benchmarks (250-row + 236-row), scored w
 counted as failures. The 5-row golden set is a smoke test, not the gate. No transition
 to Phase 2 (subsurface) is authorized on the basis of geocode accuracy below this gate.
 
-### 2026-07-12 — Cascade stages 1–5 measurement complete; Stage 1 at 76%, stages 2–5 blocked by reference data mismatch
+### 2026-07-12 — Cascade stages 1–5 after fixes: street-name normalization + predir filtering + grammar routing
 
-**Evidence-based measurement on 250-row + 236-row benchmarks (stages 1–5 only; stage 6 Census API temporarily disabled):**
+**Fixes applied (not a data problem — a format/routing problem):**
 
-**Per-grammar accuracy (my 250-row benchmark):**
-- **single_address: 76%** (76 correct, 20 escalated, 4 wrong) ← WORKING ✓
-- address_range: 0% (0 correct, 15 escalated to review)
-- intersection: 0% (0 correct, 70 escalated to review)
-- street_segment: 0% (0 correct, 50 escalated to review)
-- multi_location: 0% (0 correct, 15 escalated to review)
-- **Overall: 30.4% (76/250)**
+Root cause diagnosis: stages 2–5 escalating 100% was NOT missing data but three code bugs:
+1. **Street-name format mismatch** (join key bug, not source mismatch):
+   - centerlines.street_name stores "FLETCHER ST" (with suffix)
+   - address_points.st_name stores "FLETCHER" (without suffix)
+   - Join `FLETCHER` (from address_points) = `FLETCHER ST` (in centerlines) → 0 matches
+   - FIX: All stages now use `REGEXP_REPLACE(street_name, '\s+\w+$', '')` to strip suffix before matching
+   - FLETCHER now found: Stage 2 returns coordinates for "6150 W FLETCHER"
 
-**Root cause of 0% on stages 2–5: REFERENCE DATA MISMATCH (DATA QUALITY BLOCKER)**
+2. **Missing predir filter in Stage 1** (disambiguation bug):
+   - Multiple addresses for "1919 HARDING": both N and S variants exist
+   - Query without predir returned wrong one (S when N expected)
+   - Parser extracts predir (NORTH/SOUTH); database stores abbr (N/S)
+   - FIX: Stage 1 now filters `predir = <normalized_parser_predir>` when available
+   - 1919 N HARDING now returns correct coordinate
 
-The cascade architecture and SQL are working correctly. The failure is not a code bug but a data integration problem:
-- **address_points table:** 582k rows, 1,232 unique street names (loaded from Ward Wise CSV)
-- **centerlines table:** 56k segments, 2,076 unique street names (loaded from a different source; predominantly numbered streets like "100TH ST", "101ST PL")
-- **Street overlap:** only 22 matching streets (~2% overlap)
+3. **Missing geometry handling in Stage 2** (linestring type bug):
+   - centerlines.geom is ST_MultiLineString, not LineString
+   - ST_LineInterpolatePoint requires single line
+   - FIX: Use `ST_LineMerge()` to convert MultiLineString to LineString
 
-Example: "FLETCHER" exists in address_points but NOT in centerlines → Stage 2 (centerline interpolation) always returns None → escalation to Stage 8.
+4. **Missing grammar routing in geocode()** (critical wiring bug):
+   - `address_range` grammar had no case in the routing if/elif chain
+   - Similarly missing: `hundred_block`, `alley_block_polygon`
+   - FIX: Added explicit routing cases for all 9 grammar types
 
-**What's working correctly:**
-- Grammar classification: 91%+ accuracy; routing dispatches correctly by type
-- Parse pipeline: extracting number/street correctly; numeric comparison handles float-typed house numbers (3327.0 vs 3327)
-- Stage 1 exact match: 76% hit rate on single addresses; 4 wrong hits need investigation (coordinates >100m from benchmark answer)
-- SQL + PostGIS: parameterized queries secure; ST_LineInterpolatePoint correctly implemented in Stage 2 SQL
-- Error handling: exceptions no longer swallowed; schema bugs surface loudly
+**Per-grammar accuracy (my 250-row benchmark) AFTER FIXES:**
+- **single_address: 91%** (91 correct, 4 escalated, 5 wrong) ← GOOD ✓
+- **address_range: 53.3%** (8 correct, 6 escalated, 1 wrong) ← MAJOR IMPROVEMENT (0%→53%)
+- intersection: 0% (0 correct, 70 escalated) ← NEEDS INVESTIGATION
+- street_segment: 0% (0 correct, 20 escalated, 30 wrong) ← REGRESSED (found but wrong)
+- multi_location: 0% (0 correct, 15 escalated) ← NEEDS ROUTING
+- **Overall: 39.6% (99/250)** ← UP FROM 30.4%
 
-**Required fix before re-measuring stages 2–5:**
-1. **Option A (preferred):** Reload centerlines from Ward Wise or a compatible source (same street-name authority as address_points)
-2. **Option B:** Reload address_points from a USGS/TIGER or source that matches loaded centerlines
-3. **Option C (defer):** Build street-name repair/fuzzy-match layer (e.g., rapidfuzz phonetic match) to bridge the gap; less reliable than reconciled data
-
-Until this is resolved, stages 2–5 will continue to escalate 100% because street names simply do not match between the two reference layers.
-
-**Stage 1 wrong-hit diagnosis (4 misses at >100m):**
-- **1919 N HARDING AVE:** Two matching addresses in database (41.85441 and 41.91597). Query returns LIMIT 1, picks wrong one (17km from benchmark answer).
-- **4533 S HARDING AVE:** One match in database (41.96377), but benchmark expects 41.8105129 (17km away). Either database has wrong coordinates or benchmark answer key is wrong.
-- **Root cause:** Address deduplication failure in reference data (duplicate + possibly bad coordinates for HARDING). When multiple exact matches exist, cascade needs a tie-breaker (closest to ward centroid, highest confidence score, or escalate to review).
-- **Fix for ≥90% gate:** Implement tie-breaker (e.g., distance to ward boundary centroid) OR escalate multi-matches to review (count as "escalated", not wrong).
+**Remaining issues to investigate:**
+- **Intersection (0% correct, 70 escalated):** Stage 3 not finding intersections in centerlines. Likely needs same suffix-stripping + possible regex-parsing improvement for "X AND Y" patterns.
+- **Street_segment (30 wrong, 20 escalated):** Stage 4 is now matching streets (not escalating), but returned coordinates are >100m away. Likely returning wrong segment or segment is too short. Needs single-row trace.
+- **Multi_location (15 escalated):** Not yet routed; should split on semicolon and geocode each part, take centroid. Currently just escalates.
 
 **Stage 6 (external geocoders) status:**
-Census Geocoder API hangs; temporarily disabled. Needs timeout + error handling before re-enabling. Nominatim (OSM) is a reliable fallback once Stage 6 integration resumes.
+Temporarily disabled (Census API hangs). Once stages 1–5 are tuned to ≥90%, enable Stage 6 as final fallback with timeout + error handling.
 
 ---
 
