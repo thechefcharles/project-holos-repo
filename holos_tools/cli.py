@@ -8,6 +8,8 @@ from typing import Optional
 
 import typer
 from holos_tools.core import Config, HolosDB
+from holos_tools.harvest import app as harvest_app
+from holos_tools.extract import app as extract_app
 
 # Configure logging
 logging.basicConfig(
@@ -17,6 +19,8 @@ logging.basicConfig(
 logger = logging.getLogger("holos")
 
 app = typer.Typer(help="Project Holos: convert civic records into georeferenced digital twins")
+app.add_typer(harvest_app, name="harvest")
+app.add_typer(extract_app, name="extract")
 
 
 @app.command()

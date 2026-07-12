@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Output",
+  "description": "Standard output contract for all pipeline agents (harvester, extractor, geolocator, verifier, normalizer)",
+  "type": "object",
+  "required": ["job_id", "status", "artifacts", "metrics", "flags", "needs_human", "reasons"],
+  "properties": {
+    "job_id": {
+      "type": "string",
+      "description": "Unique job identifier (UUID4); used for tracing and audit",
+      "format": "uuid"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["success", "failed"],
+      "description": "Overall job status"
+    },
+    "artifacts": {
+      "type": "array",
+      "description": "List of output files/datasets produced by this job",
+      "items": {
+        "type": "object",
+        "required": ["path"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Relative path to artifact within repo"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "description": "File size in bytes (if applicable)"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of rows in a tabular artifact"
+          },
+          "checksum": {
+            "type": "string",
+            "description": "SHA256 hash of artifact for integrity verification"
+          },
+          "source_id": {
+            "type": "string",
+            "description": "Source registry key (from config/sources.yaml)"
+          },
+          "extraction_method": {
+            "type": "string",
+            "description": "How data was extracted (pdfplumber_table, ocr, claude_vision, etc.)"
+          },
+          "extraction_conf": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "description": "Confidence in extraction (0–1)"
+          },
+          "scores": {
+            "type": "object",
+            "description": "Score distribution for geocoding results",
+            "properties": {
+              "min": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+              "max": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+              "mean": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+              "median": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+            }
+          },
+          "geometry_types": {
+            "type": "object",
+            "description": "Count of each geometry type in result",
+            "properties": {
+              "POINT": { "type": "integer" },
+              "LINESTRING": { "type": "integer" },
+              "POLYGON": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Key performance metrics from this job",
+      "properties": {
+        "sources_discovered": { "type": "integer" },
+        "bytes_downloaded": { "type": "integer" },
+        "new_formats_flagged": { "type": "integer" },
+        "rows_extracted": { "type": "integer" },
+        "avg_confidence": { "type": "number" },
+        "format_drift_detected": { "type": "boolean" },
+        "stage_0_cache": { "type": "integer" },
+        "stage_1_address": { "type": "integer" },
+        "stage_2_centerline": { "type": "integer" },
+        "stage_4_segment": { "type": "integer" },
+        "stage_5_gazetteer": { "type": "integer" },
+        "stage_7_llm": { "type": "integer" },
+        "review_queue": { "type": "integer" },
+        "schema_compliant": { "type": "integer" },
+        "vocabulary_mapped": { "type": "integer" },
+        "category_unrecognized": { "type": "integer" },
+        "duplicates": { "type": "integer" },
+        "conflation_candidates": { "type": "integer" },
+        "ward_containment_passed": { "type": "integer" },
+        "ward_containment_failed": { "type": "integer" },
+        "geometry_valid": { "type": "integer" },
+        "golden_benchmark": {
+          "type": "object",
+          "properties": {
+            "geocoding_accuracy": { "type": "number" },
+            "match_rate_at_0.85": { "type": "number" },
+            "geometry_type_accuracy": { "type": "number" }
+          }
+        },
+        "rows_validated": { "type": "integer" },
+        "failures": { "type": "integer" },
+        "failure_rate": { "type": "number" }
+      }
+    },
+    "flags": {
+      "type": "array",
+      "description": "List of warning flags raised during execution",
+      "items": { "type": "string" },
+      "examples": [
+        "format_drift_detected",
+        "unrecognized_category_2_rows",
+        "ward_containment_failed"
+      ]
+    },
+    "needs_human": {
+      "type": "boolean",
+      "description": "True if human review/approval is required before next stage"
+    },
+    "reasons": {
+      "type": "array",
+      "description": "Detailed explanations for flags and needs_human decisions",
+      "items": { "type": "string" },
+      "examples": [
+        "RESURF not in vocabulary (2 rows, ward 12)",
+        "Ward containment failed for 142 rows; investigate boundary vintage",
+        "New PDF format detected: AMP 2025 layout differs from 2024"
+      ]
+    }
+  }
+}

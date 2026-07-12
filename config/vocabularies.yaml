@@ -1,0 +1,157 @@
+# Controlled vocabularies: canonical terms for categorical fields
+# Every value must be explicitly mapped; no guessing.
+
+categories:
+  # Chicago capital improvement categories
+  RESURFACING:
+    aliases:
+      - RESURFACE
+      - RESURF
+      - PAVEMENT RESURFACING
+      - ASPHALT RESURFACING
+    description: "Street/sidewalk resurfacing"
+    chain: A1
+
+  RECONSTRUCTION:
+    aliases:
+      - RECONSTRUCT
+      - REBUILDING
+      - FULL RECONSTRUCTION
+    description: "Complete street reconstruction including utilities"
+    chain: A1
+
+  PLANTING:
+    aliases:
+      - TREE PLANTING
+      - LANDSCAPING
+      - VEGETATION
+    description: "Tree and vegetation installation"
+    chain: A1
+
+  SIGNAGE:
+    aliases:
+      - TRAFFIC SIGNS
+      - WAYFINDING
+      - STREET SIGNS
+    description: "Traffic and informational signage"
+    chain: A1
+
+  LIGHTING:
+    aliases:
+      - STREET LIGHTING
+      - STREET LIGHTS
+      - ILLUMINATION
+    description: "Street lighting installation/replacement"
+    chain: A1
+
+  PEDESTRIAN:
+    aliases:
+      - SIDEWALK
+      - CURB RAMP
+      - PEDESTRIAN FACILITY
+      - ACCESSIBILITY
+    description: "Pedestrian infrastructure improvements"
+    chain: A1
+
+  STORMWATER:
+    aliases:
+      - STORM DRAIN
+      - RAIN GARDEN
+      - GREEN INFRASTRUCTURE
+      - PERMEABLE PAVEMENT
+    description: "Stormwater management and green infrastructure"
+    chain: A1
+
+  UTILITY:
+    aliases:
+      - WATER MAIN
+      - GAS MAIN
+      - SEWER
+      - ELECTRIC
+      - TELECOMMUNICATIONS
+    description: "Utility line installation/replacement"
+    chain: A1
+
+  BRIDGE:
+    aliases:
+      - BRIDGE RECONSTRUCTION
+      - BRIDGE REPAIR
+      - OVERPASS
+    description: "Bridge and overpass work"
+    chain: A1
+
+  PARK:
+    aliases:
+      - PARK IMPROVEMENT
+      - PLAYGROUND
+      - RECREATIONAL FACILITY
+    description: "Park and recreation facility work"
+    chain: A1
+
+  UNKNOWN:
+    aliases:
+      - OTHER
+      - MISCELLANEOUS
+      - TBD
+    description: "Uncategorized or ambiguous work type"
+    chain: A1
+
+# Budget ranges (inferred from extraction, not canonical)
+budget_ranges:
+  MICRO:
+    min: 0
+    max: 50000
+    description: "Under $50k"
+
+  SMALL:
+    min: 50000
+    max: 500000
+    description: "$50k–$500k"
+
+  MEDIUM:
+    min: 500000
+    max: 5000000
+    description: "$500k–$5M"
+
+  LARGE:
+    min: 5000000
+    max: 50000000
+    description: "$5M–$50M"
+
+  MEGA:
+    min: 50000000
+    max: 999999999
+    description: "$50M+"
+
+# Workflow phases (not canonical, for context only)
+workflow_phases:
+  PLANNING:
+    description: "Design and approval phase"
+  DESIGN:
+    description: "Engineering design phase"
+  BIDDING:
+    description: "Procurement phase"
+  CONSTRUCTION:
+    description: "Active construction"
+  COMPLETION:
+    description: "Finished or near completion"
+  ON_HOLD:
+    description: "Paused or suspended"
+
+# Quality levels (per CLAUDE.md rule 3)
+quality_levels:
+  QL_A:
+    description: "Physical exposure (e.g., excavation record, survey)"
+    requires_evidence: true
+
+  QL_B:
+    description: "Remote sensing (GPR, EM depth)"
+    requires_evidence: true
+
+  QL_C:
+    description: "Reference data (centerlines, historical map)"
+    requires_evidence: false
+
+  QL_D:
+    description: "User-provided or inferred"
+    requires_evidence: false

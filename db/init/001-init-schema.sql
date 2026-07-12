@@ -304,7 +304,7 @@ CREATE INDEX IF NOT EXISTS idx_core_spending_score ON core.spending_projects(sco
 ALTER TABLE core.spending_projects ENABLE ROW LEVEL SECURITY;
 
 CREATE POLICY tier_read ON core.spending_projects FOR SELECT
-  USING (access_tier = 'tier_public' OR current_setting('holos.tiers', true) LIKE '%' || access_tier || '%');
+  USING (access_tier = 'tier_public' OR access_tier = ANY (string_to_array(NULLIF(current_setting('holos.tiers', true), ''), ',')));
 
 -- ============================================================================
 -- MART SCHEMA — Analytics views
@@ -333,6 +333,7 @@ GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA staging, ops TO holos;
 GRANT SELECT ON ALL TABLES IN SCHEMA core TO holos;
 
 -- Create read-only role for MCP/agents
-CREATE ROLE holos_readonly LOGIN PASSWORD 'readonly';
+-- Password must be set separately via: ALTER ROLE holos_readonly WITH PASSWORD 'env:HOLOS_READONLY_PASSWORD';
+CREATE ROLE holos_readonly LOGIN;
 GRANT USAGE ON SCHEMA core, ref, ops TO holos_readonly;
 GRANT SELECT ON ALL TABLES IN SCHEMA core, ref, ops TO holos_readonly;

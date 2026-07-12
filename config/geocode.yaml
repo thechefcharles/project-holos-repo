@@ -1,0 +1,130 @@
+# Geocoding cascade configuration: stages, thresholds, scoring
+
+cascade:
+  # Stage 0: cache hit (previous successful match)
+  stage_0:
+    name: cache
+    enabled: true
+    threshold: 0.90
+    base_score: 0.99
+
+  # Stage 1: address-point exact match
+  stage_1:
+    name: address_point_exact
+    enabled: true
+    threshold: 0.85
+    base_score: 0.97
+    reference: ref.address_points
+    match_on:
+      - full_address_normalized
+      - postal_code
+
+  # Stage 2: centerline interpolation (housenumber on segment)
+  stage_2:
+    name: centerline_interpolation
+    enabled: true
+    threshold: 0.70
+    base_score: 0.88
+    reference: ref.centerlines
+    match_on:
+      - street_name_normalized
+      - from_house_number
+      - to_house_number
+      - side (L/R)
+
+  # Stage 3: intersection
+  stage_3:
+    name: intersection
+    enabled: true
+    threshold: 0.75
+    base_score: 0.95
+    reference: ref.intersections
+    match_on:
+      - street_1_normalized
+      - street_2_normalized
+
+  # Stage 4: segment/block clipping (block face match)
+  stage_4:
+    name: segment_clipping
+    enabled: true
+    threshold: 0.70
+    base_score: 0.92
+    reference: ref.centerlines
+    match_on:
+      - street_name_normalized
+
+  # Stage 5: named place / gazetteer
+  stage_5:
+    name: gazetteer
+    enabled: true
+    threshold: 0.80
+    base_score: 0.90
+    reference: ref.gazetteer
+    match_on:
+      - place_name_normalized
+      - temporal_period  # e.g., "2020" for Douglass Park historical alias
+
+  # Stage 6: external fallback (Census block, OSM, Nominatim)
+  stage_6:
+    name: external_fallback
+    enabled: true
+    threshold: 0.50
+    base_score: 0.75
+    capped: true  # score never rises above 0.75
+    providers:
+      - nominatim
+      - census_blocks
+
+  # Stage 7: LLM-assisted disambiguation
+  stage_7:
+    name: llm_assisted
+    enabled: true
+    threshold: 0.50
+    base_score_modifier: -0.05  # penalize LLM-assisted selections
+    model: claude-opus-4-8
+    max_candidates: 5
+
+  # Stage 8: human review queue
+  stage_8:
+    name: human_review
+    enabled: true
+    threshold: 0.00  # all failures flow here
+
+# Modifiers: adjust base_score based on extraction confidence, source quality, etc.
+modifiers:
+  extraction_confidence:
+    high: 1.00    # base_score × 1.00
+    medium: 0.95  # base_score × 0.95
+    low: 0.85     # base_score × 0.85
+
+  source_quality:
+    official_city: 1.00
+    socrata_api: 0.98
+    foia_pdf: 0.90
+    unverified: 0.75
+
+  location_specificity:
+    full_address: 1.00
+    block_range: 0.95
+    street_only: 0.85
+    neighborhood: 0.70
+
+# Workflow rules
+workflow:
+  # Review tiers based on final score
+  review_tiers:
+    auto_promote: 0.85  # ≥ 0.85 → auto-promote (+ 2% random QC)
+    human_review: 0.60  # 0.60–0.84 → human review
+    manual_edit: 0.00   # < 0.60 → offer candidates, require human choice
+
+  # QC: random sample % of high-confidence results
+  qc_sample_rate: 0.02  # 2%
+
+  # Geometry type assignment rules
+  geometry_types:
+    # Rule: single address (stage 1–3) → POINT
+    single_address: POINT
+    # Rule: street segment (stage 2, 4) → LINESTRING
+    street_segment: LINESTRING
+    # Rule: named place, ward, facility → POLYGON
+    named_place: POLYGON
