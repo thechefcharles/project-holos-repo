@@ -10,6 +10,9 @@ import typer
 from holos_tools.core import Config, HolosDB
 from holos_tools.harvest import app as harvest_app
 from holos_tools.extract import app as extract_app
+from holos_tools.geocode import app as geocode_app
+from holos_tools.validate import app as validate_app
+from holos_tools.load import app as load_app
 
 # Configure logging
 logging.basicConfig(
@@ -21,6 +24,9 @@ logger = logging.getLogger("holos")
 app = typer.Typer(help="Project Holos: convert civic records into georeferenced digital twins")
 app.add_typer(harvest_app, name="harvest")
 app.add_typer(extract_app, name="extract")
+app.add_typer(geocode_app, name="geocode")
+app.add_typer(validate_app, name="validate")
+app.add_typer(load_app, name="load")
 
 
 @app.command()
