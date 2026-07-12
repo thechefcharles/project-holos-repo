@@ -1,0 +1,237 @@
+row_id,location_text,ward,year,expected_grammar,expected_geom,expected_lat,expected_lon,expected_lat2,expected_lon2,ocr_noise,source
+bm-0001,5317 S. MOZART,14,2008,single_address,point,41.7968034,-87.6948351,,,none,ward_wise
+bm-0002,7915 S GREEN ST,17,2019,single_address,point,41.7499175,-87.6452245,,,none,ward_wise
+bm-0003,6447 W 63RD ST,23,2016,single_address,point,41.7776493,-87.7828312,,,none,ward_wise
+bm-0004,1000 E 43 rd Street,4,2007,single_address,point,41.817112,-87.601473,,,none,ward_wise
+bm-0005,450 W GRANT PL,43,2019,single_address,point,41.9228683,-87.6408883,,,none,ward_wise
+bm-0006,1352 S INDEPENDENCE W BV,24,2008,single_address,point,41.862849,-87.7206677,,,none,ward_wise
+bm-0007,5316 S KILPATRICK AVE,14,2016,single_address,point,41.7965376,-87.7404161,,,none,ward_wise
+bm-0008,2600 W 24TH PL,12,2019,single_address,point,41.8477173,-87.6906165,,,none,ward_wise
+bm-0009,4558 S LAPORTE AVE,22,2021,single_address,point,41.8101558,-87.7469023,,,none,ward_wise
+bm-0010,2341 W 22ND PL,25,2022,single_address,point,41.8511397,-87.6839801,,,none,ward_wise
+bm-0011,617 N LOREL AVE,27,2017,single_address,point,41.8915589,-87.7592063,,,none,ward_wise
+bm-0012,4407 S EMERALD AVE,11,2018,single_address,point,41.8143086,-87.6444591,,,none,ward_wise
+bm-0013,1050 E 49TH ST,4,2016,single_address,point,41.806192,-87.5996746,,,none,ward_wise
+bm-0014,10546 S AVENUE G,10,2022,single_address,point,41.7036835,-87.5316621,,,none,ward_wise
+bm-0015,3400 N AUSTIN AVE,36,2017,single_address,point,41.9421502,-87.7763623,,,none,ward_wise
+bm-0016,4900 W OAKDALE AV,31,2008,single_address,point,41.9342413,-87.7493514,,,none,ward_wise
+bm-0017,5839 S NEWLAND AVE,13,2017,single_address,point,41.7858745,-87.7949935,,,none,ward_wise
+bm-0018,3417 N BOSWORTH AVE,44,2015,single_address,point,41.9433954,-87.6675437,,,none,ward_wise
+bm-0019,2036 W. 23 rd St. ,25,2009,single_address,point,41.8503433,-87.6773576,,,none,ward_wise
+bm-0020,3809 W GARFIELD BV,23,2010,single_address,point,41.793637,-87.665799,,,none,ward_wise
+bm-0021,2415 N LUNA AVE,30,2017,single_address,point,41.9247282,-87.7647767,,,none,ward_wise
+bm-0022,1800 N STOCKTON DR,43,2015,single_address,point,41.9161137,-87.6333794,,,none,ward_wise
+bm-0023,8352 S. Pulaski,18,2007,single_address,point,41.7406121,-87.7219756,,,none,ward_wise
+bm-0024,6625 S KOMENSKY AVE,13,2022,single_address,point,41.7726581,-87.723814,,,none,ward_wise
+bm-0025,2632 W LAWRENCE AVE,40,2018,single_address,point,41.9688767,-87.6954749,,,none,ward_wise
+bm-0026,4459 S. Kedvale,14,2005,single_address,point,41.812263,-87.7274108,,,none,ward_wise
+bm-0027,5709 S MASON AVE,23,2016,single_address,point,41.7886399,-87.7704238,,,none,ward_wise
+bm-0028,3202 N MEADE AVE,30,2022,single_address,point,41.9385322,-87.778653,,,none,ward_wise
+bm-0029,3600 S HALSTED ST,11,2022,single_address,point,41.8285378,-87.6464167,,,none,ward_wise
+bm-0030,5201 W BLOOMINGDALE AVE,37,2017,single_address,point,41.9131364,-87.7570664,,,none,ward_wise
+bm-0031,1646 W HOWARD ST,49,2013,single_address,point,42.0193827,-87.6735552,,,none,ward_wise
+bm-0032,3663 S MARSHFIELD AVE,12,2019,single_address,point,41.8275288,-87.6666488,,,none,ward_wise
+bm-0033,440 W 42ND PL,11,2018,single_address,point,41.8174269,-87.6376586,,,none,ward_wise
+bm-0034,3573 S ARCHER AVE,12,2015,single_address,point,41.8292269,-87.6795333,,,none,ward_wise
+bm-0035,6745 S CONSTANCE AVE,5,2015,single_address,point,41.7725769,-87.5801474,,,none,ward_wise
+bm-0036,6635 W 59TH ST,13,2018,single_address,point,41.7849048,-87.7877624,,,none,ward_wise
+bm-0037,3337 N SPRINGFIELD AVE,30,2020,single_address,point,41.9416677,-87.7248054,,,none,ward_wise
+bm-0038,1828 W HENDERSON ST,47,2021,single_address,point,41.9423558,-87.6748637,,,none,ward_wise
+bm-0039,6010 S PULASKI RD,23,2022,single_address,point,41.7838375,-87.7232567,,,none,ward_wise
+bm-0040,2642 W BARRY AVE,33,2018,single_address,point,41.9377785,-87.6940147,,,none,ward_wise
+bm-0041,2807 W CORTEZ ST,26,2017,single_address,point,41.9004907,-87.6971907,,,none,ward_wise
+bm-0042,3656 W 65TH PL,23,2019,single_address,point,41.7742407,-87.7143246,,,none,ward_wise
+bm-0043,1910 W SUPERIOR ST,1,2015,single_address,point,41.8950319,-87.6749863,,,none,ward_wise
+bm-0044,10757 S GREEN BAY AVE,10,2021,single_address,point,41.6999395,-87.5413353,,,none,ward_wise
+bm-0045,3755 W 51ST ST,23,2018,single_address,point,41.8004087,-87.7181757,,,none,ward_wise
+bm-0046,5800-5999 W ADAMS BLVD,29,2021,address_range,line,41.877655,-87.7721132,,,none,ward_wise
+bm-0047,10214-10216 S EWING AVE,10,2016,address_range,line,41.7096685,-87.535292,,,none,ward_wise
+bm-0048,214-216 N HAMLIN BLVD,28,2017,address_range,line,41.8791834,-87.7205947,,,none,ward_wise
+bm-0049,3550-3558 E 97TH ST,10,2018,address_range,line,41.7169783,-87.710624,,,none,ward_wise
+bm-0050,8128-8130 S WINCHESTER AVE,17,2015,address_range,line,41.7460039,-87.6718223,,,none,ward_wise
+bm-0051,8553-8557 S EXCHANGE AVE,10,2017,address_range,line,41.7400186,-87.5526941,,,none,ward_wise
+bm-0052,5001-5007 S KILPATRICK AVE,14,2021,address_range,line,41.802035,-87.740548,,,none,ward_wise
+bm-0053,5321-5333 N LAKEWOOD AVE,48,2018,address_range,line,41.9786707,-87.662404,,,none,ward_wise
+bm-0054,6432-6438 N LAKEWOOD AVE,49,2018,address_range,line,41.9990877,-87.6631079,,,none,ward_wise
+bm-0055,6225-6227 N KENMORE AVE,48,2021,address_range,line,41.9954973,-87.6569692,,,none,ward_wise
+bm-0056,1539-1541 W WALTON ST,1,2019,address_range,line,41.8988238,-87.6657073,,,none,ward_wise
+bm-0057,5224-5230 S MONITOR AVE,14,2021,address_range,line,41.7975495,-87.7685559,,,none,ward_wise
+bm-0058,5400-5600 W. Berteau,38,2007,address_range,line,41.9569692,-87.7647537,,,none,ward_wise
+bm-0059,3551-3601 E 113TH ST,10,2017,address_range,line,41.6900328,-87.5368864,,,none,ward_wise
+bm-0060,6122-6132 N GLENWOOD AVE,48,2020,address_range,line,41.9928083,-87.6652341,,,none,ward_wise
+bm-0061,2901-2909 W 65TH ST,17,2018,address_range,line,41.7754247,-87.6959543,,,none,ward_wise
+bm-0062,2336-2344 W CULLOM AVE,47,2018,address_range,line,41.9595082,-87.6877831,,,none,ward_wise
+bm-0063,9850-9852 S AVENUE H,10,2022,address_range,line,41.7167942,-87.5328744,,,none,ward_wise
+bm-0064,1541-1549 W SHERWIN AVE,49,2017,address_range,line,42.0149444,-87.6690896,,,none,ward_wise
+bm-0065,631-635 E 88TH ST,6,2022,address_range,line,41.734761,-87.6087595,,,none,ward_wise
+bm-0066,6220-6231 S KEATING AVE,13,2019,address_range,line,41.7794735,-87.7411134,,,none,ward_wise
+bm-0067,2535-2545 N LINDER AVE,30,2019,address_range,line,41.9270854,-87.7636293,,,none,ward_wise
+bm-0068,3536-3540 S HAMILTON AVE,12,2017,address_range,line,41.8292085,-87.6790665,,,none,ward_wise
+bm-0069,1461-1465 N KEDVALE AVE,26,2020,address_range,line,41.90807,-87.7298355,,,none,ward_wise
+bm-0070,1214-1230 W NORWOOD ST,48,2019,address_range,line,41.991812,-87.6617229,,,none,ward_wise
+bm-0071,W DIVERSEY PKWY & N WILTON AVE,43,2015,intersection,point,41.9326533,-87.6526292,,,none,ward_wise
+bm-0072,W CHASE AVE & N CLARK ST,49,2013,intersection,point,42.0137605,-87.674823,,,none,ward_wise
+bm-0073,W WINONA ST & N CALIFORNIA AVE,40,2012,intersection,point,41.9747354,-87.6988861,,,none,ward_wise
+bm-0074,N WINTHROP AVE & W WINONA ST,48,2006,intersection,point,41.9752419,-87.6577867,,,none,ward_wise
+bm-0075,S COTTAGE GROVE AVE & E 86TH ST,6,2017,intersection,point,41.7384665,-87.604873,,,none,ward_wise
+bm-0076,N SEDGWICK ST & W EVERGREEN AVE,2,2022,intersection,point,41.9066345,-87.6384511,,,none,ward_wise
+bm-0077,N CLARK ST & W ROSLYN PL,43,2017,intersection,point,41.927341,-87.6415263,,,none,ward_wise
+bm-0078,W GRACE ST & N TROY ST,33,2017,intersection,point,41.9502862,-87.706677,,,none,ward_wise
+bm-0079,N INDIAN RD & N MOODY AVE,39,2016,intersection,point,41.9954085,-87.7813466,,,none,ward_wise
+bm-0080,N LAVERGNE AVE & W LAWRENCE AVE,45,2012,intersection,point,41.9679801,-87.752639,,,none,ward_wise
+bm-0081,W SUNNYSIDE AVE & N ASHLAND AVE,47,2013,intersection,point,41.963411,-87.669222,,,none,ward_wise
+bm-0082,S MARSHFIELD AVE & W 44TH ST,15,2016,intersection,point,41.8140444,-87.666337,,,none,ward_wise
+bm-0083,N LARAMIE AVE & W GIDDINGS ST,45,2018,intersection,point,41.9668625,-87.7576753,,,none,ward_wise
+bm-0084,W BARRY AVE & N HONORE ST,32,2022,intersection,point,41.9378007,-87.6742401,,,none,ward_wise
+bm-0085,W ARGYLE ST & N WINTHROP AVE,48,2018,intersection,point,41.9732762,-87.6577305,,,none,ward_wise
+bm-0086,W MEDILL AVE & N MILWAUKEE AVE,1,2016,intersection,point,41.9238356,-87.698866,,,none,ward_wise
+bm-0087,S AVENUE D & E 110TH ST,10,2013,intersection,point,41.6954241,-87.528222,,,none,ward_wise
+bm-0088,W LAWRENCE AVE & N WESTERN AVE,40,2022,intersection,point,41.9686121,-87.6888226,,,none,ward_wise
+bm-0089,W ARMITAGE AVE & N CLEVELAND AVE,43,2013,intersection,point,41.9182802,-87.6412401,,,none,ward_wise
+bm-0090,W ARMITAGE AVE & N MOHAWK ST,43,2017,intersection,point,41.9182721,-87.6424471,,,none,ward_wise
+bm-0091,E 115TH ST & S DR MARTIN LUTHER KING JR DR,9,2020,intersection,point,41.6854158,-87.6131731,,,none,ward_wise
+bm-0092,N CLAREMONT AVE & W MONTROSE AVE,47,2012,intersection,point,41.961326,-87.6874624,,,none,ward_wise
+bm-0093,S DR MARTIN LUTHER KING JR DR & E 31ST ST,2,2014,intersection,point,41.8384251,-87.6171216,,,none,ward_wise
+bm-0094,W WASHINGTON & S CLARK ST,42,2012,intersection,point,41.8832146,-87.6309058,,,none,ward_wise
+bm-0095,N ELSTON AVE & W GRACE ST,35,2014,intersection,point,41.9502021,-87.714025,,,none,ward_wise
+bm-0096,N MILWAUKEE AVE & N SPAULDING AVE,35,2019,intersection,point,41.930987,-87.7105437,,,none,ward_wise
+bm-0097,W OHIO ST & N CHRISTIANA AVE,27,2021,intersection,point,41.8918574,-87.7101096,,,none,ward_wise
+bm-0098,N Paulina St & W Schubert Ave,32,2009,intersection,point,41.9311508,-87.6707842,,,none,ward_wise
+bm-0099,W 103RD ST & S WESTERN AVE,19,2021,intersection,point,41.7063262,-87.6816007,,,none,ward_wise
+bm-0100,N HAZEL ST & W WINDSOR AVE,46,2015,intersection,point,41.9644887,-87.65238,,,none,ward_wise
+bm-0101,W ARMITAGE AVE & N HOWE ST,43,2012,intersection,point,41.918248,-87.6449078,,,none,ward_wise
+bm-0102,W ST JAMES PL & N CLARK ST,43,2015,intersection,point,41.9278153,-87.6418037,,,none,ward_wise
+bm-0103,N NARRAGANSETT AVE & W BARRY AVE,36,2018,intersection,point,41.9364942,-87.7858684,,,none,ward_wise
+bm-0104,S STATE ST & W RANDOLPH L ST,42,2012,intersection,point,41.8844882,-87.627896,,,none,ward_wise
+bm-0105,N DAMEN AVE & W EASTWOOD AVE,47,2017,intersection,point,41.9660056,-87.6791075,,,none,ward_wise
+bm-0106,N WISNER AV-- N MILWAUKEE AV (2872 N) -to- N KIMBALL AV (2974 N) 3,35,2005,street_segment,line,41.9343536,-87.7134019,,,none,ward_wise
+bm-0107,ON W MONTVALE AVE FROM S HERMOSA AV (1872 W) TO S HOMEWOOD AV (1927 W),19,2012,street_segment,line,41.6894923,-87.6690907,,,none,ward_wise
+bm-0108,ON S SPAULDING AVE FROM W MADISON ST (0 S) TO W MONROE ST (100 S),28,2016,street_segment,line,41.8802676,-87.7097361,,,none,ward_wise
+bm-0109,S CAMPBELL AV-- W 60 ST (6000 S) -to- W 63 ST (6300 S),15,2005,street_segment,line,41.7819611,-87.6861612,,,none,ward_wise
+bm-0110,ON S MONITOR AVE FROM W 55 ST (5500 S) TO W 56 ST (5600 S),23,2012,street_segment,line,41.7916973,-87.7683735,,,none,ward_wise
+bm-0111,W 107 ST-- S ABERDEEN ST (1050 W) -to- S MAY ST (1124 W),34,2009,street_segment,line,41.6995558,-87.6503129,,,none,ward_wise
+bm-0112,ON E 102ND ST FROM S EWING AVE (3630 E) TO S AVENUE L (3600 E),10,2013,street_segment,line,41.7100488,-87.5358867,,,none,ward_wise
+bm-0113,N MARSHFIELD AV-- W NORTH AV (1600 N) -to- W WABANSIA AV (1650 N),1,2005,street_segment,line,41.9115269,-87.6689371,,,none,ward_wise
+bm-0114,ON S ROCKWELL ST FROM W 53RD ST (5300 S) TO W 55TH ST (5500 S),14,2019,street_segment,line,41.7956042,-87.6889683,,,none,ward_wise
+bm-0115,ON W MCLEAN AVE FROM N LAWNDALE AVE (3700 W) TO N HAMLIN AVE (3800 W),26,2018,street_segment,line,41.9181526,-87.7204503,,,none,ward_wise
+bm-0116,N KENMORE AV-- W WELLINGTON AV (3000 N) -to- W BELMONT AV (3200 N),44,2007,street_segment,line,41.9380773,-87.655269,,,none,ward_wise
+bm-0117,N FRANCISCO AV-- W HOLLYWOOD AV (5700 N) -to- W BRYN MAWR AV (5600 N),40,2007,street_segment,line,41.9840179,-87.7016149,,,none,ward_wise
+bm-0118,ON S HAMLIN AVE FROM W 52ND ST (5200 S) TO W 53RD ST (5300 S),23,2021,street_segment,line,41.7978668,-87.7183883,,,none,ward_wise
+bm-0119,ON W CONGRESS PKWY FROM S KILPATRICK AVE (4700 W) TO S CICERO AVE (4800 W),24,2015,street_segment,line,41.8741176,-87.7438164,,,none,ward_wise
+bm-0120,ON S LUELLA AVE FROM E 73 ST (7300 S) TO E 74 ST (7400 S),7,2012,street_segment,line,41.7616754,-87.5700668,,,none,ward_wise
+bm-0121,E 74 ST-- S VERNON AV (432 E) -to- DR. MARTIN LUTHER KING JR. DR (400 E),6,2010,street_segment,line,41.7602339,-87.6145384,,,none,ward_wise
+bm-0122,ON PAULINA FROM W HARRISON ST (600 S) TO W POLK ST (800 S),2,2012,street_segment,line,41.8726305,-87.6807428,,,none,ward_wise
+bm-0123,W BYRON ST-- N NEWLAND AV (6932 W) -to- N HARLEM AV (7200 W),38,2006,street_segment,line,41.950799,-87.8035197,,,none,ward_wise
+bm-0124,ON S THROOP ST FROM W 77TH ST (7700 S) TO W 78TH ST (7800 S),17,2014,street_segment,line,41.7532008,-87.6554202,,,none,ward_wise
+bm-0125,ON W WRIGHTWOOD AVE FROM N SOUTHPORT AVE (1400 W) TO N GREENVIEW AVE (1500 W),32,2017,street_segment,line,41.9288323,-87.6646507,,,none,ward_wise
+bm-0126,ON S FORRESTVILLE AVE FROM E 132ND ST (13200 S) TO E 133RD ST (13300 S),9,2017,street_segment,line,41.654481,-87.608515,,,none,ward_wise
+bm-0127,ON W WALTON ST FROM N MICHIGAN AVE (140 E) TO N STATE ST (0 E),42,2019,street_segment,line,41.8999736,-87.6262246,,,none,ward_wise
+bm-0128,S HERMITAGE AV-- W 86 ST (8600 S) -to- W 87 ST (8700 S),18,2010,street_segment,line,41.7366657,-87.6667367,,,none,ward_wise
+bm-0129,W 98 PL-- S THROOP ST (1300 W) -to- S LOOMIS ST (1400 W),21,2006,street_segment,line,41.7149754,-87.6563653,,,none,ward_wise
+bm-0130,W 23 ST-- S WOOD ST (1800 W) -to- S WOLCOTT AV (1900 W) 2,25,2008,street_segment,line,41.8505698,-87.6721099,,,none,ward_wise
+bm-0131,ON W 49TH ST FROM S SPRINGFIELD AVE (3900 W) TO S HARDING AVE (3946 W),14,2014,street_segment,line,41.8042422,-87.7216241,,,none,ward_wise
+bm-0132,N HAMLIN AV-- W DIVISION ST (1200 N) -to- W GRAND AV (1278 N),27,2007,street_segment,line,41.903454,-87.7214518,,,none,ward_wise
+bm-0133,ON S ALBANY AVE FROM W 61ST ST (6100 S) TO W 62ND ST (6200 S),15,2014,street_segment,line,41.7817388,-87.7007746,,,none,ward_wise
+bm-0134,N ST LOUIS AV-- W BELLE PLAINE AV (4100 N) -to- W BERTEAU AV (4200 N),33,2006,street_segment,line,41.9565535,-87.715444,,,none,ward_wise
+bm-0135,ON N MANOR AVE FROM W SUNNYSIDE AVE (4500 N) TO W WILSON AVE (4600 N),33,2021,street_segment,line,41.9639259,-87.6987735,,,none,ward_wise
+bm-0136,ON N SAWYER AVE FROM W WRIGHTWOOD AVE (2600 N) TO N MILWAUKEE AVE (2700 N),35,2020,street_segment,line,41.9292923,-87.709349,,,none,ward_wise
+bm-0137,N SHERIDAN RD-- W GLENLAKE AV (6042 N) -to- W GLENLAKE AV (6042 N),48,2008,street_segment,line,41.9923626,-87.6554552,,,none,ward_wise
+bm-0138,ON W 62ND PL FROM S ST LOUIS AVE (3500 W) TO S CENTRAL PARK AVE (3600 W),23,2019,street_segment,line,41.7797487,-87.711811,,,none,ward_wise
+bm-0139,N LAVERGNE AV-- W WOLFRAM ST (2832 N) -to- W GEORGE ST (2900 N),31,2008,street_segment,line,41.9328349,-87.7515545,,,none,ward_wise
+bm-0140,W BYRON ST-- N GREENVIEW AV (1520 W) -to- N ASHLAND AV (1600 W),47,2009,street_segment,line,41.9524695,-87.6682524,,,none,ward_wise
+bm-0141,E 105 ST--E 106 ST--S AVENUE D--S AVENUE E,10,2007,alley_block_polygon,polygon,41.7036246,-87.529273,,,none,ward_wise
+bm-0142,S NORMAL--S EGGLESTON AV--W 114 ST--W 115 ST,34,2008,alley_block_polygon,polygon,41.6860874,-87.6343193,,,none,ward_wise
+bm-0143,S NORMANDY AV--S OAK PARK AV--W 64 PL--W 65 ST,23,2010,alley_block_polygon,polygon,41.7743537,-87.7896771,,,none,ward_wise
+bm-0144,W 28 ST--W0 ST--S TROY ST--DEAD END,12,2010,alley_block_polygon,polygon,41.8097053,-87.7028006,,,none,ward_wise
+bm-0145,S FRANCISCO AVE & W HARRISON ST & S SACRAMENTO BLVD & W FLOURNOY ST,28,2019,alley_block_polygon,polygon,41.8732961,-87.6997676,,,none,ward_wise
+bm-0146,E 102 ST--E 103 ST--S AVENUE H--S AVENUE G,10,2005,alley_block_polygon,polygon,41.7092753,-87.5313712,,,none,ward_wise
+bm-0147,S TROY ST--S WHIPPLE ST--W 26 ST--W 27 ST,12,2005,alley_block_polygon,polygon,41.8436477,-87.7025549,,,none,ward_wise
+bm-0148,N ASHLAND AV--N CLARK ST--W FOSTER AV--W BERWYN AV,40,2010,alley_block_polygon,polygon,41.977094,-87.6689879,,,none,ward_wise
+bm-0149,E 44TH ST & S ST LAWRENCE AVE & E 44TH PL & S VINCENNES AVE,3,2013,alley_block_polygon,polygon,41.8144336,-87.6127912,,,none,ward_wise
+bm-0150,N KOSTNER AVE & W PETERSON AVE & N KENNETH AVE & W THORNDALE AVE,39,2013,alley_block_polygon,polygon,41.9890501,-87.7389458,,,none,ward_wise
+bm-0151,S MICHIGAN AV--E 42 ST--E 43 ST--S INDIANA AV,3,2006,alley_block_polygon,polygon,41.8174461,-87.6222331,,,none,ward_wise
+bm-0152,N KEATING AVE & W GEORGE ST & W WELLINGTON AVE & N CICERO AVE,31,2020,alley_block_polygon,polygon,41.9342788,-87.7460503,,,none,ward_wise
+bm-0153,W CHICAGO AVE & N CLARK ST & N DEARBORN ST & W CHESTNUT ST,2,2022,alley_block_polygon,polygon,41.8973144,-87.6305259,,,none,ward_wise
+bm-0154,E 85 ST--E 86 ST--S EXCHANGE AV--S COMMERCIAL AV,10,2006,alley_block_polygon,polygon,41.7401067,-87.5520942,,,none,ward_wise
+bm-0155,N LA SALLE ST--N CLARK ST--W CHICAGO AV--W SUPERIOR ST,42,2006,alley_block_polygon,polygon,41.8961265,-87.631964,,,none,ward_wise
+bm-0156,N LAWNDALE AV--N MONTICELLO AV--W DIVERSEY AV--W SCHUBERT AV,35,2005,alley_block_polygon,polygon,41.9309843,-87.7190012,,,none,ward_wise
+bm-0157,N ASHLAND AVE & W LE MOYNE ST & N PAULINA ST & W JULIAN ST,1,2014,alley_block_polygon,polygon,41.908649,-87.6688506,,,none,ward_wise
+bm-0158,W 37TH ST & S LOWE AVE & W 38TH ST & S UNION AVE,11,2015,alley_block_polygon,polygon,41.8262339,-87.6429405,,,none,ward_wise
+bm-0159,E MADISON PARK & S DORCHESTER AVE & S WOODLAWN AVE & E 50TH ST,4,2019,alley_block_polygon,polygon,41.793004,-87.5940441,,,none,ward_wise
+bm-0160,S SPRINGFIELD AVE & W 26TH ST & S AVERS AVE & W 27TH ST,22,2016,alley_block_polygon,polygon,41.8433739,-87.7214623,,,none,ward_wise
+bm-0161,E 40TH ST S ELLIS AV (923 E) S LAKE PARK AV (994 E),4,2011,named_place,line,41.8221604,-87.6029784,,,none,ward_wise
+bm-0162,"Pritzker Playground (Menu 2010 , 2009 ,",1,2009,named_place,point,41.8774231,-87.6280111,,,none,ward_wise
+bm-0163,N CALIFORNIA AV -and- W IRVING PARK RD,33,2010,named_place,point,41.9540304,-87.6982535,,,none,ward_wise
+bm-0164,Goudy School,48,2008,named_place,point,41.9759442,-87.6580331,,,none,ward_wise
+bm-0165,Welles Park,47,2006,named_place,point,41.962396,-87.6863017,,,none,ward_wise
+bm-0166,Eckhart Park- playground - 1330 W. Chicago Ave.,27,2011,named_place,point,41.8972278,-87.6612032,,,none,ward_wise
+bm-0167,Humboldt Park,26,2007,named_place,point,41.8990752,-87.721293,,,none,ward_wise
+bm-0168,Ohio Park behind Office Depot - W Grand - 25 feet 8 foot high ornamental fe,42,2006,named_place,point,41.8916024,-87.7444226,,,none,ward_wise
+bm-0169,Smith Park,26,2007,named_place,point,41.8933833,-87.6895453,,,none,ward_wise
+bm-0170,George Washington High School,10,2010,named_place,point,41.687694,-87.5379655,,,none,ward_wise
+bm-0171,Piotrowsi Park - Addt'l lighting and equipment,22,2011,named_place,point,41.8361245,-87.7307657,,,none,ward_wise
+bm-0172,S CENTRAL PARK AVE W 72 ST (7200 S) W 73 ST (7300 S),13,2011,named_place,line,41.7613979,-87.7129615,,,none,ward_wise
+bm-0173,N ST LOUIS AVE N ELSTON AV (3866 N) W IRVING PARK RD (4000 N),35,2011,named_place,line,41.953004,-87.7153437,,,none,ward_wise
+bm-0174,W 58ST/S Central Park-S Lawndale,14,2006,named_place,line,41.7878931,-87.7145312,,,none,ward_wise
+bm-0175,Mitchell School - 2233 W. Ohio,26,2011,named_place,point,41.8919313,-87.6834719,,,none,ward_wise
+bm-0176,Chicago Public Art Group - various Locations,5,2009,wardwide,point,41.8338879,-87.6512196,,,none,ward_wise
+bm-0177,Chicago Public Art Group- various locations,5,2009,wardwide,point,41.8338879,-87.6512196,,,none,ward_wise
+bm-0178,Various locations- Decorative Waste Receptacles,16,2011,wardwide,point,41.932642,-87.7567583,,,none,ward_wise
+bm-0179,2700 BLK W LE MOYNE ST,26,2017,hundred_block,line,41.9084076,-87.6964507,,,none,derived_from_range
+bm-0180,4800 BLK S KOLIN AVE,14,2022,hundred_block,line,41.8052428,-87.7320841,,,none,derived_from_range
+bm-0181,8700 BLK S LAFLIN ST,21,2022,hundred_block,line,41.734905,-87.6605995,,,none,derived_from_range
+bm-0182,5100 BLK S CHRISTIANA AVE,14,2022,hundred_block,line,41.8000444,-87.7075493,,,none,derived_from_range
+bm-0183,4000 BLK N SHERIDAN RD,46,2018,hundred_block,line,41.9551483,-87.654568,,,none,derived_from_range
+bm-0184,1400 BLK N FAIRFIELD AVE,1,2016,hundred_block,line,41.9081973,-87.6955083,,,none,derived_from_range
+bm-0185,8000 BLK S WABASH AVE,6,2016,hundred_block,line,41.7488338,-87.6229319,,,none,derived_from_range
+bm-0186,5000 BLK S KILPATRICK AVE,14,2021,hundred_block,line,41.802035,-87.740548,,,none,derived_from_range
+bm-0187,4300 BLK S KEELER AVE,14,2022,hundred_block,line,41.8145522,-87.7285769,,,none,derived_from_range
+bm-0188,5500 BLK S NARRAGANSETT AVE,13,2019,hundred_block,line,41.7911133,-87.7817647,,,none,derived_from_range
+bm-0189,5200 BLK S MOODY AVE,14,2020,hundred_block,line,41.7976739,-87.7758764,,,none,derived_from_range
+bm-0190,2800 BLK N LECLAIRE AVE,31,2017,hundred_block,line,41.9314976,-87.7539538,,,none,derived_from_range
+bm-0191,700 BLK W 60TH PL,16,2021,hundred_block,line,41.7844379,-87.6434049,,,none,derived_from_range
+bm-0192,7400 BLK N ROGERS AVE,49,2018,hundred_block,line,42.0178286,-87.6715309,,,none,derived_from_range
+bm-0193,600 BLK E 88TH ST,6,2022,hundred_block,line,41.734761,-87.6087595,,,none,derived_from_range
+bm-0194,3100 BLK W 40TH PL,12,2016,hundred_block,line,41.8199144,-87.7028615,,,none,derived_from_range
+bm-0195,6700 BLK S HALSTED ST,6,2017,hundred_block,line,41.7721443,-87.6449497,,,none,derived_from_range
+bm-0196,3200 BLK S KOMENSKY AVE,22,2020,hundred_block,line,41.8344726,-87.7255124,,,none,derived_from_range
+bm-0197,4000 BLK W 25TH ST,22,2022,hundred_block,line,41.8460739,-87.7249861,,,none,derived_from_range
+bm-0198,3500 BLK W 74TH ST,17,2017,hundred_block,line,41.758803,-87.7105266,,,none,derived_from_range
+bm-0199,2900 BLK S THROOP ST,11,2020,hundred_block,line,41.8399886,-87.6511021,,,none,derived_from_range
+bm-0200,7900 BLK S FAIRFIELD AVE,18,2017,hundred_block,line,41.7490425,-87.6913763,,,none,derived_from_range
+bm-0201,9400 BLK S VINCENNES AVE,21,2022,hundred_block,line,41.7225729,-87.6502225,,,none,derived_from_range
+bm-0202,5700 BLK S NATOMA AVE,13,2018,hundred_block,line,41.788385,-87.7879104,,,none,derived_from_range
+bm-0203,9800 BLK S AVENUE H,10,2022,hundred_block,line,41.7167942,-87.5328744,,,none,derived_from_range
+bm-0204,1400 BLK W ROSEMONT AVE,48,2019,hundred_block,line,41.9964403,-87.6655329,,,none,derived_from_range
+bm-0205,2900 BLK N NEENAH AVE,36,2022,hundred_block,line,41.9335285,-87.7894311,,,none,derived_from_range
+bm-0206,1700 BLK E 73RD ST,8,2021,hundred_block,line,41.761927,-87.6242363,,,none,derived_from_range
+bm-0207,3730 N ORIOLE AVE & 65 th & Western,38,2017,multi_location,multi_point,41.947221,-87.8168531,41.7768305,-87.6015908,none,derived_pair
+bm-0208,8000 S ARTESIAN AVE; 8247 S TALMAN AVE,18,2021,multi_location,multi_point,41.748121,-87.6840247,41.7432584,-87.6885611,none,derived_pair
+bm-0209,4500 N LINCOLN AV & 1940 S DESPLAINES ST,47,2008,multi_location,multi_point,41.963326,-87.6850963,41.8557993,-87.6427878,none,derived_pair
+bm-0210,10436 S AVENUE J; 4921 W WEST END AVE,10,2021,multi_location,multi_point,41.7056811,-87.5340861,41.8054692,-87.586082,none,derived_pair
+bm-0211,3020 N OAK PARK AVE & 4600 N MAGNOLIA AVE,36,2016,multi_location,multi_point,41.9349863,-87.795599,41.9654952,-87.6610328,none,derived_pair
+bm-0212,9816 S THROOP ST; 1500 N TRIPP AVE,21,2021,multi_location,multi_point,41.7154007,-87.6552231,41.9078734,-87.7329672,none,derived_pair
+bm-0213,604 E 42ND ST & 2536 W PENSACOLA AVE,4,2022,multi_location,multi_point,41.818783,-87.611566,41.960379,-87.693135,none,derived_pair
+bm-0214,4232 W OGDEN AVE; 6316 W EDDY ST,22,2015,multi_location,multi_point,41.8491977,-87.730129,41.944776,-87.7843477,none,derived_pair
+bm-0215,4936 N FAIRFIELD AVE & 1045 W IRVING PARK RD,40,2014,multi_location,multi_point,41.971297,-87.697632,41.9544548,-87.6562259,none,derived_pair
+bm-0216,5412 N WAYNE AVE; 5349 S NATCHEZ AVE,48,2022,multi_location,multi_point,41.9802507,-87.6636705,41.7951049,-87.7843254,none,derived_pair
+bm-0217,1148 N HONORE ST & 4815 S. Kedvale,1,2014,multi_location,multi_point,41.9025081,-87.6735802,41.8055492,-87.7269226,none,derived_pair
+bm-0218,2245 S KEELER AVE; 6300 N CAMPBELL AVE,22,2019,multi_location,multi_point,41.8506552,-87.7295604,41.9960094,-87.6925775,none,derived_pair
+bm-0219,5317 S. M0ZART,14,2008,single_address,point,41.7968034,-87.6948351,,,injected,ward_wise+ocr
+bm-0220,7915 5 GREEN ST,17,2019,single_address,point,41.7499175,-87.6452245,,,injected,ward_wise+ocr
+bm-0221,6447 63RD ST,23,2016,single_address,point,41.7776493,-87.7828312,,,injected,ward_wise+ocr
+bm-0222,1000 43 rd 5treet,4,2007,single_address,point,41.817112,-87.601473,,,injected,ward_wise+ocr
+bm-0223,450 GRANT PL,43,2019,single_address,point,41.9228683,-87.6408883,,,injected,ward_wise+ocr
+bm-0224,1352 S 1NDEPENDENCE W 8V,24,2008,single_address,point,41.862849,-87.7206677,,,injected,ward_wise+ocr
+bm-0225,5316 S K1LPATRICK AVE,14,2016,single_address,point,41.7965376,-87.7404161,,,injected,ward_wise+ocr
+bm-0226,2600 24TH PL,12,2019,single_address,point,41.8477173,-87.6906165,,,injected,ward_wise+ocr
+bm-0227,4558 LAPORTE AVE,22,2021,single_address,point,41.8101558,-87.7469023,,,injected,ward_wise+ocr
+bm-0228,2341 22ND PL,25,2022,single_address,point,41.8511397,-87.6839801,,,injected,ward_wise+ocr
+bm-0229,617 LOREL AVE,27,2017,single_address,point,41.8915589,-87.7592063,,,injected,ward_wise+ocr
+bm-0230,4407 5 EMERALD AVE,11,2018,single_address,point,41.8143086,-87.6444591,,,injected,ward_wise+ocr
+bm-0231,1050 E 49TH ST,4,2016,single_address,point,41.806192,-87.5996746,,,injected,ward_wise+ocr
+bm-0232,10546 S AVENUE G,10,2022,single_address,point,41.7036835,-87.5316621,,,injected,ward_wise+ocr
+bm-0233,3400 AUSTIN AVE,36,2017,single_address,point,41.9421502,-87.7763623,,,injected,ward_wise+ocr
+bm-0234,4900 W OAKDALE AV,31,2008,single_address,point,41.9342413,-87.7493514,,,injected,ward_wise+ocr
+bm-0235,5839 S NEWLAND AVE,13,2017,single_address,point,41.7858745,-87.7949935,,,injected,ward_wise+ocr
+bm-0236,3417 BO5W0RTH AVE,44,2015,single_address,point,41.9433954,-87.6675437,,,injected,ward_wise+ocr
