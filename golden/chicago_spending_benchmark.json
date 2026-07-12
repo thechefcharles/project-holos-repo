@@ -1,0 +1,3752 @@
+[
+  {
+    "project_id": "ww_001",
+    "location_text": "6150 W FLETCHER ST; 6144-6156 W FLETCHER ST",
+    "ward": "30",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "26412.78",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.78066772,
+      41.93768105
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_002",
+    "location_text": "5201-5211 S LEAMINGTON AVE; 5200 S LEAMINGTON AVE",
+    "ward": "14",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "21963.54",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.75175407,
+      41.79825066
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_003",
+    "location_text": "2715-2717 W 83RD ST; 2832 W 83RD ST",
+    "ward": "18",
+    "year": "2021",
+    "category": "Misc.",
+    "cost": "25000",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.69385857,
+      41.74287148
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_004",
+    "location_text": "4652-4658 S SACRAMENTO AVE; 3000 W 47TH ST",
+    "ward": "15",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "55043.36",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.69927127,
+      41.80834208
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_005",
+    "location_text": "5232-5250 S MULLIGAN AVE; 5258 S MULLIGAN AVE",
+    "ward": "14",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "26630.24",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.78099513,
+      41.79620139
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_006",
+    "location_text": "2941 N MULLIGAN AVE; 2905-2949 N MULLIGAN AVE",
+    "ward": "30",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "12426.17",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.78431673,
+      41.93406289
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_007",
+    "location_text": "952 W OAKDALE AVE; 2937-2951 N SHEFFIELD AVE",
+    "ward": "44",
+    "year": "2021",
+    "category": "Misc. CDOT",
+    "cost": "4425",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.65350705,
+      41.93524274
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_008",
+    "location_text": "9619 S RACINE AVE; 9615-9621 S RACINE AVE",
+    "ward": "21",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "19952.96",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.65258706,
+      41.7186147
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_009",
+    "location_text": "5438 W BARRY AVE; 3116 N LOTUS AVE; 3010 N LAVERGNE AVE; 3038 N CENTRAL AVE; 2556 N LARAMIE AVE; 2524 N LARAMIE AVE; 3237 N LAVERGNE AVE; 3058 N CENTRAL AVE; 5236 W SCHOOL ST; 5000 W FLETCHER ST; 4858 W MELROSE ST; 3535 N LAVERGNE AVE; 3303 N LAMON AVE; 3305 N LAVERGNE AVE; 4812 W NEWPORT AVE; 2557 N LOCKWOOD AVE;2740-2742 N RIDGEWAY AVE; 2724 N RIDGEWAY AVE; 2930 N PARKSIDE AVE; 3016 N PARKSIDE AVE; 3108 N LOCKWOOD AVE; 5219 W WRIGHTWOOD AVE; 2500 N LARAMIE AVE; 2534 N LARAMIE AVE",
+    "ward": "31",
+    "year": "2021",
+    "category": "Lighting",
+    "cost": "12000",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.76789426,
+      41.93545056
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_010",
+    "location_text": "2504-2506 N MANGO AVE; 2519 N MANGO AVE",
+    "ward": "30",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "11541.11",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.76943224,
+      41.92638914
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_011",
+    "location_text": "2958 N SHEFFIELD AVE; 2935-2951 N SHEFFIELD AVE",
+    "ward": "44",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "35634.91",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.65427718,
+      41.93613409
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_012",
+    "location_text": "3414 S BELL AVE; 3426-3428 S BELL AVE",
+    "ward": "12",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "9342.77",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.68169264,
+      41.83162835
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_013",
+    "location_text": "2911 N LONG AVE; 2923-2925 N LONG AVE; 2959 N LONG AVE",
+    "ward": "31",
+    "year": "2022",
+    "category": "Lighting",
+    "cost": "1500",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.7611117,
+      41.93355013
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_014",
+    "location_text": "5204-5208 S NATOMA AVE; 5220 S NATOMA AVE; 5244-5248 S NATOMA AVE",
+    "ward": "14",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "29881.26",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.78829649,
+      41.79709803
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_015",
+    "location_text": "7119 S UNIVERSITY AVE; 7138 S INGLESIDE AVE; 6504-6506 S GREENWOOD AVE; 6602 S DREXEL AVE",
+    "ward": "5",
+    "year": "2022",
+    "category": "Misc. CDOT",
+    "cost": "750",
+    "expected_grammar": "address_range",
+    "expected_coords": [
+      -87.59679521,
+      41.76534781
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_016",
+    "location_text": "W FULLERTON AVE & N SURREY CT",
+    "ward": "2",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "350",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.66051486356933,
+      41.92526072672505
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_017",
+    "location_text": "E 97TH ST & S TORRENCE AVE",
+    "ward": "10",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "36994.18",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.55981641204079,
+      41.719014123779985
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_018",
+    "location_text": "N CAMPBELL AVE & W CUYLER AVE",
+    "ward": "47",
+    "year": "2022",
+    "category": "Pedestrian Infrastructure",
+    "cost": "12436.01",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.69093832731802,
+      41.95492031200425
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_019",
+    "location_text": "E 96TH ST & S BALTIMORE AVE",
+    "ward": "10",
+    "year": "2019",
+    "category": "Street Redesign",
+    "cost": "26950.21",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.54829183201825,
+      41.72097224251089
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_020",
+    "location_text": "W EASTWOOD AVE & N CLAREMONT AVE",
+    "ward": "47",
+    "year": "2020",
+    "category": "Pedestrian Infrastructure",
+    "cost": "6873.81",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.6875985476267,
+      41.96575527259745
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_021",
+    "location_text": "W BARRY AVE & N HONORE ST",
+    "ward": "32",
+    "year": "2022",
+    "category": "Pedestrian Infrastructure",
+    "cost": "8260",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.67424437441683,
+      41.93780020581652
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_022",
+    "location_text": "S WABASH AVE & E CERMAK RD",
+    "ward": "3",
+    "year": "2021",
+    "category": "Police Cameras",
+    "cost": "24776",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.62549959326661,
+      41.85285034556064
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_023",
+    "location_text": "N MOSELLE AVE & N HIAWATHA AVE",
+    "ward": "41",
+    "year": "2022",
+    "category": "Pedestrian Infrastructure",
+    "cost": "350",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.77845968353502,
+      42.007778916922575
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_024",
+    "location_text": "N CENTRAL PARK AVE & W WOLFRAM ST",
+    "ward": "35",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "1800",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.71721348287542,
+      41.93282842342324
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_025",
+    "location_text": "N MILWAUKEE AVE & N WASHTENAW AVE",
+    "ward": "1",
+    "year": "2019",
+    "category": "Pedestrian Infrastructure",
+    "cost": "350",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.69559023428401,
+      41.92182118726126
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_026",
+    "location_text": "W FULLERTON AVE & N LAWNDALE AVE",
+    "ward": "35",
+    "year": "2020",
+    "category": "Misc. CDOT",
+    "cost": "2369",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.71943824748452,
+      41.92457341519768
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_027",
+    "location_text": "W BARRY AVE & N KEDZIE AVE",
+    "ward": "33",
+    "year": "2022",
+    "category": "Pedestrian Infrastructure",
+    "cost": "350",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.70757720892512,
+      41.937513958126154
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_028",
+    "location_text": "W WILSON AVE & N VIRGINIA AVE",
+    "ward": "47",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "11711.06",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.6960549121393,
+      41.96479670450696
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_029",
+    "location_text": "W LAWRENCE AVE & N MONTICELLO AVE",
+    "ward": "35",
+    "year": "2020",
+    "category": "Pedestrian Infrastructure",
+    "cost": "600",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.71947581166553,
+      41.968334927546884
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_030",
+    "location_text": "W EVERGREEN AVE & N NOBLE ST",
+    "ward": "2",
+    "year": "2021",
+    "category": "Lighting",
+    "cost": "1900",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.66270152635859,
+      41.90616394820132
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_031",
+    "location_text": "W ADDISON ST & N OAKLEY AVE",
+    "ward": "47",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "24840.4",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.68583164204122,
+      41.94676743018027
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_032",
+    "location_text": "W RASCHER AVE & N CLARK ST",
+    "ward": "48",
+    "year": "2019",
+    "category": "Pedestrian Infrastructure",
+    "cost": "600",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.66835195124425,
+      41.980757360062256
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_033",
+    "location_text": "W WRIGHTWOOD AVE & N MILDRED AVE",
+    "ward": "43",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "13834.86",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.65131022170401,
+      41.92904672205863
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_034",
+    "location_text": "S CROWELL ST & S GROVE ST",
+    "ward": "11",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "20807.23",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.65692772634661,
+      41.843829776388
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_035",
+    "location_text": "W MONTROSE AVE & N HERMITAGE AVE",
+    "ward": "47",
+    "year": "2019",
+    "category": "Pedestrian Infrastructure",
+    "cost": "350",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.6724189890483,
+      41.96154844780182
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_036",
+    "location_text": "N MICHIGAN AVE & E SUPERIOR ST",
+    "ward": "2",
+    "year": "2022",
+    "category": "Misc.",
+    "cost": "10971",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.62427121476028,
+      41.89573977682432
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_037",
+    "location_text": "W HOLLYWOOD AVE & N KENMORE AVE",
+    "ward": "48",
+    "year": "2021",
+    "category": "Misc.",
+    "cost": "10791",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.65667214534452,
+      41.98550700459851
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_038",
+    "location_text": "N CENTRAL AVE & W LAKE ST",
+    "ward": "29",
+    "year": "2021",
+    "category": "Beautification",
+    "cost": "15000",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.76511941642275,
+      41.88772889629654
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_039",
+    "location_text": "W BARRY AVE & N RAVENSWOOD AVE",
+    "ward": "32",
+    "year": "2019",
+    "category": "Street Resurfacing",
+    "cost": "8915.95",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.67339897260328,
+      41.93781011201525
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_040",
+    "location_text": "N RUSH ST & E OHIO ST",
+    "ward": "42",
+    "year": "2022",
+    "category": "Misc.",
+    "cost": "24776",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.62539377637235,
+      41.89252583777467
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_041",
+    "location_text": "E 115TH ST & S DR MARTIN LUTHER KING JR DR",
+    "ward": "9",
+    "year": "2020",
+    "category": "Misc.",
+    "cost": "10671.16",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.61315102254297,
+      41.685426202204184
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_042",
+    "location_text": "W 31ST ST & S HALSTED ST",
+    "ward": "11",
+    "year": "2022",
+    "category": "Street Redesign",
+    "cost": "154406",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.64627815788684,
+      41.838045567805636
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_043",
+    "location_text": "N HIAWATHA AVE & N MOSELLE AVE",
+    "ward": "41",
+    "year": "2019",
+    "category": "Pedestrian Infrastructure",
+    "cost": "350",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.77845968353502,
+      42.007778916922575
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_044",
+    "location_text": "W MONTROSE AVE & N LAWNDALE AVE",
+    "ward": "35",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "1800",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.72048980535976,
+      41.96103878803727
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_045",
+    "location_text": "N STATE PKWY & W GOETHE ST",
+    "ward": "2",
+    "year": "2022",
+    "category": "Police Cameras",
+    "cost": "24776",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.62874293482906,
+      41.905819000758235
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_046",
+    "location_text": "W ROSCOE ST & N WESTERN AVE",
+    "ward": "47",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "9963",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.68815346946111,
+      41.943097676298784
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_047",
+    "location_text": "N OAK PARK AVE & W DIVERSEY AVE",
+    "ward": "36",
+    "year": "2019",
+    "category": "Street Redesign",
+    "cost": "70000",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.79546429174763,
+      41.93088381415789
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_048",
+    "location_text": "W LAWRENCE AVE & N ALBANY AVE",
+    "ward": "33",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "24133.15",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.70603224271254,
+      41.968475448345785
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_049",
+    "location_text": "S PLYMOUTH CT & W JACKSON BLVD",
+    "ward": "4",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "9772.56",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.62875155287537,
+      41.87817367516826
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_050",
+    "location_text": "W LAWRENCE AVE & N LAWNDALE AVE",
+    "ward": "35",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "600",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.72069654277175,
+      41.968322120586194
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_051",
+    "location_text": "N NORTHWEST HWY & N OSHKOSH AVE",
+    "ward": "41",
+    "year": "2019",
+    "category": "Pedestrian Infrastructure",
+    "cost": "600",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.81725007981825,
+      42.00347272969967
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_052",
+    "location_text": "W DEVON AVE & N WAYNE AVE",
+    "ward": "48",
+    "year": "2019",
+    "category": "Pedestrian Infrastructure",
+    "cost": "600",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.66425127522662,
+      41.99814870060441
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_053",
+    "location_text": "W MADISON ST & S WELLS ST",
+    "ward": "42",
+    "year": "2022",
+    "category": "Misc.",
+    "cost": "24776",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.63382427570993,
+      41.88194570241048
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_054",
+    "location_text": "N CLARK ST & W GERMANIA PL",
+    "ward": "2",
+    "year": "2022",
+    "category": "Pedestrian Infrastructure",
+    "cost": "350",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.63164522600286,
+      41.91037443506449
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_055",
+    "location_text": "N OAK PARK AVE & W DIVERSEY AVE",
+    "ward": "36",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "90605",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.79546429174763,
+      41.93088381415789
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_056",
+    "location_text": "E 44TH ST & S PRAIRIE AVE",
+    "ward": "3",
+    "year": "2022",
+    "category": "Pedestrian Infrastructure",
+    "cost": "35920.07",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.6197430802778,
+      41.81477631741128
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_057",
+    "location_text": "N MILWAUKEE AVE & W FRANCIS PL",
+    "ward": "1",
+    "year": "2022",
+    "category": "Misc.",
+    "cost": "24776",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.69314666687892,
+      41.9203286132005
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_058",
+    "location_text": "N CALIFORNIA AVE & W ARMITAGE AVE",
+    "ward": "1",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "53344",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.69720058244529,
+      41.91748948322077
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_059",
+    "location_text": "W NORTH AVE & N WOOD ST",
+    "ward": "32",
+    "year": "2021",
+    "category": "Misc.",
+    "cost": "10971",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.67257595292126,
+      41.9105613056049
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_060",
+    "location_text": "N LOCKWOOD AVE & W CRYSTAL ST",
+    "ward": "37",
+    "year": "2019",
+    "category": "Misc. CDOT",
+    "cost": "6000",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.75826990444004,
+      41.903128619955474
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_061",
+    "location_text": "E OAK ST & N MICHIGAN AVE",
+    "ward": "42",
+    "year": "2020",
+    "category": "Misc.",
+    "cost": "10971",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.62411765912076,
+      41.900820473695966
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_062",
+    "location_text": "W 103RD ST & S WESTERN AVE",
+    "ward": "19",
+    "year": "2021",
+    "category": "Misc.",
+    "cost": "160985.96",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.68162036664783,
+      41.70637632359174
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_063",
+    "location_text": "W FULLERTON AVE & N NARRAGANSETT AVE",
+    "ward": "36",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "39647.46",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.78544267532969,
+      41.92367797458719
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_064",
+    "location_text": "N COLUMBUS LOWER DR & E SOUTH WATER LOWER ST",
+    "ward": "42",
+    "year": "2022",
+    "category": "Misc.",
+    "cost": "37933.16",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.62073080397091,
+      41.886840263062524
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_065",
+    "location_text": "W ROOT ST & S UNION AVE",
+    "ward": "11",
+    "year": "2022",
+    "category": "Pedestrian Infrastructure",
+    "cost": "350",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.64336643181878,
+      41.818959906888495
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_066",
+    "location_text": "N DAMEN AVE & W CHURCHILL ST",
+    "ward": "32",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "4550",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.67755510272826,
+      41.9147157176932
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_067",
+    "location_text": "N CLYBOURN AVE & N LAKEWOOD AVE",
+    "ward": "2",
+    "year": "2021",
+    "category": "Misc. CDOT",
+    "cost": "69368.96",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.66126185021388,
+      41.91935365747529
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_068",
+    "location_text": "W AINSLIE ST & N CICERO AVE",
+    "ward": "45",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "1997.22",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.74785761938067,
+      41.96985129095946
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_069",
+    "location_text": "W LAWRENCE AVE & N LAWNDALE AVE",
+    "ward": "35",
+    "year": "2019",
+    "category": "Pedestrian Infrastructure",
+    "cost": "950",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.72069654277175,
+      41.968322120586194
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_070",
+    "location_text": "S PLYMOUTH CT & W VAN BUREN ST",
+    "ward": "4",
+    "year": "2021",
+    "category": "Pedestrian Infrastructure",
+    "cost": "16035.36",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.62873959125238,
+      41.87690697946368
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_071",
+    "location_text": "S LOCK ST & S LYMAN ST",
+    "ward": "11",
+    "year": "2019",
+    "category": "Pedestrian Infrastructure",
+    "cost": "15000",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.65946126900968,
+      41.83802470824912
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_072",
+    "location_text": "N KINGSBURY ST & W ERIE ST",
+    "ward": "42",
+    "year": "2021",
+    "category": "Police Cameras",
+    "cost": "24776",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.64146602940176,
+      41.89389716957264
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_073",
+    "location_text": "W POLK ST & S CARPENTER ST",
+    "ward": "25",
+    "year": "2022",
+    "category": "Pedestrian Infrastructure",
+    "cost": "17312.85",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.65326814308385,
+      41.87184071602265
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_074",
+    "location_text": "N ASHLAND AVE & W FULLERTON AVE",
+    "ward": "32",
+    "year": "2021",
+    "category": "Police Cameras",
+    "cost": "35747",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.66814581481736,
+      41.92515157900475
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_075",
+    "location_text": "W CULLOM AVE & N ST LOUIS AVE",
+    "ward": "35",
+    "year": "2019",
+    "category": "Police Cameras",
+    "cost": "24776",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.71553129026448,
+      41.95928137520034
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_076",
+    "location_text": "N CALIFORNIA AVE & W MEDILL AVE",
+    "ward": "1",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "78540.6",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.69739043344549,
+      41.92385807495996
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_077",
+    "location_text": "E ILLINOIS ST & N STREETER DR",
+    "ward": "42",
+    "year": "2021",
+    "category": "Police Cameras",
+    "cost": "24776",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.61155968079687,
+      41.8911384489702
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_078",
+    "location_text": "W MCLEAN AVE & N CAMPBELL AVE",
+    "ward": "1",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "5425.27",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.68919544327754,
+      41.91857632676452
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_079",
+    "location_text": "W WILSON AVE & N GREENVIEW AVE",
+    "ward": "47",
+    "year": "2022",
+    "category": "Pedestrian Infrastructure",
+    "cost": "350",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.66779924366503,
+      41.965255558933045
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_080",
+    "location_text": "W CERMAK RD & S HALSTED ST",
+    "ward": "25",
+    "year": "2022",
+    "category": "Misc.",
+    "cost": "27410",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.64649538701056,
+      41.85264651773822
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_081",
+    "location_text": "N LA SALLE ST & W LAKE ST",
+    "ward": "42",
+    "year": "2022",
+    "category": "Misc.",
+    "cost": "49552",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.63244721725057,
+      41.885737401236746
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_082",
+    "location_text": "W IRVING PARK RD & N KIMBALL AVE",
+    "ward": "33",
+    "year": "2020",
+    "category": "Police Cameras",
+    "cost": "17874",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.71290495617505,
+      41.953856804276775
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_083",
+    "location_text": "W RACE AVE & N PARKSIDE AVE",
+    "ward": "29",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "60000",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.76646144154958,
+      41.889277949743835
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_084",
+    "location_text": "N CENTRAL AVE & W BARRY AVE",
+    "ward": "31",
+    "year": "2020",
+    "category": "Pedestrian Infrastructure",
+    "cost": "59304.98",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.76643483209259,
+      41.93675250206221
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_085",
+    "location_text": "W 31ST ST & S RIDGEWAY AVE",
+    "ward": "22",
+    "year": "2021",
+    "category": "Misc.",
+    "cost": "74542.56",
+    "expected_grammar": "intersection",
+    "expected_coords": [
+      -87.71824766739216,
+      41.8369907975328
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_086",
+    "location_text": "W DICKENS AVE & N LAWNDALE AVE & N CENTRAL PARK AVE & W MCLEAN AVE; 3615 W DICKENS AVE",
+    "ward": "26",
+    "year": "2022",
+    "category": "Alleys",
+    "cost": "0",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.71752679,
+      41.91931253
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_087",
+    "location_text": "W 27TH ST & S SAWYER AVE & S SPAULDING AVE & W 28TH ST; 2700-2758 S SAWYER AVE",
+    "ward": "22",
+    "year": "2022",
+    "category": "Alleys",
+    "cost": "0",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.7061485547801,
+      41.840857595550396
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_088",
+    "location_text": "1800 N CLEVELAND AVE; N CLEVELAND AVE & W MENOMONEE ST & W WISCONSIN ST & N MOHAWK ST",
+    "ward": "43",
+    "year": "2020",
+    "category": "Alleys",
+    "cost": "48362.71",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.64239536170791,
+      41.916458210331434
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_089",
+    "location_text": "2949 N MONITOR AVE; N MONITOR AVE & W WELLINGTON AVE & W GEORGE ST & N MENARD AVE",
+    "ward": "30",
+    "year": "2022",
+    "category": "Alleys",
+    "cost": "0",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.77123113287888,
+      41.9348610276938
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_090",
+    "location_text": "4338 N ALBANY AVE; N ALBANY AVE & W CULLOM AVE & W MONTROSE AVE & N TROY ST",
+    "ward": "33",
+    "year": "2021",
+    "category": "Alleys",
+    "cost": "0",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.7070240565978,
+      41.96119467770872
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_091",
+    "location_text": "W ADDISON ST & N KARLOV AVE & N PULASKI RD & W EDDY ST",
+    "ward": "30",
+    "year": "2022",
+    "category": "Alleys",
+    "cost": "36731.82",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.72920645764894,
+      41.94558928983596
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_092",
+    "location_text": "N NARRAGANSETT AVE & W WABANSIA AVE & W NORTH AVE & N MOBILE AVE",
+    "ward": "29",
+    "year": "2021",
+    "category": "Alleys",
+    "cost": "1400",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.78500237804676,
+      41.90914784264461
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_093",
+    "location_text": "S LAWNDALE AVE & W 24TH ST & W 25TH ST & S RIDGEWAY AVE",
+    "ward": "22",
+    "year": "2021",
+    "category": "Alleys",
+    "cost": "0",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.71850357317128,
+      41.846184606180685
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_094",
+    "location_text": "N CENTRAL AVE & W POTOMAC AVE & W DIVISION ST & N PARKSIDE AVE",
+    "ward": "29",
+    "year": "2020",
+    "category": "Alleys",
+    "cost": "31170.8",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.7668672236235,
+      41.902125661579454
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_095",
+    "location_text": "N ASHLAND AVE & W SCHOOL ST & N MARSHFIELD AVE & W ROSCOE ST",
+    "ward": "47",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "23663.95",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.66998248152925,
+      41.94332622485683
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_096",
+    "location_text": "W 63RD ST & S KOLIN AVE & S KILDARE AVE & W 62ND ST",
+    "ward": "13",
+    "year": "2022",
+    "category": "Alleys",
+    "cost": "56.06",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.73130381188594,
+      41.77855716115305
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_097",
+    "location_text": "S MICHIGAN AVE & E 47TH ST & E 48TH ST & S INDIANA AVE",
+    "ward": "3",
+    "year": "2022",
+    "category": "Alleys",
+    "cost": "42697.2",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.62278656464154,
+      41.80746648428337
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_098",
+    "location_text": "W ARGYLE ST & N KIMBALL AVE & W AINSLIE ST & N CHRISTIANA AVE",
+    "ward": "33",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "0",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.71341380615704,
+      41.97022286988835
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_099",
+    "location_text": "W KAMERLING AVE & N KOSTNER AVE & W POTOMAC AVE & N KILDARE AVE; 4301 W KAMERLING AVE",
+    "ward": "26",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "0",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.73621535389708,
+      41.90522933193745
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_100",
+    "location_text": "N LAWLER AVE & W HIRSCH ST & N LECLAIRE AVE & W LE MOYNE ST; 1400 N LAWLER AVE",
+    "ward": "37",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "42889.86",
+    "expected_grammar": "multi_location",
+    "expected_coords": [
+      -87.753449840021,
+      41.907715959008186
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_101",
+    "location_text": "3327 N NEW ENGLAND AVE",
+    "ward": "36",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "11035.11",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.79793183,
+      41.94076558
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_102",
+    "location_text": "4220 N RICHMOND ST",
+    "ward": "33",
+    "year": "2022",
+    "category": "Misc.",
+    "cost": "75000",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.70240289,
+      41.95853288
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_103",
+    "location_text": "5800 N RAVENSWOOD AVE",
+    "ward": "40",
+    "year": "2019",
+    "category": "Street Redesign",
+    "cost": "1000",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.67533249,
+      41.98681512
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_104",
+    "location_text": "6322 N GREENVIEW AVE",
+    "ward": "48",
+    "year": "2022",
+    "category": "Street Resurfacing",
+    "cost": "1431.34",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.66764477,
+      41.99716128
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_105",
+    "location_text": "2122 S MILLARD AVE",
+    "ward": "24",
+    "year": "2021",
+    "category": "Lighting",
+    "cost": "950",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.71600523,
+      41.85337414
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_106",
+    "location_text": "5235 S KOLIN AVE",
+    "ward": "23",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "4058.32",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.7315847,
+      41.79756331
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_107",
+    "location_text": "4533 S HARDING AVE",
+    "ward": "14",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "2100",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.72273294,
+      41.8105129
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_108",
+    "location_text": "6211 W 59TH ST",
+    "ward": "13",
+    "year": "2021",
+    "category": "Misc.",
+    "cost": "11000",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.77715741,
+      41.78489142
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_109",
+    "location_text": "6537 S KEELER AVE",
+    "ward": "13",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "1704.86",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.72723872,
+      41.77384457
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_110",
+    "location_text": "3746 W 60TH ST",
+    "ward": "23",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "769.89",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.71748444,
+      41.78440651
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_111",
+    "location_text": "1301 N LONG AVE",
+    "ward": "37",
+    "year": "2021",
+    "category": "Street Resurfacing",
+    "cost": "20266.39",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.76068216,
+      41.90415013
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_112",
+    "location_text": "7941 S SOUTH SHORE DR",
+    "ward": "7",
+    "year": "2022",
+    "category": "Lighting",
+    "cost": "500",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.54774383,
+      41.75077763
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_113",
+    "location_text": "4203 W HIRSCH ST",
+    "ward": "26",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "26543.41",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.73160856,
+      41.90635574
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_114",
+    "location_text": "6043 S KILPATRICK AVE",
+    "ward": "13",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "3772.46",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.73968231,
+      41.78262919
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_115",
+    "location_text": "6720 S BENNETT AVE",
+    "ward": "5",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "5583.48",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.57926471,
+      41.77272876
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_116",
+    "location_text": "6220 N GLENWOOD AVE",
+    "ward": "48",
+    "year": "2022",
+    "category": "Street Resurfacing",
+    "cost": "19825.42",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.66505045,
+      41.99516112
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_117",
+    "location_text": "1500 N TRIPP AVE",
+    "ward": "26",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "2100",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.73288256,
+      41.90783814
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_118",
+    "location_text": "1339 W CATALPA AVE",
+    "ward": "48",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "6210.34",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.66396771,
+      41.98157456
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_119",
+    "location_text": "9101 S HOUSTON AVE",
+    "ward": "10",
+    "year": "2022",
+    "category": "Misc. CDOT",
+    "cost": "660",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.54956165,
+      41.72946525
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_120",
+    "location_text": "3643 N AVERS AVE",
+    "ward": "30",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "1731.34",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.72344818,
+      41.94769884
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_121",
+    "location_text": "2113 N MEADE AVE",
+    "ward": "36",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "3403.12",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.77769549,
+      41.91835144
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_122",
+    "location_text": "7638 S EUCLID AVE",
+    "ward": "8",
+    "year": "2021",
+    "category": "Lighting",
+    "cost": "2000",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.57758311,
+      41.75587867
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_123",
+    "location_text": "1719 S MORGAN ST",
+    "ward": "25",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "35111.92",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.65064167,
+      41.85850632
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_124",
+    "location_text": "330 N STATE ST",
+    "ward": "42",
+    "year": "2020",
+    "category": "Pedestrian Infrastructure",
+    "cost": "350",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.62852793,
+      41.88796074
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_125",
+    "location_text": "1220 W AUGUSTA BLVD",
+    "ward": "27",
+    "year": "2021",
+    "category": "Viaducts",
+    "cost": "103481.65",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.65755268,
+      41.9000662
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_126",
+    "location_text": "3441 N OTTAWA AVE",
+    "ward": "38",
+    "year": "2019",
+    "category": "Street Resurfacing",
+    "cost": "1421.68",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.81739369,
+      41.94258528
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_127",
+    "location_text": "4120 N CALIFORNIA AVE",
+    "ward": "33",
+    "year": "2021",
+    "category": "Street Resurfacing",
+    "cost": "10057.85",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.69863751,
+      41.9564734
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_128",
+    "location_text": "1829 W ELLEN ST",
+    "ward": "1",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "1640.28",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.6735457,
+      41.90538223
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_129",
+    "location_text": "2834 N MEADE AVE",
+    "ward": "30",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "4309.58",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.77871724,
+      41.93214344
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_130",
+    "location_text": "1101 W NORTH SHORE AVE",
+    "ward": "49",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "2312.33",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.65853782,
+      42.00326265
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_131",
+    "location_text": "1629 W SHERWIN AVE",
+    "ward": "49",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "0",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.67156986,
+      42.01458094
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_132",
+    "location_text": "2759 N LEAVITT ST",
+    "ward": "1",
+    "year": "2022",
+    "category": "Street Resurfacing",
+    "cost": "25646.12",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.68032263,
+      41.93203905
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_133",
+    "location_text": "5715 S MASSASOIT AVE",
+    "ward": "23",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "3594.23",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.76553304,
+      41.78854347
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_134",
+    "location_text": "1942 N WOOD ST",
+    "ward": "32",
+    "year": "2022",
+    "category": "Street Resurfacing",
+    "cost": "32169.81",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.67304552,
+      41.91729069
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_135",
+    "location_text": "3900 N LAKE SHORE DR",
+    "ward": "46",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "24560.3",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.6455487,
+      41.95323562
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_136",
+    "location_text": "6245 W NEWPORT AVE",
+    "ward": "36",
+    "year": "2022",
+    "category": "Street Resurfacing",
+    "cost": "9107",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.78308306,
+      41.94274029
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_137",
+    "location_text": "1919 N HARDING AVE",
+    "ward": "26",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "3987.81",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.72500685,
+      41.91597457
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_138",
+    "location_text": "8444 S LUELLA AVE",
+    "ward": "7",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "10808.73",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.57002464,
+      41.74125514
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_139",
+    "location_text": "5858 W 63RD PL",
+    "ward": "13",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "25165.21",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.76886066,
+      41.77726366
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_140",
+    "location_text": "1042 W MONTANA ST",
+    "ward": "43",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "10338.69",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.65531123,
+      41.92611637
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_141",
+    "location_text": "4328 S UNION AVE",
+    "ward": "11",
+    "year": "2022",
+    "category": "Street Resurfacing",
+    "cost": "8892.48",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.64357965,
+      41.81535186
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_142",
+    "location_text": "2151 E 75TH ST",
+    "ward": "8",
+    "year": "2022",
+    "category": "Misc. CDOT",
+    "cost": "150",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.57172175,
+      41.75877431
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_143",
+    "location_text": "2536 W CORTLAND ST",
+    "ward": "1",
+    "year": "2019",
+    "category": "Police Cameras",
+    "cost": "1800",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.6913095,
+      41.91594564
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_144",
+    "location_text": "5826 S CHRISTIANA AVE",
+    "ward": "23",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "9778.29",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.70677774,
+      41.78725159
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_145",
+    "location_text": "421 E 41ST ST",
+    "ward": "3",
+    "year": "2021",
+    "category": "Lighting",
+    "cost": "259.76",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.61578691,
+      41.82003435
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_146",
+    "location_text": "1814 W EDDY ST",
+    "ward": "47",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "6687.53",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.67459205,
+      41.9462037
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_147",
+    "location_text": "11100 S LANGLEY AVE",
+    "ward": "9",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "47896.3",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.60631615,
+      41.69227816
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_148",
+    "location_text": "1020 W MONROE ST",
+    "ward": "25",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "14903.4",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.65300664,
+      41.88058694
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_149",
+    "location_text": "6534 S KEELER AVE",
+    "ward": "13",
+    "year": "2021",
+    "category": "Street Resurfacing",
+    "cost": "2542.19",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.72778973,
+      41.7739298
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_150",
+    "location_text": "5921 N KENMORE AVE",
+    "ward": "48",
+    "year": "2020",
+    "category": "Alleys",
+    "cost": "700",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.65653481,
+      41.98983031
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_151",
+    "location_text": "5451 S NEVA AVE",
+    "ward": "23",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "5362.13",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.80059921,
+      41.79250715
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_152",
+    "location_text": "6100 S NARRAGANSETT AVE",
+    "ward": "13",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "5980.15",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.78174742,
+      41.78119326
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_153",
+    "location_text": "5828 S CHRISTIANA AVE",
+    "ward": "23",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "3198.19",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.70678348,
+      41.78717188
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_154",
+    "location_text": "6758 S CARPENTER ST",
+    "ward": "16",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "15976.49",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.65087143,
+      41.77070596
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_155",
+    "location_text": "8201 S MARSHFIELD AVE",
+    "ward": "21",
+    "year": "2019",
+    "category": "Street Resurfacing",
+    "cost": "26224.21",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.66412878,
+      41.74476479
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_156",
+    "location_text": "8716 S EMERALD AVE",
+    "ward": "21",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "15055.6",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.64266597,
+      41.7353338
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_157",
+    "location_text": "4628 N MALDEN ST",
+    "ward": "46",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "4580.76",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.66218519,
+      41.96627867
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_158",
+    "location_text": "1938 W 58TH ST",
+    "ward": "15",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "21840.74",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.67324993,
+      41.7885947
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_159",
+    "location_text": "314 W 101ST ST",
+    "ward": "9",
+    "year": "2022",
+    "category": "Alleys",
+    "cost": "32501.19",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.63149246,
+      41.71093786
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_160",
+    "location_text": "6115 W WELLINGTON AVE",
+    "ward": "30",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "17035.02",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.77922732,
+      41.93496864
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_161",
+    "location_text": "2527 N LOTUS AVE",
+    "ward": "30",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "3313.84",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.76211195,
+      41.92666643
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_162",
+    "location_text": "5100 N RIDGEWAY AVE; 3312 W THORNDALE AVE",
+    "ward": "39",
+    "year": "2022",
+    "category": "Parks",
+    "cost": "65000",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.71191903,
+      41.98917728
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_163",
+    "location_text": "4952 N ELSTON AVE",
+    "ward": "39",
+    "year": "2021",
+    "category": "Lighting",
+    "cost": "500",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.74447449,
+      41.97035902
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_164",
+    "location_text": "3630 W 70TH PL",
+    "ward": "13",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "2689.22",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.7139986,
+      41.76533557
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_165",
+    "location_text": "3559 N ASHLAND AVE",
+    "ward": "44",
+    "year": "2019",
+    "category": "Lighting",
+    "cost": "500",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.6685251,
+      41.94686172
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_166",
+    "location_text": "3000 N MENARD AVE",
+    "ward": "30",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "8699.09",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.77153719,
+      41.93500165
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_167",
+    "location_text": "8947 S PHILLIPS AVE",
+    "ward": "7",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "1882.81",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.56437413,
+      41.73224639
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_168",
+    "location_text": "230 W CERMAK RD",
+    "ward": "25",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "11124.04",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.63300514,
+      41.85313192
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_169",
+    "location_text": "1159 S KEELER AVE",
+    "ward": "24",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "46955.14",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.73031667,
+      41.8662189
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_170",
+    "location_text": "5210 W 64TH ST",
+    "ward": "13",
+    "year": "2020",
+    "category": "Parks",
+    "cost": "300000",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.75180486,
+      41.7767268
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_171",
+    "location_text": "3407 S ABERDEEN ST",
+    "ward": "11",
+    "year": "2022",
+    "category": "Street Resurfacing",
+    "cost": "5240.26",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.65369687,
+      41.83239907
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_172",
+    "location_text": "1957 W LUNT AVE",
+    "ward": "49",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "5206.16",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.68025248,
+      42.00855499
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_173",
+    "location_text": "9509 S MERRION AVE",
+    "ward": "7",
+    "year": "2020",
+    "category": "Lighting",
+    "cost": "500",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.56968661,
+      41.72215593
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_174",
+    "location_text": "6151 N GLENWOOD AVE",
+    "ward": "48",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "2350",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.66507272,
+      41.99412361
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_175",
+    "location_text": "3115 W 84TH PL",
+    "ward": "18",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "1164.42",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.69991315,
+      41.73957822
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_176",
+    "location_text": "5657 N MELVINA AVE",
+    "ward": "45",
+    "year": "2022",
+    "category": "Alleys",
+    "cost": "2618.42",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.78258529,
+      41.98458926
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_177",
+    "location_text": "6211 W PATTERSON AVE",
+    "ward": "36",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "2988.94",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.78193893,
+      41.94640406
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_178",
+    "location_text": "5834 S MELVINA AVE",
+    "ward": "13",
+    "year": "2021",
+    "category": "Sidewalk Repair",
+    "cost": "818.92",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.77697728,
+      41.78590045
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_179",
+    "location_text": "1105 N MASSASOIT AVE",
+    "ward": "29",
+    "year": "2021",
+    "category": "Misc. CDOT",
+    "cost": "150",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.76953545,
+      41.90050335
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_180",
+    "location_text": "4015 S VINCENNES AVE",
+    "ward": "4",
+    "year": "2022",
+    "category": "Misc.",
+    "cost": "24776",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.61304116,
+      41.82095468
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_181",
+    "location_text": "1938 N OAKLEY AVE",
+    "ward": "32",
+    "year": "2021",
+    "category": "Street Resurfacing",
+    "cost": "2543.88",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.68521861,
+      41.91729972
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_182",
+    "location_text": "720 S FRANCISCO AVE",
+    "ward": "28",
+    "year": "2019",
+    "category": "Street Resurfacing",
+    "cost": "5885.57",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.6987546,
+      41.8717852
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_183",
+    "location_text": "2101 S CHINA PL",
+    "ward": "25",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "30180.58",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.63268908,
+      41.85468611
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_184",
+    "location_text": "8314 S WINCHESTER AVE",
+    "ward": "21",
+    "year": "2020",
+    "category": "Alleys",
+    "cost": "3537.34",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.67199917,
+      41.74244828
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_185",
+    "location_text": "5208 S CALIFORNIA AVE",
+    "ward": "14",
+    "year": "2019",
+    "category": "Alleys",
+    "cost": "700",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.69420676,
+      41.79882174
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_186",
+    "location_text": "1627 E 74TH PL",
+    "ward": "8",
+    "year": "2021",
+    "category": "Street Resurfacing",
+    "cost": "39726.88",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.5845953,
+      41.75947719
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_187",
+    "location_text": "10801 S MACKINAW AVE",
+    "ward": "10",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "12530.61",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.54227151,
+      41.69900472
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_188",
+    "location_text": "2335 S SPRINGFIELD AVE",
+    "ward": "22",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "2252.03",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.7219821,
+      41.84885456
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_189",
+    "location_text": "6120 S NORMANDY AVE",
+    "ward": "13",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "3682.01",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.78896912,
+      41.78057813
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_190",
+    "location_text": "8734 S ELIZABETH ST",
+    "ward": "21",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "8564.45",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.65481606,
+      41.73484685
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_191",
+    "location_text": "2722 S KARLOV AVE",
+    "ward": "22",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "2685.68",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.72720391,
+      41.84163927
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_192",
+    "location_text": "5156 S TROY ST",
+    "ward": "14",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "15348.94",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.7029009,
+      41.79917904
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_193",
+    "location_text": "836 N GREENVIEW AVE",
+    "ward": "1",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "3036.14",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.66513556,
+      41.89723742
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_194",
+    "location_text": "6645 S MARSHFIELD AVE",
+    "ward": "15",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "3246.33",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.66499864,
+      41.77267582
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_195",
+    "location_text": "9901 S SANGAMON ST",
+    "ward": "34",
+    "year": "2022",
+    "category": "Alleys",
+    "cost": "39965.81",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.64643575,
+      41.71402332
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_196",
+    "location_text": "6239 S KILPATRICK AVE",
+    "ward": "13",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "7191",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.73957414,
+      41.77913459
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_197",
+    "location_text": "8344 S ADA ST",
+    "ward": "21",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "10681.03",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.65743299,
+      41.74181949
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_198",
+    "location_text": "5237 S MAPLEWOOD AVE",
+    "ward": "14",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "11725.29",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.6873177,
+      41.79813228
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_199",
+    "location_text": "2262 W 37TH ST",
+    "ward": "12",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "585.27",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.68248225,
+      41.82686461
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_200",
+    "location_text": "438 E 75TH ST",
+    "ward": "6",
+    "year": "2021",
+    "category": "Lighting",
+    "cost": "500",
+    "expected_grammar": "single_address",
+    "expected_coords": [
+      -87.61355143,
+      41.75862023
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_201",
+    "location_text": "ON W SHERIDAN RD FROM N FREMONT ST (900 W) TO N BROADWAY (1199 W); 832 W SHERIDAN RD",
+    "ward": "46",
+    "year": "2019",
+    "category": "Misc.",
+    "cost": "14000",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.65060376,
+      41.95313507
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_202",
+    "location_text": "3200 W BERTEAU AVE; ON W BERTEAU AVE FROM N KEDZIE AVE (3200 W) TO N SPAULDING AVE (3300 W)",
+    "ward": "33",
+    "year": "2022",
+    "category": "Street Redesign",
+    "cost": "4700",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.70886795,
+      41.95771168
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_203",
+    "location_text": "4200 N SAWYER AVE; ON N SAWYER AVE FROM W BERTEAU AVE (4200 N) TO W CULLOM AVE (4300 N)",
+    "ward": "33",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "4700",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.70968967,
+      41.9576492
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_204",
+    "location_text": "3600 N MARSHFIELD AVE; ON N MARSHFIELD AVE FROM W WAVELAND AVE (3700 N) TO W ADDISON ST (3600 N)",
+    "ward": "47",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "2350",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.67026686,
+      41.94724458
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_205",
+    "location_text": "635 N HOMAN AVE; 639 N HOMAN AVE; ON N HOMAN AVE FROM W OHIO ST (600 N) TO W HURON ST (700 N)",
+    "ward": "27",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "72527.83",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.71165753,
+      41.89292386
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_206",
+    "location_text": "4900 W PATTERSON AVE; ON W PATTERSON AVE FROM N LAMON AVE (4900 W) TO N LAVERGNE AVE (5000 W)",
+    "ward": "30",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "0",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.74987111,
+      41.94720239
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_207",
+    "location_text": "ON N LAWNDALE AVE FROM W HIRSCH ST (1400 N) TO W LE MOYNE ST (1500 N); 1400 N LAWNDALE AVE",
+    "ward": "26",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "63137.25",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.71936089,
+      41.90646852
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_208",
+    "location_text": "5100 S NEW ENGLAND AVE; ON S NEW ENGLAND AVE FROM W 51ST ST (5100 S) TO W 52ND ST (5200 S)",
+    "ward": "23",
+    "year": "2022",
+    "category": "Street Resurfacing",
+    "cost": "49091.49",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.79449657,
+      41.79936617
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_209",
+    "location_text": "4500 N DRAKE AVE; ON N DRAKE AVE FROM W SUNNYSIDE AVE (4500 N) TO W WILSON AVE (4600 N)",
+    "ward": "33",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "4700",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.71658393,
+      41.96315806
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_210",
+    "location_text": "ON N RICHMOND ST FROM W SUNNYSIDE AVE (4500 N) TO W WILSON AVE (4600 N); 4500 N RICHMOND ST",
+    "ward": "33",
+    "year": "2022",
+    "category": "Street Redesign",
+    "cost": "4700",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.70254874,
+      41.96332447
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_211",
+    "location_text": "ON W FOSTER AVE FROM N GLENWOOD AVE (1400 W) TO N CLARK ST (1500 W); 1416 W FOSTER AVE",
+    "ward": "48",
+    "year": "2021",
+    "category": "Misc.",
+    "cost": "11000",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.66554285,
+      41.97647362
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_212",
+    "location_text": "4900 W PATTERSON AVE; ON W PATTERSON AVE FROM N LAMON AVE (4900 W) TO N LAVERGNE AVE (5000 W)",
+    "ward": "30",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "54754.89",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.74987111,
+      41.94720239
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_213",
+    "location_text": "3200 S KOMENSKY AVE; ON S KOMENSKY AVE FROM 3252 S TO W 32ND ST (3200 S)",
+    "ward": "22",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "54640.64",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.72587528,
+      41.83492095
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_214",
+    "location_text": "2858 W ADDISON ST; ON W ADDISON ST FROM N FRANCISCO AVE (2900 W) TO N MOZART ST (2830 W)",
+    "ward": "33",
+    "year": "2019",
+    "category": "Sidewalk Repair",
+    "cost": "17736.99",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.70030342,
+      41.94687427
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_215",
+    "location_text": "ON S WENTWORTH AVE FROM W 82ND ST (8200 S) TO W 83RD ST (8300 S); 8229 S WENTWORTH AVE",
+    "ward": "21",
+    "year": "2021",
+    "category": "Street Redesign",
+    "cost": "4700",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.6289044,
+      41.74451623
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_216",
+    "location_text": "ON N MENARD AVE FROM W SCHUBERT AVE (2700 N) TO W DIVERSEY AVE (2800 N); 2700 N MENARD AVE",
+    "ward": "30",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "0",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.77076613,
+      41.92952573
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_217",
+    "location_text": "4900 W PATTERSON AVE; ON W PATTERSON AVE FROM N LAMON AVE (4900 W) TO N LAVERGNE AVE (5000 W)",
+    "ward": "30",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "47941.93",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.74987111,
+      41.94720239
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_218",
+    "location_text": "ON W IRVING PARK RD FROM N OAK PARK AVE (6800 W) TO N HARLEM AVE (7200 W); 7015 W IRVING PARK RD; 6949 W IRVING PARK RD",
+    "ward": "38",
+    "year": "2022",
+    "category": "Misc.",
+    "cost": "28000",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.80178913,
+      41.95252123
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_219",
+    "location_text": "3100 N MAJOR AVE; ON N MAJOR AVE FROM W BARRY AVE (3100 N) TO W BELMONT AVE (3200 N)",
+    "ward": "30",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "0",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.76921394,
+      41.93684206
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_220",
+    "location_text": "3900 N WHIPPLE ST; ON N WHIPPLE ST FROM W BYRON ST (3900 N) TO W IRVING PARK RD (4000 N)",
+    "ward": "33",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "4478.14",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.70455819,
+      41.95226505
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_221",
+    "location_text": "4465 S OAKENWALD AVE; ON S OAKENWALD AVE FROM E 44TH PL (4430 S) TO S LAKE PARK AVE (4620 S)",
+    "ward": "4",
+    "year": "2022",
+    "category": "Street Redesign",
+    "cost": "2350",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.59502855,
+      41.81409427
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_222",
+    "location_text": "ON N KILPATRICK AVE FROM W GEORGE ST (2900 N) TO W WELLINGTON AVE (3000 N); 2901 N KILPATRICK AVE",
+    "ward": "31",
+    "year": "2021",
+    "category": "Alleys",
+    "cost": "32352.54",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.74394617,
+      41.9335322
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_223",
+    "location_text": "1056 N MAYFIELD AVE; 1100 N MAYFIELD AVE; ON W THOMAS ST FROM N MAYFIELD AVE (5900 W) TO N MASON AVE (5930 W)",
+    "ward": "29",
+    "year": "2019",
+    "category": "Street Resurfacing",
+    "cost": "18734.31",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.77318109,
+      41.90037361
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_224",
+    "location_text": "ON W 25TH ST FROM S KEELER AVE (4200 W) TO S KILDARE AVE (4300 W); 4210 W 25TH ST",
+    "ward": "22",
+    "year": "2021",
+    "category": "Street Redesign",
+    "cost": "2350",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.73005533,
+      41.84620482
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_225",
+    "location_text": "10954 S FAIRFIELD AVE; ON S FAIRFIELD AVE FROM W 109TH ST (10900 S) TO W 110TH ST (11000 S)",
+    "ward": "19",
+    "year": "2021",
+    "category": "Street Resurfacing",
+    "cost": "3399.69",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.69012654,
+      41.69377839
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_226",
+    "location_text": "6300 S SACRAMENTO AVE; ON S SACRAMENTO AVE FROM W 63RD ST (6300 S) TO W 64TH ST (6400 S)",
+    "ward": "17",
+    "year": "2021",
+    "category": "Street Redesign",
+    "cost": "4700",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.69853104,
+      41.77852614
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_227",
+    "location_text": "846 N MENARD AVE; ON N MENARD AVE FROM W RICE ST (830 N) TO W IOWA ST (900 N)",
+    "ward": "29",
+    "year": "2022",
+    "category": "Street Redesign",
+    "cost": "2350",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.77068026,
+      41.89634185
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_228",
+    "location_text": "1101 N MAYFIELD AVE; 1059 N MAYFIELD AVE; ON W THOMAS ST FROM N MONITOR AVE (5830 W) TO N MAYFIELD AVE (5900 W)",
+    "ward": "29",
+    "year": "2019",
+    "category": "Street Resurfacing",
+    "cost": "15490.31",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.77262368,
+      41.90036306
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_229",
+    "location_text": "3300 N KEYSTONE AVE; ON N KEYSTONE AVE FROM W SCHOOL ST (3300 N) TO N MILWAUKEE AVE (3340 N)",
+    "ward": "30",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "2350",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.72821,
+      41.94099884
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_230",
+    "location_text": "ON W 32ND ST FROM S KARLOV AVE (4100 W) TO S KEDVALE AVE (4130 W); 3201 S KEDVALE AVE",
+    "ward": "22",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "11366.62",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.72770299,
+      41.83490529
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_231",
+    "location_text": "ON W ADAMS ST FROM S SPRINGFIELD AVE (3900 W) TO S PULASKI RD (4000 W); 3900 W ADAMS ST",
+    "ward": "28",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "4700",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.72378054,
+      41.87780207
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_232",
+    "location_text": "10 E SCOTT ST; ON W SCOTT ST FROM N STATE PKWY (1 E) TO N ASTOR ST (50 E)",
+    "ward": "43",
+    "year": "2021",
+    "category": "Street Resurfacing",
+    "cost": "25403.5",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.62827213,
+      41.90502818
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_233",
+    "location_text": "3900 N WHIPPLE ST; ON N WHIPPLE ST FROM W BYRON ST (3900 N) TO W IRVING PARK RD (4000 N)",
+    "ward": "33",
+    "year": "2019",
+    "category": "Street Redesign",
+    "cost": "221.86",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.70455819,
+      41.95226505
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_234",
+    "location_text": "ON W 13TH PL FROM S HOMAN AVE (3400 W) TO S ST LOUIS AVE (3500 W); 3400 W 13TH PL",
+    "ward": "24",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "4700",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.71094586,
+      41.86396631
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_235",
+    "location_text": "3103 N MASON AVE; ON N MASON AVE FROM W BARRY AVE (3100 N) TO W BELMONT AVE (3200 N)",
+    "ward": "30",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "32726.3",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.77525085,
+      41.93695651
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_236",
+    "location_text": "6757 N RICHMOND ST; ON N RICHMOND ST FROM W NORTH SHORE AVE (6700 N) TO W PRATT BLVD (6800 N)",
+    "ward": "50",
+    "year": "2021",
+    "category": "Street Resurfacing",
+    "cost": "35612.87",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.70317342,
+      42.00449863
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_237",
+    "location_text": "ON E SCOTT ST FROM N STATE PKWY (1 E) TO N ASTOR ST (50 E); 10 E SCOTT ST",
+    "ward": "43",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "15414.27",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.62827213,
+      41.90502818
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_238",
+    "location_text": "ON N AVONDALE AVE FROM N ALBANY AVE (3100 N) TO N WHIPPLE ST (3030 N); 3029 N ALBANY AVE",
+    "ward": "33",
+    "year": "2020",
+    "category": "Alleys",
+    "cost": "32469.12",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.70484825,
+      41.93658648
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_239",
+    "location_text": "6200 W MELROSE ST; ON W MELROSE ST FROM N MELVINA AVE (6200 W) TO N MOBILE AVE (6300 W)",
+    "ward": "36",
+    "year": "2019",
+    "category": "Street Redesign",
+    "cost": "4700",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.78129403,
+      41.93952119
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_240",
+    "location_text": "5300 S NORDICA AVE; ON S NORDICA AVE FROM W 53RD ST (5300 S) TO W 54TH ST (5400 S)",
+    "ward": "23",
+    "year": "2022",
+    "category": "Street Resurfacing",
+    "cost": "51948.26",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.79812343,
+      41.79566877
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_241",
+    "location_text": "ON W 97TH ST FROM S EGGLESTON AVE (400 W) TO S NORMAL AVE (500 W); 400 W 97TH ST",
+    "ward": "21",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "2350",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.63458173,
+      41.71773273
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_242",
+    "location_text": "ON N HAMLIN AVE FROM W NORTH AVE (1600 N) TO W WABANSIA AVE (1700 N); 1600 N HAMLIN AVE",
+    "ward": "26",
+    "year": "2020",
+    "category": "Street Resurfacing",
+    "cost": "55933.33",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.72161961,
+      41.91030031
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_243",
+    "location_text": "5444 S RIDGEWAY AVE; ON S RIDGEWAY AVE FROM W 54TH ST (5400 S) TO W 55TH ST (5500 S)",
+    "ward": "23",
+    "year": "2022",
+    "category": "Alleys",
+    "cost": "14327.29",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.71731932,
+      41.79384906
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_244",
+    "location_text": "ON N RICHMOND ST FROM W NORTH SHORE AVE (6700 N) TO W PRATT BLVD (6800 N); 6757 N RICHMOND ST",
+    "ward": "50",
+    "year": "2021",
+    "category": "Street Resurfacing",
+    "cost": "1463.2",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.70317342,
+      42.00449863
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_245",
+    "location_text": "3900 W GEORGE ST; ON W GEORGE ST FROM N HARDING AVE (3930 W) TO N PULASKI RD (4000 W)",
+    "ward": "30",
+    "year": "2019",
+    "category": "Street Redesign",
+    "cost": "2350",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.72496079,
+      41.93379593
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_246",
+    "location_text": "ON W GEORGE ST FROM N LOCKWOOD AVE (5300 W) TO N LONG AVE (5400 W); 5300 W GEORGE ST",
+    "ward": "31",
+    "year": "2020",
+    "category": "Street Redesign",
+    "cost": "4700",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.75914156,
+      41.93341751
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_247",
+    "location_text": "ON N MENARD AVE FROM W SEMINOLE ST (5700 N) TO N MILTIMORE AVE (5830 N); 5740 N MENARD AVE",
+    "ward": "45",
+    "year": "2020",
+    "category": "Sidewalk Repair",
+    "cost": "10678.3",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.77284388,
+      41.98601295
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_248",
+    "location_text": "556 E 106TH ST; ON E 106TH ST FROM S RHODES AVE (530 E) TO S DAUPHIN AVE (600 E)",
+    "ward": "9",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "8390.4",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.60894651,
+      41.70211323
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_249",
+    "location_text": "ON W 28TH ST FROM S RIDGEWAY AVE (3730 W) TO S HAMLIN AVE (3800 W); 2800 S RIDGEWAY AVE",
+    "ward": "22",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "11481.64",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.71876595,
+      41.84052369
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  },
+  {
+    "project_id": "ww_250",
+    "location_text": "4817 S JUSTINE ST; ON S JUSTINE ST FROM W 48TH ST (4800 S) TO W 49TH ST (4900 S)",
+    "ward": "20",
+    "year": "2022",
+    "category": "Sidewalk Repair",
+    "cost": "133594.7",
+    "expected_grammar": "street_segment",
+    "expected_coords": [
+      -87.66344414,
+      41.80621284
+    ],
+    "expected_score_min": 0.85,
+    "expected_score_max": 1.0
+  }
+]
