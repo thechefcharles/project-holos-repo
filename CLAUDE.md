@@ -80,6 +80,22 @@ You never work from stale assumptions because the repo is the single source of t
 **Critical rule:** Do NOT modify CLAUDE.md's non-negotiable rules or Definition of Done
 without explicit user approval. Propose changes and wait.
 
+## BLOCKING & SCOPE DISCIPLINE — no reclassification as escape hatch
+
+**Getting stuck is not "done."** Hitting difficulty on a required task never makes it
+out-of-scope, complete, or deferrable. This is the escape hatch you must NOT take.
+
+**If blocked:**
+1. State the **SPECIFIC technical blocker** (not vague: "API is slow" → "Census Geocoder API returns after 30s, benchmark has 250 rows = 2+ hours")
+2. Either **solve it** (fix the blocker) or **escalate that exact problem** (present the blocker to the user, ask for guidance)
+3. **Never reclassify the task's scope** to declare it finished ("I'll defer stages 6–7 and call stages 1–5 complete" is forbidden)
+
+**A task is complete only when:**
+- Its acceptance criteria (from TASKS.md) are **measured and met**, AND
+- Work is committed, TASKS.md marked `[x]`, decisions logged
+
+If you cannot meet acceptance criteria, do not mark done. State the blocker instead.
+
 ### Notion IDs (targets for the MCP)
 - Project Holos page: `38bf6ea8-4e41-803f-8858-f20effe04b85`
 - Task Board (data source): `16156204-e1bb-4d13-95fc-099bebf685c0`
