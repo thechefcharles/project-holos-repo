@@ -6,6 +6,7 @@ from typing import Optional
 from datetime import datetime
 import typer
 from .classify import classify_pdfs_in_directory
+from .normalize import normalize_records, MasterSchema
 
 app = typer.Typer(help="Extract structured data from documents (PDFs, CADs, scans)")
 
@@ -163,6 +164,138 @@ def classify(
     report_path = output_path / "classification_report.json"
     report_path.write_text(json.dumps(report, indent=2))
     typer.echo(f"\n✓ Report written: {report_path}\n")
+
+
+@app.command()
+def normalize(
+    source_dir: str = typer.Option(
+        "raw/menu_pdfs/2026-07-12",
+        help="Directory containing classified PDFs"
+    ),
+    output_dir: str = typer.Option(
+        "extractions/normalized",
+        help="Directory to write normalized spending records"
+    ),
+):
+    """Extract and normalize spending rows from PDFs (Step 3).
+
+    Reads text-native PDFs (from Step 2 classification), extracts spending rows
+    using year-specific adapters, and outputs normalized JSON records per PDF.
+
+    Strategy:
+    - 2012–2016: Use table extraction (pdfplumber)
+    - 2017+: Use text parsing with structured layout awareness
+
+    Outputs:
+    - {doc_id}_normalized.json per PDF (array of SpendingRecord dicts)
+    - normalize_report.json (summary: total records, by year, by category)
+    """
+    import pdfplumber
+    from .normalize import extract_from_pdf_text
+
+    source_path = Path(source_dir)
+    output_path = Path(output_dir)
+
+    if not source_path.exists():
+        typer.echo(f"✗ Source directory not found: {source_path}", err=True)
+        raise typer.Exit(1)
+
+    typer.echo(f"📊 Normalizing PDFs from {source_path}...\n")
+
+    output_path.mkdir(parents=True, exist_ok=True)
+
+    pdf_files = sorted(source_path.glob("*.pdf"))
+    summary = {
+        "total_pdfs": len(pdf_files),
+        "total_records": 0,
+        "by_year": {},
+        "by_category": {},
+        "pdfs": [],
+    }
+
+    for pdf_path in pdf_files:
+        doc_id = pdf_path.stem
+
+        # Extract year from filename
+        year = None
+        for y in range(2012, 2026):
+            if str(y) in pdf_path.name:
+                year = y
+                break
+
+        if year is None:
+            typer.echo(f"⚠️  Skipped {doc_id}: could not infer year from filename", err=True)
+            continue
+
+        try:
+            records_in_pdf = []
+
+            with pdfplumber.open(pdf_path) as pdf:
+                # Extract text from all pages and parse
+                full_text = "\n".join(
+                    (page.extract_text() or "")
+                    for page in pdf.pages
+                )
+
+                page_records = extract_from_pdf_text(full_text, year)
+                records_in_pdf.extend(page_records)
+
+            if records_in_pdf:
+                output_file = output_path / f"{doc_id}_normalized.json"
+                records_dicts = [
+                    {
+                        "ward": r.ward,
+                        "year": r.year,
+                        "category": r.category,
+                        "location": r.location,
+                        "cost": r.cost,
+                    }
+                    for r in records_in_pdf
+                ]
+                output_file.write_text(json.dumps(records_dicts, indent=2))
+
+                typer.echo(f"  ✓ {doc_id} ({year}): {len(records_in_pdf)} records")
+
+                summary["pdfs"].append({
+                    "doc_id": doc_id,
+                    "year": year,
+                    "records": len(records_in_pdf),
+                })
+
+                summary["by_year"][year] = summary["by_year"].get(year, 0) + len(records_in_pdf)
+
+                for record in records_in_pdf:
+                    cat = record.category
+                    summary["by_category"][cat] = summary["by_category"].get(cat, 0) + 1
+
+                summary["total_records"] += len(records_in_pdf)
+            else:
+                status = "table extraction not available" if year >= 2017 else "no records extracted"
+                typer.echo(f"  ⚠️  {doc_id} ({year}): {status}")
+
+        except Exception as e:
+            typer.echo(f"  ✗ Error processing {doc_id}: {e}", err=True)
+
+    # Write summary report
+    report_path = output_path / "normalize_report.json"
+    report = {
+        "timestamp": datetime.utcnow().isoformat(),
+        "source_dir": str(source_path.resolve()),
+        "output_dir": str(output_path.resolve()),
+        "summary": summary,
+    }
+    report_path.write_text(json.dumps(report, indent=2))
+
+    typer.echo(f"\n{'─'*70}")
+    typer.echo(f"📊 Normalization Summary:")
+    typer.echo(f"  ✓ Total PDFs: {summary['total_pdfs']}")
+    typer.echo(f"  ✓ Total records: {summary['total_records']}")
+    if summary["by_year"]:
+        typer.echo(f"  ✓ By year: {dict(sorted(summary['by_year'].items()))}")
+    if summary["by_category"]:
+        typer.echo(f"  ✓ By category: {dict(sorted(summary['by_category'].items()))}")
+    typer.echo(f"  📁 Output: {output_path.resolve()}")
+    typer.echo(f"{'─'*70}\n")
 
 
 # NOTE: B1 (pdf_vector), B2 (raster_plate), B3 (native_cad) extraction chains
