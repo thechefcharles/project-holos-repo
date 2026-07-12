@@ -1,6 +1,7 @@
 """Geocoding cascade: stages 0–8 (grammar-routed address matching)."""
 
 import os
+import re
 from typing import Optional, Dict, List, Tuple
 from dataclasses import dataclass
 

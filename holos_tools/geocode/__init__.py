@@ -7,7 +7,8 @@ from typing import Optional
 import typer
 import unicodedata
 from ..core import Config, HolosDB
-from .cascade import GeocodeCascade, GeocodeNormalizer
+from .cascade import GeocodeCascade
+from .normalize import normalize
 
 app = typer.Typer(help="Geocode: normalize locations, parse addresses, run cascade")
 
