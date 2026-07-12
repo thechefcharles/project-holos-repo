@@ -203,6 +203,31 @@ Census/ACS data (B19013 median income) deferred to Phase 2 (subsurface integrati
 - Phase 2+: Incrementally improve parser with production runs + QL discipline. Production-grade alternatives (usaddress library, libpostal, commercial geocoding services) reserved for Phase 2+ if complexity exceeds regex-repair capability.
 - Tech debt: holos_tools/geocode/cascade.py lines 30–75 (parser) flagged for Phase 2 refactor.
 
+### 2026-07-12 — Dual-benchmark strategy for cascade validation: my 250-row + Cowork's 236-row independent set
+
+**Why two benchmarks:**
+- **Single benchmark risk:** cascade might overfit to one stratification; two independent sets catch blind spots
+- **Grammar coverage:** my benchmark heavy on single_address/intersection/street_segment; Cowork has hundred_block (28), alley_block_polygon (20), named_place (15), wardwide (3) — grammars I missed
+- **OCR noise stress:** Cowork includes 18 rows (7.6%) with noise injected (O→0, I→1, S→5) to test street-name repair
+- **Diagnostic power:** where benchmarks disagree = grammar or error mode my implementation fails on
+
+**Benchmarks:**
+| Benchmark | Rows | Key Grammars | Coverage |
+|-----------|------|---|---|
+| My (250) | 40% single_addr, 28% inter, 20% seg, 6% range, 6% multi | Missing: 100blk, alley, named_place, wardwide | Dense on simple cases |
+| Cowork (236) | 26.7% single_addr, 14.8% inter, 14.8% seg, 11.9% 100blk, 10.6% range, 8.5% alley, 6.4% place, 5.1% multi, 1.3% ward | All grammars + OCR noise | Stress-tests omissions |
+
+**Measurement protocol (test-driven):**
+1. After each parse-pipeline or cascade-stage implementation, run both benchmarks
+2. Report accuracy **per-grammar** on each benchmark separately
+3. Track: correct (within 100m), escalated (→review), auto-promoted-wrong (failures)
+4. Investigate any grammar where the two benchmarks disagree significantly
+5. Only approve a fix if accuracy improves on BOTH benchmarks (not just one)
+
+**Target:** ≥90% correct (or escalated) on both benchmarks, per-grammar, by end of Phase 1B.
+
+---
+
 ### 2026-07-12 — Phase 1B cascade benchmark: 250-row stratified Ward Wise answer key + parse pipeline roadmap
 
 **Benchmark (golden/chicago_spending_benchmark.json):**
