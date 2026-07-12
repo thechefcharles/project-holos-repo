@@ -73,13 +73,25 @@ def normalize(text: str) -> str:
     # Step 3: Normalize whitespace (collapse multiple spaces)
     text = re.sub(r'\s+', ' ', text)
 
+    # Step 3.5: Strip period-directionals (S., W., N., E.)
+    # These should be treated as predir, not part of street name
+    text = re.sub(r'\b([NSEW])\.\s+', r'\1 ', text)
+
     # Step 4: Repair numeric tokens (OCR noise: O→0, I→1, S→5, B→8)
-    # Only repair inside tokens that look like numbers
+    # CRITICAL FIX: Only repair if it looks like OCR corruption, NEVER repair valid ordinals.
+    # Valid ordinals: 1ST, 2ND, 3RD, 4TH, 21ST, 43RD, 101ST, etc.
     def repair_numeric_token(match):
         token = match.group(0)
-        if re.search(r'\d', token):  # Only if it has digits
+
+        # Preserve valid ordinals (1ST, 2ND, 3RD, 43RD, etc.)
+        if re.match(r'^\d+(ST|ND|RD|TH)$', token):
+            return token
+
+        # Only repair if token looks like OCR noise (has obviously bad chars like O, I, L, Z, B at start)
+        if re.search(r'\d', token) and re.search(r'^[OILZB]', token):
             for bad, good in NUMERIC_REPAIR_MAP.items():
                 token = token.replace(bad, good)
+
         return token
 
     text = re.sub(r'\d+[A-Z]*\d*|\d+', repair_numeric_token, text)
