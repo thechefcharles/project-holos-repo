@@ -91,6 +91,16 @@ vs. electric). Depth normalization supports feet (common on US blueprints) and m
 inference from context. CLI wired as `holos extract raster-plate`. Golden fixtures cover 5 quality 
 scenarios (good Sanborn, utility blueprint, faded scan, line detection, handwritten annotations).
 
+### 2026-07-11 — Phase 2 B3 (Native CAD) extraction: GeoJSON, Shapefile, DWG, DGN
+B3NativeCADExtractor extracts features directly from CAD files: GeoJSON (web-native, highest 
+fidelity), Shapefile (GIS standard), DWG (AutoCAD, medium fidelity: geometry certain, attributes 
+inferred from layer names), DGN (MicroStation, deferred to Phase 3+). Feature type inferred from 
+properties + layer names + geometry. Confidence scores: 0.93 (GIS formats), 0.75 (DWG), 0.0 (DGN 
+pending). QL-C default (CAD geometry is canonical); QL-D for DGN or unprovenanced. Depth from 
+explicit properties or z-coordinates; unit inference defaults to meters (CAD standard). CLI wired 
+as `holos extract native-cad`. Completes extraction chain: B1 → B2 → B3 all feed subsurface_staging 
+for review. Golden fixtures cover all formats.
+
 ---
 
 *Add new decisions below this line.*
