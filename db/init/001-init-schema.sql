@@ -6,7 +6,8 @@
 -- ============================================================================
 
 CREATE EXTENSION IF NOT EXISTS postgis;
-CREATE EXTENSION IF NOT EXISTS pgvector;
+-- pgvector: add in Phase 2 when using embedding vectors for fuzzy matching
+-- CREATE EXTENSION IF NOT EXISTS pgvector;
 
 -- ============================================================================
 -- SCHEMAS
@@ -165,11 +166,11 @@ CREATE TABLE IF NOT EXISTS ref.street_names (
   name TEXT UNIQUE NOT NULL,
   soundex TEXT,
   metaphone TEXT,
-  embedding VECTOR(384),              -- sentence-transformer embedding
+  -- embedding VECTOR(384): add in Phase 2 when pgvector installed
   created_at TIMESTAMPTZ DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS idx_street_names_soundex ON ref.street_names(soundex);
-CREATE INDEX IF NOT EXISTS idx_street_names_embedding ON ref.street_names USING IVFFLAT(embedding vector_cosine_ops);
+-- CREATE INDEX IF NOT EXISTS idx_street_names_embedding ON ref.street_names USING IVFFLAT(embedding vector_cosine_ops);
 
 -- 311 service requests (reference for need-match analytics)
 CREATE TABLE IF NOT EXISTS ref.sr311 (
