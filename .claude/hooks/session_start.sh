@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 # Project Holos — SessionStart hook.
-# Injects current-state reminders so the agent starts from Notion, not stale assumptions.
+# Injects current-state reminders so the agent starts from repo, not stale assumptions.
 # stdout from a SessionStart hook is added to the session context.
 
 cat <<'EOF'
 [Project Holos — session start]
-Before starting work:
-1. Query the Notion Task Board (data source 16156204-e1bb-4d13-95fc-099bebf685c0)
-   for tasks with Status "Not started" / "In progress"; prioritize "This week", then "Phase 1".
-2. Read the latest entries in /decisions.md (and, if relevant, the Notion Decisions Log)
-   so you do not act on stale assumptions.
-3. Source of truth: the REPO owns code / config / CLAUDE.md / decisions.md; NOTION owns
-   trackers / planning / the human-facing decisions log. Never edit a mirror as if it were
-   the original. If they disagree, the owner side wins — fix the mirror and note it in /decisions.md.
+Before starting work (read these in order — 2 minutes total):
+1. **TASKS.md** — open tasks by phase (prioritize "This week", then "Phase 1").
+   Status markers: [ ] not started, [~] in progress, [x] done. Update AS you work.
+2. **decisions.md** — latest 5 entries. Understand the current assumptions.
+3. **.claude/agents/*.md** — current agent definitions (if you're calling an agent).
+
+Source of truth: the REPO owns build tasks (TASKS.md), decisions (decisions.md), data
+registry (config/sources.yaml), and agent defs. NOTION owns human/business layer only
+(pitch, legal, financials, meetings, admin). Never edit a mirror as if it were the
+original — the owner side is authoritative.
 EOF

@@ -110,6 +110,26 @@ to ops.review_audit_log (immutable audit trail). CLI: `holos review {list-stagin
 Blocks auto-promotion: every core subsurface feature requires explicit human approval. Enables testing 
 B1/B2/B3 extraction against real Chicago data.
 
+### 2026-07-12 — TASKS.md living-checklist conventions + hook updates for repo-native workflow
+
+**Operationalizing the repo-native system:** hooks and checklist discipline.
+
+**Updated hooks:**
+- `.claude/hooks/session_start.sh`: replaced "query Notion Task Board" with "read TASKS.md + decisions.md" (2-minute startup ritual)
+- `.claude/hooks/stop_reminder.sh`: replaced "/sync-notion" reminder with "update TASKS.md checklist + append to decisions.md" (Definition of Done)
+- Removed all Notion Task Board / Data & Access Tracker references from both hooks
+
+**TASKS.md living-checklist conventions (new CLAUDE.md section):**
+- Status markers: [ ] not started, [~] in progress (one at a time), [x] done
+- **Update AS you work**, not just at the end — change marker when starting/completing
+- **Add newly discovered work immediately** — found a bug? Add it as [ ] that instant
+- **Multi-step tasks use sub-checklists** — geocode cascade = 8 stages = 8 checkboxes (tick each as complete)
+- **Never edit history** — TASKS.md records what's true now
+
+**Why:** living checklist forces async self-awareness (you know what you're doing + what's blocked) and prevents work from hiding in your head. Checking a box as you complete it (not retroactively) creates a record of how long each phase takes — calibration data for future estimates.
+
+**/sync-notion retired from build workflow** — it's now human/business-layer-only (optional, manual, not blocking).
+
 ### 2026-07-12 — Source-of-truth model: repo owns build, Notion owns human layer
 
 **Governance migration:** moving build tracking from Notion into the repo (TASKS.md), completing data-source registry in config/sources.yaml, keeping Notion for human/business layer only.

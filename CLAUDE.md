@@ -111,6 +111,33 @@ When you stop for human review, present: (a) concretely what you did or plan to 
 
 Do NOT ask open-ended questions like "should I proceed, or is there something you want me to check?" Decide what the right next step is, state it, and ask for a yes/no. If you are unsure, name the one thing you are unsure about and propose a default.
 
+## TASKS.md — Living Checklist Conventions
+
+**TASKS.md is your working checklist.** Keep it current as you work, not just at the end.
+
+**Status markers (use exactly one per task):**
+- `[ ]` — Not started (ready to build)
+- `[~]` — In progress (exactly one task at a time in this state)
+- `[x]` — Done (tests pass, committed to git, decision logged if applicable)
+
+**Update markers AS you work:**
+- When you start a task: change `[ ]` → `[~]`
+- When you complete it: change `[~]` → `[x]`
+- Do NOT wait until the end of your turn to update status
+
+**Add newly discovered work immediately:**
+- Found a bug? Add it to TASKS.md as `[ ]` under the relevant phase
+- Need refactoring? Add it as `[ ]` under Cross-cutting
+- Do NOT accumulate work in your head — log it instantly
+
+**For multi-step tasks, use sub-checklists:**
+- Large tasks (geocode cascade, extraction chains) have multiple stages
+- Break into numbered sub-items: `- [x] Stage 1`, `- [ ] Stage 2`, etc.
+- Tick each sub-item as you complete it
+- Example: geocode cascade has 8 stages (cache, address-point, centerline, intersection, segment, gazetteer, external, LLM-select) = 8 checkboxes
+
+**Never edit history.** TASKS.md records what's true now, not what was true before.
+
 ## Commands you will use constantly
 - `uv run holos --help`  ·  `uv run pytest golden/ -x`  ·  `docker compose up -d hub`
 - `holos validate all --changeset <id>` before requesting any review.
