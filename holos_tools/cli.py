@@ -13,7 +13,6 @@ from holos_tools.extract import app as extract_app
 from holos_tools.geocode import app as geocode_app
 from holos_tools.validate import app as validate_app
 from holos_tools.load import app as load_app
-from holos_tools.review import app as review_app
 
 # Configure logging
 logging.basicConfig(
@@ -27,7 +26,6 @@ app.add_typer(harvest_app, name="harvest")
 app.add_typer(extract_app, name="extract")
 app.add_typer(geocode_app, name="geocode")
 app.add_typer(validate_app, name="validate")
-app.add_typer(review_app, name="review")
 app.add_typer(load_app, name="load")
 
 
