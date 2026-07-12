@@ -88,6 +88,26 @@ without explicit user approval. Propose changes and wait.
 **Never sync secrets to Notion.** Credentials live in `.env` (git-ignored) and a
 password manager; the Notion Admin folder holds references only.
 
+## DEFINITION OF READY — before writing code for ANY task
+
+A task is not ready to build until you have done ALL of the following and posted the result for approval. Never build from a task title alone.
+
+1. **Read the source docs for this task.** Every Phase 1 task's Notion card names a "BUILD FROM:" pointer — read that section of `/docs/tech-spec.md` and/or `/docs/runbook.md`, plus the Master Brief section if named.
+2. **Check the inputs it depends on:** `config/*.yaml` (source/threshold registry), the Notion Data & Access Tracker (rights + acquisition status), and `decisions.md`.
+3. **Post a SCOPE before touching code:**
+   - The acceptance criteria (copy from the task's AC on the board; if missing, derive from tech-spec/runbook and confirm first).
+   - Inputs → outputs (what it reads, what it produces, which schema/table/CLI).
+   - Which documents you are building from (cite them).
+   - Anything ambiguous or missing → ask ONE specific question, don't guess.
+
+Only after the scope is approved do you write code. This ritual runs at the start of every task, not just every session.
+
+## STOPPING FOR REVIEW — be decisive, not open-ended
+
+When you stop for human review, present: (a) concretely what you did or plan to do, and (b) a specific approval question with your recommended answer.
+
+Do NOT ask open-ended questions like "should I proceed, or is there something you want me to check?" Decide what the right next step is, state it, and ask for a yes/no. If you are unsure, name the one thing you are unsure about and propose a default.
+
 ## Commands you will use constantly
 - `uv run holos --help`  ·  `uv run pytest golden/ -x`  ·  `docker compose up -d hub`
 - `holos validate all --changeset <id>` before requesting any review.
