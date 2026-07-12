@@ -96,6 +96,14 @@ class GeocodeCascade:
                 if result and result.score > 0:
                     return result
 
+        elif grammar.grammar == 'address_range':
+            # Address ranges (e.g., "1200-1298 W Foster") also use stages 1–2
+            # Try stage 2 for interpolation (centerline); fall back to stage 1 if exact match exists
+            for stage_func in [self.stage_2_centerline, self.stage_1_address_point]:
+                result = stage_func(norm_text, parsed, location_text)
+                if result and result.score > 0:
+                    return result
+
         elif grammar.grammar == 'intersection':
             # Stage 3 for intersections
             result = self.stage_3_intersection(norm_text, parsed, location_text)
@@ -105,6 +113,22 @@ class GeocodeCascade:
         elif grammar.grammar == 'street_segment':
             # Stage 4 for street segments
             result = self.stage_4_segment(norm_text, parsed, location_text)
+            if result and result.score > 0:
+                return result
+
+        elif grammar.grammar == 'hundred_block':
+            # Hundred blocks (e.g., "200 block of W Division") — stage 4 segment lookup
+            result = self.stage_4_segment(norm_text, parsed, location_text)
+            if result and result.score > 0:
+                return result
+
+        elif grammar.grammar == 'alley_block_polygon':
+            # Alley blocks (e.g., "alley between X and Y") — stage 4 or stage 5 gazetteer
+            result = self.stage_4_segment(norm_text, parsed, location_text)
+            if result and result.score > 0:
+                return result
+            # Fall back to gazetteer for named alleys
+            result = self.stage_5_gazetteer(norm_text, parsed, location_text)
             if result and result.score > 0:
                 return result
 
