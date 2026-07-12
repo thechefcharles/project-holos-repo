@@ -16,6 +16,21 @@ Two rules govern everything below:
 
 ---
 
+## Chain A1 Progress Tracker
+
+**Current Status:** Step 5 (Geocode Cascade) complete. Resuming at Step 1 (Acquire).
+
+- [ ] **Step 1: Acquire** — OBM/DBM discovery + PDF harvesting with manifests
+- [ ] **Step 2: Classify PDF** — pdfplumber text/scanned detection + table extraction/OCR
+- [ ] **Step 3: Normalize** — Pandas schema mapping for year-variant layouts
+- [x] **Step 4: Parse location** — usaddress/libpostal + grammar classification (2026-07-12)
+- [x] **Step 5: Geocode cascade** — exact match → census → centerline → nominatim (94.1% accuracy, 2026-07-12)
+- [ ] **Step 6: Verify** — deterministic validation (point-in-ward, segment sanity, dedup)
+- [ ] **Step 7: Load** — GeoPandas → GeoParquet → PostGIS core.spending_projects
+- [ ] **Step 8: Serve** — MVT tiles → MapLibre dashboard (Phase 1 exit gate)
+
+---
+
 ## PART I — FILE TYPES & THE CONVERSION PATHWAY
 
 ### 1. The format registry
