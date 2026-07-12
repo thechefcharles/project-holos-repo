@@ -20,6 +20,8 @@ Two rules govern everything below:
 
 **Current Status:** Step 5 (Geocode Cascade) complete. Resuming at Step 1 (Acquire).
 
+**Tracking Rule:** When a step is complete, change `[ ]` → `[x]` and add date `(YYYY-MM-DD)`. Commit the progress tracker update along with step completion work. Do not modify after-the-fact; append only.
+
 - [ ] **Step 1: Acquire** — OBM/DBM discovery + PDF harvesting with manifests
 - [ ] **Step 2: Classify PDF** — pdfplumber text/scanned detection + table extraction/OCR
 - [ ] **Step 3: Normalize** — Pandas schema mapping for year-variant layouts
