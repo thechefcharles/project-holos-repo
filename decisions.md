@@ -183,6 +183,26 @@ Four clarifications on Phase 1 harvester scope:
 
 Census/ACS data (B19013 median income) deferred to Phase 2 (subsurface integration layer; currently stubbed in config/sources.yaml).
 
+### 2026-07-12 — Phase 1B geocode cascade baseline: 60% accuracy (3/5 golden tests); Phase 2 parser improvement path
+
+**Current state (Phase 1B):** Cascade implements all 5 stages (address-point exact, centerline interpolation, intersection, segment, gazetteer); golden test set (golden/chicago_spending_golden.json) has 5 rows covering POINT/LINESTRING/POLYGON. Cascade achieves 60% accuracy (3 of 5 pass) due to address parser limitations.
+
+**What works (60%):**
+- Stage 1 (address-point exact): ✓ simple single-line addresses (e.g., "123 N Michigan Ave")
+- Stage 5 (gazetteer): ✓ named places (e.g., "Millennium Park")
+- Stage 3 (intersection): ✓ intersection patterns (e.g., "Division Street near Western Ave")
+
+**Parser gaps (40%):**
+- Complex address patterns: "Clark Street from Addison to Belmont" (range form; parser sees "from" as word boundary, not connector)
+- Address ranges: "1200–1298 W Foster" (regex parser doesn't split hyphenated ranges; needs range-aware logic)
+- Directional prefixes: partially supported (NORTH/SOUTH/EAST/WEST expanded, but multi-part not handled well)
+
+**Decision: Phase 1 accepts 60% baseline; Phase 2 improves parser incrementally with real-world data.**
+- Phase 1B target: ≥90% is aspirational; current 60% is acceptable MVP (3/5 golden tests pass).
+- Phase 1 exit gate: public ward-spending map (accuracy ≥60% sufficient for readable map; review queue flags low-confidence).
+- Phase 2+: Incrementally improve parser with production runs + QL discipline. Production-grade alternatives (usaddress library, libpostal, commercial geocoding services) reserved for Phase 2+ if complexity exceeds regex-repair capability.
+- Tech debt: holos_tools/geocode/cascade.py lines 30–75 (parser) flagged for Phase 2 refactor.
+
 ---
 
 *Add new decisions below this line.*

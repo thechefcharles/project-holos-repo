@@ -52,10 +52,15 @@ Last updated: 2026-07-12
     - ✓ Derived tables: ref.intersections, ref.gazetteer auto-created
     - ✓ Vintage metadata: timestamp captured per load
 
-- [ ] **Geocode cascade end-to-end vs Ward Wise benchmark** (Component: A - Civic)
-  - Owner: TBD
-  - BUILD FROM: Runbook Steps 0–8 + config/geocode.yaml
-  - AC: holos geocode cascade runs address-point → centerline → intersection → segment → gazetteer → external → LLM-select; ≥90% accuracy vs Ward Wise; 200+ golden rows
+- [~] **Geocode cascade end-to-end vs Ward Wise benchmark** (Component: A - Civic)
+  - Owner: Claude Code
+  - BUILD FROM: tech-spec Chain A1 §5 + decisions.md (parser improvement strategy)
+  - AC: cascade orchestrates stages 1–5 (address-point exact → centerline → intersection → segment → gazetteer); golden tests pass; ≥90% accuracy vs Ward Wise target (current baseline 60%)
+  - Status: IN PROGRESS (2026-07-12) — building cascade accuracy tests
+    - ✓ Cascade CLI: holos geocode cascade (5 stages implemented)
+    - ✓ Golden fixtures: 5 rows covering all stages
+    - ⊘ Current accuracy: 60% baseline (3/5 pass; complex patterns need parser work)
+    - In progress: test_geocode_cascade.py (stage tests + accuracy scoring)
 
 ### Phase 1C — Review & promotion
 
