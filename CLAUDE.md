@@ -55,22 +55,27 @@ different fields — never fight over who is right.
 If the repo and Notion disagree, the **owner side wins**; fix the mirror, and note
 the reconciliation in `/decisions.md`.
 
-## NOTION SYNC — Decisions Log + Data Rights only
+## NOTION SYNC — part of every task, not an afterthought
 
-Notion mirrors key decisions and tracks data rights (legal gate). Not a task-tracking system.
+Notion is reachable through the Notion MCP. Keeping it current is a step in the
+Definition of Done, not optional.
 
 **Definition of Done — a task is complete only when ALL are true:**
 1. Tests pass.
 2. Work is committed to git.
-3. **Notion is updated (if applicable):**
-   - Any decision appended to `/decisions.md` ALSO appended to the Notion Decisions Log
-   - Any new data source flagged in the Data & Access Tracker (if `ops.data_rights` row needed)
+3. **Notion is updated:** Task Board status set (Done / In progress), any decision
+   appended to `/decisions.md` AND mirrored to the Notion Decisions Log, and any
+   affected tracker updated (Data & Access, Outreach, Meetings).
 
-**What we DON'T sync to Notion:**
-- Task Board (use git commits + GitHub issues instead)
-- Outreach / Meetings trackers (not in scope for code-driven work)
+**Do it the easy way:** run `/sync-notion` at the end of a task — it performs all
+of the above in one consistent routine and writes the sync marker.
 
-**At session start:** read the latest `/decisions.md` entries so you don't work from stale assumptions.
+**At session start:** pull open tasks from the Notion Task Board (prioritize
+`This week`, then Phase 1, Status `Not started` / `In progress`) and read the
+latest `/decisions.md` entries so you never work from stale assumptions.
+
+**Critical rule:** Do NOT modify CLAUDE.md's non-negotiable rules or Definition of Done
+without explicit user approval. Propose changes and wait.
 
 ### Notion IDs (targets for the MCP)
 - Project Holos page: `38bf6ea8-4e41-803f-8858-f20effe04b85`
