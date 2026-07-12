@@ -106,25 +106,23 @@ def pdf_vector(
 
 
 @app.command()
-def plate(
+def raster_plate(
     doc_path: str = typer.Option(..., help="Path to scanned plate/map image"),
     output_path: str = typer.Option(None, help="Output JSON file"),
-    source_id: str = typer.Option("plate", help="Source registry ID"),
+    source_id: str = typer.Option("raster_plate", help="Source registry ID"),
 ):
-    """Extract features from a scanned map or utility plate (Chain B2/B3)."""
+    """Extract features from a scanned map or utility plate (Chain B2)."""
+    from .b2_raster import B2RasterExtractor
+
     doc_file = Path(doc_path)
     if not doc_file.exists():
         typer.echo(f"✗ File not found: {doc_path}", err=True)
         raise typer.Exit(1)
 
     try:
-        result = {
-            "source_id": source_id,
-            "doc_path": str(doc_file),
-            "extraction_method": "plate_ocr_stub",
-            "features": [],
-            "notes": "Plate OCR/line extraction requires tesseract or paddleocr integration",
-        }
+        extractor = B2RasterExtractor()
+        result = extractor.extract(str(doc_file))
+        result["source_id"] = source_id
 
         if output_path is None:
             output_path = doc_file.with_stem(doc_file.stem + "_features").with_suffix(".json")
@@ -133,9 +131,13 @@ def plate(
         out_file.parent.mkdir(parents=True, exist_ok=True)
         out_file.write_text(json.dumps(result, indent=2))
 
-        typer.echo(f"✓ Plate extraction stub for {doc_file}")
+        typer.echo(f"✓ Extracted {result['features_extracted']} features from {doc_file}")
+        typer.echo(f"  Confidence: {result['extraction_conf']:.2f}")
         typer.echo(f"  Output: {out_file}")
 
+        if result["needs_review"]:
+            typer.echo(f"  ⚠ Needs review: {', '.join(result['reasons'])}")
+
     except Exception as e:
-        typer.echo(f"✗ Failed to extract from plate {doc_path}: {e}", err=True)
+        typer.echo(f"✗ Failed to extract from {doc_path}: {e}", err=True)
         raise typer.Exit(1)

@@ -1,0 +1,122 @@
+{
+  "fixtures": [
+    {
+      "name": "b2_sanborn_good_quality",
+      "description": "Sanborn Fire Insurance Map, good quality scan",
+      "extraction_method": "raster_ocr",
+      "source": "Sanborn Fire Insurance Map, Chicago, 1923",
+      "ocr_quality": "good",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "Water Main",
+          "depth_raw": "12ft",
+          "depth_normalized": 3.658,
+          "vertical_datum": "MSL",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.78,
+          "needs_review": false,
+          "reason": "Clear Sanborn annotation with scale verification"
+        },
+        {
+          "feature_type": "utility_gas",
+          "name": "Gas Service",
+          "depth_raw": "4.5ft",
+          "depth_normalized": 1.372,
+          "vertical_datum": "MSL",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.75
+        }
+      ]
+    },
+    {
+      "name": "b2_utility_blueprint",
+      "description": "Scanned utility blueprint from ComEd or Peoples Gas",
+      "extraction_method": "raster_ocr",
+      "source": "Utility company blueprint archive",
+      "ocr_quality": "good",
+      "expected_features": [
+        {
+          "feature_type": "utility_electric",
+          "name": "Electric Conduit",
+          "depth_raw": "2.1m",
+          "depth_normalized": 2.1,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.80,
+          "needs_review": false
+        },
+        {
+          "feature_type": "utility_telecom",
+          "name": "Telecom Cable",
+          "depth_raw": "1.5m",
+          "depth_normalized": 1.5,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.77
+        }
+      ]
+    },
+    {
+      "name": "b2_faded_sanborn",
+      "description": "Faded/degraded Sanborn map scan",
+      "extraction_method": "raster_ocr",
+      "source": "Sanborn archive, water-stained original",
+      "ocr_quality": "degraded",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "Water Main (OCR uncertain)",
+          "depth_raw": "12",
+          "depth_normalized": 3.658,
+          "vertical_datum": "unknown",
+          "ql_level": "QL-D",
+          "extraction_conf": 0.52,
+          "needs_review": true,
+          "reason": "Faded scan; OCR confidence low; vertical datum missing"
+        }
+      ]
+    },
+    {
+      "name": "b2_line_detection",
+      "description": "Blueprint with clear line traces (pipes/cables)",
+      "extraction_method": "raster_ocr",
+      "source": "Engineering blueprint with vector overlay",
+      "ocr_quality": "good",
+      "expected_features": [
+        {
+          "feature_type": "unknown",
+          "name": "Detected line trace (needs classification)",
+          "feature_type_raw": "line_trace",
+          "depth_raw": null,
+          "depth_normalized": null,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-D",
+          "extraction_conf": 0.55,
+          "needs_review": true,
+          "reason": "Line trace detected; requires human classification (water/gas/electric/etc.)"
+        }
+      ]
+    },
+    {
+      "name": "b2_handwritten_annotations",
+      "description": "Scanned plan with handwritten depth callouts",
+      "extraction_method": "raster_ocr",
+      "source": "Legacy plan with handwritten markup",
+      "ocr_quality": "poor",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "Handwritten annotation",
+          "depth_raw": "approx 10-12 ft",
+          "depth_normalized": 3.048,
+          "vertical_datum": null,
+          "ql_level": "QL-D",
+          "extraction_conf": 0.48,
+          "needs_review": true,
+          "reason": "Handwritten OCR error-prone; ambiguous depth range; no datum"
+        }
+      ]
+    }
+  ]
+}
