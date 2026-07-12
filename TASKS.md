@@ -55,25 +55,22 @@ Last updated: 2026-07-12
 - [~] **Geocode cascade end-to-end vs Ward Wise benchmark** (Component: A - Civic)
   - Owner: Claude Code
   - BUILD FROM: tech-spec Chain A1 (Steps 3–8: parse pipeline + matching cascade)
-  - AC: ≥90% accuracy on 250-row stratified Ward Wise benchmark (answer key); per-stage + per-grammar accuracy reporting; all 8 cascade stages live (no stubs)
-  - Status: IN PROGRESS — Benchmark built, parse pipeline + missing stages to implement
-    - ✓ Benchmark: 250 rows from Ward Wise (public data), stratified by grammar:
-      * 40% single_address (100 rows)
-      * 28% intersection (70 rows) 
-      * 20% street_segment (50 rows) — FROM/TO pattern
-      * 6% address_range (15 rows)
-      * 6% multi_location (15 rows)
-    - ✓ Answer key: Ward Wise coordinates + calibrated score range (0.85–1.0)
-    - ⊘ Parse pipeline (Steps 3a–3d): TODO
-      * 3a Normalize: ✓ partial (expand suffixes; need full USPS dict + abbreviation handling)
-      * 3b Grammar classification: ⊘ need regex classifier (80%) + Claude API (20%)
-      * 3c Component parsing: ⊘ need usaddress CRF integration
-      * 3d Street-name repair: ⊘ need rapidfuzz + metaphone + pgvector embeddings
+  - AC: ≥90% accuracy on 250-row + 236-row dual benchmarks (per-grammar); all 8 cascade stages live (no stubs)
+  - Status: IN PROGRESS — Parse pipeline built, measuring accuracy on dual benchmarks
+    - ✓ Dual benchmarks committed:
+      * My 250-row benchmark (stratified: 40% single_addr, 28% inter, 20% seg, 6% range, 6% multi)
+      * Cowork 236-row independent benchmark (all grammars: 9 types, 18 OCR-noise rows)
+      * Accuracy testing harness: per-grammar measurement, 100m tolerance scoring
+    - ✓ Parse pipeline (Steps 3a–3d):
+      * 3a Normalize: ✓ done (Unicode NFC, uppercase, USPS suffix + abbr expansion, OCR repair in numeric tokens)
+      * 3b Grammar classification: ✓ done (91.6% my bench, 91.1% Cowork; regex layer 80%, Claude fallback Phase 2)
+      * 3c Component parsing: ✓ done (usaddress CRF + regex fallback; number, predir, street, suffix extraction)
+      * 3d Street-name repair: ⊘ deferred to Phase 2 (embeddings); rapidfuzz only for Phase 1B
     - ⊘ Cascade stages 0,6,7: TODO
       * Stage 0 Cache: hash-based memoization on location_text_norm
-      * Stage 6 External: Census Geocoder batch + Nominatim
+      * Stage 6 External: Census Geocoder batch (free, no key) + Nominatim self-hosted
       * Stage 7 LLM selection: Claude API for multi-candidate disambiguation
-    - Next: Implement parse pipeline (test-driven), wire stages 0/6/7, measure accuracy
+    - Next: Wire parse pipeline into cascade (Stages 1–5 + 0/6/7), run dual-benchmark measurement, iterate to ≥90%
 
 ### Phase 1C — Review & promotion
 
