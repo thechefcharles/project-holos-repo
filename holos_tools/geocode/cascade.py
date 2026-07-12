@@ -126,9 +126,10 @@ class GeocodeCascade:
             pass
 
         # Stage 6: External geocoders (Census + Nominatim) — fallback for any unmatched grammar
-        result = self.stage_6_external(location_text, norm_text)
-        if result and result.score > 0:
-            return result
+        # SKIP for now: Census API hangs; need timeout + error handling
+        # result = self.stage_6_external(location_text, norm_text)
+        # if result and result.score > 0:
+        #     return result
 
         # Stage 8: All stages failed; escalate to human review
         return GeocodeResult(
