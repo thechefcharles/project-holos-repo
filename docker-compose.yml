@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  hub:
+    image: postgis/postgis:16-3.4
+    container_name: holos-hub
+    environment:
+      POSTGRES_DB: holos
+      POSTGRES_USER: holos
+      POSTGRES_PASSWORD: holos_dev_only
+    ports:
+      - "5432:5432"
+    volumes:
+      - holos_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U holos -d holos"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Optional: self-hosted Nominatim for offline geocoding fallback
+  # nominatim:
+  #   image: mediagis/nominatim:5
+  #   container_name: holos-nominatim
+  #   environment:
+  #     NOMINATIM_ADMIN_USER: admin
+  #     NOMINATIM_ADMIN_USER_PASSWORD: nominatim
+  #   ports:
+  #     - "8088:8080"
+  #   volumes:
+  #     - nominatim_data:/var/lib/nominatim
+
+volumes:
+  holos_data:
+  # nominatim_data:
+
+networks:
+  default:
+    name: holos-net
