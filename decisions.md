@@ -101,6 +101,15 @@ explicit properties or z-coordinates; unit inference defaults to meters (CAD sta
 as `holos extract native-cad`. Completes extraction chain: B1 → B2 → B3 all feed subsurface_staging 
 for review. Golden fixtures cover all formats.
 
+### 2026-07-11 — Phase 2 subsurface review: human-in-the-loop promotion workflow
+SubsurfaceReviewer implements human gates (CLAUDE.md rule 6: never bypass). Reviewers decide: 
+approve (promote to core.subsurface_features), reject (mark reviewed, not promoted), or escalate 
+(expert panel for QL disputes, depth ambiguity, surveyor evidence). Reviewers can override extraction: 
+depth_override (correct OCR errors), ql_override (adjust QL based on evidence). All decisions logged 
+to ops.review_audit_log (immutable audit trail). CLI: `holos review {list-staging,approve,reject,escalate,stats}`. 
+Blocks auto-promotion: every core subsurface feature requires explicit human approval. Enables testing 
+B1/B2/B3 extraction against real Chicago data.
+
 ---
 
 *Add new decisions below this line.*
