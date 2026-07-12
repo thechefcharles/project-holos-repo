@@ -277,6 +277,12 @@ class GeocodeCascade:
 
         if result:
             row = result[0]
+            # GUARD: if the house number isn't in this segment's range (L or R),
+            # don't return the midpoint at 0.88 confidence — that's the same trap
+            # as stage 4's arbitrary LIMIT 1. Escalate instead.
+            if not row["in_range"]:
+                return None
+
             return GeocodeResult(
                 stage=2,
                 method="centerline_interpolation",
