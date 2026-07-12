@@ -302,8 +302,22 @@ class GeocodeCascade:
 
         street1, street2 = and_match.group(1).strip(), and_match.group(2).strip()
 
+        # Normalize extracted streets: strip leading directional, then trailing suffix
+        def normalize_street(s):
+            # Strip leading directional FIRST (N, S, E, W, NORTH, etc.)
+            s = re.sub(r'^[NSEW](?:\s+|$)|\b(?:NORTH|SOUTH|EAST|WEST)\b\s*', '', s).strip()
+            # Then strip trailing type word (AVE, ST, AVENUE, COURT, etc.)
+            s = re.sub(r'\s+\w+$', '', s).strip()
+            return s
+
+        street1_norm = normalize_street(street1)
+        street2_norm = normalize_street(street2)
+
+        if not street1_norm or not street2_norm:
+            return None
+
         # Find intersection of two centerlines
-        # FIX: centerlines.street_name has type suffix baked in; strip it when matching
+        # Use normalized names and REGEXP_REPLACE to strip suffix in database
         sql = """
             SELECT ST_X(ST_Intersection(c1.geom, c2.geom)) as lon,
                    ST_Y(ST_Intersection(c1.geom, c2.geom)) as lat
@@ -314,8 +328,8 @@ class GeocodeCascade:
             LIMIT 1
         """
         result = self.query(sql, {
-            "street1": street1,
-            "street2": street2
+            "street1": street1_norm,
+            "street2": street2_norm
         })
 
         if result and result[0].get("lon") is not None:
@@ -326,7 +340,7 @@ class GeocodeCascade:
                 geometry_type="POINT",
                 coordinates=(row["lon"], row["lat"]),
                 score=0.95,
-                reason=f"Intersection: {street1} & {street2}"
+                reason=f"Intersection: {street1_norm} & {street2_norm}"
             )
 
         return None
