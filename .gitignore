@@ -1,0 +1,27 @@
+# Secrets — NEVER commit (per CLAUDE.md rule; Notion Admin holds references only)
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# Notion sync marker (local state)
+.claude/.notion-synced
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.uv/
+
+# Node
+node_modules/
+.next/
+
+# Data (large / derived — keep out of git; store in object storage)
+data/raw/
+data/processed/
+runs/
+
+# OS / editor
+.DS_Store

@@ -1,0 +1,38 @@
+# Machine-readable data-source registry — the REPO owns this file.
+# The pipeline reads dataset IDs / URLs from here. Human-facing acquisition STATUS and
+# notes live in the Notion "Data & Access Tracker" (Notion owns those fields).
+# Same sources, different fields — do not duplicate status here.
+#
+# [[VERIFY current dataset IDs on the Chicago Data Portal at build time.]]
+
+chicago:
+  socrata_base: "https://data.cityofchicago.org/resource"
+  datasets:
+    street_center_lines: "6imu-meau"     # geocode + QC backbone
+    ward_boundaries_2023: "p293-wvbd"
+    ward_offices: "f4sz-sn2p"
+    service_requests_311: "v6vf-nfxy"     # need-match join
+    # address_points: "[[verify ID]]"
+    # building_permits: "[[verify ID]]"
+
+ward_wise:
+  repo: "https://github.com/ward-wise/data-analysis"
+  api: "https://www.wardwisechicago.org/api/spendingitems"
+  role: "answer-key benchmark for Component A"
+
+census:
+  acs_api: "https://api.census.gov/data"
+  tables:
+    median_household_income: "B19013"
+
+coordinate_systems:
+  storage_web: "EPSG:4326"
+  engineering: "EPSG:3435"   # IL State Plane East, US ft
+  vertical: "EPSG:5703"      # NAVD88
+
+# Sources behind gates (see Notion tracker for status; do not ingest without rights):
+gated:
+  - name: "Terra engineering plans"    # in hand (PDF)
+  - name: "OUC utility records"
+  - name: "Private utilities (ComEd/Peoples Gas/AT&T)"  # ops.data_rights required
+  - name: "DWM water-main break history"                # FOIA

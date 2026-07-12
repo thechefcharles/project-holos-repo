@@ -1,0 +1,19 @@
+{
+  "$comment": "Project Holos — Claude Code hooks. VERIFY exact hook schema against current docs: https://docs.claude.com/en/docs/claude-code/hooks . Hook events and output format can change.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash .claude/hooks/session_start.sh" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash .claude/hooks/stop_reminder.sh" }
+        ]
+      }
+    ]
+  }
+}
