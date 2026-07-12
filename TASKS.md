@@ -90,11 +90,12 @@ Last updated: 2026-07-12
       * [x] 3. Diagnostic: split Cowork single_address by ocr_noise column; report clean vs. noise separately. 
          - RESULT: Clean 75.6% (34/45 correct) → NOT due to midpoint fallback (stage 2 guard deployed)
          - RESULT: Noise 55.6% (10/18 correct) → OCR repair (rapidfuzz→metaphone) is the gap
-      * [ ] **3b. [PRIORITY] Fix parser/normalizer: clean single_address failures traced to parser bugs, not stage issues**
-         - Periods in directionals not stripped (S. MOZART → searches for "S. MOZART", not "MOZART")
-         - Abbreviations mangled by expand (43 rd → "43 ROAD" not "43RD"; "51ST" → "515T")
-         - Fix: enhance parser to handle period-directionals (S., W., E., N.) and abbreviation edge cases
-         - Re-measure clean single_address after — expect jump from 75.6% toward 90% gate
+      * [~] **3b. [PRIORITY] Fix parser/normalizer: clean single_address failures traced to parser bugs, not stage issues**
+         - [x] Fix: Make numeric OCR repair conditional (preserve valid ordinals: 51ST, 43RD, etc.; never apply S→5 to ordinals)
+         - [x] Fix: Strip period-directionals (S. MOZART → S MOZART)
+         - RESULT: Clean single_address 75.6% → 77.8% (+2.2%); Cowork single_address 69.8% → 71.4% (+1.6%)
+         - RESULT: Intersection improved 82.9% → 85.7% on my benchmark
+         - Remaining: investigate routing to stage 2/6 for real addresses not in address_points (parks, trails)
       * [ ] 4. Feature: street-name repair (rapidfuzz → metaphone). Lifts single_address on OCR-noise rows and fixes noisy input across all grammars.
       * [ ] 5. Algorithm: street_segment FROM/TO bounding. Parse cross-streets, find both intersections, return segment between them. Biggest block (~20% of benchmark).
       * [ ] 6. Data: populate ref.gazetteer with Chicago parks/facilities. Currently 2 sample rows only; named_place can't work. This is the real data gap.
