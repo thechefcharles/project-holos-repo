@@ -110,6 +110,32 @@ to ops.review_audit_log (immutable audit trail). CLI: `holos review {list-stagin
 Blocks auto-promotion: every core subsurface feature requires explicit human approval. Enables testing 
 B1/B2/B3 extraction against real Chicago data.
 
+### 2026-07-12 — Source-of-truth model: repo owns build, Notion owns human layer
+
+**Governance migration:** moving build tracking from Notion into the repo (TASKS.md), completing data-source registry in config/sources.yaml, keeping Notion for human/business layer only.
+
+**What moved to the repo:**
+1. **TASKS.md** — single authoritative build-task tracker (replaces Notion Task Board for engineering). Grouped by phase; checkbox status; AC and BUILD FROM pointers embedded.
+2. **config/sources.yaml** — complete data-source registry with status, tier, rights, and role (replaces Data & Access Tracker spreadsheet fields).
+3. **decisions.md** — remains append-only record (humans optionally mirror to Notion Decisions Log for narrative context).
+4. **/docs/gap-register.md, /docs/roadmap.md** — pulled from Notion as permanent reference docs.
+
+**What stays in Notion (human/business layer):**
+- Pitch & strategy (investor-facing)
+- Legal & formation drafts (attorney review)
+- Financials & cap table (shareholder info)
+- Meetings & notes (team coordination)
+- Admin & credentials (access control)
+
+**Why:** Single source of truth (the repo) is queryable, versioned, and enables deterministic CI/CD gates. Notion is now a read-only mirror for narrative/legal context (humans can pull from repo as needed; repo never pulls from Notion for build decisions).
+
+**Updated CLAUDE.md to reflect:**
+- Definition of Done: update TASKS.md checkbox; append decisions.md; Notion sync is now optional
+- Session start: read TASKS.md + decisions.md (2 min), not Task Board + tracker
+- Definition of Ready: reference TASKS.md + /docs, not Notion card pointers
+
+**Breaking change:** /sync-notion is no longer part of the build loop (it was redundant once TASKS.md became authoritative). Humans can run it manually if they want to update Notion for external stakeholders, but build tasks are never blocked on Notion state.
+
 ### 2026-07-12 — Phase 1 harvester data sources (resolved ambiguity)
 Four clarifications on Phase 1 harvester scope:
 1. **No Socrata dataset for menu spending** — Chicago does not publish AMP spend as structured data; 

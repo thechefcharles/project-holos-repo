@@ -1,48 +1,115 @@
-# Machine-readable data-source registry — the REPO owns this file.
-# The pipeline reads dataset IDs / URLs from here. Human-facing acquisition STATUS and
-# notes live in the Notion "Data & Access Tracker" (Notion owns those fields).
-# Same sources, different fields — do not duplicate status here.
-#
+# Machine-readable data-source registry — the REPO owns this file (per CLAUDE.md source-of-truth model).
+# This file is the authoritative registry of all data sources: IDs, URLs, acquisition status, and rights.
 # [[VERIFY current dataset IDs on the Chicago Data Portal at build time.]]
-
-chicago:
-  socrata_base: "https://data.cityofchicago.org/resource"
-  datasets:
-    street_center_lines: "6imu-meau"     # geocode + QC backbone
-    ward_boundaries_2023: "p293-wvbd"
-    ward_offices: "f4sz-sn2p"
-    service_requests_311: "v6vf-nfxy"     # need-match join
-    # address_points: "[[verify ID]]"
-    # building_permits: "[[verify ID]]"
-
-  # Menu (AMP) spending PDFs — Chicago does not publish as Socrata dataset
-  menu_pdfs:
-    role: "source — Aldermanic Menu Fund spend, only format is PDF"
-    archive_base: "https://www.chicago.gov/content/dam/city/depts/obm"
-    url_patterns:
-      - "general/CIP/CIPDocs/AldermanicMenuPostings/{YEAR}Menu.pdf"           # older
-      - "supp_info/CIP_Archive/Aldermanic Menu/Quarterly Menu Reports Q{N} {YEAR}.pdf"  # newer quarterly
-    years_local: "2012–present"  # Charlie's files cover this range
-    notes: "Socrata has NO spending dataset; PDF archive-index discovery + local file import"
-
-ward_wise:
-  repo: "https://github.com/ward-wise/data-analysis"
-  api: "https://www.wardwisechicago.org/api/spendingitems"
-  role: "answer-key benchmark for Component A + permitted bootstrap source (label as Ward Wise-derived)"
-
-census:
-  acs_api: "https://api.census.gov/data"
-  tables:
-    median_household_income: "B19013"
 
 coordinate_systems:
   storage_web: "EPSG:4326"
   engineering: "EPSG:3435"   # IL State Plane East, US ft
   vertical: "EPSG:5703"      # NAVD88
 
-# Sources behind gates (see Notion tracker for status; do not ingest without rights):
+chicago:
+  socrata_base: "https://data.cityofchicago.org/resource"
+
+  # Reference layers (public, no special rights needed)
+  reference_data:
+    street_center_lines:
+      id: "6imu-meau"
+      tier: "public"
+      rights: "public-record"
+      status: "available"
+      role: "geocoding backbone; required for Phase 1"
+
+    ward_boundaries_2023:
+      id: "p293-wvbd"
+      tier: "public"
+      rights: "public-record"
+      status: "available"
+      role: "containment validation; ward-based analytics"
+
+    ward_offices:
+      id: "f4sz-sn2p"
+      tier: "public"
+      rights: "public-record"
+      status: "available"
+      role: "aldermanic context for spend analysis"
+
+    service_requests_311:
+      id: "v6vf-nfxy"
+      tier: "public"
+      rights: "public-record"
+      status: "available"
+      role: "need-match baseline; Tool 1 (Money Map)"
+
+    # address_points:
+    #   id: "[[verify on portal]]"
+    #   tier: "public"
+    #   rights: "public-record"
+    #   status: "to_verify"
+    #   role: "exact-match geocoding stage"
+
+    # building_permits:
+    #   id: "[[verify on portal]]"
+    #   tier: "public"
+    #   rights: "public-record"
+    #   status: "to_verify"
+    #   role: "change-detection feed (Gap 16)"
+
+  # Menu (AMP) spending PDFs — Phase 1A source
+  menu_pdfs:
+    tier: "public"
+    rights: "public-record"
+    status: "in_hand"
+    role: "Aldermanic Menu Fund spending; data for Tool 1"
+    archive_base: "https://www.chicago.gov/content/dam/city/depts/obm"
+    url_patterns:
+      - "general/CIP/CIPDocs/AldermanicMenuPostings/{YEAR}Menu.pdf"           # older (2005–~2014)
+      - "supp_info/CIP_Archive/Aldermanic Menu/Quarterly Menu Reports Q{N} {YEAR}.pdf"  # newer quarterly
+    local_archive: "2012–present"  # Charlie's files
+    notes: "Chicago does NOT publish spending on Socrata; PDF only"
+
+ward_wise:
+  tier: "public"
+  rights: "public-record"
+  status: "in_hand"
+  role: "answer-key benchmark + permitted bootstrap source (Phase 1)"
+  api: "https://www.wardwisechicago.org/api/spendingitems"
+  repo: "https://github.com/ward-wise/data-analysis"
+  label_requirement: "Never ship data without labeling it Ward Wise-derived"
+
+census:
+  tier: "public"
+  rights: "public-record"
+  status: "available"
+  role: "demographic context; Tool 1 (income/population)"
+  acs_api: "https://api.census.gov/data"
+  tables:
+    median_household_income: "B19013"
+
+# Gated & special-rights sources (Phase 2+)
 gated:
-  - name: "Terra engineering plans"    # in hand (PDF)
-  - name: "OUC utility records"
-  - name: "Private utilities (ComEd/Peoples Gas/AT&T)"  # ops.data_rights required
-  - name: "DWM water-main break history"                # FOIA
+  terra_engineering_plans:
+    tier: "gated"
+    rights: "permission-granted"
+    status: "in_hand"
+    role: "Phase 3: B1 vector PDF extraction; partner relationship"
+    format: "PDF"
+
+  ouc_utility_records:
+    tier: "gated"
+    rights: "permission-pending"
+    status: "to_obtain"
+    role: "Phase 3: utility master records from OUC agencies"
+
+  private_utilities:
+    tier: "gated"
+    rights: "permission-pending"
+    status: "legal_gate"
+    role: "ComEd/Peoples Gas/AT&T records (legal constraint; ops.data_rights required)"
+    note: "No ingestion without explicit permission row in ops.data_rights"
+
+  dwm_break_history:
+    tier: "gated"
+    rights: "foia"
+    status: "foia_filed"
+    role: "Phase 4: survival-model training labels for maintenance forecasting (Gap 4)"
+    note: "Filed as FOIA request; months of lead time expected"

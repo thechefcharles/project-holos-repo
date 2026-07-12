@@ -33,46 +33,49 @@ georeferenced digital twin — above and below ground. Read `/docs/master-brief.
 
 ---
 
-## SOURCE OF TRUTH — read before touching Notion or docs
+## SOURCE OF TRUTH — read before touching code, docs, or Notion
 
 **Every fact has exactly one home. The other side is a labeled mirror, never a
 second original.**
 
-- **The repo owns anything that runs or is versioned:** code, schema, tests,
-  agent configs, `CLAUDE.md`, `/decisions.md`, and the machine-readable config
-  in `/config/*.yaml` (dataset IDs, URLs, thresholds the pipeline reads).
-- **Notion owns anything humans plan, track, or read:** the Task Board, the
-  Data / Outreach / Meetings trackers, the Decisions Log (human-facing mirror),
-  Financials, Legal, and the narrative docs.
-- **Nothing is owned by both.** Where a thing exists on both sides, the non-owner
-  copy carries a banner: *"Mirror of [X] — do not edit here."*
+### The Repo owns (build layer)
+- All code and versioned work: `holos_tools/`, tests, agent defs (`.claude/agents/`)
+- The build task tracker: **`TASKS.md`** (repo-native, updated as work progresses)
+- Decisions log: **`decisions.md`** (append-only record of engineering choices)
+- The data-source registry: **`config/sources.yaml`** (dataset IDs, URLs, status, rights)
+- Reference documentation: `/docs/master-brief.md`, `/docs/tech-spec.md`, `/docs/runbook.md`, `/docs/gap-register.md`, `/docs/roadmap.md`
+- This constitution: `CLAUDE.md` (non-negotiable rules + Definition of Done/Ready)
 
-Split-ownership rule for data sources: the **dataset ID/URL the code loads** lives
-in `/config/sources.yaml` (repo owns it); the **acquisition status/FOIA/notes**
-live in the Notion Data & Access Tracker (Notion owns those). Same source,
-different fields — never fight over who is right.
+### Notion owns (human/business layer only)
+- Pitch & strategy (investor-facing, narrative)
+- Legal drafts & formations
+- Financials & cap table
+- Meetings & notes
+- Admin & credentials
+- **NOT the build tasks** (moved to `TASKS.md`)
+- **NOT the data-source tracker** (moved to `config/sources.yaml` + decisions.md)
+- **NOT the decisions log** (moved to `decisions.md`)
 
-If the repo and Notion disagree, the **owner side wins**; fix the mirror, and note
-the reconciliation in `/decisions.md`.
+### No mirrors, no duplication
+- If a build task appears anywhere in Notion, it's historical context only. The source of truth is `TASKS.md`.
+- If a decision needs recording, append it to `/decisions.md` (repo), which is automatically mirrored to Notion by humans as needed.
+- If a data source status changes, update `config/sources.yaml` (repo) and note the change in decisions.md.
+- **Notion updates are manual and optional** (humans pull from the repo); they never drive build work.
 
-## NOTION SYNC — part of every task, not an afterthought
+## DEFINITION OF DONE — a task is complete only when ALL are true
 
-Notion is reachable through the Notion MCP. Keeping it current is a step in the
-Definition of Done, not optional.
-
-**Definition of Done — a task is complete only when ALL are true:**
 1. Tests pass.
 2. Work is committed to git.
-3. **Notion is updated:** Task Board status set (Done / In progress), any decision
-   appended to `/decisions.md` AND mirrored to the Notion Decisions Log, and any
-   affected tracker updated (Data & Access, Outreach, Meetings).
+3. **TASKS.md updated:** task status set to `[x]` (Done), acceptance criteria met, any decision appended to `/decisions.md`.
+4. **Notion updates are optional** (humans mirror the decision log if needed for narrative/legal tracking).
 
-**Do it the easy way:** run `/sync-notion` at the end of a task — it performs all
-of the above in one consistent routine and writes the sync marker.
+### At session start
+Read these files in order (in 2 minutes, not hours):
+1. **`TASKS.md`** — open tasks by phase; prioritize "This week", then Phase 1
+2. **`decisions.md`** — latest 5 entries; understand the current assumptions
+3. **`.claude/agents/*.md`** — current agent defs if you're calling an agent
 
-**At session start:** pull open tasks from the Notion Task Board (prioritize
-`This week`, then Phase 1, Status `Not started` / `In progress`) and read the
-latest `/decisions.md` entries so you never work from stale assumptions.
+You never work from stale assumptions because the repo is the single source of truth.
 
 **Critical rule:** Do NOT modify CLAUDE.md's non-negotiable rules or Definition of Done
 without explicit user approval. Propose changes and wait.
@@ -92,12 +95,12 @@ password manager; the Notion Admin folder holds references only.
 
 A task is not ready to build until you have done ALL of the following and posted the result for approval. Never build from a task title alone.
 
-1. **Read the source docs for this task.** Every Phase 1 task's Notion card names a "BUILD FROM:" pointer — read that section of `/docs/tech-spec.md` and/or `/docs/runbook.md`, plus the Master Brief section if named.
-2. **Check the inputs it depends on:** `config/*.yaml` (source/threshold registry), the Notion Data & Access Tracker (rights + acquisition status), and `decisions.md`.
+1. **Read the source docs for this task.** Find the task in `TASKS.md`; the "BUILD FROM:" field points to `/docs/tech-spec.md`, `/docs/runbook.md`, `/docs/gap-register.md`, or `/docs/roadmap.md`. Read that section completely.
+2. **Check the inputs it depends on:** `config/sources.yaml` (data registry + status + rights), `decisions.md` (prior decisions that affect this task).
 3. **Post a SCOPE before touching code:**
-   - The acceptance criteria (copy from the task's AC on the board; if missing, derive from tech-spec/runbook and confirm first).
+   - The acceptance criteria (from `TASKS.md`; if missing, derive from source docs and confirm first).
    - Inputs → outputs (what it reads, what it produces, which schema/table/CLI).
-   - Which documents you are building from (cite them).
+   - Which documents you are building from (cite them, specific sections).
    - Anything ambiguous or missing → ask ONE specific question, don't guess.
 
 Only after the scope is approved do you write code. This ritual runs at the start of every task, not just every session.
@@ -111,7 +114,8 @@ Do NOT ask open-ended questions like "should I proceed, or is there something yo
 ## Commands you will use constantly
 - `uv run holos --help`  ·  `uv run pytest golden/ -x`  ·  `docker compose up -d hub`
 - `holos validate all --changeset <id>` before requesting any review.
-- `/sync-notion` at the end of every task.
+- **Update `TASKS.md`** with task status as you work (repo is now the source of truth for build tasks).
+- **Append to `decisions.md`** whenever a decision is made (append-only; humans mirror to Notion if needed).
 
 ## Style
 Python 3.12, typed, ruff. SQL migrations in `/db/migrations`. Small PRs.
