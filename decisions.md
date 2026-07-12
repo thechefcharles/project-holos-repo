@@ -49,6 +49,14 @@ Changed `LIKE '%' || access_tier || '%'` to `access_tier = ANY (string_to_array(
 core.spending_projects RLS policy to prevent substring injection. Hardcoded role password
 removed; password must be set via `ALTER ROLE ... WITH PASSWORD` from environment variable.
 
+### 2026-07-12 — Geocode cascade architecture: multi-stage fallthrough
+Cascade stages 1–5 (exact/interpolated matches on local ref data) fail on real benchmarks
+because spending records use approximations, not surveyed coordinates. Stage 6 (Census Geocoder
++ Nominatim) bridges the gap. Census API is flaky; Nominatim (OSM, self-hosted or public) is
+reliable fallback. Stage 7 (LLM candidate selection) deferred—implement only if multiple stages
+return conflicting coordinates (rare in Chicago). Decision: prioritize Stage 6 stability; use
+Nominatim with public API for now, migrate to self-hosted if rate limits hit.
+
 ### 2026-07-12 — Five-command CLI hierarchy
 - holos harvest: discover, download, manifest sources (Socrata, HTTP URLs)
 - holos extract: convert PDFs/CADs/scans to rows (chains A1/B1/B2/B3)
