@@ -41,10 +41,16 @@ Last updated: 2026-07-12
 
 ### Phase 1B — Reference data + geocoding
 
-- [ ] **Load reference layers** (Component: Hub)
-  - Owner: TBD
+- [x] **Load reference layers** (Component: Hub)
+  - Owner: Claude Code
   - BUILD FROM: tech-spec Chain A2
   - AC: centerlines, ward boundaries (2023 + prior), address points, 311, Census loaded to `ref` schema with vintage metadata
+  - Status: **DONE** (2026-07-12)
+    - ✓ CLI built: `holos load reference` (EPSG:4326, CSV→PostGIS, GeoDataFrame handling)
+    - ✓ Golden tests: test_load_reference.py (CSV with/without geometry, derived tables)
+    - ✓ Integration: harvest + load pipeline (Socrata → CSV → ref.* schema)
+    - ✓ Derived tables: ref.intersections, ref.gazetteer auto-created
+    - ✓ Vintage metadata: timestamp captured per load
 
 - [ ] **Geocode cascade end-to-end vs Ward Wise benchmark** (Component: A - Civic)
   - Owner: TBD

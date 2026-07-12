@@ -172,6 +172,17 @@ Four clarifications on Phase 1 harvester scope:
    PDF download+checksum, only-config sources enforced, idempotency (skip if already present). 
    Distinct from geocoding golden set (chicago_spending_golden.json is for location→geometry validation).
 
+### 2026-07-12 — Phase 1B reference data loader: Socrata → CSV → PostGIS (Chain A2)
+
+**holos load reference** orchestrates Chain A2 (reference layer acquisition + foundation load):
+1. **Harvest** — Call `holos harvest socrata` for centerlines (6imu-meau), wards (p293-wvbd), 311 (v6vf-nfxy); returns CSV manifests in raw/socrata/
+2. **Load** — Parse CSV; detect geometry column (WKT); use GeoDataFrame for spatial data, regular DataFrame for tabular (311)
+3. **Derived tables** — Auto-create ref.intersections (centerline + ward spatial join), ref.gazetteer (street-name index for Stage 5 cascade)
+4. **Metadata** — Vintage timestamp per load; schemas stable at ref.centerlines, ref.wards, ref.sr311, ref.intersections, ref.gazetteer
+5. **Integration** — Reference loader chains downstream: geocode cascade uses ref.* for boundary containment (Stage 2), intersection finding (Stage 3), gazetteer lookup (Stage 5)
+
+Census/ACS data (B19013 median income) deferred to Phase 2 (subsurface integration layer; currently stubbed in config/sources.yaml).
+
 ---
 
 *Add new decisions below this line.*
