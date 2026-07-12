@@ -1,0 +1,13 @@
+{
+  "doc_id": "Menu%20Program%20Report%20-%20Q4_2023%20Update",
+  "source_path": "raw/menu_pdfs/2026-07-12/Menu%20Program%20Report%20-%20Q4_2023%20Update.pdf",
+  "page_count": 152,
+  "total_chars": 1797058,
+  "avg_chars_per_page": 11822.8,
+  "has_images": 309,
+  "classification": "text-native",
+  "confidence": 0.89,
+  "extraction_method": "pdfplumber",
+  "reasoning": "High text content (11823 chars/page, threshold 100)",
+  "classified_at": "2026-07-12T23:24:30.683018"
+}

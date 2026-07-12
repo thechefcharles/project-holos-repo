@@ -1,0 +1,13 @@
+{
+  "doc_id": "AMR-2024-(Q1-Q3)",
+  "source_path": "raw/menu_pdfs/2026-07-12/AMR-2024-(Q1-Q3).pdf",
+  "page_count": 148,
+  "total_chars": 241544,
+  "avg_chars_per_page": 1632.1,
+  "has_images": 289,
+  "classification": "text-native",
+  "confidence": 0.89,
+  "extraction_method": "pdfplumber",
+  "reasoning": "High text content (1632 chars/page, threshold 100)",
+  "classified_at": "2026-07-12T23:24:13.239606"
+}

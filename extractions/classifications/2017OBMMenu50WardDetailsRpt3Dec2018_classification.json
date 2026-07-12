@@ -1,0 +1,13 @@
+{
+  "doc_id": "2017OBMMenu50WardDetailsRpt3Dec2018",
+  "source_path": "raw/menu_pdfs/2026-07-12/2017OBMMenu50WardDetailsRpt3Dec2018.pdf",
+  "page_count": 145,
+  "total_chars": 229203,
+  "avg_chars_per_page": 1580.7,
+  "has_images": 0,
+  "classification": "text-native",
+  "confidence": 0.99,
+  "extraction_method": "pdfplumber",
+  "reasoning": "High text content (1581 chars/page, threshold 100)",
+  "classified_at": "2026-07-12T23:23:24.863791"
+}

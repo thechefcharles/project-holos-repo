@@ -1,0 +1,13 @@
+{
+  "doc_id": "2022%20Menu%20-%202-9-23",
+  "source_path": "raw/menu_pdfs/2026-07-12/2022%20Menu%20-%202-9-23.pdf",
+  "page_count": 155,
+  "total_chars": 262704,
+  "avg_chars_per_page": 1694.9,
+  "has_images": 310,
+  "classification": "text-native",
+  "confidence": 0.89,
+  "extraction_method": "pdfplumber",
+  "reasoning": "High text content (1695 chars/page, threshold 100)",
+  "classified_at": "2026-07-12T23:24:04.560385"
+}

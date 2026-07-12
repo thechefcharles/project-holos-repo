@@ -1,0 +1,13 @@
+{
+  "doc_id": "2012Menu",
+  "source_path": "raw/menu_pdfs/2026-07-12/2012Menu.pdf",
+  "page_count": 317,
+  "total_chars": 255763,
+  "avg_chars_per_page": 806.8,
+  "has_images": 634,
+  "classification": "text-native",
+  "confidence": 0.83,
+  "extraction_method": "pdfplumber",
+  "reasoning": "High text content (807 chars/page, threshold 100)",
+  "classified_at": "2026-07-12T23:22:06.421211"
+}

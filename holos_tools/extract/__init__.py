@@ -3,7 +3,9 @@
 import json
 from pathlib import Path
 from typing import Optional
+from datetime import datetime
 import typer
+from .classify import classify_pdfs_in_directory
 
 app = typer.Typer(help="Extract structured data from documents (PDFs, CADs, scans)")
 
@@ -65,6 +67,102 @@ def pdf_tables(
     except Exception as e:
         typer.echo(f"✗ Failed to extract from {doc_path}: {e}", err=True)
         raise typer.Exit(1)
+
+
+@app.command()
+def classify(
+    source_dir: str = typer.Option(
+        "raw/menu_pdfs/2026-07-12",
+        help="Directory containing PDFs to classify"
+    ),
+    output_dir: str = typer.Option(
+        "extractions/classifications",
+        help="Directory to write classification JSONs"
+    ),
+    threshold: int = typer.Option(
+        100,
+        help="Minimum avg chars/page for text-native classification"
+    ),
+):
+    """Classify PDFs as text-native or scanned (Step 2).
+
+    Reads all PDFs from source_dir, classifies each using character-count
+    heuristic, and writes classification JSON to output_dir.
+
+    Classification:
+    - text-native (>= threshold chars/page) → extract with pdfplumber
+    - scanned (< threshold chars/page) → extract with OCR
+
+    Outputs:
+    - {doc_id}_classification.json per PDF
+    - classification_report.json (summary)
+    """
+    source_path = Path(source_dir)
+    output_path = Path(output_dir)
+
+    if not source_path.exists():
+        typer.echo(f"✗ Source directory not found: {source_path}", err=True)
+        raise typer.Exit(1)
+
+    typer.echo(f"📄 Classifying PDFs from {source_path}...\n")
+
+    try:
+        results = classify_pdfs_in_directory(source_path, output_path, threshold)
+    except Exception as e:
+        typer.echo(f"✗ Classification failed: {e}", err=True)
+        raise typer.Exit(1)
+
+    if not results:
+        typer.echo("✗ No PDFs found to classify", err=True)
+        raise typer.Exit(1)
+
+    # Summary
+    text_native = sum(1 for r in results if r.classification == "text-native")
+    scanned = sum(1 for r in results if r.classification == "scanned")
+
+    typer.echo(f"\n{'─'*70}")
+    typer.echo(f"📊 Classification Summary:")
+    typer.echo(f"  ✓ Text-native: {text_native} PDFs (→ pdfplumber)")
+    typer.echo(f"  ✓ Scanned: {scanned} PDFs (→ OCR)")
+    typer.echo(f"  📁 Saved to: {output_path.resolve()}")
+    typer.echo(f"{'─'*70}\n")
+
+    # Detailed results
+    typer.echo("Classification Details:\n")
+    for result in sorted(results, key=lambda r: r.doc_id):
+        method = "📝" if result.classification == "text-native" else "🔍"
+        typer.echo(
+            f"  {method} {result.doc_id:30s} | "
+            f"{result.avg_chars_per_page:7.1f} chars/page | "
+            f"{result.classification:12s} | "
+            f"conf {result.confidence:.2f}"
+        )
+
+    # Write master classification report
+    report = {
+        "timestamp": datetime.utcnow().isoformat(),
+        "source_dir": str(source_path.resolve()),
+        "output_dir": str(output_path.resolve()),
+        "total_pdfs": len(results),
+        "text_native_count": text_native,
+        "scanned_count": scanned,
+        "threshold_chars_per_page": threshold,
+        "classifications": [
+            {
+                "doc_id": r.doc_id,
+                "classification": r.classification,
+                "avg_chars_per_page": r.avg_chars_per_page,
+                "confidence": r.confidence,
+                "extraction_method": r.extraction_method,
+                "reasoning": r.reasoning,
+            }
+            for r in results
+        ],
+    }
+
+    report_path = output_path / "classification_report.json"
+    report_path.write_text(json.dumps(report, indent=2))
+    typer.echo(f"\n✓ Report written: {report_path}\n")
 
 
 # NOTE: B1 (pdf_vector), B2 (raster_plate), B3 (native_cad) extraction chains

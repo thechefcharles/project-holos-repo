@@ -1,0 +1,13 @@
+{
+  "doc_id": "Menu Report 2025 Q4",
+  "source_path": "raw/menu_pdfs/2026-07-12/Menu Report 2025 Q4.pdf",
+  "page_count": 144,
+  "total_chars": 231500,
+  "avg_chars_per_page": 1607.6,
+  "has_images": 284,
+  "classification": "text-native",
+  "confidence": 0.89,
+  "extraction_method": "pdfplumber",
+  "reasoning": "High text content (1608 chars/page, threshold 100)",
+  "classified_at": "2026-07-12T23:24:21.865097"
+}

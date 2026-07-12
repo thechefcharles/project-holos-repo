@@ -1,0 +1,13 @@
+{
+  "doc_id": "2016Menu",
+  "source_path": "raw/menu_pdfs/2026-07-12/2016Menu.pdf",
+  "page_count": 353,
+  "total_chars": 279481,
+  "avg_chars_per_page": 791.7,
+  "has_images": 706,
+  "classification": "text-native",
+  "confidence": 0.83,
+  "extraction_method": "pdfplumber",
+  "reasoning": "High text content (792 chars/page, threshold 100)",
+  "classified_at": "2026-07-12T23:23:17.127454"
+}

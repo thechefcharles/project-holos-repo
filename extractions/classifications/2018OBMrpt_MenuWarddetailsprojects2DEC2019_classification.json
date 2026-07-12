@@ -1,0 +1,13 @@
+{
+  "doc_id": "2018OBMrpt_MenuWarddetailsprojects2DEC2019",
+  "source_path": "raw/menu_pdfs/2026-07-12/2018OBMrpt_MenuWarddetailsprojects2DEC2019.pdf",
+  "page_count": 153,
+  "total_chars": 211464,
+  "avg_chars_per_page": 1382.1,
+  "has_images": 0,
+  "classification": "text-native",
+  "confidence": 0.99,
+  "extraction_method": "pdfplumber",
+  "reasoning": "High text content (1382 chars/page, threshold 100)",
+  "classified_at": "2026-07-12T23:23:31.760664"
+}

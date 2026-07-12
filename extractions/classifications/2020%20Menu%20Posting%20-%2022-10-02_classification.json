@@ -1,0 +1,13 @@
+{
+  "doc_id": "2020%20Menu%20Posting%20-%2022-10-02",
+  "source_path": "raw/menu_pdfs/2026-07-12/2020%20Menu%20Posting%20-%2022-10-02.pdf",
+  "page_count": 134,
+  "total_chars": 222553,
+  "avg_chars_per_page": 1660.8,
+  "has_images": 268,
+  "classification": "text-native",
+  "confidence": 0.89,
+  "extraction_method": "pdfplumber",
+  "reasoning": "High text content (1661 chars/page, threshold 100)",
+  "classified_at": "2026-07-12T23:23:47.061183"
+}

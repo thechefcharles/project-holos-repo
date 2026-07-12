@@ -1,0 +1,131 @@
+{
+  "timestamp": "2026-07-12T23:24:40.170702",
+  "source_dir": "/Users/admin/Charlie Foreman/My Projects/Project Holos/project-holos-repo/raw/menu_pdfs/2026-07-12",
+  "output_dir": "/Users/admin/Charlie Foreman/My Projects/Project Holos/project-holos-repo/extractions/classifications",
+  "total_pdfs": 15,
+  "text_native_count": 15,
+  "scanned_count": 0,
+  "threshold_chars_per_page": 100,
+  "classifications": [
+    {
+      "doc_id": "2012Menu",
+      "classification": "text-native",
+      "avg_chars_per_page": 806.8,
+      "confidence": 0.83,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (807 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "2013Menu",
+      "classification": "text-native",
+      "avg_chars_per_page": 821.7,
+      "confidence": 0.83,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (822 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "2014Menu",
+      "classification": "text-native",
+      "avg_chars_per_page": 848.1,
+      "confidence": 0.83,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (848 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "2015Menu",
+      "classification": "text-native",
+      "avg_chars_per_page": 946.8,
+      "confidence": 0.84,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (947 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "2016Menu",
+      "classification": "text-native",
+      "avg_chars_per_page": 791.7,
+      "confidence": 0.83,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (792 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "2017OBMMenu50WardDetailsRpt3Dec2018",
+      "classification": "text-native",
+      "avg_chars_per_page": 1580.7,
+      "confidence": 0.99,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (1581 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "2018OBMrpt_MenuWarddetailsprojects2DEC2019",
+      "classification": "text-native",
+      "avg_chars_per_page": 1382.1,
+      "confidence": 0.99,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (1382 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "2019%20Menu%20Posting%20-%2022-10-02",
+      "classification": "text-native",
+      "avg_chars_per_page": 1638.7,
+      "confidence": 0.89,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (1639 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "2020%20Menu%20Posting%20-%2022-10-02",
+      "classification": "text-native",
+      "avg_chars_per_page": 1660.8,
+      "confidence": 0.89,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (1661 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "2021%20Menu%20Posting%20-%2022-10-02",
+      "classification": "text-native",
+      "avg_chars_per_page": 1686.5,
+      "confidence": 0.89,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (1687 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "2022%20Menu%20-%202-9-23",
+      "classification": "text-native",
+      "avg_chars_per_page": 1694.9,
+      "confidence": 0.89,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (1695 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "AMR-2024-(Q1-Q3)",
+      "classification": "text-native",
+      "avg_chars_per_page": 1632.1,
+      "confidence": 0.89,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (1632 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "Menu Report 2025 Q4",
+      "classification": "text-native",
+      "avg_chars_per_page": 1607.6,
+      "confidence": 0.89,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (1608 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "Menu%20Program%20Report%20-%20Q4_2023%20Update",
+      "classification": "text-native",
+      "avg_chars_per_page": 11822.8,
+      "confidence": 0.89,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (11823 chars/page, threshold 100)"
+    },
+    {
+      "doc_id": "Quarterly Menu Reports Q4 2024",
+      "classification": "text-native",
+      "avg_chars_per_page": 1642.9,
+      "confidence": 0.89,
+      "extraction_method": "pdfplumber",
+      "reasoning": "High text content (1643 chars/page, threshold 100)"
+    }
+  ]
+}
