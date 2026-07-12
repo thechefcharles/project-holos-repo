@@ -1,4 +1,4 @@
-"""Harvest: discover, download, and manifest data sources."""
+"""Harvest: discover, download, and manifest data sources (never parse)."""
 
 import json
 import hashlib
@@ -7,94 +7,145 @@ from pathlib import Path
 from typing import Optional
 import httpx
 import typer
-from ..core import Config, insert_source_record
+import yaml
+from ..core import Config
 
-app = typer.Typer(help="Harvest data sources (download, manifest, validate)")
+app = typer.Typer(help="Harvest data sources (download + manifest only, never parse)")
+
+
+def _load_sources_config() -> dict:
+    """Load config/sources.yaml and return the config dict."""
+    with open("config/sources.yaml") as f:
+        return yaml.safe_load(f)
+
+
+def _sha256_file(data: bytes) -> str:
+    """Compute SHA256 checksum of bytes."""
+    return hashlib.sha256(data).hexdigest()
+
+
+def _compute_manifest(
+    source_id: str, url: str, data: bytes, acquisition_method: str
+) -> dict:
+    """Build a manifest entry."""
+    return {
+        "source_id": source_id,
+        "url": url,
+        "checksum": f"sha256:{_sha256_file(data)}",
+        "retrieved_at": datetime.utcnow().isoformat(),
+        "size_bytes": len(data),
+        "acquisition_method": acquisition_method,
+    }
 
 
 @app.command()
 def socrata(
-    dataset_id: str = typer.Option(..., help="Socrata dataset ID"),
-    output_dir: str = typer.Option("raw/sources", help="Output directory"),
-    source_id: str = typer.Option(None, help="Source registry ID (auto-detect if not provided)"),
+    dataset: str = typer.Option(..., help="Socrata dataset ID"),
 ):
-    """Download a Socrata dataset and create a manifest."""
-    config = Config()
-    output_path = Path(output_dir)
-    output_path.mkdir(parents=True, exist_ok=True)
+    """Download a Socrata dataset reference layer and create a manifest.
+
+    Whitelisted by config/sources.yaml. Idempotent: skips if checksum matches.
+    """
+    config = _load_sources_config()
+
+    # Verify dataset is in config
+    socrata_datasets = config.get("chicago", {}).get("datasets", {})
+    if dataset not in socrata_datasets:
+        typer.echo(f"✗ Dataset {dataset} not in config/sources.yaml", err=True)
+        raise typer.Exit(1)
+
+    timestamp = datetime.utcnow().strftime("%Y-%m-%d")
+    source_dir = Path(f"raw/socrata/{dataset}/{timestamp}")
+    source_dir.mkdir(parents=True, exist_ok=True)
 
     try:
-        url = f"https://data.cityofchicago.org/api/views/{dataset_id}/rows.csv"
+        url = f"https://data.cityofchicago.org/api/views/{dataset}/rows.csv"
         response = httpx.get(url, timeout=30.0)
         response.raise_for_status()
+        data = response.content
 
-        timestamp = datetime.utcnow().isoformat()
-        filename = f"{dataset_id}-{timestamp.split('T')[0]}.csv"
-        filepath = output_path / filename
+        filename = f"{dataset}.csv"
+        filepath = source_dir / filename
+        checksum = _sha256_file(data)
 
-        filepath.write_bytes(response.content)
-        checksum = hashlib.sha256(response.content).hexdigest()
+        # Idempotency: check if file exists with same checksum
+        manifest_path = source_dir / f"{dataset}.json"
+        if filepath.exists() and manifest_path.exists():
+            existing_manifest = json.loads(manifest_path.read_text())
+            if existing_manifest.get("checksum") == f"sha256:{checksum}":
+                typer.echo(f"✓ Skipped {dataset} (already downloaded, checksum match)")
+                return
 
-        manifest = {
-            "source_id": source_id or f"socrata_{dataset_id}",
-            "url": url,
-            "checksum": f"sha256:{checksum}",
-            "retrieved_at": timestamp,
-            "dataset_id": dataset_id,
-            "size_bytes": len(response.content),
-        }
-
-        manifest_path = filepath.with_suffix(".json")
+        filepath.write_bytes(data)
+        manifest = _compute_manifest(f"socrata_{dataset}", url, data, "socrata_api")
         manifest_path.write_text(json.dumps(manifest, indent=2))
 
-        typer.echo(f"✓ Downloaded {dataset_id} → {filepath}")
+        typer.echo(f"✓ Downloaded {dataset} → {filepath}")
         typer.echo(f"  Checksum: {checksum}")
         typer.echo(f"  Manifest: {manifest_path}")
 
-    except Exception as e:
-        typer.echo(f"✗ Failed to harvest {dataset_id}: {e}", err=True)
+    except httpx.HTTPError as e:
+        typer.echo(f"✗ Download failed for {dataset}: {e}", err=True)
         raise typer.Exit(1)
 
 
 @app.command()
 def url(
-    source_url: str = typer.Option(..., help="URL to download"),
-    output_dir: str = typer.Option("raw/sources", help="Output directory"),
+    source_url: str = typer.Option(..., help="URL or local file path to harvest"),
     source_id: str = typer.Option(..., help="Source registry ID"),
 ):
-    """Download from a URL and create a manifest."""
-    output_path = Path(output_dir)
-    output_path.mkdir(parents=True, exist_ok=True)
+    """Download from URL or ingest local file; create manifest. Idempotent."""
+    config = _load_sources_config()
+
+    # Verify source is in config
+    config_sources = config.get("chicago", {}).get("menu_pdfs", {})
+    if source_id not in config_sources and source_id != "menu_pdfs":
+        typer.echo(f"✗ Source {source_id} not in config/sources.yaml", err=True)
+        raise typer.Exit(1)
+
+    timestamp = datetime.utcnow().strftime("%Y-%m-%d")
+    source_dir = Path(f"raw/{source_id}/{timestamp}")
+    source_dir.mkdir(parents=True, exist_ok=True)
 
     try:
-        response = httpx.get(source_url, timeout=60.0)
-        response.raise_for_status()
-
-        timestamp = datetime.utcnow().isoformat()
-        filename = f"{source_id}-{timestamp.split('T')[0]}"
-        if "." not in source_url.split("/")[-1]:
-            filename += ".bin"
+        # Check if it's a local file
+        local_path = Path(source_url)
+        if local_path.exists() and local_path.is_file():
+            data = local_path.read_bytes()
+            filename = local_path.name
+            acquisition = "local_file"
+            url_for_manifest = f"file://{local_path.resolve()}"
         else:
-            filename = source_url.split("/")[-1]
+            # Download from URL
+            response = httpx.get(source_url, timeout=60.0)
+            response.raise_for_status()
+            data = response.content
+            filename = source_url.split("/")[-1] or "download"
+            acquisition = "http_download"
+            url_for_manifest = source_url
 
-        filepath = output_path / filename
-        filepath.write_bytes(response.content)
-        checksum = hashlib.sha256(response.content).hexdigest()
+        filepath = source_dir / filename
+        checksum = _sha256_file(data)
+        manifest_path = source_dir / f"{filename}.json"
 
-        manifest = {
-            "source_id": source_id,
-            "url": source_url,
-            "checksum": f"sha256:{checksum}",
-            "retrieved_at": timestamp,
-            "size_bytes": len(response.content),
-        }
+        # Idempotency: skip if checksum matches
+        if filepath.exists() and manifest_path.exists():
+            existing_manifest = json.loads(manifest_path.read_text())
+            if existing_manifest.get("checksum") == f"sha256:{checksum}":
+                typer.echo(f"✓ Skipped {source_id}/{filename} (checksum match)")
+                return
 
-        manifest_path = filepath.with_suffix(".json")
+        filepath.write_bytes(data)
+        manifest = _compute_manifest(source_id, url_for_manifest, data, acquisition)
         manifest_path.write_text(json.dumps(manifest, indent=2))
 
-        typer.echo(f"✓ Downloaded {source_id} → {filepath}")
+        typer.echo(f"✓ Harvested {source_id}/{filename} → {filepath}")
         typer.echo(f"  Checksum: {checksum}")
+        typer.echo(f"  Manifest: {manifest_path}")
 
-    except Exception as e:
-        typer.echo(f"✗ Failed to download {source_url}: {e}", err=True)
+    except httpx.HTTPError as e:
+        typer.echo(f"✗ Download failed for {source_url}: {e}", err=True)
+        raise typer.Exit(1)
+    except FileNotFoundError as e:
+        typer.echo(f"✗ Local file not found: {source_url}", err=True)
         raise typer.Exit(1)
