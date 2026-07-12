@@ -27,11 +27,16 @@ Last updated: 2026-07-12
   - Blocked by: none
   - Next: Phase 1B
 
-- [x] **Build the Harvester (menu PDFs + Socrata) — holos harvest** (Component: A - Civic)
+- [ ] **Build the Harvester (menu PDFs + Socrata) — holos harvest** (Component: A - Civic)
   - Owner: Claude Code
   - BUILD FROM: tech-spec Chain A1 §1 + config/sources.yaml + Data & Access Tracker
   - AC: (1) holos harvest socrata downloads reference layers with manifest; (2) holos harvest url handles menu PDFs; (3) only config/sources.yaml sources allowed; (4) golden test + idempotency verified; (5) zero parsing
-  - Status: **CLI COMPLETE, AGENT PENDING** (2026-07-12)
+  - Status: **IN PROGRESS** (2026-07-12)
+    - ✓ CLI built: `holos harvest socrata` + `holos harvest url`
+    - ✓ CLI golden tests written (test_harvest.py)
+    - → Agent built: holos_tools/harvest/agent.py (orchestrates CLI, outputs JSON)
+    - → Agent golden tests written (test_harvester_agent.py)
+    - ⏳ Testing & review pending
 
 ### Phase 1B — Reference data + geocoding
 
