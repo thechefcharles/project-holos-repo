@@ -79,11 +79,14 @@ Last updated: 2026-07-12
       * Root cause: benchmark addresses do not have exact point matches in Ward Wise dataset
       * Example: "3327 N NEW ENGLAND AVE" → parser now correctly extracts (number=3327, street=NEW ENGLAND), but address doesn't exist in ref.address_points
       * This is realistic—spending records use approximations, not surveyed coordinates
-    - ⊘ Stages 0/6/7: REQUIRED for ≥90%
-      * Stage 0 Cache: hash-based memoization (quick win, low priority)
-      * Stage 6 External: **Census Geocoder (free, FIPS-based)** + **Nominatim (self-hosted, OSM data)**
-      * Stage 7 LLM selection: Claude API to pick best candidate when multiple geocoders return hits
-      * Stages 6–7 will handle addresses without exact point matches
+    - ✓ Stage 6 (external geocoders) wired:
+      * Census Geocoder (U.S., free, no key): API call hangs/slow—needs optimization
+      * Nominatim (global, OSM data): ready, fallback for Census
+      * Status: implemented but Census API unreliable; Nominatim is safe fallback
+    - ⊘ Stage 7 LLM selection: PENDING
+      * When multiple geocoders return hits (different coords), use Claude to select best
+      * Implement after Stage 6 proves reliable
+    - ⊘ Stage 0 Cache: deferred (low ROI for Phase 1B)
     - ⊘ Parser improvements (Phase 1B→Phase 2):
       * Fixed semicolon handling (now splits on `;` and takes first address)
       * Still needed: handle intersections (`&` delimited), street-name repair (rapidfuzz)

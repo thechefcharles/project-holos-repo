@@ -11,6 +11,12 @@ try:
 except ImportError:
     psycopg = None
 
+try:
+    from .stage6_external import CensusGeocoder, NominatimGeocoder
+except ImportError:
+    CensusGeocoder = None
+    NominatimGeocoder = None
+
 
 class PostgresDB:
     """PostgreSQL database connection wrapper."""
@@ -173,6 +179,11 @@ class GeocodeCascade:
             result = stage_func(norm_text, parsed, location_text)
             if result and result.score > 0:
                 return result
+
+        # Try Stage 6: External geocoders (Census + Nominatim)
+        result = self.stage_6_external(location_text, norm_text)
+        if result and result.score > 0:
+            return result
 
         # All stages failed
         return GeocodeResult(
@@ -377,5 +388,39 @@ class GeocodeCascade:
                 score=0.90,
                 reason=f"Named place: {row.get('name', place_search)}"
             )
+
+        return None
+
+    def stage_6_external(self, raw_text: str, norm_text: str) -> Optional[GeocodeResult]:
+        """Stage 6: External geocoders (Census Geocoder + Nominatim fallback)."""
+        if not raw_text:
+            return None
+
+        # Try Census Geocoder first (free, U.S. coverage)
+        if CensusGeocoder:
+            result = CensusGeocoder.geocode(raw_text)
+            if result:
+                return GeocodeResult(
+                    stage=6,
+                    method="census_geocoder",
+                    geometry_type="POINT",
+                    coordinates=(result.lon, result.lat),
+                    score=result.score,
+                    reason=f"Census Geocoder: {result.match_type}"
+                )
+
+        # Fallback: Nominatim (OpenStreetMap, global coverage)
+        if NominatimGeocoder:
+            result = NominatimGeocoder.geocode(raw_text)
+            if result:
+                lon, lat, score = result
+                return GeocodeResult(
+                    stage=6,
+                    method="nominatim",
+                    geometry_type="POINT",
+                    coordinates=(lon, lat),
+                    score=score,
+                    reason="Nominatim (OSM)"
+                )
 
         return None
