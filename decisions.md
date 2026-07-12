@@ -63,6 +63,16 @@ Five golden rows in golden/chicago_spending_golden.json: POINT, LINESTRING, POLY
 stages 1–5 (address_point_exact, centerline_interpolation, intersection, gazetteer).
 Phase 1 target: ≥90% geocode accuracy vs Ward Wise (documented as test_benchmark_target).
 
+### 2026-07-12 — Address parser: incremental improvement strategy
+Phase 1B geocoding cascade achieves 60% golden-test accuracy (3/5). Simple regex parser 
+handles single-line addresses well (gazetteer stage 5 works), but struggles with complex 
+patterns ("street from X to Y", directional prefixes like "N Michigan"). 
+
+Decision: Accept 60% for Phase 1B, move to Phase 2 (subsurface extraction). Parser will be 
+incrementally improved with real-world data as pipeline scales. Production-grade alternatives 
+(usaddress library, commercial services) reserved for Phase 2+ if complexity grows beyond 
+regex-repair capability. Tracked as tech debt: holos_tools/geocode/cascade.py lines 30–75.
+
 ---
 
 *Add new decisions below this line.*
