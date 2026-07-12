@@ -149,17 +149,17 @@ class GeocodeCascade:
             return None
 
         # Query address_points for exact match
-        # Schema has: address_number (INT), street_name (TEXT), geom (GEOMETRY)
-        # Use PostGIS ST_X/ST_Y to extract coordinates from geometry
+        # SCHEMA DRIFT FIX: table has add_number (float string), st_name (text), geom
+        # Use numeric comparison to handle float-formatted house numbers (3327.0 vs 3327)
         sql = """
             SELECT ST_X(geom) as lon, ST_Y(geom) as lat
             FROM ref.address_points
-            WHERE address_number = %(address_number)s
-              AND UPPER(street_name) = UPPER(%(street_name)s)
+            WHERE add_number::numeric = %(house_num)s::numeric
+              AND UPPER(st_name) = UPPER(%(street_name)s)
             LIMIT 1
         """
         result = self.query(sql, {
-            "address_number": int(number) if isinstance(number, str) else number,
+            "house_num": int(number) if isinstance(number, str) else number,
             "street_name": street
         })
 
