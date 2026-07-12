@@ -21,7 +21,7 @@ class GeocodeResult:
 class GeocodeNormalizer:
     """Stage 0: Normalize address text."""
 
-    # Abbreviations to expand
+    # Abbreviations to expand (suffix-only, not directions)
     ABBREVIATIONS = {
         r'\bST\b': 'STREET',
         r'\bAVE\b': 'AVENUE',
@@ -31,11 +31,8 @@ class GeocodeNormalizer:
         r'\bLN\b': 'LANE',
         r'\bCT\b': 'COURT',
         r'\bPL\b': 'PLACE',
-        r'\bN\b': 'NORTH',
-        r'\bS\b': 'SOUTH',
-        r'\bE\b': 'EAST',
-        r'\bW\b': 'WEST',
         r'\bPK\b': 'PARK',
+        # Don't expand directions: they're metadata, not part of street name
     }
 
     @staticmethod
@@ -87,8 +84,8 @@ class GeocodeParser:
             result["number"] = int(parts[0])
             parts = parts[1:]
 
-        # Next part: direction?
-        if parts and parts[0] in ("N", "S", "E", "W", "NE", "NW", "SE", "SW"):
+        # Next part: direction? (NORTH, SOUTH, EAST, WEST, etc.)
+        if parts and parts[0] in ("NORTH", "SOUTH", "EAST", "WEST", "NORTHEAST", "NORTHWEST", "SOUTHEAST", "SOUTHWEST"):
             result["predir"] = parts[0]
             parts = parts[1:]
 
@@ -112,6 +109,10 @@ class GeocodeCascade:
         self.db = db
         self.normalizer = GeocodeNormalizer()
         self.parser = GeocodeParser()
+
+    def query(self, sql: str, params: dict = None) -> list:
+        """Execute query and return results as list of dicts."""
+        return self.db.execute(sql, params or {})
 
     def geocode(self, location_text: str, ward: Optional[str] = None) -> GeocodeResult:
         """Run full cascade on a location."""
@@ -153,13 +154,13 @@ class GeocodeCascade:
               AND UPPER(street_name) = UPPER(%(street_name)s)
             LIMIT 1
         """
-        result = self.db.read_query(sql, {
+        result = self.query(sql, {
             "address_number": parsed['number'],
             "street_name": parsed['street']
         })
 
-        if len(result) > 0:
-            row = result.iloc[0]
+        if result:
+            row = result[0]
             return GeocodeResult(
                 stage=1,
                 method="address_point_exact",
@@ -185,10 +186,10 @@ class GeocodeCascade:
             WHERE UPPER(street_name) = UPPER(%(street_name)s)
             LIMIT 1
         """
-        result = self.db.read_query(sql, {"street_name": parsed['street']})
+        result = self.query(sql, {"street_name": parsed['street']})
 
-        if len(result) > 0:
-            row = result.iloc[0]
+        if result:
+            row = result[0]
             # Check if house number is in range
             house_num = parsed["number"]
 
@@ -235,22 +236,25 @@ class GeocodeCascade:
         street1, street2 = and_match.group(1).strip(), and_match.group(2).strip()
 
         # Find intersection of two centerlines (parameterized to prevent SQL injection)
-        sql = """
+        sql = f"""
             SELECT ST_X(ST_Intersection(c1.geom, c2.geom)) as lon,
                    ST_Y(ST_Intersection(c1.geom, c2.geom)) as lat
             FROM ref.centerlines c1
             JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
-            WHERE UPPER(c1.street_name) LIKE UPPER(%(street1)s)
-              AND UPPER(c2.street_name) LIKE UPPER(%(street2)s)
+            WHERE (UPPER(c1.street_name) = %s OR UPPER(c1.street_name) LIKE %s)
+              AND (UPPER(c2.street_name) = %s OR UPPER(c2.street_name) LIKE %s)
             LIMIT 1
         """
-        result = self.db.read_query(sql, {
-            "street1": f"%{street1}%",
-            "street2": f"%{street2}%"
-        })
+        # Execute with positional parameters to avoid % confusion
+        import psycopg
+        with psycopg.connect(self.db.db_url) as conn:
+            with conn.cursor() as cur:
+                cur.execute(sql, (street1, f"%{street1}%", street2, f"%{street2}%"))
+                cols = [d[0] for d in cur.description] if cur.description else []
+                result = [dict(zip(cols, row)) for row in cur.fetchall()]
 
-        if len(result) > 0 and result.iloc[0]["lon"] is not None:
-            row = result.iloc[0]
+        if result and result[0]["lon"] is not None:
+            row = result[0]
             return GeocodeResult(
                 stage=3,
                 method="intersection",
@@ -274,10 +278,10 @@ class GeocodeCascade:
             WHERE UPPER(street_name) = UPPER(%(street_name)s)
             LIMIT 1
         """
-        result = self.db.read_query(sql, {"street_name": parsed['street']})
+        result = self.query(sql, {"street_name": parsed['street']})
 
-        if len(result) > 0:
-            row = result.iloc[0]
+        if result:
+            row = result[0]
             return GeocodeResult(
                 stage=4,
                 method="segment_clipping",
@@ -292,16 +296,26 @@ class GeocodeCascade:
     def stage_5_gazetteer(self, norm_text: str, parsed: Dict, raw_text: str) -> Optional[GeocodeResult]:
         """Stage 5: Named place match (gazetteer)."""
         # Try to find a gazetteer match (parameterized to prevent SQL injection)
+        place_search = parsed.get('street', '')
+        if not place_search:
+            return None
+
         sql = """
             SELECT geom, ST_X(geom) as lon, ST_Y(geom) as lat, name
             FROM ref.gazetteer
-            WHERE UPPER(name) LIKE UPPER(%(place_name)s)
+            WHERE UPPER(name) = %s OR UPPER(name) LIKE %s
             LIMIT 1
         """
-        result = self.db.read_query(sql, {"place_name": f"%{parsed.get('street', '')}%"})
+        # Execute with positional parameters to avoid % confusion
+        import psycopg
+        with psycopg.connect(self.db.db_url) as conn:
+            with conn.cursor() as cur:
+                cur.execute(sql, (place_search, f"%{place_search}%"))
+                cols = [d[0] for d in cur.description] if cur.description else []
+                result = [dict(zip(cols, row)) for row in cur.fetchall()]
 
-        if len(result) > 0:
-            row = result.iloc[0]
+        if result:
+            row = result[0]
             return GeocodeResult(
                 stage=5,
                 method="gazetteer",
