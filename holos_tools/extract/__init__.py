@@ -141,3 +141,43 @@ def raster_plate(
     except Exception as e:
         typer.echo(f"✗ Failed to extract from {doc_path}: {e}", err=True)
         raise typer.Exit(1)
+
+
+@app.command()
+def native_cad(
+    doc_path: str = typer.Option(..., help="Path to CAD file (GeoJSON, Shapefile, DWG, DGN)"),
+    output_path: str = typer.Option(None, help="Output JSON file"),
+    source_id: str = typer.Option("native_cad", help="Source registry ID"),
+):
+    """Extract features from native CAD formats (Chain B3)."""
+    from .b3_native_cad import B3NativeCADExtractor
+
+    doc_file = Path(doc_path)
+    if not doc_file.exists():
+        typer.echo(f"✗ File not found: {doc_path}", err=True)
+        raise typer.Exit(1)
+
+    try:
+        extractor = B3NativeCADExtractor()
+        result = extractor.extract(str(doc_file))
+        result["source_id"] = source_id
+
+        if output_path is None:
+            output_path = doc_file.with_stem(doc_file.stem + "_features").with_suffix(".json")
+
+        out_file = Path(output_path)
+        out_file.parent.mkdir(parents=True, exist_ok=True)
+        out_file.write_text(json.dumps(result, indent=2))
+
+        typer.echo(f"✓ Extracted {result['features_extracted']} features from {doc_file}")
+        if result.get("file_format"):
+            typer.echo(f"  Format: {result['file_format']}")
+        typer.echo(f"  Confidence: {result['extraction_conf']:.2f}")
+        typer.echo(f"  Output: {out_file}")
+
+        if result["needs_review"]:
+            typer.echo(f"  ⚠ Needs review: {', '.join(result['reasons'])}")
+
+    except Exception as e:
+        typer.echo(f"✗ Failed to extract from {doc_path}: {e}", err=True)
+        raise typer.Exit(1)

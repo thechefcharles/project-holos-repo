@@ -1,0 +1,115 @@
+{
+  "fixtures": [
+    {
+      "name": "b3_geojson_water_main",
+      "description": "GeoJSON FeatureCollection with water main features",
+      "file_format": "geojson",
+      "source": "City of Chicago water department GIS export",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "Main Water Line - N Michigan",
+          "geometry_type": "LineString",
+          "depth_raw": "12ft",
+          "depth_normalized": 3.658,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.93,
+          "needs_review": false,
+          "reason": "GeoJSON with explicit properties; highest fidelity"
+        }
+      ]
+    },
+    {
+      "name": "b3_shapefile_utilities",
+      "description": "Shapefile with multiple utility types (water, gas, electric)",
+      "file_format": "shapefile",
+      "source": "ComEd and Peoples Gas utility GIS layers",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "Water Service",
+          "geometry_type": 1,
+          "depth_raw": "1.2",
+          "depth_normalized": 1.2,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.93
+        },
+        {
+          "feature_type": "utility_electric",
+          "name": "ComEd Primary",
+          "geometry_type": 3,
+          "depth_raw": "2.0",
+          "depth_normalized": 2.0,
+          "vertical_datum": "NAVD88",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.93
+        }
+      ]
+    },
+    {
+      "name": "b3_dwg_water_main",
+      "description": "AutoCAD DWG with water main linework on 'Water Main' layer",
+      "file_format": "dwg",
+      "source": "City of Chicago engineering plans (AutoCAD)",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "DWG Entity LWPOLYLINE",
+          "geometry_type": "LWPOLYLINE",
+          "depth_raw": null,
+          "depth_normalized": null,
+          "vertical_datum": "unknown",
+          "ql_level": "QL-C",
+          "extraction_conf": 0.75,
+          "needs_review": true,
+          "reason": "DWG geometry certain, attributes inferred from layer name"
+        }
+      ]
+    },
+    {
+      "name": "b3_dwg_mixed_utilities",
+      "description": "DWG with multiple utility layers (inferred types)",
+      "file_format": "dwg",
+      "source": "Engineering firm CAD master plan",
+      "expected_features": [
+        {
+          "feature_type": "utility_water",
+          "name": "DWG Entity LINE",
+          "geometry_type": "LINE",
+          "extraction_conf": 0.75,
+          "needs_review": true,
+          "reason": "Layer-based inference; depth absent"
+        },
+        {
+          "feature_type": "utility_gas",
+          "name": "DWG Entity LWPOLYLINE",
+          "geometry_type": "LWPOLYLINE",
+          "extraction_conf": 0.75,
+          "needs_review": true
+        }
+      ]
+    },
+    {
+      "name": "b3_dgn_unprocessed",
+      "description": "DGN file (MicroStation format, flagged for manual review)",
+      "file_format": "dgn",
+      "source": "Legacy MicroStation drawings",
+      "expected_features": [
+        {
+          "feature_type": "unknown",
+          "name": "DGN file detected",
+          "geometry_type": null,
+          "depth_raw": null,
+          "depth_normalized": null,
+          "vertical_datum": "unknown",
+          "ql_level": "QL-D",
+          "extraction_conf": 0.0,
+          "needs_review": true,
+          "reason": "DGN format deferred; requires specialized parser"
+        }
+      ]
+    }
+  ]
+}
