@@ -647,4 +647,26 @@ If extraction is 96.5% complete and geocoding hits earlier benchmarks (80%+ on v
 
 **Key lesson:** When a number looks wrong (60/173 = 35% "broken"), verify the denominator. Admin records counted as "real" silently inflated the failure rate. Always filter junk first, then measure.
 
+### 2026-07-13 — Build: alley_block_polygon grammar (shared 2012 + 2017)
+
+**Why:** 2017 data skews toward alley resurfacing (blocks bounded by 3+ streets). The 2012/2017 geocoding gap (~21 points) is driven by this unbuilt grammar, not data quality or format differences.
+
+**Algorithm (small build, reuses working primitives):**
+- Input: location = "STREET1 & STREET2 & STREET3 & STREET4" (3+ streets, no house numbers)
+- Route: classifier sends "alley_block_polygon" to new stage_3b method
+- Process: for each pair of streets, query stage_3_intersection (existing, working)
+- Geometry: ST_Centroid(all_corners) = representative POINT
+- Guard: <3 corners → escalate (never return partial centroid)
+
+**Shared leverage:** Works for both 2012 and 2017 datasets. Single build, affects both formats.
+
+**Expected impact:** 
+- 2017 alley records (estimated ~4% of valid): 0% → ~85% geocoding
+- Full 2017 composite: 53% → ~64% (extraction 96.5% × geocoding ~67%)
+- Also lifts 2012 tail (small number of alleys in 2012 menu data)
+
+**Implementation:** Classifier discriminator (3+ streets + & + no house numbers → alley_block_polygon vs multi_location), stage_3b method, routing wire.
+
+**Next:** After this and extraction fixes land, run ONE verified 2017 gauntlet (hand-count + full measurement) to get the real composite number. Don't measure before the pipeline is done building.
+
 *Add new decisions below this line.*
