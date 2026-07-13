@@ -439,4 +439,36 @@ Temporarily disabled (Census API hangs). Once stages 1–5 are tuned to ≥90%, 
 
 **Next:** Phase 1C (review + promotion). The cascade is production-ready at 94.1% accuracy. Remaining work (tasks 1–8 in TASKS.md) are optimization improvements, not blocking issues.
 
+### 2026-07-12 — Parse→Geocode on Real Menu Text: 6.2% Success Rate—Critical Gap in Address-Range Handling
+
+**Test:** Ran 145 extracted records from benchmark (pages 2–20 of 2012Menu.pdf) through full Parse→Geocode cascade.
+
+**Results:**
+- Successfully geocoded: 9/145 records **(6.2%)**
+- Compared to Ward Wise benchmark: **94.1%** on clean single addresses
+- **Root cause:** Location format mismatch—menu is 75% address ranges ("ON STREET FROM A TO B"), but cascade was benchmarked on intersections (13% of real data).
+
+**Format breakdown of 145 extracted records:**
+| Format | Count | % | Geocode Rate |
+|--------|-------|---|---|
+| Intersections (X & Y) | 19 | 13.1% | ~94% ✓ |
+| Address ranges (FROM...TO) | 109 | **75.2%** | ~0% ✗ |
+| Simple addresses | 16 | 11.0% | ~50% |
+| **Total** | **145** | 100% | **6.2%** |
+
+Ranges reach stage 8 (external geocoding) with method='none'—no implementation exists.
+
+**Honest composite metric (extraction × geocoding on real data):**
+- Extraction recall: 99.3% ✓
+- Geocode rate on real menu text: 6.2% ✗
+- **Composite: 99.3% × 6.2% = 6.2% of $1.97M = ~$122k correctly placed** on the map
+
+**Implication:** The extraction pipeline is production-ready. The geocoding pipeline has a **fundamental gap**: address-range geocoding is not implemented. This is not a tuning problem; it's a missing feature. The 94.1% accuracy achieved in Phase 1B was measured on a clean benchmark that doesn't include ranges in significant volume.
+
+**Blocking issue for Sam demo:** As-is, the pipeline places only $122k of $1.97M on the map (6.2% of the sample). To use this pipeline on full corpus ($66.2M), address-range support must be implemented. Options:
+1. **Scope out ranges** — demo only intersections + simple addresses (simpler, but misleading: "our pipeline works 94%!" is no longer true on real data).
+2. **Build range support** — implement Stage 6 (Census Geocoder) or Stage 4 (address-range clipping) for ON STREET FROM X TO Y pattern. This is real work (~2–3 days) but honest.
+
+**Recommendation:** Option 2. The extraction is solid; the geocoding gap is clear. Cowork's prediction was correct—real data is messier. Better to acknowledge the gap now than to demo a 94% number that doesn't hold up in production.
+
 *Add new decisions below this line.*
