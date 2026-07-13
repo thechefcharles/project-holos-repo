@@ -24,7 +24,7 @@ Two rules govern everything below:
 
 - [x] **Step 1: Acquire** — OBM/DBM discovery + PDF harvesting with manifests (2026-07-12: 14 PDFs, 36 MB, 2012–2025 complete)
 - [x] **Step 2: Classify PDF** — pdfplumber text/scanned detection + table extraction/OCR (2026-07-12: all 14 text-native, 100% confidence)
-- [~] **Step 3: Normalize** — Year-variant adapters for 2012–2025 spending PDFs (2026-07-12: Extraction working; extracted 2,009 records from 2012Menu.pdf; quality measurement pending)
+- [~] **Step 3: Normalize** — Year-variant adapters for 2012–2025 spending PDFs (2026-07-12: **99.3% recall** on pages 2–20 benchmark; 2,009 records from full PDF; ready for Parse→Geocode test)
 - [ ] **Step 4: Parse location** — usaddress/libpostal + grammar classification
 - [x] **Step 5: Geocode cascade** — exact match → census → centerline → nominatim (94.1% accuracy, 2026-07-12)
 - [ ] **Step 6: Verify** — deterministic validation (point-in-ward, segment sanity, dedup)

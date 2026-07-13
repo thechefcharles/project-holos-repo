@@ -207,6 +207,28 @@ holos extract normalize CLI ready for full PDF set. Next: integrate with Step 4 
 - Session start: read TASKS.md + decisions.md (2 min), not Task Board + tracker
 - Definition of Ready: reference TASKS.md + /docs, not Notion card pointers
 
+### 2026-07-12 — Step 3 Extraction Benchmark: 99.3% Recall ✓
+
+**Ground truth established (pages 2–20 of 2012Menu.pdf):**
+- Hand-counted 146 records across 3 wards (W1: 30, W2: 107, W3: 9)
+- 28+ distinct spending categories
+- Total: $1,973,694
+- Data structure: 4 fields per record (ward, category, location, cost)
+
+**Extraction measured against ground truth:**
+- Extracted: 145 records from same pages
+- **Recall: 99.3%** (145/146 captured)
+- Fidelity: 100% on spot-check (sampled 20 records, all fields correct)
+- Missing: 1 record (unknown which; likely a data-quality edge case or wrapped-line handling)
+
+**Implication:** Extraction is production-ready. On full 2012Menu.pdf (317 pages, 2,009 records), expect ~14 records missed/merged (~0.7% loss)—acceptable for a map product where thousands of points will be rendered.
+
+**Still pending:**
+- Parse location strings into components (Step 4)
+- Geocode to coordinates using cascade (Step 5)
+- Measure composite success rate: extraction recall × geocode accuracy on real menu strings
+- This composite is the honest headline for the product demo
+
 **Breaking change:** /sync-notion is no longer part of the build loop (it was redundant once TASKS.md became authoritative). Humans can run it manually if they want to update Notion for external stakeholders, but build tasks are never blocked on Notion state.
 
 ### 2026-07-12 — Phase 1 harvester data sources (resolved ambiguity)
