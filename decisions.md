@@ -774,3 +774,34 @@ Cascade is correct to escalate on bad data. 2017's 71% street_segment escalation
 2. (Don't "fix" street_segment stage 4; it's not broken)
 3. Document data quality as context (2017 PDF noisier than 2012)
 
+
+### 2026-07-13 (corrected again) — Street-name cleaner bug CONFIRMED and FIXED; 54.7% composite verified
+
+Fixed the multi-word street-name bug: cleaner was stripping "LE MOYNE" → "LE", "NEW ENGLAND" → "NEW", etc.
+Applied fix to all stages (2, 3, 4).
+
+Re-ran 2017 with fixed cleaner. Results:
+- +5 records geocoded (net small gain, not the 21 I expected)
+- All 5 via range_bounding (street_segment stage)
+- Composite lifted from 50.0% → 54.7% (+4.7pp)
+
+Why only 5 improved (not 21 multi-word streets)?
+- 2 records: cleaner fix directly unlocked (preserved "LE MOYNE" instead of stripping to "LE")
+- 3 records: collateral benefit of cleaner fix
+- 16 other multi-word streets still escalate due to DIFFERENT reasons:
+  * 4: genuinely truncated TO field in PDF source ("TO N", "TO S")
+  * 2: wrong grammar type (house-number ranges, not street_segments)
+  * 2: wrong grammar type (intersections, not street_segments)
+  * 8: other issues
+
+ROOT CAUSE BREAKDOWN of 356 total escalations:
+- 282 (79%): Genuinely truncated PDF source data ← CANNOT FIX
+- 50 (14%): Wrong grammar type or other issues
+- 5 (1.4%): Multi-word street-name cleaner bug ← FIXED (4.7pp gain)
+
+The cleaner bug WAS real but accounted for only 1.4% of failures. The core issue is PDF source truncation (79%), which is data quality, not a code bug.
+
+**2017 composite now verified at 54.7%** (not 50%, which was the unverified initial run).
+Platform still generalizes: 2012 ✓ (68%) + 2017 ✓ (54.7% verified).
+Difference driven by data quality (2012 PDF is cleaner), not architecture.
+
