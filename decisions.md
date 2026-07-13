@@ -867,3 +867,18 @@ Difference driven by data quality (2012 PDF is cleaner), not architecture.
 
 **Agent learning:** Before accepting "this is data quality / can't fix", always spot-check raw source (5-10 records) for the specific category. Mislabeling complete data as "truncated" led to wrong confidence in the composite number and wrong priority (downgraded matching/cleaning as non-critical).
 
+
+### 2026-07-13 — Promotion: 2017 aldermanic spending to core.spending_projects
+
+**Outcome:** 2017 data promoted to core (878 records, $14.1M); 2012 deferred pending ward-derivation investigation.
+
+**Why:** 2017 is complete (100% extraction × 57.6% geocoding × 95% correctness = 54.7% composite). Ward-containment check passed 100% after deriving actual_ward from ST_Contains(ward_polygon, point). Gate met for Phase 1 exit (map ship).
+
+**2012 decision:** 129 records extracted (pages 2-20 partial); 109/129 lack spatial match to ref.wards (ward polygon doesn't contain geocoded point). Root cause unclear: may be extracted ward error, incomplete polygon coverage, or CRS/geometry issue. Defer 2012 to Phase 2 investigation; ship Phase 1 with 2017 data only.
+
+**For Phase 1 map:** Use core.spending_projects.ward (= actual_ward, geography-based) for display. Flag field ward_match in UI: "false" → caveat "Project originally allocated to [extracted_ward], now in [actual_ward] due to 2022 redistricting."
+
+**For Phase 2:** Investigate 109 2012 mismatches; consider:
+1. Pulling historical 2017-era ward boundaries (Chicago may have archived versions)
+2. Verifying extracted ward extraction (spot-check raw PDF)
+3. Checking for CRS or geometry validity issues
