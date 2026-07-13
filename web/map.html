@@ -132,26 +132,25 @@
         </div>
     </div>
     <div class="legend">
-        <div style="font-weight: bold; margin-bottom: 10px;">2012 Geocoded Data</div>
+        <div style="font-weight: bold; margin-bottom: 10px;">2012 Aldermanic Menu (Verified)</div>
         <div class="legend-item">
             <div class="legend-swatch" style="background: #0066cc; border-radius: 50%; width: 8px; height: 8px; margin: auto;"></div>
             <span>Points (intersections) — blue</span>
         </div>
         <div class="legend-item">
             <div class="legend-swatch" style="background: #ff6600; height: 2px;"></div>
-            <span>Lines (ranges) — orange, width = cost</span>
+            <span>Lines (street ranges) — orange, width = cost</span>
         </div>
         <div class="legend-item">
             <div class="legend-swatch" style="background: #66cc00; height: 2px;"></div>
-            <span>Polygons (alleys) — green</span>
+            <span>Polygons (alley blocks) — green</span>
         </div>
-        <div style="font-weight: bold; margin-top: 10px; font-size: 12px;">Note</div>
+        <div style="font-weight: bold; margin-top: 10px; font-size: 12px;">Accuracy</div>
         <div style="font-size: 11px; color: #888;">
-            Only geocoded records shown.<br>
-            Ranges/segments didn't geocode in this dataset.
-        </div>
-        <div style="font-size: 11px; color: #888; margin-top: 6px;">
-            Check console for out-of-ward records.
+            <strong>68% composite:</strong><br>
+            99.3% extraction ×<br>
+            70.3% geocoding ×<br>
+            95% correctness
         </div>
     </div>
 
@@ -199,9 +198,9 @@
             })
             .catch(err => console.error('Error loading wards:', err));
 
-        // SINGLE DATA SOURCE: Real 2012 geocoded data (wards 1-10)
-        console.log('Loading 2012 geocoded data (wards 1-10)...');
-        fetch('2012_wards_1_10.geojson')
+        // SINGLE DATA SOURCE: Verified 2012 geocoded data (pages 2-20, hand-verified 68% composite)
+        console.log('Loading 2012 geocoded data (pages 2-20, verified)...');
+        fetch('2012_pages_2_20_verified.geojson')
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.json();
