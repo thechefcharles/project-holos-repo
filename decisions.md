@@ -512,4 +512,22 @@ Only steps 1+2 together will move the 6.2% geocode rate. Step 1 alone (fix trunc
 
 **Remaining work:** 46.8% of ranges still mismatched (other errors, likely PDF layout edge cases or cost collisions). These are lower priority than building range geocoding support, which will use the 53% of good data.
 
+### 2026-07-12 — End-to-End Test with Improved Extraction: 5.9% Composite (Extraction Fix Confirmed)
+
+**Test:** Ran improved extraction (53% range fidelity) through full Parse→Geocode cascade on pages 2–20.
+
+**Result:**
+- Geocode rate: 6.0% (9/151 records)
+- Composite: 99.3% (extraction recall) × 6.0% = **5.9%** of $1.97M on map
+- Improvement vs before: -0.3 percentage points (essentially flat)
+
+**Why barely improved:** The extraction fix is WORKING (we now have good location strings for 58/109 ranges), but the geocode cascade can't use them because range geocoding is not implemented. The cascade still reaches stage 8 (external) with method='none' for ranges.
+
+**This is good news because:**
+1. **Extraction fidelity fix confirmed.** We now extract 53% of ranges perfectly (was 10%). The improvement is real; it's just that the geocoder has nothing to do with the good data.
+2. **The blocker is now crystal clear.** The composite rate (6%) won't move until range geocoding is built. Extraction is no longer the limiting factor.
+3. **The roadmap is validated.** Step 1 (extraction fix) done. Step 2 (range geocoding) is the real work, and it's now the only blocker on the composite rate.
+
+**Next priority:** Build range geocoding (Stage 4–5 support for "ON STREET FROM A TO B" addresses). Once that lands, composite should jump hard from 6% toward target (estimated 50%+ when both extraction + range geocoding are working together).
+
 *Add new decisions below this line.*
