@@ -267,7 +267,7 @@ class GeocodeCascade:
               (from_house_num_l <= %(house_num)s AND %(house_num)s <= to_house_num_l) OR
               (from_house_num_r <= %(house_num)s AND %(house_num)s <= to_house_num_r) as in_range
             FROM ref.centerlines
-            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%(street_name)s)
+            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(street_name)s)
             ORDER BY in_range DESC
             LIMIT 1
         """
@@ -455,7 +455,7 @@ class GeocodeCascade:
         sql = """
             SELECT ST_AsText(geom) as geom_wkt, segment_id
             FROM ref.centerlines
-            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%(street_name)s)
+            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(street_name)s)
             LIMIT 1
         """
         result = self.query(sql, {"street_name": street})
@@ -514,11 +514,13 @@ class GeocodeCascade:
         from_street_clean = self._clean_street_name(from_street)
         to_street_clean = self._clean_street_name(to_street)
 
-        # Strip trailing type word (e.g., "MAPLEWOOD AVENUE" -> "MAPLEWOOD")
-        # to match the SQL REGEXP_REPLACE pattern
-        main_street_clean = re.sub(r'\s+\w+$', '', main_street_clean)
-        from_street_clean = re.sub(r'\s+\w+$', '', from_street_clean)
-        to_street_clean = re.sub(r'\s+\w+$', '', to_street_clean)
+        # Strip trailing STREET-TYPE SUFFIX ONLY (e.g., "MAPLEWOOD AVENUE" -> "MAPLEWOOD")
+        # Do NOT strip multi-word street names like "LE MOYNE", "NEW ENGLAND", "SOUTH SHORE"
+        # Only remove known suffixes: ST, AVE, BLVD, etc.
+        street_type_pattern = r'\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$'
+        main_street_clean = re.sub(street_type_pattern, '', main_street_clean, flags=re.IGNORECASE)
+        from_street_clean = re.sub(street_type_pattern, '', from_street_clean, flags=re.IGNORECASE)
+        to_street_clean = re.sub(street_type_pattern, '', to_street_clean, flags=re.IGNORECASE)
 
         # Find the first intersection (MAIN_STREET ∩ FROM_STREET)
         # Reuse stage_3 pattern: JOIN on ST_Intersects across all segments
@@ -528,8 +530,8 @@ class GeocodeCascade:
                    ST_Y(ST_Centroid(ST_Intersection(c1.geom, c2.geom))) as lat
             FROM ref.centerlines c1
             JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
-            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%(main_street)s)
-              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+\w+$', '')) = UPPER(%(from_street)s)
+            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(main_street)s)
+              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(from_street)s)
             LIMIT 1
         """
 
@@ -544,8 +546,8 @@ class GeocodeCascade:
                    ST_Y(ST_Centroid(ST_Intersection(c1.geom, c2.geom))) as lat
             FROM ref.centerlines c1
             JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
-            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%(main_street)s)
-              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+\w+$', '')) = UPPER(%(to_street)s)
+            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(main_street)s)
+              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(to_street)s)
             LIMIT 1
         """
 
@@ -560,7 +562,7 @@ class GeocodeCascade:
         sql_segment = """
             SELECT ST_AsText(geom) as geom_wkt
             FROM ref.centerlines
-            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%(main_street)s)
+            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(main_street)s)
             LIMIT 1
         """
 
