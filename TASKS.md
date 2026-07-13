@@ -108,7 +108,13 @@ Last updated: 2026-07-12
          - RESULT: Intersection improved 82.9% → 85.7% on my benchmark
          - Remaining: investigate routing to stage 2/6 for real addresses not in address_points (parks, trails)
       * [ ] 4. Feature: street-name repair (rapidfuzz → metaphone). Lifts single_address on OCR-noise rows and fixes noisy input across all grammars.
-      * [ ] 5. Algorithm: street_segment FROM/TO bounding. Parse cross-streets, find both intersections, return segment between them. Biggest block (~20% of benchmark).
+      * [x] **5. Algorithm: street_segment FROM/TO bounding** (BREAKTHROUGH 2026-07-12)
+        - [x] Fixed parameter-passing bug: changed _geocode_bounded_range to use self.query() with dict params
+        - [x] Fixed ST_Intersection geometry: wrapped with ST_Centroid() to ensure POINT output
+        - [x] Implemented range geocoding using Stage 3 JOIN + ST_Intersects pattern
+        - RESULT: 79/109 ranges now geocode (72% of range records)
+        - RESULT: Composite metric jumped 6.2% → 69.9% on real menu data
+        - RESULT: End-to-end: 99.3% (extraction recall) × 70.3% (geocode on real text) = **69.9%**
       * [ ] 6. Data: populate ref.gazetteer with Chicago parks/facilities. Currently 2 sample rows only; named_place can't work. This is the real data gap.
       * [ ] 7. Algorithm: multi_location multi-point. Split, geocode each part, return multi-point or centroid. Guard in place; safe to leave escalating until built.
       * [ ] 8. Integration: enable Stage 6 (Census API + Nominatim) with timeout fix for residual rows after 1–7 plateau.
