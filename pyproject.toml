@@ -94,4 +94,5 @@ disallow_incomplete_defs = false
 [tool.vercel]
 # Phase 1 MVP: static site deployment only (web/ dir)
 # Backend CLI (holos_tools) is separate; not deployed via Vercel
-skip = true
+# Setting empty entrypoint tells Vercel to treat as static-only
+entrypoint = ""
