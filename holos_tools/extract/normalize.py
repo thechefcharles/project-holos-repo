@@ -163,13 +163,19 @@ class MenuAdapter2017Plus:
         pre_cost = text[:cost_pos].strip()
 
         # Extract category: look for "XYZ Menu (..." pattern at start
-        cat_match = re.match(r'^([^(]+?)\s+Menu\s*\(', pre_cost)
+        cat_match = re.match(r'^([^(]+?)\s+Menu', pre_cost)
         if cat_match and (not category or category == "Unknown"):
             category = cat_match.group(1).strip()
 
-        # Extract location: remove category + "Menu" + all parenthetical codes from start
-        # Pattern removes: "Category Menu (1-1) (2017)" leaving just the address
-        location = re.sub(r'^[^(]*\s+Menu\s*(?:\([^)]*\)\s*)*', '', pre_cost).strip()
+        # Extract location: remove entire "[Category] Menu (code) (year)" prefix
+        # This prefix ends after ALL parenthetical codes following "Menu"
+        # Pattern: "[anything] Menu (anything) (anything) ... "
+        # Keep stripping until we hit non-parenthetical content (the actual location)
+        location = pre_cost
+        # First, remove everything up to and including "Menu"
+        location = re.sub(r'^[^M]*Menu\s*', '', location)
+        # Then remove all leading parenthetical codes that follow Menu
+        location = re.sub(r'^(?:\([^)]*\)\s*)*', '', location).strip()
 
         # Clean up: remove trailing parenthetical codes (coordinate references)
         # But be careful: some locations end with valid coords like "(1500 W)"
