@@ -61,4 +61,5 @@ at-scale).
 - 2026-07: house numbers stored as "3327.0", queried as "3327" — string-vs-numeric join. → Rule "verify loaded state."
 - 2026-07: intersection ST_Intersection returned LineString; single-segment matching returned NULL for crossing streets. → Rule 15.
 - 2026-07-13: 2025 Menu Q4 shows 74% of records in "unknown" geometry class (grammar unbuilt), not extraction failure. Grammar-mix awareness crucial; histogram failures by grammar before concluding data quality. → Rule 16.
+- 2026-07-13: Agent classified 282 records as "genuinely truncated PDF source data" (79% of failures) without spot-checking raw PDF. Actually: "E OAK ST" is complete; "W LE MOYNE" is complete. The cascade fails due to matching/cleaning bugs, not incomplete source. Mislabeling complete data as "unfixable data quality" downgraded priority on fixable bugs. → Rule 53 ("It's the data / not fixable" reflex): always spot-check 5-10 raw records in the specific category before accepting a "can't fix" verdict.
 - *(add the next one here the moment you find it)*

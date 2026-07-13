@@ -805,3 +805,17 @@ The cleaner bug WAS real but accounted for only 1.4% of failures. The core issue
 Platform still generalizes: 2012 ✓ (68%) + 2017 ✓ (54.7% verified).
 Difference driven by data quality (2012 PDF is cleaner), not architecture.
 
+### 2026-07-13 (CORRECTION) — "79% genuine truncation" verdict WRONG; reverting root-cause classification
+
+**Mislabeling identified:** I classified "TO N", "TO E OAK ST", "W LE MOYNE" as "PDF truncations, can't fix". WRONG.
+- "E OAK ST" is a COMPLETE, geocodable street name. The "TO" is a junction direction indicator, not a truncation of "EAST OAK STREET".
+- "W LE MOYNE" is a COMPLETE multi-word street name. The PDF shows it fully; the geocoding cascade fails to match it due to suffix-stripping or cleaning bugs, not incomplete source data.
+
+**Why this matters:** I accepted my own summary without checking raw PDF for 282 records. That's a categorical error: **a complete street name that the geocoding pipeline fails to match is a BUG, not data quality.**
+
+**Corrected classification:** The 282 records I labeled "truncated" are fixable bugs (matching/cleaning on streets missing type suffixes, multi-word preservation, etc.), not data ceiling. Some genuinely are truncated ("TO S" with no street name), but the majority are complete streets that cascade matching could handle with fixes.
+
+**Revised verdict on 2017:** ~55% composite verified (not a measurement error). Known fixable geocoding tail (matching/cleaning bugs on complete-but-malformed streets), not a data-quality ceiling. Platform generalizes: 2012 ✓ (68%) + 2017 ✓ (55%) with shared architecture, same data-quality patterns.
+
+**Agent learning:** Before accepting "this is data quality / can't fix", always spot-check raw source (5-10 records) for the specific category. Mislabeling complete data as "truncated" led to wrong confidence in the composite number and wrong priority (downgraded matching/cleaning as non-critical).
+
