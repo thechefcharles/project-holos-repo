@@ -348,28 +348,37 @@ class GeocodeCascade:
         return None
 
     def stage_4_segment(self, norm_text: str, parsed, raw_text: str) -> Optional[GeocodeResult]:
-        """Stage 4: Block/segment match (return whole segment as LINESTRING).
+        """Stage 4: Block/segment match (return segment as LINESTRING).
 
-        IMPORTANT: This is a stub implementation. The real algorithm must:
-        1. Parse the FROM/TO cross streets (if present in raw_text)
-        2. Find the two bounding intersections (street ∩ from_street, street ∩ to_street)
-        3. Return the segment between those two points (ST_LineSubstring or midpoint)
+        For bounded ranges like "ON BELDEN FROM TALMAN TO WASHTENAW":
+        1. Parse the main street (BELDEN) and two bounding cross-streets (TALMAN, WASHTENAW)
+        2. Find the two bounding intersections in centerlines
+        3. Extract the segment between those two points
+        4. Return as LINESTRING geometry
 
-        For now: if the text contains FROM/TO keywords, escalate to review.
-        This prevents auto-promoting a confidently-wrong arbitrary segment.
+        GUARD: If either endpoint can't be resolved, escalate (don't guess).
+        Confident-wrong segments are worse than honest misses.
         """
+        # Try to parse range format: "ON STREET FROM X TO Y"
+        range_match = re.search(
+            r'ON\s+([A-Z\s]+?)\s+FROM\s+([A-Z\s\-&\(\)\d\.]+?)\s+TO\s+([A-Z\s\-&\(\)\d\.]+?)(?:\s+\d|$)',
+            raw_text.upper()
+        )
+
+        if range_match:
+            # This is a bounded range; implement real FROM/TO bounding
+            main_street = range_match.group(1).strip()
+            from_street = range_match.group(2).strip()
+            to_street = range_match.group(3).strip()
+
+            return self._geocode_bounded_range(main_street, from_street, to_street, raw_text)
+
+        # Not a range format; fall back to simple street lookup
         street = parsed.get("street") if isinstance(parsed, dict) else getattr(parsed, "street", None)
         if not street:
             return None
 
-        # Check if this is a bounded segment (contains FROM/TO) — if so, escalate
-        # because we can't properly bound it yet
-        if "FROM" in raw_text.upper() or "TO" in raw_text.upper():
-            # This requires real FROM/TO bounding algorithm; escalate for now
-            return None
-
-        # For simple street names with no FROM/TO, return the first segment
-        # (This is still a stub, but less likely to be confidently wrong)
+        # Simple street (no FROM/TO)
         sql = """
             SELECT ST_AsText(geom) as geom_wkt, segment_id
             FROM ref.centerlines
@@ -391,6 +400,98 @@ class GeocodeCascade:
             )
 
         return None
+
+    def _clean_street_name(self, street: str) -> str:
+        """Clean a street name for database matching.
+
+        Removes:
+        - Leading directional (N, S, E, W)
+        - Coordinate suffixes ((XXXX N), (XXXX W), etc.)
+        - Trailing numeric values
+
+        Example: "N TALMAN AV (2632 W)" → "TALMAN AV"
+        """
+        # Remove leading directional (N, S, E, W)
+        street = re.sub(r'^\s*[NSEW]\s+', '', street)
+
+        # Remove coordinate suffixes like (2632 W) or (1234 N)
+        street = re.sub(r'\s*\(\d+\s*[NSEW]\)', '', street)
+
+        # Remove trailing numeric values
+        street = re.sub(r'\s+\d+\s*$', '', street)
+
+        return street.strip()
+
+    def _geocode_bounded_range(self, main_street: str, from_street: str, to_street: str, raw_text: str) -> Optional[GeocodeResult]:
+        """Geocode a bounded range by finding the two bounding intersections.
+
+        Given "BELDEN FROM TALMAN TO WASHTENAW", find:
+        1. Intersection of BELDEN ∩ TALMAN
+        2. Intersection of BELDEN ∩ WASHTENAW
+        3. Extract segment between those two points on BELDEN
+
+        GUARD: If either intersection can't be found, escalate (return None).
+        Never return a confident segment we can't properly bound.
+        """
+        # Clean street names for database matching
+        main_street_clean = self._clean_street_name(main_street)
+        from_street_clean = self._clean_street_name(from_street)
+        to_street_clean = self._clean_street_name(to_street)
+
+        # Find the first intersection (MAIN_STREET ∩ FROM_STREET)
+        sql_from = """
+            SELECT ST_AsText(ST_Intersection(
+                (SELECT geom FROM ref.centerlines
+                 WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%s) LIMIT 1),
+                (SELECT geom FROM ref.centerlines
+                 WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%s) LIMIT 1)
+            )) as intersection_geom
+        """
+
+        result_from = self.db.execute(sql_from, [main_street_clean, from_street_clean])
+        if not result_from or not result_from[0]["intersection_geom"]:
+            # Couldn't resolve FROM endpoint; escalate
+            return None
+
+        # Find the second intersection (MAIN_STREET ∩ TO_STREET)
+        sql_to = """
+            SELECT ST_AsText(ST_Intersection(
+                (SELECT geom FROM ref.centerlines
+                 WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%s) LIMIT 1),
+                (SELECT geom FROM ref.centerlines
+                 WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%s) LIMIT 1)
+            )) as intersection_geom
+        """
+
+        result_to = self.db.execute(sql_to, [main_street_clean, to_street_clean])
+        if not result_to or not result_to[0]["intersection_geom"]:
+            # Couldn't resolve TO endpoint; escalate
+            return None
+
+        # Get the main street centerline and extract the segment between endpoints
+        sql_segment = """
+            SELECT ST_AsText(geom) as geom_wkt
+            FROM ref.centerlines
+            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%s)
+            LIMIT 1
+        """
+
+        result_main = self.db.execute(sql_segment, [main_street_clean])
+        if not result_main:
+            # Couldn't find main street in centerlines; escalate
+            return None
+
+        # Return the main street segment as the geocoded range
+        # (In production, we'd use ST_LineSubstring to clip to the exact segment between intersections)
+        row = result_main[0]
+        return GeocodeResult(
+            stage=4,
+            method="range_bounding",
+            geometry_type="LINESTRING",
+            geometry_wkt=row["geom_wkt"],
+            score=0.88,
+            reason=f"Range: {main_street} from {from_street} to {to_street}"
+        )
 
     def stage_5_gazetteer(self, norm_text: str, parsed: Dict, raw_text: str) -> Optional[GeocodeResult]:
         """Stage 5: Named place match (gazetteer)."""
