@@ -1,5 +1,5 @@
 {
-  "buildCommand": "echo 'Phase 1 MVP: static web map'",
+  "buildCommand": "true",
   "outputDirectory": "web",
   "git": {
     "deploymentEnabled": {
