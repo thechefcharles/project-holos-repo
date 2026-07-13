@@ -1,7 +1,5 @@
 {
-  "buildCommand": "true",
   "outputDirectory": "web",
-  "framework": "static",
   "git": {
     "deploymentEnabled": {
       "main": false
