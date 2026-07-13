@@ -530,4 +530,23 @@ Only steps 1+2 together will move the 6.2% geocode rate. Step 1 alone (fix trunc
 
 **Next priority:** Build range geocoding (Stage 4–5 support for "ON STREET FROM A TO B" addresses). Once that lands, composite should jump hard from 6% toward target (estimated 50%+ when both extraction + range geocoding are working together).
 
+### 2026-07-12 — Step 3 RELABEL: Extraction is "good enough to unblock," not DONE (71% geocodable, 33% broken)
+
+**Honest reassessment:** Extraction fidelity for ranges is 53% perfect, but only half the story.
+
+**Breakdown of the 109 range records:**
+- **Perfect** (53%): 58 records extract identically to ground truth
+- **Near-miss** (17%): 18 records differ only in spacing/punctuation; will probably geocode fine
+- **Structural bug** (30%): 33 records have real errors — coordinates truncated, wrong streets, cost collisions
+
+**Expected geocoding rate with current extraction:**
+- Best case (geocoder tolerant of near-misses): 53% + 17% = **70% of ranges geocodable**
+- Worst case (geocoder strict): 53% baseline (near-misses might fail)
+
+**Why this matters:** 53% perfect could mean "done" OR "barely started." The breakdown shows 30% are genuinely broken (not just formatting), which means 30% is a hard floor loss even with perfect geocoding. Those 33 structural bugs need investigation before extraction can claim higher fidelity.
+
+**Relabel:** Extraction is NOT "DONE: 53%" but "**GOOD ENOUGH TO UNBLOCK range geocoding; revisit to raise 47%**." This unblocks the next build (range geocoding) while being honest that 47% of ranges need more work.
+
+**Composite went from 6.2% → 5.9%:** Not a regression. We captured 6 more records (extraction now honest), geocoding successes stayed flat (9→9). The dip is extraction being more complete, not less effective. Likely removed false positives (truncated fragments geocoding to wrong spots) and replaced with honest misses.
+
 *Add new decisions below this line.*
