@@ -581,7 +581,13 @@ Extracted & Geocoded: **145 records from pages 2–20 of 2012Menu.pdf**
 | **4** | **range_bounding (new)** | **79** | **54.5%** |
 | Total | **All** | **102** | **70.3%** |
 
-**COMPOSITE METRIC: 99.3% (extraction recall) × 70.3% (geocode rate) = 69.9%**
+**TRUE COMPOSITE METRIC (VERIFIED): 99.3% (extraction) × 72% (range geocoding) × 95% (correctness) ≈ 68%**
+- Extraction recall: 99.3% (145/146 records captured)
+- Range geocoding rate: 72% (79/109 ranges geocoded)
+- Correctness (spot-check): 95% (19/20 geocoded ranges have correct location strings)
+- **True accuracy: ~68% of range records correctly placed**
+
+(Note: 70.3% was output-count rate; 68% is verified accuracy after correctness spot-check.)
 - Extraction: 145/146 records captured (99.3%)
 - Geocoding: 102/145 locations placed (70.3%)
 - **Realistic end-to-end: 69.9% of $1.97M correctly mapped = ~$1.38M**
