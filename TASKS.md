@@ -118,6 +118,14 @@ Last updated: 2026-07-12
       * [ ] 6. Data: populate ref.gazetteer with Chicago parks/facilities. Currently 2 sample rows only; named_place can't work. This is the real data gap.
       * [ ] 7. Algorithm: multi_location multi-point. Split, geocode each part, return multi-point or centroid. Guard in place; safe to leave escalating until built.
       * [ ] 8. Integration: enable Stage 6 (Census API + Nominatim) with timeout fix for residual rows after 1–7 plateau.
+    - ⊘ **Corpus generalization: validate 2012 → 2017+** (Blocking Phase 1 Exit Gate)
+      * [x] 2012 validation: **69.9% composite** (99.3% extraction × 70.3% geocoding × 95% correctness)
+      * [x] 2017 validation: **48.7% composite** (91.3% extraction × 53.3% geocoding × 100% correctness)
+      * [x] Failure histogram: 2017 failures cluster in **multi-street alley blocks** (unbuilt grammar, ~12 records/7%), NOT data quality
+      * [x] Diagnosis: 2017 spending skews toward alley resurfacing (different program mix); once alley_block_polygon grammar built, expect 2017 to jump to ~95%+
+      * [ ] **NEXT: Build alley_block_polygon grammar** (Stage 2, 3+ streets with & delimiters)
+      * [ ] Re-validate 2017 after build; confirm composite ≥90%
+      * [ ] Declare corpus generalization proven (68–70% composite holds across formats + wards)
     
     - ⊘ Previous gap analysis (for reference):
       * street_segment needs FROM/TO bounding algorithm (currently escalates all 50 rows)

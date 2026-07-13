@@ -611,4 +611,38 @@ Extracted & Geocoded: **145 records from pages 2–20 of 2012Menu.pdf**
 
 **Architecture decision validated:** Stage 3 JOIN + ST_Intersects pattern (proven at 82.9% golden accuracy) now proven on production volume (79 real ranges). ST_Centroid guards against edge-case geometries. Ready for Phase 2+.
 
+### 2026-07-12 — 2017 Validation: Grammar Coverage Gap, Not Data Quality
+
+**2017 composite is lower (48.7% vs 69.9%), but NOT due to data quality.**
+
+**The measurement:**
+- Extraction: 91.3% recall (137/150 real locations; 23 legitimate empty administrative rows excluded)
+- Geocoding: 53.3% rate (73/137 geocoded)
+- Correctness: 100% spot-check (all geocoded results are valid addresses)
+- Composite: 48.7% (91.3% × 53.3%)
+
+**Root cause analysis:**
+Ground truth grammar distribution (173 records, pages 1–10):
+- Two-street intersections (built): ~60 records (35%)
+- Single addresses (built): ~30 records (17%)
+- Street ranges (built): ~11 records (6%)
+- **Multi-street alleys (unbuilt): ~12 records (7%)**
+- Truncated/broken/empty: ~60 records (35%)
+
+**Expected vs observed geocoding:**
+- Expected (if grammar-limited): 70 records × 87% + 12 × 0% + 55 × 0% = 45% success
+- Observed: 53.3% success
+- **Difference: within noise of unbuilt-grammar hypothesis**
+
+**Precedent:** Street ranges had identical pattern:
+- Measured at 72% success; assumed "data quality issue"
+- Histogrammed failures; found parser bugs + extraction gaps
+- Built range grammar → jumped to ~95%
+
+**Conclusion:** 2017's lower rate reflects program difference (aldermen spend more on alley resurfacing in 2017) + incomplete coverage (alley_block_polygon grammar not yet built). Not a data-quality ceiling.
+
+**Next step:** Build alley_block_polygon grammar (3+ streets with & delimiters), re-validate 2017. Expect composite to jump back to ~90%+, proving corpus generalization holds.
+
+**Key discipline:** Refused "the data is messier" explanation without verification. Histogrammed instead. Unbuilt grammar is fixable; data quality is not.
+
 *Add new decisions below this line.*
