@@ -1,0 +1,173 @@
+{
+  "timestamp": "2026-07-13T09:09:59.759779",
+  "source_dir": "/Users/admin/Charlie Foreman/My Projects/Project Holos/project-holos-repo/raw/menu_pdfs/2026-07-12",
+  "output_dir": "/Users/admin/Charlie Foreman/My Projects/Project Holos/project-holos-repo/extractions/normalized",
+  "summary": {
+    "total_pdfs": 15,
+    "total_records": 29745,
+    "by_year": {
+      "2012": 2009,
+      "2013": 2150,
+      "2014": 2305,
+      "2015": 1936,
+      "2016": 2077,
+      "2017": 1934,
+      "2018": 2031,
+      "2019": 2241,
+      "2020": 1913,
+      "2021": 2444,
+      "2022": 2391,
+      "2024": 4244,
+      "2025": 2070
+    },
+    "by_category": {
+      "Alley Resurfacing": 1832,
+      "Alley Speed Hump": 661,
+      "Bollard": 192,
+      "Curb & Gutter": 1444,
+      "Pavement Markings": 261,
+      "Sidewalk": 6115,
+      "Street Resurfacing": 6856,
+      "Street Speed Hump": 2075,
+      "Floodlight": 175,
+      "Pedestrian Countdown": 27,
+      "Street Light Arterial": 56,
+      "Street Light Residential": 337,
+      "Street Light Upgrade": 947,
+      "Chicago Park District": 73,
+      "School Projects": 22,
+      "Alley Apron": 998,
+      "Miscellaneous Other": 257,
+      "Left-Turn Arrow": 55,
+      "Street Light Piggy Back": 18,
+      "Street Light Pole Painting": 244,
+      "Traffic Equipment": 80,
+      "Concrete Alley": 226,
+      "In-Road \"State Law Stop": 405,
+      "Street Bump Outs": 269,
+      "Guardrail": 19,
+      "High Definition Camera": 65,
+      "Diagonal Parking": 34,
+      "Street Cul-de-Sac": 41,
+      "Traffic New Signals": 1,
+      "Traffic Signal LED": 8,
+      "Pedestrian Refuge Island": 59,
+      "Bus Pad": 15,
+      "Traffic Signal": 22,
+      "Bike Lane/Marked": 6,
+      "Resurfacing Street Speed": 1,
+      "Protected Bike Lane": 3,
+      "Street Traffic Circle": 59,
+      "Buffered Bike Lane": 4,
+      "In-Road \"State Law Stop For Pedestrians\" Signs": 80,
+      "Miscellaneous CDOT Projects": 11,
+      "Street Resurfacing (1-5)": 127,
+      "Traffic Signal Modernization": 4,
+      "Alley Resurfacing (1-1)": 19,
+      "Miscellaneous Other Projects": 31,
+      "Traffic Signal Pole Painting": 10,
+      "Street Light Residential Staggered Piggy Back": 165,
+      "Street Light Upgrade Piggy Back": 3,
+      "Street Light Piggy Back Only": 8,
+      "Chicago Public Schools": 12,
+      "Pedestrian Countdown Signal": 20,
+      "Street Light Pole POD Camera": 5,
+      "Traffic Signal Modernization Design": 2,
+      "Street Light Residential Staggered": 1,
+      "Accessible Pedestrian Signal": 1,
+      "Miscellaneous CDOT": 54,
+      "Viaduct Improvement": 80,
+      "Street Light Pole POD": 6,
+      "Traffic Signal Upgrades": 1,
+      "Partial Traffic Signal": 1,
+      "Bike Boulevard": 1,
+      "ADA - Alley Resurfacing": 25,
+      "Arterial Street Bump Outs": 78,
+      "Unknown": 4849,
+      "Traffic Signal LED Upgrade": 11,
+      "Signs": 71,
+      "Bike Lane/Marked Shared Lane": 21,
+      "Alley Speed Hump Removal": 4,
+      "Tree Planting 2017": 1,
+      "ADA - Street Resurfacing": 54,
+      "ADA - Sidewalk": 1,
+      "Lawler Park Truf Field 2018/2019/2020": 1,
+      "Street Light Pole for High Definition Camera": 21,
+      "Native/Butterfly Garden 42nd Ward 2024": 2,
+      "2025": 1,
+      "Street Speed Hump Removal": 1
+    },
+    "pdfs": [
+      {
+        "doc_id": "2012Menu",
+        "year": 2012,
+        "records": 2009
+      },
+      {
+        "doc_id": "2013Menu",
+        "year": 2013,
+        "records": 2150
+      },
+      {
+        "doc_id": "2014Menu",
+        "year": 2014,
+        "records": 2305
+      },
+      {
+        "doc_id": "2015Menu",
+        "year": 2015,
+        "records": 1936
+      },
+      {
+        "doc_id": "2016Menu",
+        "year": 2016,
+        "records": 2077
+      },
+      {
+        "doc_id": "2017OBMMenu50WardDetailsRpt3Dec2018",
+        "year": 2017,
+        "records": 1934
+      },
+      {
+        "doc_id": "2018OBMrpt_MenuWarddetailsprojects2DEC2019",
+        "year": 2018,
+        "records": 2031
+      },
+      {
+        "doc_id": "2019%20Menu%20Posting%20-%2022-10-02",
+        "year": 2019,
+        "records": 2241
+      },
+      {
+        "doc_id": "2020%20Menu%20Posting%20-%2022-10-02",
+        "year": 2020,
+        "records": 1913
+      },
+      {
+        "doc_id": "2021%20Menu%20Posting%20-%2022-10-02",
+        "year": 2021,
+        "records": 2444
+      },
+      {
+        "doc_id": "2022%20Menu%20-%202-9-23",
+        "year": 2022,
+        "records": 2391
+      },
+      {
+        "doc_id": "AMR-2024-(Q1-Q3)",
+        "year": 2024,
+        "records": 2067
+      },
+      {
+        "doc_id": "Menu Report 2025 Q4",
+        "year": 2025,
+        "records": 2070
+      },
+      {
+        "doc_id": "Quarterly Menu Reports Q4 2024",
+        "year": 2024,
+        "records": 2177
+      }
+    ]
+  }
+}
