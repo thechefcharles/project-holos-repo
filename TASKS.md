@@ -188,10 +188,18 @@ Last updated: 2026-07-12
 ### Phase 1C — Review & promotion
 
 - [~] **Load verified 2012 + 2017 data into core.spending_projects** (Component: Hub)
-  - Owner: Claude Code (next)
+  - Owner: Claude Code
   - BUILD FROM: tech-spec Part III Step 6 + decisions.md (2017 composite verified at 54.7%; 2012 pages 2-20 composite 69.9%)
-  - AC: (1) Prepare 2012 verified data (129 records from pages 2-20, 69.9% composite) with provenance fields (source_id='2012Menu', method, confidence, CRS); load to staging.spending_projects; (2) Prepare 2017 verified data (1028 geocoded records from 2017_geocoded_fixed.json, 54.7% composite) with provenance fields; load to staging.spending_projects; (3) Create ops.jobs entries for both load jobs; (4) Run holos load promote with human-gate review; (5) Verify RLS policies enforce access_tier restrictions; (6) Archive staging data after promotion
-  - Blockers: none (both datasets verified + measured); ready for data prep
+  - Status: **STAGING LOAD COMPLETE** (2026-07-13)
+    - [x] Recovered ward field for 2012 from extracted records (129/129 matched to location)
+    - [x] Prepared both datasets with provenance (source_id='2012Menu'/'2017Menu', method, score, geometry_type)
+    - [x] Loaded to staging.spending_projects: 1007 records (2012: 129, 2017: 878)
+    - [x] Created ops.sources entries with rights='public_record'
+    - [ ] Run `holos load promote` to move staging → core (REQUIRES HUMAN GATE per CLAUDE.md rule 6)
+    - [ ] Verify Tier-1 checks (field_completeness, bbox_check, ward_containment) pass
+    - [ ] Archive staging data after promotion
+  - Blockers: None (ready for promotion with human review gate)
+  - Note: 150 records (LineString/Polygon geometry) not loaded this pass; second pass after validating POINT geometry
   - Next: Phase 1 Exit Gate (ship public map)
 
 - [ ] **Injection fixtures in CI (agent hardening)** (Component: Ops)
