@@ -1,0 +1,15 @@
+holos_tools
+tests
+db
+docs
+phase3
+*.py
+pyproject.toml
+uv.lock
+.git
+.gitignore
+CLAUDE.md
+TASKS.md
+decisions.md
+config/
+raw/
