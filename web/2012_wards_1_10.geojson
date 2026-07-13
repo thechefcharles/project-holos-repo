@@ -1,0 +1,697 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "year": 2012,
+    "wards": "1-10",
+    "total_extracted": 366,
+    "total_geocoded": 36,
+    "geocoding_rate": "9.8%",
+    "total_cost_geocoded": 354826.0
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6874868973139,
+          41.919980226726786
+        ]
+      },
+      "properties": {
+        "cost": 1000.0,
+        "ward": 1,
+        "category": "Pavement Markings",
+        "location": "W CHARLESTON ST & N WESTERN AVE",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.68859598034832,
+          41.91756300197112
+        ]
+      },
+      "properties": {
+        "cost": 400.0,
+        "ward": 1,
+        "category": "Pavement Markings",
+        "location": "W ARMITAGE AVE & N MILWAUKEE AVE",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.69277295923523,
+          41.93213022120513
+        ]
+      },
+      "properties": {
+        "cost": 600.0,
+        "ward": 1,
+        "category": "Pavement Markings",
+        "location": "W DIVERSEY PKWY & N ROCKWELL ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.68219368797513,
+          41.90492137839087
+        ]
+      },
+      "properties": {
+        "cost": 2500.0,
+        "ward": 1,
+        "category": "Floodlight",
+        "location": "W POTOMAC AVE & N LEAVITT ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6893513588036,
+          41.89753475134079
+        ]
+      },
+      "properties": {
+        "cost": 500.0,
+        "ward": 1,
+        "category": "Floodlight",
+        "location": "N CAMPBELL AVE & W IOWA ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.68219368797513,
+          41.90492137839087
+        ]
+      },
+      "properties": {
+        "cost": 11000.0,
+        "ward": 1,
+        "category": "Street Light Arterial",
+        "location": "W POTOMAC AVE & N LEAVITT ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.68246941,
+          41.90505545
+        ]
+      },
+      "properties": {
+        "cost": 700.0,
+        "ward": 1,
+        "category": "Street Light Upgrade",
+        "location": "1300 N LEAVITT ST",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6893513588036,
+          41.89753475134079
+        ]
+      },
+      "properties": {
+        "cost": 400.0,
+        "ward": 1,
+        "category": "Street Light Upgrade",
+        "location": "N CAMPBELL AVE & W IOWA ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.64696745389695,
+          41.683604417211306
+        ]
+      },
+      "properties": {
+        "cost": 12736.0,
+        "ward": 2,
+        "category": "Alley Resurfacing",
+        "location": "S MORGAN ST & S SANGAMON ST & W MONROE ST & W",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.62065451089556,
+          41.714829382188654
+        ]
+      },
+      "properties": {
+        "cost": 2981.0,
+        "ward": 2,
+        "category": "Alley Resurfacing",
+        "location": "S WABASH AVE & S WABASH AVE & E CERMAK RD & E",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.62819939217572,
+          41.89667739281364
+        ]
+      },
+      "properties": {
+        "cost": 3394.0,
+        "ward": 2,
+        "category": "Sidewalk",
+        "location": "800 S STATE ST",
+        "method": "centerline_interpolation",
+        "stage": 2,
+        "confidence": 0.88
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.63067547794996,
+          41.874521632735544
+        ]
+      },
+      "properties": {
+        "cost": 11500.0,
+        "ward": 2,
+        "category": "Left-Turn Arrow",
+        "location": "S CLARK ST & W HARRISON ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.68850259,
+          41.87698402
+        ]
+      },
+      "properties": {
+        "cost": 350.0,
+        "ward": 2,
+        "category": "Street Light Upgrade",
+        "location": "317 S CAMPBELL AVE",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.66625134,
+          41.87876349
+        ]
+      },
+      "properties": {
+        "cost": 350.0,
+        "ward": 2,
+        "category": "Street Light Upgrade",
+        "location": "201 S ASHLAND AVE",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6669064028193,
+          41.88508703314856
+        ]
+      },
+      "properties": {
+        "cost": 350.0,
+        "ward": 2,
+        "category": "Street Light Upgrade",
+        "location": "157 S ASHLAND AVE",
+        "method": "centerline_interpolation",
+        "stage": 2,
+        "confidence": 0.88
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.61961159,
+          41.8295953
+        ]
+      },
+      "properties": {
+        "cost": 350.0,
+        "ward": 2,
+        "category": "Street Light Upgrade",
+        "location": "3550 S GILES AVE",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.62701777,
+          41.86513848
+        ]
+      },
+      "properties": {
+        "cost": 21000.0,
+        "ward": 2,
+        "category": "Street Light Upgrade",
+        "location": "1319 S STATE ST",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.630680770551,
+          41.87474691764609
+        ]
+      },
+      "properties": {
+        "cost": 350.0,
+        "ward": 2,
+        "category": "Street Light Upgrade",
+        "location": "547 S CLARK ST",
+        "method": "centerline_interpolation",
+        "stage": 2,
+        "confidence": 0.88
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.67135019597913,
+          41.86682323030296
+        ]
+      },
+      "properties": {
+        "cost": 3500.0,
+        "ward": 2,
+        "category": "Traffic Equipment",
+        "location": "W ROOSEVELT RD & S WOOD ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.66890300877421,
+          41.86685865025718
+        ]
+      },
+      "properties": {
+        "cost": 3500.0,
+        "ward": 2,
+        "category": "Traffic Equipment",
+        "location": "W ROOSEVELT RD & S PAULINA ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.66638355149423,
+          41.8668614895409
+        ]
+      },
+      "properties": {
+        "cost": 3500.0,
+        "ward": 2,
+        "category": "Traffic Equipment",
+        "location": "W ROOSEVELT RD & S ASHLAND W AVE",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.62690163,
+          41.86174666
+        ]
+      },
+      "properties": {
+        "cost": 216149.0,
+        "ward": 3,
+        "category": "Concrete Alley",
+        "location": "1503 S State",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.62704433654828,
+          41.85106600778147
+        ]
+      },
+      "properties": {
+        "cost": 550.0,
+        "ward": 3,
+        "category": "In-Road \"State Law Stop",
+        "location": "S STATE ST & W 23RD ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.63478958988615,
+          41.810225015155005
+        ]
+      },
+      "properties": {
+        "cost": 300.0,
+        "ward": 3,
+        "category": "Pavement Markings",
+        "location": "W 46TH PL & S SHIELDS AVE",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.63512405,
+          41.81836706
+        ]
+      },
+      "properties": {
+        "cost": 350.0,
+        "ward": 3,
+        "category": "Street Light Upgrade",
+        "location": "342 W 42ND PL",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.61386894,
+          41.81468245
+        ]
+      },
+      "properties": {
+        "cost": 350.0,
+        "ward": 3,
+        "category": "Street Light Upgrade",
+        "location": "501 E 44TH PL",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6213409,
+          41.80241423
+        ]
+      },
+      "properties": {
+        "cost": 427.0,
+        "ward": 3,
+        "category": "Street Light Upgrade",
+        "location": "5048 S INDIANA AVE",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.61229728,
+          41.80791899
+        ]
+      },
+      "properties": {
+        "cost": 500.0,
+        "ward": 3,
+        "category": "Street Light Upgrade",
+        "location": "4753 S FORRESTVILLE AVE",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.71867788064311,
+          41.807932829653296
+        ]
+      },
+      "properties": {
+        "cost": 18351.0,
+        "ward": 4,
+        "category": "Alley Resurfacing",
+        "location": "E 47TH ST & E 47TH PL & S DREXEL BLVD & S COTTAGE",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.59764285132458,
+          41.65859809434042
+        ]
+      },
+      "properties": {
+        "cost": 5844.0,
+        "ward": 4,
+        "category": "Alley Resurfacing",
+        "location": "S GREENWOOD AVE & S ELLIS AVE & E 47TH ST & E 48TH",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.57717735,
+          41.73410079
+        ]
+      },
+      "properties": {
+        "cost": 350.0,
+        "ward": 8,
+        "category": "Street Light Upgrade",
+        "location": "8836 S EUCLID AVE",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6031627,
+          41.73466971
+        ]
+      },
+      "properties": {
+        "cost": 350.0,
+        "ward": 8,
+        "category": "Street Light Upgrade",
+        "location": "837 E 88TH PL",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.57901536,
+          41.73132809
+        ]
+      },
+      "properties": {
+        "cost": 350.0,
+        "ward": 8,
+        "category": "Street Light Upgrade",
+        "location": "1837 E 90TH ST",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.53256518358464,
+          41.70749720627789
+        ]
+      },
+      "properties": {
+        "cost": 25711.0,
+        "ward": 10,
+        "category": "Alley Resurfacing",
+        "location": "E 105TH ST & E 106TH ST & S EWING AVE & S AVENUE J",
+        "method": "alley_block_polygon",
+        "stage": 3,
+        "confidence": 0.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.54253001387335,
+          41.69373026871236
+        ]
+      },
+      "properties": {
+        "cost": 700.0,
+        "ward": 10,
+        "category": "Alley Speed Hump",
+        "location": "E 111TH ST & S MACKINAW AVE&E 112TH ST & S GREEN",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.5389481,
+          41.65352871
+        ]
+      },
+      "properties": {
+        "cost": 3583.0,
+        "ward": 10,
+        "category": "Sidewalk",
+        "location": "13300 S Avenue N",
+        "method": "address_point_exact",
+        "stage": 1,
+        "confidence": 0.97
+      }
+    }
+  ]
+}

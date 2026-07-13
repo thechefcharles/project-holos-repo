@@ -123,6 +123,10 @@
                 <input type="checkbox" id="toggle-wards" style="margin-right: 8px; cursor: pointer;">
                 <span>Show Ward Boundaries</span>
             </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-2012-real" style="margin-right: 8px; cursor: pointer;" checked>
+                <span>Show 2012 Real Data (Wards 1-10)</span>
+            </label>
         </div>
         <div class="stats">
             <div><span class="stats-number" id="displayed-count">0</span> records displayed</div>
@@ -174,6 +178,21 @@
         let allFeatures = [];
         let geojsonData = null;
         let wardsData = null;
+        let realData2012 = null;
+
+        // Load real 2012 data (extracted + geocoded, wards 1-10)
+        console.log('Loading real 2012 data...');
+        fetch('2012_wards_1_10.geojson')
+            .then(res => {
+                console.log('2012 real data response:', res.status);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                console.log('2012 real data loaded:', data.features.length, 'features');
+                realData2012 = data;
+            })
+            .catch(err => console.error('Error loading 2012 real data:', err));
 
         // Load ward boundaries
         console.log('Loading ward boundaries...');
@@ -385,6 +404,63 @@
                 const visibility = e.target.checked ? 'visible' : 'none';
                 map.setLayoutProperty('ward-fill', 'visibility', visibility);
                 map.setLayoutProperty('ward-outline', 'visibility', visibility);
+            });
+
+            // Real 2012 data layer
+            if (realData2012) {
+                map.addSource('real-2012', {
+                    type: 'geojson',
+                    data: realData2012
+                });
+
+                // Red markers for real extracted/geocoded data
+                map.addLayer({
+                    id: 'real-2012-points',
+                    type: 'circle',
+                    source: 'real-2012',
+                    paint: {
+                        'circle-radius': 6,
+                        'circle-color': '#cc0000',
+                        'circle-opacity': 0.8,
+                        'circle-stroke-width': 2,
+                        'circle-stroke-color': '#fff'
+                    }
+                });
+
+                // Click handler for real data
+                map.on('click', 'real-2012-points', (e) => {
+                    if (e.features.length === 0) return;
+                    const props = e.features[0].properties;
+                    new maplibregl.Popup()
+                        .setLngLat(e.lngLat)
+                        .setHTML(`
+                            <div class="popup">
+                                <div class="popup-title">${props.category || 'Unknown'}</div>
+                                <div class="popup-item"><span class="popup-label">Cost:</span> <span class="popup-cost">$${props.cost.toLocaleString()}</span></div>
+                                <div class="popup-item"><span class="popup-label">Ward:</span> ${props.ward}</div>
+                                <div class="popup-item"><span class="popup-label">Location:</span> ${props.location}</div>
+                                <div class="popup-item"><span class="popup-label">Confidence:</span> ${(props.confidence * 100).toFixed(0)}%</div>
+                                <div class="popup-item"><span class="popup-label">Source:</span> 2012 Extracted & Geocoded</div>
+                            </div>
+                        `)
+                        .addTo(map);
+                });
+
+                map.on('mouseenter', 'real-2012-points', () => {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+
+                map.on('mouseleave', 'real-2012-points', () => {
+                    map.getCanvas().style.cursor = '';
+                });
+            }
+
+            // Toggle real 2012 data
+            document.getElementById('toggle-2012-real').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('real-2012-points')) {
+                    map.setLayoutProperty('real-2012-points', 'visibility', visibility);
+                }
             });
 
             document.getElementById('displayed-count').textContent = allFeatures.length;
