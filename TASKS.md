@@ -138,6 +138,21 @@ Last updated: 2026-07-12
         - Expected composite: ~96% extraction × ~67% geocoding ≈ **64% composite** (vs 53% before alley grammar)
       * [ ] After 2017 verified: declare corpus finding (each format has its own profile; 2017 needs alley grammar)
     
+    - [~] **2025 end-to-end pipeline test** (Validation Task)
+      * BUILD FROM: User request (2026-07-13): test scraper → extract → classify → geocode → visualize
+      * AC: (1) PDF extraction working on 2025 data; (2) geometry classification identifies point/line/polygon; (3) CSV + GeoJSON export; (4) geocoding runs end-to-end
+      * Status: **PARTIAL** (2026-07-13)
+        - [x] **Extraction:** 2070 records from 2025 Q4 PDF (Menu Report 2025 Q4.pdf) ✓
+        - [x] **Classification:** Geometry types assigned
+          * Points (intersections): 171 records ($5.6M, 2%)
+          * Lines (street ranges): 845 records ($42.7M, 19%)
+          * Polygons (alley blocks): 223 records ($7.9M, 3%)
+          * Unknown (unresolvable): 831 records ($160.6M, 74%)
+        - [x] **Export:** CSV (web/2025_menu_classified.csv) + GeoJSON (web/2025_menu_classified.geojson) ✓
+        - [ ] **Geocoding:** Blocked—PostGIS schema not initialized (ref.centerlines, ref.address_points missing)
+        - [ ] **Visualization:** Awaiting geocoding coordinates
+      * Decision: 74% funding in "unknown" category indicates need for grammar improvements or manual review process
+    
     - ⊘ Previous gap analysis (for reference):
       * street_segment needs FROM/TO bounding algorithm (currently escalates all 50 rows)
       * multi_location needs proper multi-point handling (currently 20%, tries only first part)

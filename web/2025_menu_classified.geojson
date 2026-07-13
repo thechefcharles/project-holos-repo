@@ -1,0 +1,736 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "created_at": "2026-07-13T01:04:20.593069",
+    "source": "2025 Aldermanic Menu Q4",
+    "total_records": 2070,
+    "exported_features": 28,
+    "note": "Coordinates are stubs; real pipeline geocodes via PostGIS cascade"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Street Resurfacing",
+        "location": "ON W MEDILL AVE FROM N TALMAN AVE (2620 W) TO N CALIFORNIA AVE",
+        "cost": 100773.05,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Street Speed Hump",
+        "location": "ON N CAMPBELL AVE FROM N MILWAUKEE AVE (2020 N) TO W CHARLESTON ST",
+        "cost": 4880.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Street Speed Hump",
+        "location": "ON N MARSHFIELD AVE FROM W CHICAGO AVE (800 N) TO W AUGUSTA BLVD",
+        "cost": 4880.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Street Speed Hump",
+        "location": "ON N MOZART ST FROM W ARMITAGE AVE (2000 N) TO W PALMER ST",
+        "cost": 9760.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Street Speed Hump",
+        "location": "ON N RICHMOND ST FROM W ALTGELD ST (2500 N) TO W LOGAN BLVD",
+        "cost": 4880.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Street Speed Hump",
+        "location": "ON W ERIE ST FROM N RACINE AVE (1200 W) TO N ADA ST",
+        "cost": 2440.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Street Speed Hump",
+        "location": "ON W LE MOYNE ST FROM N ASHLAND AVE (1600 W) TO N WOOD ST",
+        "cost": 9760.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Street Speed Hump",
+        "location": "ON W SCHILLER ST FROM N HOYNE AVE (2100 W) TO N LEAVITT ST",
+        "cost": 4880.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -87.6298,
+              41.8781
+            ],
+            [
+              -87.62,
+              41.8781
+            ],
+            [
+              -87.62,
+              41.885
+            ],
+            [
+              -87.6298,
+              41.885
+            ],
+            [
+              -87.6298,
+              41.8781
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Alley Resurfacing",
+        "location": "N JANSSEN AVE & W BELDEN AVE&W FULLERTON AVE & N SOUTHPORT AVE",
+        "cost": 47273.12,
+        "geometry_type": "polygon",
+        "grammar": "alley_block_polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -87.6298,
+              41.8781
+            ],
+            [
+              -87.62,
+              41.8781
+            ],
+            [
+              -87.62,
+              41.885
+            ],
+            [
+              -87.6298,
+              41.885
+            ],
+            [
+              -87.6298,
+              41.8781
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Alley Resurfacing",
+        "location": "N RACINE AVE & W DICKENS AVE&W WEBSTER AVE & N CLIFTON AVE",
+        "cost": 51323.4,
+        "geometry_type": "polygon",
+        "grammar": "alley_block_polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -87.6298,
+              41.8781
+            ],
+            [
+              -87.62,
+              41.8781
+            ],
+            [
+              -87.62,
+              41.885
+            ],
+            [
+              -87.6298,
+              41.885
+            ],
+            [
+              -87.6298,
+              41.8781
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Concrete Alley",
+        "location": "N GREENVIEW AVE & W FULLERTON AVE&N CLYBOURN AVE & N BOSWORTH AVE",
+        "cost": 154036.73,
+        "geometry_type": "polygon",
+        "grammar": "alley_block_polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 1,
+        "year": 2025,
+        "category": "Unknown",
+        "location": "teardrops at North Av and Two Acorns, East side of Wells N ON N WELLS ST FROM W DIVISION ST (1200 N) TO W NORTH AVE",
+        "cost": 279032.03,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Bump Outs",
+        "location": "E ERIE ST & N LAKE SHORE DR",
+        "cost": 22000.0,
+        "geometry_type": "point",
+        "grammar": "intersection"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Bump Outs",
+        "location": "W BELDEN AVE & N MAGNOLIA AVE",
+        "cost": 70000.0,
+        "geometry_type": "point",
+        "grammar": "intersection"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Light Pole Painting",
+        "location": "ON N CLARK ST FROM W NORTH AVE (1599 N) TO W LA SALLE DR",
+        "cost": 21336.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Light Pole Painting",
+        "location": "ON N CLYBOURN AVE FROM N SOUTHPORT AVE (2132 N) TO N ASHLAND AVE",
+        "cost": 38467.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Light Pole Painting",
+        "location": "ON N FAIRBANKS CT FROM E GRAND AVE (528 N) TO E ONTARIO ST",
+        "cost": 16267.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Light Pole Painting",
+        "location": "ON N LA SALLE ST FROM W NORTH AVE (1600 N) TO W EUGENIE ST",
+        "cost": 16983.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Light Pole Painting",
+        "location": "ON N STATE PKWY FROM E GOETHE ST (1300 N) TO E BURTON PL",
+        "cost": 17965.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Light Pole Painting",
+        "location": "ON W NORTH AVE FROM N NORTH PARK AVE (300 W) TO N HALSTED ST",
+        "cost": 47454.0,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Light Upgrade",
+        "location": "1742-1744 N CLYBOURN AVE",
+        "cost": 500.0,
+        "geometry_type": "line",
+        "grammar": "address_range"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Resurfacing",
+        "location": "ON E CHESTNUT ST FROM N DEWITT PL (250 E) TO N LAKE SHORE DR",
+        "cost": 67356.85,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Resurfacing",
+        "location": "ON E HURON ST FROM N ST CLAIR ST (200 E) TO N FAIRBANKS CT",
+        "cost": 70163.16,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Resurfacing",
+        "location": "ON N SOUTHPORT AVE FROM W WEBSTER AVE (2200 N) TO W FULLERTON AVE",
+        "cost": 72850.23,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Resurfacing",
+        "location": "ON N STATE PKWY FROM E SCOTT ST (1232 N) TO E SCHILLER ST",
+        "cost": 116763.57,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Resurfacing",
+        "location": "ON W CONCORD LN FROM N CLYBOURN AVE (900 W) TO N SHEFFIELD AVE",
+        "cost": 55910.27,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6298,
+            41.8781
+          ],
+          [
+            -87.62,
+            41.885
+          ]
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Street Resurfacing",
+        "location": "ON W DICKENS AVE FROM N RACINE AVE (1200 W) TO N LAKEWOOD AVE",
+        "cost": 76768.97,
+        "geometry_type": "line",
+        "grammar": "street_segment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "ward": 2,
+        "year": 2025,
+        "category": "Viaduct Improvement",
+        "location": "E DIVISION ST & N LAKE SHORE DR",
+        "cost": 20446.77,
+        "geometry_type": "point",
+        "grammar": "intersection"
+      }
+    }
+  ]
+}

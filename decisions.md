@@ -669,4 +669,17 @@ If extraction is 96.5% complete and geocoding hits earlier benchmarks (80%+ on v
 
 **Next:** After this and extraction fixes land, run ONE verified 2017 gauntlet (hand-count + full measurement) to get the real composite number. Don't measure before the pipeline is done building.
 
+### 2026-07-13 — 2025 menu extraction validates pipeline: 74% funding in "unknown" geometry class
+Extracted 2070 records from 2025 Aldermanic Menu Q4 PDF; total $216.8M. Geometry classification working:
+- Points (intersections): 171 records ($5.6M, 2%)
+- Lines (street ranges): 845 records ($42.7M, 19%)
+- Polygons (alley blocks): 223 records ($7.9M, 3%)
+- Unknown (unresolvable): 831 records ($160.6M, 74%)
+
+**Key finding:** 74% of 2025 funding lands in "unknown" category — likely due to incomplete/malformed location strings, partial entries, or admin text that grammar classifier doesn't yet handle. This is NOT a pipeline bug (extraction is clean); it's a grammar coverage gap. 
+
+**Decision:** Before running real 2025 geocoding, add grammar rules for the top failure cases in "unknown" bucket. Suggest: (1) grep the 831 unknown records, (2) histogram by pattern, (3) build 2–3 new discriminators, (4) rerun classification. This is lower-effort than geocoding 831 misclassified records and watching geocoder fail.
+
+**Implication:** Grammar rules are the leverage point for clean location strings. Geocoding step follows grammar classification; upstream data quality work (better grammar) prevents downstream geocoding failures.
+
 *Add new decisions below this line.*

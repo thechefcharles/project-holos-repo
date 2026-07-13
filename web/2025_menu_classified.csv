@@ -1,0 +1,501 @@
+ward,year,category,location,cost,geometry_type,grammar
+1,2025,Street Resurfacing,ON W MEDILL AVE FROM N TALMAN AVE (2620 W) TO N CALIFORNIA AVE,100773.05,line,street_segment
+1,2025,Street Speed Hump,1400 N PAULINA ST,2440.0,unknown,single_address
+1,2025,Street Speed Hump,ON N CAMPBELL AVE FROM N MILWAUKEE AVE (2020 N) TO W CHARLESTON ST,4880.0,line,street_segment
+1,2025,Street Speed Hump,ON N MARSHFIELD AVE FROM W CHICAGO AVE (800 N) TO W AUGUSTA BLVD,4880.0,line,street_segment
+1,2025,Street Speed Hump,ON N MOZART ST FROM W ARMITAGE AVE (2000 N) TO W PALMER ST,9760.0,line,street_segment
+1,2025,Street Speed Hump,ON N RICHMOND ST FROM W ALTGELD ST (2500 N) TO W LOGAN BLVD,4880.0,line,street_segment
+1,2025,Street Speed Hump,ON W ERIE ST FROM N RACINE AVE (1200 W) TO N ADA ST,2440.0,line,street_segment
+1,2025,Street Speed Hump,ON W LE MOYNE ST FROM N ASHLAND AVE (1600 W) TO N WOOD ST,9760.0,line,street_segment
+1,2025,Street Speed Hump,ON W SCHILLER ST FROM N HOYNE AVE (2100 W) TO N LEAVITT ST,4880.0,line,street_segment
+1,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+1,2025,Unknown,WARD COMMITTED 2025 TOTAL,1492754.99,unknown,unresolvable_text
+1,2025,Unknown,WARD 2025 BALANCE,7245.01,unknown,unresolvable_text
+1,2025,Alley Resurfacing,N JANSSEN AVE & W BELDEN AVE&W FULLERTON AVE & N SOUTHPORT AVE,47273.12,polygon,alley_block_polygon
+1,2025,Alley Resurfacing,N RACINE AVE & W DICKENS AVE&W WEBSTER AVE & N CLIFTON AVE,51323.4,polygon,alley_block_polygon
+1,2025,Concrete Alley,N GREENVIEW AVE & W FULLERTON AVE&N CLYBOURN AVE & N BOSWORTH AVE,154036.73,polygon,alley_block_polygon
+1,2025,Curb & Gutter,111 W DELAWARE PL; 107 E DELAWARE PL,5596.37,unknown,multi_location
+1,2025,Curb & Gutter,1320 N STATE PKWY,22260.15,unknown,single_address
+1,2025,Curb & Gutter,1356 N CLEVELAND AVE,5579.29,unknown,single_address
+1,2025,Curb & Gutter,1514 N WELLS ST,2667.02,unknown,single_address
+1,2025,Curb & Gutter,2187 N CLYBOURN AVE,13830.0,unknown,single_address
+1,2025,Curb & Gutter,270 E CHESTNUT ST,11901.31,unknown,single_address
+1,2025,Floodlight,777 N MICHIGAN AVE,1150.0,unknown,single_address
+1,2025,Unknown,Miscellaneous CDOT Projects (2025) 1420 N DEARBORN ST,660.0,unknown,unresolvable_text
+1,2025,Unknown,Miscellaneous CDOT Projects (2025) 6800 S LOOMIS BLVD,660.0,unknown,unresolvable_text
+1,2025,Unknown,"teardrops at North Av and Two Acorns, East side of Wells N ON N WELLS ST FROM W DIVISION ST (1200 N) TO W NORTH AVE",279032.03,line,street_segment
+1,2025,Unknown,2210 N SOUTHPORT AVE,50000.0,unknown,single_address
+1,2025,Sidewalk,148 W BURTON PL,12418.85,unknown,single_address
+1,2025,Sidewalk,2069 N CLYBOURN AVE,42053.26,unknown,single_address
+1,2025,Sidewalk,33 E DIVISION ST,7342.31,unknown,single_address
+2,2025,Street Bump Outs,E ERIE ST & N LAKE SHORE DR,22000.0,point,intersection
+2,2025,Street Bump Outs,W BELDEN AVE & N MAGNOLIA AVE,70000.0,point,intersection
+2,2025,Street Light Pole Painting,ON N CLARK ST FROM W NORTH AVE (1599 N) TO W LA SALLE DR,21336.0,line,street_segment
+2,2025,Street Light Pole Painting,ON N CLYBOURN AVE FROM N SOUTHPORT AVE (2132 N) TO N ASHLAND AVE,38467.0,line,street_segment
+2,2025,Street Light Pole Painting,ON N FAIRBANKS CT FROM E GRAND AVE (528 N) TO E ONTARIO ST,16267.0,line,street_segment
+2,2025,Street Light Pole Painting,ON N LA SALLE ST FROM W NORTH AVE (1600 N) TO W EUGENIE ST,16983.0,line,street_segment
+2,2025,Street Light Pole Painting,ON N STATE PKWY FROM E GOETHE ST (1300 N) TO E BURTON PL,17965.0,line,street_segment
+2,2025,Street Light Pole Painting,ON W NORTH AVE FROM N NORTH PARK AVE (300 W) TO N HALSTED ST,47454.0,line,street_segment
+2,2025,Street Light Upgrade,1742-1744 N CLYBOURN AVE,500.0,line,address_range
+2,2025,Street Light Upgrade,1760 N CLYBOURN AVE,500.0,unknown,single_address
+2,2025,Street Resurfacing,ON E CHESTNUT ST FROM N DEWITT PL (250 E) TO N LAKE SHORE DR,67356.85,line,street_segment
+2,2025,Street Resurfacing,ON E HURON ST FROM N ST CLAIR ST (200 E) TO N FAIRBANKS CT,70163.16,line,street_segment
+2,2025,Street Resurfacing,ON N SOUTHPORT AVE FROM W WEBSTER AVE (2200 N) TO W FULLERTON AVE,72850.23,line,street_segment
+2,2025,Street Resurfacing,ON N STATE PKWY FROM E SCOTT ST (1232 N) TO E SCHILLER ST,116763.57,line,street_segment
+2,2025,Street Resurfacing,ON W CONCORD LN FROM N CLYBOURN AVE (900 W) TO N SHEFFIELD AVE,55910.27,line,street_segment
+2,2025,Street Resurfacing,ON W DICKENS AVE FROM N RACINE AVE (1200 W) TO N LAKEWOOD AVE,76768.97,line,street_segment
+2,2025,Unknown,Traffic Signal Pole Painting menu,18830.0,unknown,unresolvable_text
+2,2025,Viaduct Improvement,E DIVISION ST & N LAKE SHORE DR,20446.77,point,intersection
+2,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+2,2025,Unknown,WARD COMMITTED 2025 TOTAL,1499999.99,unknown,unresolvable_text
+2,2025,Unknown,WARD 2025 BALANCE,0.01,unknown,unresolvable_text
+2,2025,Alley Resurfacing,S CALUMET AVE & E 40TH ST&E 41ST ST & S PRAIRIE AVE,37129.36,polygon,alley_block_polygon
+2,2025,Alley Resurfacing,S MICHIGAN AVE & E 21ST ST&E CERMAK RD & S WABASH AVE,12883.19,polygon,alley_block_polygon
+2,2025,Alley Resurfacing,S MICHIGAN AVE & E 40TH ST&E 41ST ST & S INDIANA AVE,32105.62,polygon,alley_block_polygon
+2,2025,Alley Resurfacing,S PRAIRIE AVE & E PERSHING RD&E 40TH ST & S INDIANA AVE,52768.75,polygon,alley_block_polygon
+2,2025,Alley Speed Hump,S STATE ST & W 43RD ST&E 44TH ST & S WABASH AVE,2175.0,polygon,alley_block_polygon
+2,2025,Curb & Gutter,10 W 35TH PL,5270.63,unknown,single_address
+2,2025,Floodlight,346 W SWANN ST,1150.0,unknown,single_address
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 1920 S PRAIRIE AVE,4600.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 306 E PERSHING RD,150.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 3663 S INDIANA AVE,300.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 3859 S GILES AVE,660.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 430-432 E 48TH ST,150.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 4510 S VINCENNES AVE,150.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 4521-4523 S PRAIRIE AVE,150.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 4644 S VINCENNES AVE,150.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 4715 S WABASH AVE; 4736 S WABASH AVE; 4724 S WABASH AVE,300.0,unknown,multi_location
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 4757 S PRAIRIE AVE,150.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 5031 S PRAIRIE AVE,150.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 5037 S INDIANA AVE,150.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 5111 S MICHIGAN AVE,300.0,unknown,unresolvable_text
+2,2025,Unknown,Miscellaneous CDOT Projects (2025) 5121 S WABASH AVE; 5115 S WABASH AVE,300.0,unknown,multi_location
+3,2025,Unknown,Miscellaneous CDOT Projects (2025) 5217 S CALUMET AVE; 5219 S CALUMET AVE; 5213 S CALUMET AVE,300.0,unknown,multi_location
+3,2025,Unknown,Miscellaneous CDOT Projects (2025) 601 E 45TH ST,150.0,unknown,unresolvable_text
+3,2025,Pavement Markings,Pavement Markings Menu (2025) E PERSHING RD & S RHODES AVE,2500.0,point,intersection
+3,2025,Sidewalk,2001-2018 S PRAIRIE AVE,11456.16,line,address_range
+3,2025,Sidewalk,4100-4112 S DR MARTIN LUTHER KING JR DR,25000.0,line,address_range
+3,2025,Sidewalk,4543 S PRINCETON AVE,8430.67,unknown,single_address
+3,2025,Sidewalk,4747 S DR MARTIN LUTHER KING JR DR,8527.72,unknown,single_address
+3,2025,Sidewalk,ON W 29TH ST FROM S DEARBORN ST (40 W) TO S FEDERAL ST,45978.89,line,street_segment
+3,2025,Street Light Residential Staggered Piggy Back,ON E 40TH ST FROM S STATE ST (0 E) TO S PRAIRIE AVE,47000.0,line,street_segment
+3,2025,Street Resurfacing,ON E 37TH PL FROM S STATE ST (0 E) TO S WABASH AVE,46065.06,line,street_segment
+3,2025,Street Resurfacing,ON E 44TH ST FROM S INDIANA AVE (200 E) TO S DR MARTIN LUTHER KING JR DR,141333.18,line,street_segment
+3,2025,Street Resurfacing,ON E 46TH ST FROM S PRAIRIE AVE (300 E) TO S CALUMET AVE,30893.2,line,street_segment
+3,2025,Street Resurfacing,ON S CALUMET AVE FROM E 38TH ST (3800 S) TO E PERSHING RD,65792.97,line,street_segment
+3,2025,Street Resurfacing,ON S CALUMET AVE FROM E PERSHING RD (3900 S) TO E 41ST ST,139080.47,line,street_segment
+3,2025,Street Resurfacing,ON S EVANS AVE FROM E 44TH ST (4400 S) TO E 45TH ST,33477.48,line,street_segment
+3,2025,Street Resurfacing,ON S FORRESTVILLE AVE FROM E 47TH ST (4700 S) TO E 48TH ST,79082.95,line,street_segment
+3,2025,Street Resurfacing,ON S PRAIRIE AVE FROM E 49TH ST (4900 S) TO E 51ST ST,135422.52,line,street_segment
+3,2025,Street Resurfacing,ON S WABASH AVE FROM E 44TH ST (4400 S) TO E 46TH ST,212839.32,line,street_segment
+3,2025,Street Resurfacing,ON W 24TH ST FROM S STATE ST (0 E) TO S MICHIGAN AVE,87912.76,line,street_segment
+3,2025,Street Resurfacing,ON W 29TH ST FROM S DEARBORN ST (40 W) TO S FEDERAL ST,27392.41,line,street_segment
+3,2025,Street Resurfacing,ON W 30TH ST FROM S STATE ST (0 E) TO S FEDERAL ST,85612.3,line,street_segment
+3,2025,Street Speed Hump,ON S PRAIRIE AVE FROM E 38TH ST (3799 S) TO E PERSHING RD,4880.0,line,street_segment
+3,2025,Street Speed Hump,ON W 35TH PL FROM S STATE ST (1 W) TO S FEDERAL ST,4880.0,line,street_segment
+3,2025,Street Speed Hump,ON W 36TH ST FROM S STATE ST (1 W) TO S FEDERAL ST,4880.0,line,street_segment
+3,2025,Street Speed Hump,ON W ROOT ST FROM S STATE ST (0 E) TO S DEARBORN ST,2440.0,line,street_segment
+3,2025,Street Speed Hump,ON W SWANN ST FROM S WENTWORTH AVE (232 W) TO S PRINCETON AVE,2440.0,line,street_segment
+3,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+3,2025,Unknown,WARD COMMITTED 2025 TOTAL,1486036.12,unknown,unresolvable_text
+3,2025,Unknown,WARD 2025 BALANCE,13963.88,unknown,unresolvable_text
+3,2025,Alley Apron,4715 S LANGLEY AVE,14526.92,unknown,single_address
+3,2025,Alley Resurfacing,E 43RD ST & S COTTAGE GROVE AVE&S DREXEL BLVD & E 44TH ST,92628.08,polygon,alley_block_polygon
+3,2025,Arterial Street Bump Outs,E PERSHING RD & S RHODES AVE,60000.0,point,intersection
+3,2025,Concrete Alley,S ELLIS AVE & E 45TH ST&E 46TH ST & S GREENWOOD AVE,10795.0,polygon,alley_block_polygon
+3,2025,Curb & Gutter,4306 S ELLIS AVE,334020.17,unknown,single_address
+3,2025,Curb & Gutter,E 49TH ST & S BLACKSTONE AVE,113791.93,point,intersection
+3,2025,Curb & Gutter,E 50TH ST & S BLACKSTONE AVE,187425.25,point,intersection
+3,2025,Unknown,Miscellaneous CDOT Projects (2025) 4220 S BERKELEY AVE,150.0,unknown,unresolvable_text
+3,2025,Unknown,Miscellaneous CDOT Projects (2025) E OAKWOOD BLVD & S LSD OAKWOOD BL ER,548.23,point,intersection
+3,2025,Unknown,Miscellaneous CDOT Projects (2025) ON S DREXEL BLVD FROM E 43RD ST (4300 S) TO E HYDE PARK BLVD,24000.0,line,street_segment
+3,2025,Pavement Markings,Pavement Markings Menu (2025) 3600 S DR MARTIN LUTHER KING JR DR,7000.0,unknown,unresolvable_text
+3,2025,Sidewalk,4832 S DORCHESTER AVE,30000.0,unknown,single_address
+3,2025,Street Light Pole Painting,ON S DR MARTIN LUTHER KING JR DR FROM E 32ND ST (3198 S) TO E 35TH ST,21167.59,line,street_segment
+3,2025,Street Resurfacing,ON E 53RD ST FROM S KIMBARK AVE (1300 E) TO S WOODLAWN AVE,74173.21,line,street_segment
+3,2025,Street Resurfacing,ON S KENWOOD AVE FROM E HYDE PARK BLVD (5100 S) TO E 52ND ST,46509.29,line,street_segment
+3,2025,Street Resurfacing,ON S ST LAWRENCE AVE FROM E 41ST ST (4100 S) TO E BOWEN AVE,19056.1,line,street_segment
+3,2025,Street Resurfacing,ON S WOODLAWN AVE FROM E 47TH ST (4700 S) TO E 53RD ST,230775.46,line,street_segment
+3,2025,Street Resurfacing,ON S WOODLAWN AVE FROM E 49TH ST (4900 S) TO E 50TH ST,94984.25,line,street_segment
+4,2025,Street Speed Hump,ON E 44TH ST FROM S EVANS AVE (720 E) TO S COTTAGE GROVE AVE,2440.0,line,street_segment
+4,2025,Street Speed Hump,ON E 45TH ST FROM S COTTAGE GROVE AVE (800 E) TO S ELLIS AVE,7320.0,line,street_segment
+4,2025,Street Speed Hump,ON E 45TH ST FROM S ELLIS AVE (1000 E) TO S WOODLAWN AVE,9760.0,line,street_segment
+4,2025,Street Speed Hump,ON E 48TH ST FROM S ST LAWRENCE AVE (600 E) TO S CHAMPLAIN AVE,2440.0,line,street_segment
+4,2025,Street Speed Hump,ON E 49TH ST FROM S KIMBARK AVE (1300 E) TO S DORCHESTER AVE,4880.0,line,street_segment
+4,2025,Street Speed Hump,ON S BERKELEY AVE FROM E 43RD ST (4300 S) TO E 44TH ST,4880.0,line,street_segment
+4,2025,Street Speed Hump,ON S BLACKSTONE AVE FROM E 49TH ST (4900 S) TO E 52ND ST,12200.0,line,street_segment
+4,2025,Street Speed Hump,ON S CHAMPLAIN AVE FROM E 47TH ST (4700 S) TO E 48TH ST,4880.0,line,street_segment
+4,2025,Street Speed Hump,ON S ELLIS AVE FROM E 46TH ST (4600 S) TO E 47TH ST,4880.0,line,street_segment
+4,2025,Street Speed Hump,ON S GREENWOOD AVE FROM E 47TH ST (4700 S) TO E 48TH ST,4880.0,line,street_segment
+4,2025,Street Speed Hump,ON S OAKENWALD AVE FROM E 40TH PL (4032 S) TO E 41ST ST,2440.0,line,street_segment
+4,2025,Street Speed Hump,ON S VINCENNES AVE FROM E 42ND ST (4200 S) TO E 43RD ST,4880.0,line,street_segment
+4,2025,Street Speed Hump,ON S WOODLAWN AVE FROM S LAKE PARK AVE (4440 S) TO E 46TH ST,12200.0,line,street_segment
+4,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+4,2025,Unknown,WARD COMMITTED 2025 TOTAL,1499999.99,unknown,unresolvable_text
+4,2025,Unknown,WARD 2025 BALANCE,0.01,unknown,unresolvable_text
+4,2025,Alley Resurfacing,E 52ND ST & S INGLESIDE AVE&S ELLIS AVE & E 53RD ST,29013.25,polygon,alley_block_polygon
+4,2025,Alley Resurfacing,S BLACKSTONE AVE & E 65TH ST&E 65TH PL & S STONY ISLAND AVE,29911.68,polygon,alley_block_polygon
+4,2025,Sidewalk,1701 E 56TH ST,12066.27,unknown,single_address
+4,2025,Sidewalk,2327 E 68TH ST,2868.11,unknown,single_address
+4,2025,Sidewalk,6744 S PAXTON AVE,9038.59,unknown,single_address
+4,2025,Street Bump Outs,S CORNELL AVE & E 50TH ST,16127.8,point,intersection
+4,2025,Street Bump Outs,S PAXTON AVE & E 73RD ST,29880.43,point,intersection
+4,2025,Street Resurfacing,ON E 54TH ST FROM S INGLESIDE AVE (930 E) TO S ELLIS AVE,36477.67,line,street_segment
+4,2025,Street Resurfacing,ON E 54TH ST FROM S UNIVERSITY AVE (1140 E) TO S WOODLAWN AVE,42228.3,line,street_segment
+4,2025,Street Resurfacing,ON E 56TH ST FROM S UNIVERSITY AVE (1150 E) TO S WOODLAWN AVE,35336.9,line,street_segment
+4,2025,Street Resurfacing,ON S CORNELL AVE FROM E 54TH ST (5400 S) TO E 55TH ST,48766.13,line,street_segment
+4,2025,Street Resurfacing,ON S CRANDON AVE FROM E 68TH ST (6800 S) TO E 69TH ST,61300.86,line,street_segment
+4,2025,Street Resurfacing,ON S CYRIL AVE FROM E 71ST PL (7130 S) TO E 72ND ST,40233.73,line,street_segment
+4,2025,Street Resurfacing,ON S DOBSON AVE FROM E 71ST ST (7100 S) TO E 73RD ST,146468.38,line,street_segment
+4,2025,Street Resurfacing,ON S DORCHESTER AVE FROM E 58TH ST (5800 S) TO E 59TH ST,51173.61,line,street_segment
+4,2025,Street Resurfacing,ON S DORCHESTER AVE FROM E 60TH ST (6000 S) TO E 61ST ST,71012.4,line,street_segment
+4,2025,Street Resurfacing,ON S ELLIS AVE FROM E 71ST ST (7100 S) TO E 73RD ST,127720.15,line,street_segment
+4,2025,Street Resurfacing,ON S EUCLID AVE FROM E 68TH ST (6800 S) TO E 69TH ST,47632.67,line,street_segment
+4,2025,Street Resurfacing,ON S EUCLID AVE FROM E 71ST ST (7100 S) TO E 73RD ST,120843.57,line,street_segment
+4,2025,Street Resurfacing,ON S GREENWOOD AVE FROM E 71ST ST (7100 S) TO E 72ND ST,57561.38,line,street_segment
+4,2025,Street Resurfacing,ON S INGLESIDE AVE FROM E 71ST ST (7100 S) TO E 72ND ST,78959.23,line,street_segment
+4,2025,Street Resurfacing,ON S LUELLA AVE FROM E 71ST ST (7100 S) TO E 73RD ST,130632.65,line,street_segment
+5,2025,Street Resurfacing,ON S UNIVERSITY AVE FROM E 60TH ST (6000 S) TO E 61ST ST,55665.54,line,street_segment
+5,2025,Street Resurfacing,ON S UNIVERSITY AVE FROM E 71ST ST (7100 S) TO E 73RD ST,155263.21,line,street_segment
+5,2025,Street Resurfacing,ON S WOODLAWN AVE FROM E 72ND ST (7200 S) TO E 72ND PL,51748.52,line,street_segment
+5,2025,Street Speed Hump,ON S DORCHESTER AVE FROM E 54TH ST (5400 S) TO E 55TH ST,4880.0,line,street_segment
+5,2025,Street Speed Hump,ON S UNIVERSITY AVE FROM E 73RD ST (7300 S) TO E 74TH ST,4880.0,line,street_segment
+5,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+5,2025,Unknown,WARD COMMITTED 2025 TOTAL,1497691.03,unknown,unresolvable_text
+5,2025,Unknown,WARD 2025 BALANCE,2308.97,unknown,unresolvable_text
+5,2025,Floodlight,S VINCENNES AVE & W 70TH ST,2300.0,point,intersection
+5,2025,Unknown,Floor repairs for Neil Elementary School 8555 S MICHIGAN AVE,12500.0,unknown,named_place
+5,2025,Unknown,Improvements to Hamilton Park tech center 513 W 72ND ST,50000.0,unknown,named_place
+5,2025,Unknown,Improvements to Tuley Park for miniature soccer field 501 E 90TH ST,250000.0,unknown,named_place
+5,2025,Unknown,501 E 90TH PL,50000.0,unknown,single_address
+5,2025,Unknown,8147 S VINCENNES AVE,300000.0,unknown,single_address
+5,2025,Unknown,Miscellaneous CDOT Projects (2025) 401 E 75TH ST,660.0,unknown,unresolvable_text
+5,2025,Unknown,Miscellaneous CDOT Projects (2025) 615 W MARQUETTE RD,660.0,unknown,unresolvable_text
+5,2025,Unknown,New lockers for Lenart School 8101 S LA SALLE ST,50000.0,unknown,named_place
+5,2025,Pavement Markings,Pavement Markings Menu (2025) S VINCENNES AVE & W 83RD ST; W 83RD ST & S STEWART AVE,3200.0,polygon,alley_block_polygon
+5,2025,Unknown,Projector screen for Manor Park School 7037 S RHODES AVE,30000.0,unknown,named_place
+5,2025,Street Cul-de-Sac,ON S DR MARTIN LUTHER KING JR DR FROM E 81ST ST (8100 S) TO E 85TH ST,250000.0,line,street_segment
+5,2025,Street Light Pole Painting,ON S VINCENNES AVE FROM 6900 S TO W 71ST ST,12600.0,line,street_segment
+5,2025,Street Speed Hump,ON E 77TH ST FROM S STATE ST (0 E) TO S COTTAGE GROVE AVE,34160.0,line,street_segment
+5,2025,Street Speed Hump,ON E 80TH ST FROM S STATE ST (0 E) TO S COTTAGE GROVE AVE,8418.03,line,street_segment
+5,2025,Street Speed Hump,ON E 80TH ST FROM S VINCENNES AVE (410 W) TO S HALSTED ST,9760.0,line,street_segment
+5,2025,Street Speed Hump,ON E 82ND ST FROM S STATE ST (0 E) TO S COTTAGE GROVE AVE,34160.0,line,street_segment
+5,2025,Street Speed Hump,ON E 84TH ST FROM S WABASH AVE (50 E) TO S MICHIGAN AVE,2440.0,line,street_segment
+5,2025,Street Speed Hump,ON E 93RD ST FROM S STATE ST (0 E) TO S DR MARTIN LUTHER KING JR DR,17080.0,line,street_segment
+5,2025,Street Speed Hump,ON E 94TH ST FROM S STATE ST (0 E) TO S DR MARTIN LUTHER KING JR DR,17080.0,line,street_segment
+6,2025,Street Speed Hump,ON S MICHIGAN AVE FROM E 91ST ST (9100 S) TO E 95TH ST,19520.0,line,street_segment
+6,2025,Street Speed Hump,ON S VERNON AVE FROM E 83RD ST (8300 S) TO E 84TH ST,4880.0,line,street_segment
+6,2025,Street Speed Hump,ON S WABASH AVE FROM E 80TH ST (8000 S) TO E 81ST ST,4880.0,line,street_segment
+6,2025,Street Speed Hump,ON W 81ST ST FROM S VINCENNES AVE (430 W) TO S HALSTED ST,4880.0,line,street_segment
+6,2025,Unknown,Tuley Park baseball field improvement 501 E 90TH PL,50000.0,unknown,named_place
+6,2025,Unknown,Walking track at Cole Park 361 E 85TH ST,100000.0,point,intersection
+6,2025,Unknown,Walking track installation at Cole Park 361 E 85TH ST,100000.0,point,intersection
+6,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+6,2025,Unknown,WARD COMMITTED 2025 TOTAL,1438698.03,unknown,unresolvable_text
+6,2025,Unknown,WARD 2025 BALANCE,61301.97,unknown,unresolvable_text
+6,2025,Curb & Gutter,ON E 80TH PL FROM S COMMERCIAL CT (3000 E) TO S HOUSTON AVE,6419.17,line,street_segment
+6,2025,Sidewalk,2114 E 100TH ST,7757.85,unknown,single_address
+6,2025,Sidewalk,2309 E 83RD ST,11082.86,unknown,single_address
+6,2025,Sidewalk,7129 S CORNELL AVE,7127.94,unknown,single_address
+6,2025,Sidewalk,7711 S OGLESBY AVE,5037.51,unknown,single_address
+6,2025,Sidewalk,9020 S PAXTON AVE,11111.2,unknown,single_address
+6,2025,Street Bump Outs,E 75TH ST & S EUCLID AVE,21435.46,point,intersection
+6,2025,Street Bump Outs,S PAXTON AVE & E 73RD ST,10544.43,point,intersection
+6,2025,Street Light Upgrade,3021 E 80TH PL,500.0,unknown,single_address
+6,2025,Street Light Upgrade,7700 S CRANDON AVE; E 77TH ST & S LUELLA AVE&S CRANDON AVE & E 78TH ST,500.0,point,intersection
+6,2025,Street Light Upgrade,7720 S COLES AVE,500.0,unknown,single_address
+6,2025,Street Light Upgrade,8139 S SOUTH SHORE DR,500.0,unknown,single_address
+6,2025,Street Light Upgrade,E 77TH ST & S OGLESBY AVE&S CRANDON AVE & E 78TH ST; 7701 S CRANDON AVE,500.0,polygon,alley_block_polygon
+6,2025,Street Resurfacing,ON E 72ND PL FROM S RIDGELAND AVE (1730 E) TO S CONSTANCE AVE,34291.9,line,street_segment
+6,2025,Street Resurfacing,ON E 74TH ST FROM S CHAPPEL AVE (2030 E) TO S MERRILL AVE,74014.33,line,street_segment
+6,2025,Street Resurfacing,ON E 77TH ST FROM S MERRILL AVE (2130 E) TO S LUELLA AVE,45096.02,line,street_segment
+6,2025,Street Resurfacing,ON E 80TH PL FROM S COMMERCIAL CT (3000 E) TO S HOUSTON AVE,24415.31,line,street_segment
+6,2025,Street Resurfacing,ON S BENSLEY AVE FROM E 99TH ST (9899 S) TO E 100TH ST,64311.31,line,street_segment
+6,2025,Street Resurfacing,ON S COLFAX AVE FROM E 87TH ST (8700 S) TO S SOUTH CHICAGO AVE,106437.24,line,street_segment
+6,2025,Street Resurfacing,ON S CRANDON AVE FROM E 101ST ST (10100 S) TO E 102ND ST,59311.68,line,street_segment
+6,2025,Street Resurfacing,ON S CRANDON AVE FROM E 103RD ST (10300 S) TO E 104TH ST,65184.41,line,street_segment
+6,2025,Street Resurfacing,ON S CRANDON AVE FROM E 80TH ST (8000 S) TO E 81ST ST,46940.44,line,street_segment
+6,2025,Street Resurfacing,ON S CRANDON AVE FROM E 83RD ST (8300 S) TO E 84TH ST,59157.76,line,street_segment
+7,2025,Street Resurfacing,ON S CRANDON AVE FROM E 89TH ST (8900 S) TO E 91ST ST,122875.55,line,street_segment
+7,2025,Street Resurfacing,ON S ESSEX AVE FROM E 93RD ST (9300 S) TO E 94TH ST,63402.52,line,street_segment
+7,2025,Street Resurfacing,ON S HOUSTON AVE FROM E 81ST ST (8100 S) TO E 82ND ST,56513.06,line,street_segment
+7,2025,Street Resurfacing,ON S MUSKEGON AVE FROM E 93RD ST (9300 S) TO E 94TH ST,53639.81,line,street_segment
+7,2025,Street Resurfacing,ON S OGLESBY AVE FROM E 100TH ST (10000 S) TO E 101ST ST,68129.4,line,street_segment
+7,2025,Street Resurfacing,ON S OGLESBY AVE FROM E 101ST ST (10100 S) TO E 103RD ST,121487.7,line,street_segment
+7,2025,Street Resurfacing,ON S PHILLIPS AVE FROM E 89TH ST (8900 S) TO E 90TH ST,58865.76,line,street_segment
+7,2025,Street Resurfacing,ON S SAGINAW AVE FROM E 93RD ST (9300 S) TO E 94TH ST,53639.81,line,street_segment
+7,2025,Street Resurfacing,ON S YATES AVE FROM E 89TH ST (8900 S) TO E 91ST ST,156197.89,line,street_segment
+7,2025,Street Speed Hump,ON E 102ND ST FROM S OGLESBY AVE (2400 E) TO S BENSLEY AVE,4880.0,line,street_segment
+7,2025,Street Speed Hump,ON E 94TH ST FROM S JEFFERY AVE (2000 E) TO S ANTHONY AVE,41480.0,line,street_segment
+7,2025,Street Speed Hump,ON S CRANDON AVE FROM E 80TH ST (8000 S) TO E 81ST ST,4880.0,line,street_segment
+7,2025,Street Speed Hump,ON S ESSEX AVE FROM E 86TH ST (8600 S) TO E 87TH ST,4880.0,line,street_segment
+7,2025,Street Speed Hump,ON S KINGSTON AVE FROM E 82ND ST (8200 S) TO E 83RD ST,3071.67,line,street_segment
+7,2025,Street Speed Hump,ON S OGLESBY AVE FROM E 100TH ST (10000 S) TO E 101ST ST,4880.0,line,street_segment
+7,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+7,2025,Unknown,WARD COMMITTED 2025 TOTAL,1480999.99,unknown,unresolvable_text
+7,2025,Unknown,WARD 2025 BALANCE,19000.01,unknown,unresolvable_text
+7,2025,Alley Apron,9132 S CREGIER AVE,34046.83,unknown,single_address
+7,2025,Alley Resurfacing,E 88TH ST & S DANTE AVE&S BLACKSTONE AVE & E 89TH ST,10166.26,polygon,alley_block_polygon
+7,2025,Unknown,Grand Crossing Park Improvements 7655 S INGLESIDE AVE,50000.0,unknown,named_place
+7,2025,Unknown,Jesse Owens Park Improvements 8800 S CLYDE AVE,50000.0,unknown,named_place
+7,2025,Sidewalk,7200 S DORCHESTER AVE,38601.05,unknown,single_address
+7,2025,Sidewalk,7943-7945 S JEFFERY BLVD,9260.45,line,address_range
+7,2025,Sidewalk,8135 S EUCLID AVE,9050.39,unknown,single_address
+7,2025,Sidewalk,8458 S MARYLAND AVE,46168.46,unknown,single_address
+7,2025,Sidewalk,8815 S CORNELL AVE,1656.39,unknown,single_address
+7,2025,Sidewalk,8918 S CHAPPEL AVE,15007.46,unknown,single_address
+7,2025,Sidewalk,8944 S CLYDE AVE,2242.05,unknown,single_address
+7,2025,Sidewalk,9156 S BENNETT AVE,17989.84,unknown,single_address
+7,2025,Sidewalk,9305 S DR MARTIN LUTHER KING JR DR,4262.35,unknown,single_address
+7,2025,Sidewalk,9314 S EAST END AVE,5935.17,unknown,single_address
+7,2025,Sidewalk,9600 S UNIVERSITY AVE,26176.2,unknown,single_address
+7,2025,Street Resurfacing,ON E 72ND PL FROM S DORCHESTER AVE (1400 E) TO S BLACKSTONE AVE,66426.55,line,street_segment
+7,2025,Street Resurfacing,ON E 74TH ST FROM S KENWOOD AVE (1330 E) TO S DORCHESTER AVE,29593.93,line,street_segment
+7,2025,Street Resurfacing,ON E 82ND ST FROM S MERRILL AVE (2130 E) TO S LUELLA AVE,56814.09,line,street_segment
+7,2025,Street Resurfacing,ON E 85TH ST FROM S EAST END AVE (1700 E) TO S CREGIER AVE,47436.99,line,street_segment
+7,2025,Street Resurfacing,ON E 86TH ST FROM 950 E TO S INGLESIDE AVE,19024.96,line,street_segment
+7,2025,Street Resurfacing,ON E 92ND ST FROM S STONY ISLAND AVE (1600 E) TO S CREGIER AVE,124400.38,line,street_segment
+8,2025,Street Resurfacing,ON E 94TH ST FROM S DR MARTIN LUTHER KING JR DR (400 E) TO S VERNON AVE,21461.79,line,street_segment
+8,2025,Street Resurfacing,ON S AVALON AVE FROM 9858 S TO E 98TH ST,54638.03,line,street_segment
+8,2025,Street Resurfacing,ON S BLACKSTONE AVE FROM E 86TH ST (8600 S) TO E 87TH ST,61169.21,line,street_segment
+8,2025,Street Resurfacing,ON S CHAPPEL AVE FROM E 80TH ST (8000 S) TO E 81ST ST,62835.52,line,street_segment
+8,2025,Street Resurfacing,ON S CLYDE AVE FROM E 89TH ST (8900 S) TO E 90TH ST,57867.44,line,street_segment
+8,2025,Street Resurfacing,ON S CONSTANCE AVE FROM E 90TH ST (9000 S) TO E 92ND ST,109737.85,line,street_segment
+8,2025,Street Resurfacing,ON S CORNELL AVE FROM E 78TH ST (7800 S) TO E 79TH ST,48912.93,line,street_segment
+8,2025,Street Resurfacing,ON S DOBSON AVE FROM E 95TH ST (9500 S) TO E 96TH ST,55548.17,line,street_segment
+8,2025,Street Resurfacing,ON S EAST END AVE FROM E 93RD ST (9300 S) TO E 94TH ST,57867.57,line,street_segment
+8,2025,Street Resurfacing,ON S ELLIS AVE FROM E 83RD ST (8300 S) TO E 84TH ST,56926.05,line,street_segment
+8,2025,Street Resurfacing,ON S KENWOOD AVE FROM E 85TH ST (8530 S) TO E 87TH ST,49500.47,line,street_segment
+8,2025,Street Resurfacing,ON S LUELLA AVE FROM E 84TH ST (8400 S) TO E 85TH ST,54080.2,line,street_segment
+8,2025,Street Resurfacing,ON S RIDGELAND AVE FROM E 89TH ST (8900 S) TO E 90TH ST,62506.31,line,street_segment
+8,2025,Street Speed Hump,ON E 84TH ST FROM S STONY ISLAND AVE (1600 E) TO S EAST END AVE,4880.0,line,street_segment
+8,2025,Street Speed Hump,ON E 85TH ST FROM S EAST END AVE (1700 E) TO S CREGIER AVE,4880.0,line,street_segment
+8,2025,Street Speed Hump,ON E 89TH PL FROM S DR MARTIN LUTHER KING JR DR (400 E) TO S EBERHART AVE,4880.0,line,street_segment
+8,2025,Street Speed Hump,ON E 89TH ST FROM S DR MARTIN LUTHER KING JR DR (400 E) TO S EBERHART AVE,4880.0,line,street_segment
+8,2025,Street Speed Hump,ON E 91ST PL FROM S DR MARTIN LUTHER KING JR DR (400 E) TO S EBERHART AVE,4880.0,line,street_segment
+8,2025,Street Speed Hump,ON S DORCHESTER AVE FROM E 82ND ST (8200 S) TO E 83RD ST,4880.0,line,street_segment
+8,2025,Street Speed Hump,ON S DORCHESTER AVE FROM E 85TH ST (8500 S) TO E 87TH ST,9760.0,line,street_segment
+8,2025,Street Speed Hump,ON S MARYLAND AVE FROM E 77TH ST (7700 S) TO E 78TH ST,4880.0,line,street_segment
+8,2025,Street Speed Hump,ON S MERRILL AVE FROM E 75TH ST (7500 S) TO E 76TH ST,4880.0,line,street_segment
+8,2025,Street Speed Hump,ON S WOODLAWN AVE FROM E 90TH ST (9000 S) TO E 91ST ST,4880.0,line,street_segment
+8,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+8,2025,Unknown,WARD COMMITTED 2025 TOTAL,1499999.99,unknown,unresolvable_text
+8,2025,Unknown,WARD 2025 BALANCE,0.01,unknown,unresolvable_text
+8,2025,Alley Resurfacing,S PARNELL AVE & W 123RD ST&W 124TH ST & S WALLACE ST,59989.82,polygon,alley_block_polygon
+8,2025,Alley Resurfacing,W 128TH PL & S PARNELL AVE&S PARNELL AVE & W 128TH ST,12756.52,polygon,alley_block_polygon
+8,2025,Alley Speed Hump,S HARVARD AVE & W 126TH ST&W 127TH ST & S PRINCETON AVE,1450.0,polygon,alley_block_polygon
+8,2025,Curb & Gutter,ON S PRAIRIE AVE FROM E 100TH ST (10000 S) TO E 101ST ST,260350.12,line,street_segment
+8,2025,Sidewalk,10047 S EBERHART AVE,3721.46,unknown,single_address
+8,2025,Sidewalk,10356 S EBERHART AVE,12453.51,unknown,single_address
+8,2025,Sidewalk,10437 S INDIANA AVE,5624.98,unknown,single_address
+8,2025,Sidewalk,12835 S LOWE AVE,6879.92,unknown,single_address
+8,2025,Sidewalk,12835 S UNION AVE,20162.04,unknown,single_address
+8,2025,Sidewalk,225 W 118TH ST,10829.88,unknown,single_address
+8,2025,Sidewalk,551 E 106TH ST,1509.04,unknown,single_address
+8,2025,Sidewalk,58 W 108TH PL,16262.98,unknown,single_address
+8,2025,Sidewalk,711 E 105TH PL,7244.91,unknown,single_address
+8,2025,Sidewalk,9400 S NORMAL AVE,13732.37,unknown,single_address
+8,2025,Sidewalk,ON S CORLISS AVE FROM S DOTY AVE W (11110 S) TO E 112TH ST,2562.2,line,street_segment
+8,2025,Street Light Upgrade,140 E 121ST PL,500.0,unknown,single_address
+8,2025,Street Resurfacing,ON E 109TH ST FROM S EBERHART AVE (500 E) TO S RHODES AVE,44622.83,line,street_segment
+8,2025,Street Resurfacing,ON E 114TH ST FROM S STATE ST (0 E) TO S MICHIGAN AVE,45826.13,line,street_segment
+8,2025,Street Resurfacing,ON E 120TH PL FROM S MICHIGAN AVE (100 E) TO S INDIANA AVE,81752.55,line,street_segment
+8,2025,Street Resurfacing,ON E 125TH PL FROM S EDBROOKE AVE (130 E) TO S INDIANA AVE,18261.61,line,street_segment
+8,2025,Street Resurfacing,ON S CALUMET AVE FROM E 102ND ST (10200 S) TO E 103RD ST,54403.15,line,street_segment
+8,2025,Street Resurfacing,ON S CORLISS AVE FROM S DOTY AVE W (11110 S) TO E 112TH ST,59699.35,line,street_segment
+8,2025,Street Resurfacing,ON S FOREST AVE FROM E 106TH ST (10600 S) TO E 107TH ST,58654.21,line,street_segment
+9,2025,Street Resurfacing,ON S HARVARD AVE FROM W 95TH ST (9500 S) TO W 96TH ST,57666.73,line,street_segment
+9,2025,Street Resurfacing,ON S INDIANA AVE FROM E 111TH ST (11100 S) TO E 112TH ST,68769.95,line,street_segment
+9,2025,Street Resurfacing,ON S LA SALLE ST FROM W 124TH ST (12400 S) TO W 125TH ST,54256.36,line,street_segment
+9,2025,Street Resurfacing,ON S NORMAL AVE FROM W 95TH ST (9500 S) TO W 96TH ST,62775.61,line,street_segment
+9,2025,Street Resurfacing,ON S PERRY AVE FROM W 92ND ST (9200 S) TO W 93RD ST,59701.31,line,street_segment
+9,2025,Street Resurfacing,ON S PRAIRIE AVE FROM E 100TH ST (10000 S) TO E 101ST ST,58681.48,line,street_segment
+9,2025,Street Resurfacing,ON S UNION AVE FROM W VERMONT ST (12720 S) TO W 128TH PL,71529.53,line,street_segment
+9,2025,Street Resurfacing,ON S VERNON AVE FROM E 108TH ST (10800 S) TO E 109TH ST,65985.99,line,street_segment
+9,2025,Street Resurfacing,ON S WALLACE ST FROM W 92ND ST (9200 S) TO W 93RD ST,53412.51,line,street_segment
+9,2025,Street Resurfacing,ON S WALLACE ST FROM W 95TH ST (9500 S) TO W 97TH ST,103433.52,line,street_segment
+9,2025,Street Resurfacing,ON W 129TH PL FROM S WALLACE ST (600 W) TO S LOWE AVE,33080.2,line,street_segment
+9,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+9,2025,Unknown,WARD COMMITTED 2025 TOTAL,1488542.77,unknown,unresolvable_text
+9,2025,Unknown,WARD 2025 BALANCE,11457.23,unknown,unresolvable_text
+9,2025,Alley Resurfacing,8745 S COMMERCIAL AVE; S COMMERCIAL AVE & E 87TH ST&E 88TH ST & S HOUSTON AVE,38254.82,point,intersection
+9,2025,Alley Resurfacing,9858 S MARQUETTE AVE; S MARQUETTE AVE & E 98TH ST&E 99TH ST & S MARQUETTE AVE,42362.26,point,intersection
+9,2025,Alley Resurfacing,S AVENUE M & E 95TH ST&E 96TH ST & S AVENUE N,50453.54,polygon,alley_block_polygon
+9,2025,Alley Speed Hump,S AVENUE L & E 97TH ST&E 98TH ST & S AVENUE M,1450.0,polygon,alley_block_polygon
+9,2025,Alley Speed Hump,S AVENUE N & E 97TH ST&E 98TH ST & S AVENUE M,1450.0,polygon,alley_block_polygon
+9,2025,Curb & Gutter,11113-11115 S EWING AVE,3254.02,line,address_range
+9,2025,Curb & Gutter,11131-11143 S AVENUE L,36018.37,line,address_range
+9,2025,Unknown,Miscellaneous CDOT Projects (2025) 13300 S BALTIMORE AVE,660.0,unknown,unresolvable_text
+9,2025,Unknown,Miscellaneous CDOT Projects,1125.0,unknown,unresolvable_text
+9,2025,Unknown,Miscellaneous CDOT Projects,1125.0,unknown,unresolvable_text
+9,2025,Unknown,Miscellaneous CDOT Projects,1125.0,unknown,unresolvable_text
+9,2025,Unknown,Miscellaneous CDOT Projects,1125.0,unknown,unresolvable_text
+9,2025,Unknown,Miscellaneous CDOT Projects,660.0,unknown,unresolvable_text
+9,2025,Pavement Markings,Pavement Markings Menu (2025) E 133RD ST & S GREEN BAY AVE,1900.0,point,intersection
+9,2025,Sidewalk,10302 S AVENUE J,21498.46,unknown,single_address
+9,2025,Sidewalk,10428 S AVENUE L,4962.05,unknown,single_address
+9,2025,Sidewalk,10446 S AVENUE G; 10442 S AVENUE G,13110.27,unknown,multi_location
+9,2025,Sidewalk,10616 S AVENUE H,5794.71,unknown,single_address
+10,2025,Sidewalk,10636-10652 S AVENUE O,31012.55,line,address_range
+10,2025,Sidewalk,10701 S AVENUE O,18711.49,unknown,single_address
+10,2025,Sidewalk,10754 S AVENUE O,5364.23,unknown,single_address
+10,2025,Sidewalk,11100 S EWING AVE,20928.24,unknown,single_address
+10,2025,Sidewalk,11329 S AVENUE N,5576.35,unknown,single_address
+10,2025,Sidewalk,11509 S AVENUE L,478.99,unknown,single_address
+10,2025,Sidewalk,13104 S AVENUE O,5226.68,unknown,single_address
+10,2025,Sidewalk,13116 S MUSKEGON AVE,4406.64,unknown,single_address
+10,2025,Sidewalk,13293 S RIVERDALE AVE,16961.14,unknown,single_address
+10,2025,Sidewalk,13431 S BURLEY AVE,4469.37,unknown,single_address
+10,2025,Sidewalk,3248 E 133RD ST,56717.03,unknown,single_address
+10,2025,Sidewalk,9523-9527 S MUSKEGON AVE,29682.0,line,address_range
+10,2025,Sidewalk,9811-9823 S MUSKEGON AVE,40776.48,line,address_range
+10,2025,Street Light Upgrade,ON E 96TH ST FROM S MARQUETTE AVE (2700 E) TO S ESCANABA AVE,14800.0,line,street_segment
+10,2025,Street Resurfacing,ON E 136TH PL FROM 344 E TO S INDIANA AVE,84114.97,line,street_segment
+10,2025,Street Resurfacing,ON E 97TH ST FROM S ESCANABA AVE (2900 E) TO S EXCHANGE AVE,35143.05,line,street_segment
+10,2025,Street Resurfacing,ON S AVENUE E FROM E 106TH ST (10599 S) TO E 107TH ST,59398.04,line,street_segment
+10,2025,Street Resurfacing,ON S AVENUE H FROM E 116TH ST (11600 S) TO E 117TH ST,78560.11,line,street_segment
+10,2025,Street Resurfacing,ON S AVENUE J FROM E 115TH ST (11500 S) TO E 116TH ST,61662.7,line,street_segment
+10,2025,Street Resurfacing,ON S AVENUE K FROM E 135TH ST (13500 S) TO E 136TH ST,36934.25,line,street_segment
+10,2025,Street Resurfacing,ON S AVENUE L FROM E 100TH ST (10000 S) TO E 101ST ST,68323.52,line,street_segment
+10,2025,Street Resurfacing,ON S AVENUE L FROM E 101ST ST (10100 S) TO E 104TH ST,234251.93,line,street_segment
+10,2025,Street Resurfacing,ON S AVENUE M FROM E 103RD ST (10300 S) TO E 104TH ST,75641.32,line,street_segment
+10,2025,Street Resurfacing,ON S ESCANABA AVE FROM E 85TH ST (8500 S) TO E 86TH ST,63592.93,line,street_segment
+10,2025,Street Resurfacing,ON S EXCHANGE AVE FROM E 130TH ST (13000 S) TO E 131ST ST,60071.81,line,street_segment
+10,2025,Street Speed Hump,ON E 108TH ST FROM S AVENUE E (3900 E) TO S AVENUE D,2440.0,line,street_segment
+10,2025,Street Speed Hump,ON E 109TH ST FROM S BENSLEY AVE (2500 E) TO S TORRENCE AVE,7320.0,line,street_segment
+10,2025,Street Speed Hump,ON E 131ST ST FROM S BURLEY AVE (3230 E) TO S BUFFALO AVE,2440.0,line,street_segment
+10,2025,Street Speed Hump,ON E 131ST ST FROM S ST LAWRENCE AVE (600 E) TO S CHAMPLAIN AVE,2440.0,line,street_segment
+10,2025,Street Speed Hump,ON S AVENUE J FROM E 115TH ST (11500 S) TO E 116TH ST,4880.0,line,street_segment
+10,2025,Street Speed Hump,ON S BAKER AVE FROM E 83RD PL (8300 S) TO S BRANDON AVE,12200.0,line,street_segment
+10,2025,Street Speed Hump,ON S FORRESTVILLE AVE FROM E 131ST ST (13100 S) TO E 133RD ST,4880.0,line,street_segment
+10,2025,Street Speed Hump,ON S GREEN BAY AVE FROM E 105TH ST (10500 S) TO E 106TH ST,4880.0,line,street_segment
+10,2025,Street Speed Hump,ON S HOUSTON AVE FROM E 130TH ST (13000 S) TO E 131ST ST,4880.0,line,street_segment
+10,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+10,2025,Unknown,WARD COMMITTED 2025 TOTAL,1385494.32,unknown,unresolvable_text
+10,2025,Unknown,WARD 2025 BALANCE,114505.68,unknown,unresolvable_text
+10,2025,Alley Apron,2812 S PRINCETON AVE,9296.81,unknown,single_address
+10,2025,Alley Apron,842 W 34TH ST,9350.14,unknown,single_address
+10,2025,Alley Apron,ON W 36TH ST FROM S LOWE AVE (630 W) TO S WALLACE ST,33482.96,line,street_segment
+10,2025,Alley Resurfacing,3402 S MORGAN ST; W 34TH PL & S MORGAN ST; W 32ND PL & S CARPENTER ST,77926.41,point,intersection
+10,2025,Alley Resurfacing,S BONFIELD ST & W 31ST ST&S LYMAN ST & S KEELEY ST,4078.87,polygon,alley_block_polygon
+10,2025,Alley Resurfacing,S LOWE AVE & W 25TH PL&W 26TH ST & S WALLACE ST,37137.74,polygon,alley_block_polygon
+10,2025,Alley Resurfacing,S MORGAN ST & W 32ND PL&W 32ND ST & S ABERDEEN ST; 3216 S MORGAN ST,26667.13,polygon,alley_block_polygon
+10,2025,Alley Speed Hump,S ASHLAND AVE & W 32ND ST&W 32ND PL & S PAULINA ST,3625.0,polygon,alley_block_polygon
+10,2025,Concrete Alley,W 35TH ST & S LOWE AVE&S UNION AVE & W 36TH ST; 3549 S UNION AVE,67028.53,polygon,alley_block_polygon
+10,2025,Curb & Gutter,3402 S MAY ST,15512.81,unknown,single_address
+10,2025,Curb & Gutter,ON W 32ND PL FROM 1338 W TO S BENSON ST,87035.49,line,street_segment
+10,2025,Floodlight,424 W 42ND PL,950.0,unknown,single_address
+10,2025,Unknown,533 W 27TH ST,10000.0,unknown,single_address
+10,2025,Unknown,Miscellaneous CDOT Projects (2025) ON W 29TH ST FROM S HALSTED ST (800 W) TO S POPLAR AVE,101517.73,line,street_segment
+10,2025,Pedestrian Refuge Island,ON S CANAL ST FROM 2210 S TO S ARCHER AVE,50000.0,line,street_segment
+10,2025,Sidewalk,1231 W 31ST PL,3533.84,unknown,single_address
+10,2025,Sidewalk,1738 W 34TH ST,4142.11,unknown,single_address
+10,2025,Sidewalk,2223 S PRINCETON AVE,3898.83,unknown,single_address
+10,2025,Sidewalk,232 W 25TH PL,3833.87,unknown,single_address
+10,2025,Sidewalk,256 W 25TH PL,11499.78,unknown,single_address
+11,2025,Sidewalk,3055 S BROAD ST,4124.74,unknown,single_address
+11,2025,Sidewalk,336 W 25TH PL,3660.43,unknown,single_address
+11,2025,Sidewalk,3529 S UNION AVE,7254.69,unknown,single_address
+11,2025,Sidewalk,3637 S HALSTED ST,3801.36,unknown,single_address
+11,2025,Sidewalk,3640 S MARSHFIELD AVE,4178.88,unknown,single_address
+11,2025,Sidewalk,3801 S EMERALD AVE,3269.86,unknown,single_address
+11,2025,Sidewalk,3818 S LOWE AVE,2629.25,unknown,single_address
+11,2025,Street Bump Outs,W 33RD ST & S WOOD ST,16000.0,point,intersection
+11,2025,Street Bump Outs,W 37TH ST & S LOWE AVE,38147.85,point,intersection
+11,2025,Street Cul-de-Sac,W 23RD ST & S CANAL ST,156440.0,point,intersection
+11,2025,Street Light Upgrade,3408-3421 S ABERDEEN ST,500.0,line,address_range
+11,2025,Street Light Upgrade,3741 S PARNELL AVE,500.0,unknown,single_address
+11,2025,Street Light Upgrade,449 W 42ND PL,7400.0,unknown,single_address
+11,2025,Street Light Upgrade,715 W 37TH ST; 3700 S UNION AVE,500.0,unknown,multi_location
+11,2025,Street Resurfacing,ON S LOWE AVE FROM W 37TH ST (3700 S) TO W 38TH ST,69761.58,line,street_segment
+11,2025,Street Resurfacing,ON S LYMAN ST FROM S THROOP ST (2900 S) TO S LOCK ST,276462.84,line,street_segment
+11,2025,Street Resurfacing,ON S MARY ST FROM S ARCHER AVE (2700 S) TO S HOEY ST,22548.1,line,street_segment
+11,2025,Street Resurfacing,ON S NORMAL AVE FROM W ROOT ST (4130 S) TO W 43RD ST,127802.98,line,street_segment
+11,2025,Street Resurfacing,ON W 32ND ST FROM S HALSTED ST (800 W) TO S LITUANICA AVE,90575.21,line,street_segment
+11,2025,Street Speed Hump,ON S LOWE AVE FROM W 33RD ST (3300 S) TO W 35TH ST,9760.0,line,street_segment
+11,2025,Street Speed Hump,ON S NORMAL AVE FROM W 31ST ST (3100 S) TO W 32ND ST,4880.0,line,street_segment
+11,2025,Street Speed Hump,ON S WALLACE ST FROM W ROOT ST (4150 S) TO W 43RD ST,7320.0,line,street_segment
+11,2025,Street Speed Hump,ON W 37TH ST FROM 409 W TO S NORMAL AVE,4880.0,line,street_segment
+11,2025,Street Speed Hump,ON W 38TH ST FROM 414 W TO S NORMAL AVE,2440.0,line,street_segment
+11,2025,Viaduct Improvement,S CLARK ST & W CERMAK RD,18778.95,point,intersection
+11,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+11,2025,Unknown,WARD COMMITTED 2025 TOTAL,1444134.77,unknown,unresolvable_text
+11,2025,Unknown,WARD 2025 BALANCE,55865.23,unknown,unresolvable_text
+11,2025,Alley Resurfacing,S CHRISTIANA AVE & S ARCHER AVE&W 46TH ST & S SPAULDING AVE,70693.36,polygon,alley_block_polygon
+11,2025,Alley Resurfacing,S WINCHESTER AVE & W 35TH ST&W 36TH ST & S WOLCOTT AVE,6627.62,polygon,alley_block_polygon
+11,2025,Concrete Alley,S SEELEY AVE & W 33RD ST&W 34TH ST & S DAMEN AVE; 3345-3349 S SEELEY AVE,33803.49,polygon,alley_block_polygon
+11,2025,Curb & Gutter,4637 S HOMAN AVE,4301.67,unknown,single_address
+11,2025,Curb & Gutter,ON S MARSHFIELD AVE FROM W 42ND ST (4200 S) TO W 43RD ST,160000.0,line,street_segment
+11,2025,Sidewalk,4101 S ALBANY AVE,16295.26,unknown,single_address
+11,2025,Sidewalk,4226 S CALIFORNIA AVE,4819.31,unknown,single_address
+11,2025,Street Cul-de-Sac,ON W 36TH ST FROM S WESTERN BLVD (2350 W) TO S WESTERN AVE,130000.0,line,street_segment
+11,2025,Street Light Upgrade,3610 S SEELEY AVE,500.0,unknown,single_address
+11,2025,Street Resurfacing,ON S CAMPBELL AVE FROM S ARCHER AVE (3800 S) TO W PERSHING RD,47802.51,line,street_segment
+11,2025,Street Resurfacing,ON S HAMILTON AVE FROM W 33RD ST (3300 S) TO W 35TH ST,113556.34,line,street_segment
+11,2025,Street Resurfacing,ON S MARSHFIELD AVE FROM W 42ND ST (4200 S) TO W 43RD ST,101730.41,line,street_segment
+11,2025,Street Resurfacing,ON S ROCKWELL ST FROM S ARCHER AVE (3850 S) TO W 37TH PL,92511.78,line,street_segment
+11,2025,Street Resurfacing,ON S SEELEY AVE FROM W 33RD ST (3300 S) TO W 34TH ST,55653.68,line,street_segment
+11,2025,Street Resurfacing,ON S TALMAN AVE FROM W 42ND ST (4200 S) TO W POPE JOHN PAUL II DR,65066.98,line,street_segment
+11,2025,Street Resurfacing,ON W 37TH PL FROM S ASHLAND AVE (1600 W) TO S PAULINA ST,52387.13,line,street_segment
+11,2025,Street Speed Hump,ON S ALBANY AVE FROM W 41ST ST (4100 S) TO W 41ST PL,2440.0,line,street_segment
+11,2025,Street Speed Hump,ON S HOYNE AVE FROM W 33RD ST (3300 S) TO W 34TH ST,4880.0,line,street_segment
+11,2025,Street Speed Hump,ON S LEAVITT ST FROM W 34TH ST (3400 S) TO W 35TH ST,4880.0,line,street_segment
+11,2025,Street Speed Hump,ON W 42ND PL FROM S ALBANY AVE (3100 W) TO S KEDZIE AVE,4880.0,line,street_segment
+12,2025,Unknown,MENU BUDGET,1500000.0,unknown,unresolvable_text
+12,2025,Unknown,WARD COMMITTED 2025 TOTAL,1054884.24,unknown,unresolvable_text
+12,2025,Unknown,WARD 2025 BALANCE,445115.76,unknown,unresolvable_text
+12,2025,Alley Apron,5556 S KOSTNER AVE,32111.86,unknown,single_address
+12,2025,Alley Speed Hump,S KILBOURN AVE & W 58TH ST&W 59TH ST & S KENNETH AVE; 5819 S KILBOURN AVE,3625.0,polygon,alley_block_polygon
+12,2025,Concrete Alley,5915 S NORMANDY AVE,2554.56,unknown,single_address
+12,2025,Concrete Alley,6027 S RUTHERFORD AVE,11670.46,unknown,single_address
+12,2025,Concrete Alley,6121 S KOSTNER AVE,18946.7,unknown,single_address
+12,2025,Concrete Alley,6126 W 60TH ST; 6144 W 60TH ST,26823.5,unknown,multi_location
+12,2025,Curb & Gutter,5626 S OAK PARK AVE,15640.64,unknown,single_address
+12,2025,Curb & Gutter,5702 S KEELER AVE,3991.93,unknown,single_address
+12,2025,Curb & Gutter,5736 S KENNETH AVE,5624.01,unknown,single_address
+12,2025,Curb & Gutter,5746 S MERRIMAC AVE,5628.59,unknown,single_address
+12,2025,Curb & Gutter,5805 S NOTTINGHAM AVE; 5834 S NOTTINGHAM AVE,10768.38,unknown,multi_location
+12,2025,Curb & Gutter,6105 S MCVICKER AVE; 6148 S MCVICKER AVE,18229.36,unknown,multi_location
+12,2025,Curb & Gutter,6147 W 64TH ST,545.42,unknown,single_address
+12,2025,Curb & Gutter,6155 S MOODY AVE; 6128 S MOODY AVE,8275.16,unknown,multi_location
+12,2025,Curb & Gutter,6159 S MONITOR AVE,11482.98,unknown,single_address
+12,2025,Curb & Gutter,6243 S KOLMAR AVE,3213.93,unknown,single_address
+12,2025,Curb & Gutter,6245 S RUTHERFORD AVE,5790.43,unknown,single_address
+12,2025,Curb & Gutter,6504 W 60TH ST,9359.7,unknown,single_address
+12,2025,Curb & Gutter,6846 W 64TH PL; 6842 W 64TH PL,13741.2,unknown,multi_location
+12,2025,Curb & Gutter,7055 W 64TH ST,4822.03,unknown,single_address
+12,2025,Floodlight,5813-5817 S NASHVILLE AVE,1150.0,line,address_range
+12,2025,Floodlight,5857 S MASSASOIT AVE,1150.0,unknown,single_address
+12,2025,Floodlight,6158 S MOODY AVE,1150.0,unknown,single_address
+13,2025,Unknown,Hale Park Improvements 6258 W 62ND ST,50000.0,unknown,named_place
+13,2025,Sidewalk,4249 W 59TH ST,4174.28,unknown,single_address
+13,2025,Sidewalk,4538 W 64TH PL,10662.31,unknown,single_address
+13,2025,Sidewalk,4543 W 64TH ST,8987.81,unknown,single_address
+13,2025,Sidewalk,5111 W 63RD PL,2204.16,unknown,single_address
+13,2025,Sidewalk,5524 S KARLOV AVE,3993.19,unknown,single_address
+13,2025,Sidewalk,5531 S NEW ENGLAND AVE; 5549 S NEW ENGLAND AVE,7299.99,unknown,multi_location
+13,2025,Sidewalk,5540 S MERRIMAC AVE,15557.44,unknown,single_address
+13,2025,Sidewalk,5544 S RUTHERFORD AVE,8696.24,unknown,single_address
+13,2025,Sidewalk,5550 S NEWLAND AVE,3202.89,unknown,single_address
+13,2025,Sidewalk,5550 S TRIPP AVE,832.22,unknown,single_address
+13,2025,Sidewalk,5600 S NASHVILLE AVE,10657.32,unknown,single_address
+13,2025,Sidewalk,5601 S MOODY AVE; 5616 S MOODY AVE,2615.82,unknown,multi_location
+13,2025,Sidewalk,5604 S SAYRE AVE,6551.67,unknown,single_address
+13,2025,Sidewalk,5612 S MASON AVE,8168.35,unknown,single_address
+13,2025,Sidewalk,5616 S MEADE AVE; 5643 S MEADE AVE,19107.63,unknown,multi_location
+13,2025,Sidewalk,5633 S NATOMA AVE; 5649 S NATOMA AVE,14231.1,unknown,multi_location
+13,2025,Sidewalk,5658 S NOTTINGHAM AVE,15938.51,unknown,single_address
+13,2025,Sidewalk,5700 W 63RD PL,2955.39,unknown,single_address
+13,2025,Sidewalk,5713 S MOODY AVE; 5736 S MOODY AVE,14712.74,unknown,multi_location
+13,2025,Sidewalk,5724 S MERRIMAC AVE,3064.34,unknown,single_address
+13,2025,Sidewalk,5729 S NORDICA AVE,1847.12,unknown,single_address
+13,2025,Sidewalk,5738 S OAK PARK AVE,1543.68,unknown,single_address
+13,2025,Sidewalk,5746 W 59TH ST; 5754 W 59TH ST,17431.92,unknown,multi_location
+13,2025,Sidewalk,5751 S NASHVILLE AVE,2945.93,unknown,single_address
+13,2025,Sidewalk,5755 W 55TH ST,3557.88,unknown,single_address
+13,2025,Sidewalk,5759 W 63RD PL,15376.17,unknown,single_address
+13,2025,Sidewalk,5805 S NORDICA AVE,2931.18,unknown,single_address
+13,2025,Sidewalk,5818 S MERRIMAC AVE,4029.58,unknown,single_address
+13,2025,Sidewalk,5818 S NEWLAND AVE,13111.42,unknown,single_address
+13,2025,Sidewalk,5819 S AUSTIN AVE,3767.03,unknown,single_address
+13,2025,Sidewalk,5842 S NATCHEZ AVE,672.54,unknown,single_address
