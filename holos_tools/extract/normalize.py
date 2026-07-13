@@ -327,25 +327,11 @@ def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
 
         # Check if this line contains a cost marker
         if "$" in line:
-            # This is a complete record (possibly with wrapped lines before it)
-            # Look back to see if there's an accumulated address continuation
-            record_text = line
-
-            # Check if previous line (if it exists and has no $) is a continuation
-            if i > 0:
-                prev_line = lines[i - 1]
-                if "$" not in prev_line and prev_line and not any(x in prev_line for x in ["Full Address", "CDOT :", "OBM :"]):
-                    # It's likely a continuation of wrapped address
-                    # Include it in the record
-                    if len(prev_line) < 100:  # Reasonable length for address continuation
-                        record_text = prev_line + " " + line
-                        i -= 1  # We'll skip the prev line next iteration
-
             if current_ward and current_category:
                 adapter = MenuAdapter2012 if 2012 <= year <= 2016 else MenuAdapter2017Plus
 
                 try:
-                    record = adapter.parse_row(record_text, current_ward, year, current_category)
+                    record = adapter.parse_row(line, current_ward, year, current_category)
                     if record:
                         records.append(record)
                 except Exception:
