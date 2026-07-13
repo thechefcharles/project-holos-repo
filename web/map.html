@@ -137,15 +137,23 @@
     <div class="legend">
         <div style="font-weight: bold; margin-bottom: 10px;">Geometry Types</div>
         <div class="legend-item">
-            <div class="legend-swatch" style="background: #0066cc;"></div>
-            <span>Points (intersections, single addresses)</span>
+            <div class="legend-swatch" style="background: #0066cc; border-radius: 50%; width: 8px; height: 8px; margin: auto;"></div>
+            <span>Points (blue)</span>
         </div>
         <div class="legend-item">
-            <div class="legend-swatch" style="background: #ff6600;"></div>
-            <span>Lines (street ranges)</span>
+            <div class="legend-swatch" style="background: #ff6600; height: 2px;"></div>
+            <span>Lines (orange, width = cost)</span>
         </div>
-        <div style="font-weight: bold; margin-top: 10px; margin-bottom: 5px;">Cost</div>
-        <div style="font-size: 11px; color: #888;">Line width = cost amount. Click features for details.</div>
+        <div class="legend-item">
+            <div class="legend-swatch" style="background: #66cc00; height: 2px;"></div>
+            <span>Polygons (green)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-swatch" style="background: #cc0000; border-radius: 50%; width: 8px; height: 8px; margin: auto;"></div>
+            <span>Real 2012 data (red)</span>
+        </div>
+        <div style="font-weight: bold; margin-top: 10px; margin-bottom: 5px;">Debug</div>
+        <div style="font-size: 11px; color: #888;">Check console for out-of-ward records</div>
     </div>
 
     <script>
@@ -384,19 +392,59 @@
                 });
             });
 
-            // Ward filter
+            // Ward filter (applies to BOTH sample + real data)
             document.getElementById('ward-filter').addEventListener('change', (e) => {
                 const selectedWard = e.target.value;
-                const filtered = selectedWard
+
+                // Filter sample data
+                const filteredSample = selectedWard
                     ? allFeatures.filter(f => f.properties.ward == selectedWard)
                     : allFeatures;
 
                 map.getSource('spending').setData({
                     type: 'FeatureCollection',
-                    features: filtered
+                    features: filteredSample
                 });
 
-                document.getElementById('displayed-count').textContent = filtered.length;
+                // Filter real 2012 data (if it exists)
+                if (realData2012) {
+                    const filteredReal = selectedWard
+                        ? realData2012.features.filter(f => f.properties.ward == selectedWard)
+                        : realData2012.features;
+
+                    map.getSource('real-2012').setData({
+                        type: 'FeatureCollection',
+                        features: filteredReal
+                    });
+                }
+
+                // Update counter with total from BOTH sources
+                const sampleCount = filteredSample.length;
+                const realCount = realData2012 ? (selectedWard
+                    ? realData2012.features.filter(f => f.properties.ward == selectedWard).length
+                    : realData2012.features.length)
+                    : 0;
+                const totalDisplayed = sampleCount + realCount;
+
+                document.getElementById('displayed-count').textContent = totalDisplayed;
+
+                // Check for records outside their ward (Verifier rule #6)
+                const outOfWard = [];
+                if (selectedWard) {
+                    const selectedWardNum = parseInt(selectedWard);
+                    [...filteredSample, ...(realData2012 ? realData2012.features : [])].forEach((f, idx) => {
+                        if (f.properties.ward !== selectedWardNum) {
+                            outOfWard.push({
+                                index: idx,
+                                ward: f.properties.ward,
+                                expected: selectedWardNum
+                            });
+                        }
+                    });
+                    if (outOfWard.length > 0) {
+                        console.warn(`⚠️ GEOCODING ERROR: ${outOfWard.length} record(s) fall outside their assigned ward:`, outOfWard);
+                    }
+                }
             });
 
             // Ward boundaries toggle
