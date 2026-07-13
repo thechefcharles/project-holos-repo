@@ -118,6 +118,12 @@
         <select id="ward-filter">
             <option value="">All Wards</option>
         </select>
+        <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 12px;">
+            <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" id="toggle-wards" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Ward Boundaries</span>
+            </label>
+        </div>
         <div class="stats">
             <div><span class="stats-number" id="displayed-count">0</span> records displayed</div>
             <div><span class="stats-number" id="total-count">0</span> total 2012 records</div>
@@ -141,7 +147,25 @@
     <script>
         const map = new maplibregl.Map({
             container: 'map',
-            style: 'https://tiles.openstreetmap.de/styles/osm-bright/style.json',
+            style: {
+                version: 8,
+                name: 'OSM Bright',
+                sources: {
+                    osm: {
+                        type: 'raster',
+                        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+                        tileSize: 256,
+                        attribution: '© OpenStreetMap contributors'
+                    }
+                },
+                layers: [
+                    {
+                        id: 'osm',
+                        type: 'raster',
+                        source: 'osm'
+                    }
+                ]
+            },
             center: [-87.6298, 41.8781],
             zoom: 10,
             attributionControl: true
@@ -149,6 +173,21 @@
 
         let allFeatures = [];
         let geojsonData = null;
+        let wardsData = null;
+
+        // Load ward boundaries
+        console.log('Loading ward boundaries...');
+        fetch('wards_2023.geojson')
+            .then(res => {
+                console.log('Wards response:', res.status);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                console.log('Wards loaded:', data.features.length, 'wards');
+                wardsData = data;
+            })
+            .catch(err => console.error('Error loading wards:', err));
 
         // Load GeoJSON
         console.log('Loading GeoJSON...');
@@ -192,6 +231,38 @@
             });
 
         function addMapLayers() {
+            // Add ward boundaries source
+            if (wardsData) {
+                map.addSource('wards', {
+                    type: 'geojson',
+                    data: wardsData
+                });
+
+                // Ward boundary layer (hidden by default)
+                map.addLayer({
+                    id: 'ward-fill',
+                    type: 'fill',
+                    source: 'wards',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'fill-color': '#808080',
+                        'fill-opacity': 0.05
+                    }
+                });
+
+                map.addLayer({
+                    id: 'ward-outline',
+                    type: 'line',
+                    source: 'wards',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#666',
+                        'line-width': 2,
+                        'line-opacity': 0.6
+                    }
+                });
+            }
+
             // Add GeoJSON source
             map.addSource('spending', {
                 type: 'geojson',
@@ -307,6 +378,13 @@
                 });
 
                 document.getElementById('displayed-count').textContent = filtered.length;
+            });
+
+            // Ward boundaries toggle
+            document.getElementById('toggle-wards').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                map.setLayoutProperty('ward-fill', 'visibility', visibility);
+                map.setLayoutProperty('ward-outline', 'visibility', visibility);
             });
 
             document.getElementById('displayed-count').textContent = allFeatures.length;
