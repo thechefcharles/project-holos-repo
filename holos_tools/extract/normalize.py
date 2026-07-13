@@ -139,7 +139,7 @@ class MenuAdapter2017Plus:
             text: Full line from PDF (category + location + cost, single line)
             ward: Ward number from header
             year: Year from filename or header
-            category: Category from PDF header (preferred over auto-detection)
+            category: Category from PDF header (optional; extracted from line if not provided)
 
         Returns:
             SpendingRecord or None if parsing fails
@@ -158,24 +158,22 @@ class MenuAdapter2017Plus:
         if cost == 0.0:
             return None
 
-        # Extract location: everything between category/metadata and cost
+        # Extract everything before cost
         cost_pos = text.rfind('$')
         pre_cost = text[:cost_pos].strip()
 
-        # Extract category from the start (everything before first parenthesis with year/code)
-        # Pattern: "Category Name Menu (code) (year) location"
-        cat_match = re.match(r'^([^(]+?)\s+Menu\s+', pre_cost)
-        if cat_match:
-            extracted_cat = cat_match.group(1).strip()
-            if not category or category == "Unknown":
-                category = extracted_cat
-            # Location = everything after the category + Menu + parenthesized codes
-            location = re.sub(r'^[^(]*\s+Menu\s*(\([^)]*\)\s*)*', '', pre_cost).strip()
-        else:
-            # No "Menu" keyword; treat first parenthetical section as metadata
-            location = re.sub(r'^([^(]+?)\s*(\([^)]*\)\s*)*', '', pre_cost).strip()
+        # Extract category: look for "XYZ Menu (..." pattern at start
+        cat_match = re.match(r'^([^(]+?)\s+Menu\s*\(', pre_cost)
+        if cat_match and (not category or category == "Unknown"):
+            category = cat_match.group(1).strip()
+
+        # Extract location: remove category + "Menu" + all parenthetical codes from start
+        # Pattern removes: "Category Menu (1-1) (2017)" leaving just the address
+        location = re.sub(r'^[^(]*\s+Menu\s*(?:\([^)]*\)\s*)*', '', pre_cost).strip()
 
         # Clean up: remove trailing parenthetical codes (coordinate references)
+        # But be careful: some locations end with valid coords like "(1500 W)"
+        # Only remove if there's nothing after the closing paren
         location = re.sub(r'\s*\([^)]*\)\s*$', '', location).strip()
 
         if not location or len(location) < 3:
@@ -338,15 +336,28 @@ def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
         if "$" in line:
             last_record_line_text = line
 
-            if current_ward and current_category:
-                adapter = MenuAdapter2012 if 2012 <= year <= 2016 else MenuAdapter2017Plus
-
-                try:
-                    record = adapter.parse_row(line, current_ward, year, current_category)
-                    if record:
-                        records.append(record)
-                except Exception:
-                    pass
+            # 2012-2016: requires current_category (from "Program:" header)
+            # 2017+: category is IN the line; process without header-based category gate
+            if current_ward:
+                if 2012 <= year <= 2016:
+                    # 2012 format: requires header-provided category
+                    if current_category:
+                        adapter = MenuAdapter2012
+                        try:
+                            record = adapter.parse_row(line, current_ward, year, current_category)
+                            if record:
+                                records.append(record)
+                        except Exception:
+                            pass
+                else:
+                    # 2017+ format: category is embedded in line; don't require header
+                    adapter = MenuAdapter2017Plus
+                    try:
+                        record = adapter.parse_row(line, current_ward, year, current_category or "Unknown")
+                        if record:
+                            records.append(record)
+                    except Exception:
+                        pass
 
         # WRAPPED ADDRESS RECONSTRUCTION:
         # If this line looks like it's continuing an address, insert it BEFORE the cost marker
