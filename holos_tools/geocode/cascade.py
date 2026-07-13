@@ -320,9 +320,10 @@ class GeocodeCascade:
 
         # Find intersection of two centerlines
         # Use normalized names and REGEXP_REPLACE to strip suffix in database
+        # GUARD: ST_Intersection can return LineString; use ST_Centroid for robustness
         sql = """
-            SELECT ST_X(ST_Intersection(c1.geom, c2.geom)) as lon,
-                   ST_Y(ST_Intersection(c1.geom, c2.geom)) as lat
+            SELECT ST_X(ST_Centroid(ST_Intersection(c1.geom, c2.geom))) as lon,
+                   ST_Y(ST_Centroid(ST_Intersection(c1.geom, c2.geom))) as lat
             FROM ref.centerlines c1
             JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
             WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%(street1)s)
@@ -441,35 +442,42 @@ class GeocodeCascade:
         from_street_clean = self._clean_street_name(from_street)
         to_street_clean = self._clean_street_name(to_street)
 
+        # Strip trailing type word (e.g., "MAPLEWOOD AVENUE" -> "MAPLEWOOD")
+        # to match the SQL REGEXP_REPLACE pattern
+        main_street_clean = re.sub(r'\s+\w+$', '', main_street_clean)
+        from_street_clean = re.sub(r'\s+\w+$', '', from_street_clean)
+        to_street_clean = re.sub(r'\s+\w+$', '', to_street_clean)
+
         # Find the first intersection (MAIN_STREET ∩ FROM_STREET)
         # Reuse stage_3 pattern: JOIN on ST_Intersects across all segments
+        # GUARD: ST_Intersection can return LineString; use ST_Centroid for robustness
         sql_from = """
-            SELECT ST_X(ST_Intersection(c1.geom, c2.geom)) as lon,
-                   ST_Y(ST_Intersection(c1.geom, c2.geom)) as lat
+            SELECT ST_X(ST_Centroid(ST_Intersection(c1.geom, c2.geom))) as lon,
+                   ST_Y(ST_Centroid(ST_Intersection(c1.geom, c2.geom))) as lat
             FROM ref.centerlines c1
             JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
-            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%s)
-              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+\w+$', '')) = UPPER(%s)
+            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%(main_street)s)
+              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+\w+$', '')) = UPPER(%(from_street)s)
             LIMIT 1
         """
 
-        result_from = self.db.execute(sql_from, [main_street_clean, from_street_clean])
+        result_from = self.query(sql_from, {"main_street": main_street_clean, "from_street": from_street_clean})
         if not result_from or result_from[0].get("lon") is None:
             # Couldn't resolve FROM endpoint; escalate
             return None
 
         # Find the second intersection (MAIN_STREET ∩ TO_STREET)
         sql_to = """
-            SELECT ST_X(ST_Intersection(c1.geom, c2.geom)) as lon,
-                   ST_Y(ST_Intersection(c1.geom, c2.geom)) as lat
+            SELECT ST_X(ST_Centroid(ST_Intersection(c1.geom, c2.geom))) as lon,
+                   ST_Y(ST_Centroid(ST_Intersection(c1.geom, c2.geom))) as lat
             FROM ref.centerlines c1
             JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
-            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%s)
-              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+\w+$', '')) = UPPER(%s)
+            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%(main_street)s)
+              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+\w+$', '')) = UPPER(%(to_street)s)
             LIMIT 1
         """
 
-        result_to = self.db.execute(sql_to, [main_street_clean, to_street_clean])
+        result_to = self.query(sql_to, {"main_street": main_street_clean, "to_street": to_street_clean})
         if not result_to or result_to[0].get("lon") is None:
             # Couldn't resolve TO endpoint; escalate
             return None
@@ -480,11 +488,11 @@ class GeocodeCascade:
         sql_segment = """
             SELECT ST_AsText(geom) as geom_wkt
             FROM ref.centerlines
-            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%s)
+            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%(main_street)s)
             LIMIT 1
         """
 
-        result_main = self.db.execute(sql_segment, [main_street_clean])
+        result_main = self.query(sql_segment, {"main_street": main_street_clean})
         if not result_main:
             # Couldn't find main street in centerlines; escalate
             return None
