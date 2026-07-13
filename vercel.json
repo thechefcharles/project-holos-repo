@@ -1,6 +1,6 @@
 {
-  "buildCommand": "echo 'Phase 1A: no web service yet'",
-  "outputDirectory": ".",
+  "buildCommand": "echo 'Phase 1 MVP: static web map'",
+  "outputDirectory": "web",
   "env": {
     "NOTION_TOKEN": "@notion_token",
     "ANTHROPIC_API_KEY": "@anthropic_api_key"
