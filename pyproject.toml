@@ -91,7 +91,4 @@ warn_unused_configs = true
 disallow_untyped_defs = false  # Phase 1: pragmatic, not perfect
 disallow_incomplete_defs = false
 
-[tool.vercel]
-# Phase 1 MVP: static site deployment only
-# Point to non-existent file to tell Vercel to skip Python runtime
-entrypoint = "nonexistent_api.py"
+# Vercel build config removed for static-only deployment

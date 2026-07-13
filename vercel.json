@@ -1,15 +1,7 @@
 {
   "outputDirectory": "web",
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/$1"
-    }
-  ],
+  "installCommand": "echo 'Static deployment, no build needed'",
+  "buildCommand": "echo 'Static deployment, no build needed'",
   "git": {
     "deploymentEnabled": {
       "main": false
