@@ -187,11 +187,11 @@ Last updated: 2026-07-12
 
 ### Phase 1C — Review & promotion
 
-- [ ] **Load verified 2012 + 2017 data into core.spending_projects** (Component: Hub)
+- [~] **Load verified 2012 + 2017 data into core.spending_projects** (Component: Hub)
   - Owner: Claude Code (next)
-  - BUILD FROM: tech-spec Part III Step 6 + decisions.md (2017 composite verified at 54.7%)
-  - AC: (1) 2012_valid_records.json (366 records, 68% composite verified) promoted to core via holos load promote; (2) 2017_geocoded_fixed.json (1028 geocoded, 54.7% composite verified) promoted to core via holos load promote; (3) all records carry source_id, method, confidence, CRS; (4) RLS policies prevent unprivileged reads; (5) staging layer cleared or archived after promotion
-  - Blockers: none (both datasets verified + measured)
+  - BUILD FROM: tech-spec Part III Step 6 + decisions.md (2017 composite verified at 54.7%; 2012 pages 2-20 composite 69.9%)
+  - AC: (1) Prepare 2012 verified data (129 records from pages 2-20, 69.9% composite) with provenance fields (source_id='2012Menu', method, confidence, CRS); load to staging.spending_projects; (2) Prepare 2017 verified data (1028 geocoded records from 2017_geocoded_fixed.json, 54.7% composite) with provenance fields; load to staging.spending_projects; (3) Create ops.jobs entries for both load jobs; (4) Run holos load promote with human-gate review; (5) Verify RLS policies enforce access_tier restrictions; (6) Archive staging data after promotion
+  - Blockers: none (both datasets verified + measured); ready for data prep
   - Next: Phase 1 Exit Gate (ship public map)
 
 - [ ] **Injection fixtures in CI (agent hardening)** (Component: Ops)
