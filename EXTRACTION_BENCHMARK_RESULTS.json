@@ -1,0 +1,1022 @@
+{
+  "ground_truth_count": 146,
+  "extracted_count": 145,
+  "recall": 99.3,
+  "extracted_records": [
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Curb & Gutter",
+      "location": "ON N MAPLEWOOD AVE FROM W BELDEN AV (2300 N) TO W",
+      "cost": 19882.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Pavement Markings",
+      "location": "W CHARLESTON ST & N WESTERN AVE",
+      "cost": 1000.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Pavement Markings",
+      "location": "W ARMITAGE AVE & N MILWAUKEE AVE",
+      "cost": 400.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Pavement Markings",
+      "location": "W DIVERSEY PKWY & N ROCKWELL ST",
+      "cost": 600.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Sidewalk",
+      "location": "ON W BELDEN AVE FROM N TALMAN AV (2632 W) TO N",
+      "cost": 11954.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Sidewalk",
+      "location": "ON N WOOD ST FROM W BEACH AV (1422 N) TO W LE",
+      "cost": 10065.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Sidewalk",
+      "location": "ON N MARION CT FROM W DIVISION ST (1200 N) TO W",
+      "cost": 1594.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON N CAMPBELL AVE FROM W NORTH AV (1600 N) TO W",
+      "cost": 193749.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON N ROCKWELL ST FROM W CORTLAND ST (1900 N) TO W",
+      "cost": 73623.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON W JULIA CT FROM N STAVE ST (2728 W) TO Dead End",
+      "cost": 10588.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON W LE MOYNE ST FROM N OAKLEY BV (2300 W) TO N",
+      "cost": 19195.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON W CHARLESTON ST FROM N CAMPBELL AV (2450 W) TO",
+      "cost": 34143.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON N ROCKWELL ST FROM N MILWAUKEE AV (2125 N) TO",
+      "cost": 47986.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Speed Hump",
+      "location": "ON N ELK GROVE AVE FROM N WOOD ST (1800 W) TO W",
+      "cost": 3700.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Speed Hump",
+      "location": "ON N MARION CT FROM W DIVISION ST (1200 N) TO W",
+      "cost": 3700.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Speed Hump",
+      "location": "ON N ROCKWELL ST FROM W FULLERTON AV (2400 N) TO W",
+      "cost": 3700.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Speed Hump",
+      "location": "ON W ST PAUL AVE FROM N WINNEBAGO AV (2269 W) TO N",
+      "cost": 3700.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Floodlight",
+      "location": "W POTOMAC AVE & N LEAVITT ST",
+      "cost": 2500.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Floodlight",
+      "location": "N CAMPBELL AVE & W IOWA ST",
+      "cost": 500.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Pedestrian Countdown",
+      "location": "N WESTERN AVE & W NORTH AVE",
+      "cost": 15011.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Light Arterial",
+      "location": "W POTOMAC AVE & N LEAVITT ST",
+      "cost": 11000.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Light Residential",
+      "location": "ON ROCKWELL FROM W BLOOMINGDALE AV (1800 N) TO",
+      "cost": 128000.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON WINCHESTER FROM W AUGUSTA BV (1000 N) TO W",
+      "cost": 1400.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON STAVE FROM W ARMITAGE AV (2000 N) TO W FRANCIS",
+      "cost": 700.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON BINGHAM FROM W ARMITAGE AV (2000 N) TO W",
+      "cost": 350.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "1300 N LEAVITT ST",
+      "cost": 700.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "N CAMPBELL AVE & W IOWA ST",
+      "cost": 400.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON SUPERIOR FROM N DAMEN AV (2000 W) TO N WOOD ST",
+      "cost": 1400.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "Chicago Park District",
+      "location": "Haas Park Field House",
+      "cost": 605000.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "School Projects",
+      "location": "Goethe School - Campus Park",
+      "cost": 100000.0
+    },
+    {
+      "ward": 1,
+      "year": 2012,
+      "category": "School Projects",
+      "location": "LaSalle II Elementary School - playground )TPC=$25,000 2011-2013",
+      "cost": 25000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Alley Apron",
+      "location": "ON W VAN BUREN ST FROM 1534 W TO S LAFLIN ST (1500 W)",
+      "cost": 11547.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Alley Apron",
+      "location": "ON S ASHLAND AVE FROM 333 S TO W JACKSON BV (300 S)",
+      "cost": 11545.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Alley Apron",
+      "location": "ON S LOOMIS ST FROM S TO W FILLMORE ST (1050 S)",
+      "cost": 8268.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Alley Apron",
+      "location": "ON S LAFLIN ST FROM 1013 S TO W FILLMORE ST (1050 S)",
+      "cost": 9686.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Alley Resurfacing",
+      "location": "W MADISON ST & W MONROE ST & S WESTERN AVE & S",
+      "cost": 39539.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Alley Resurfacing",
+      "location": "ON LOOMIS FROM W TAYLOR ST (1000 S) TO W FILLMORE",
+      "cost": 6638.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Alley Resurfacing",
+      "location": "S MORGAN ST & S SANGAMON ST & W MONROE ST & W",
+      "cost": 12736.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Alley Resurfacing",
+      "location": "S WABASH AVE & S WABASH AVE & E CERMAK RD & E",
+      "cost": 2981.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Bollard",
+      "location": "ON S ASHLAND AVE FROM S TO W VAN BUREN ST (400 S)",
+      "cost": 800.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Curb & Gutter",
+      "location": "ON S CALUMET AVE FROM E 18TH ST (1800 S) TO E",
+      "cost": 2506.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Curb & Gutter",
+      "location": "ON W HARRISON ST FROM S WASHTENAW AV (2700 W) TO S",
+      "cost": 73623.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Miscellaneous Other",
+      "location": "Temporary Parking signs in WEst Loop",
+      "cost": 10000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Miscellaneous Other",
+      "location": "Congress Pkwy - Michigan and Wells Landscape & LED preservation",
+      "cost": 117050.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Miscellaneous Other",
+      "location": "Martin Luther King Boulevard artwork installation",
+      "cost": 30000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Sidewalk",
+      "location": "ON S WABASH AVE FROM E 24 ST (2400 S) TO E 24 PL (2432 S)",
+      "cost": 29712.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Sidewalk",
+      "location": "ON N FRANCISCO AVE FROM W WARREN BV (23 N) TO W",
+      "cost": 3797.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Sidewalk",
+      "location": "ON HARRISON FROM S CALIFORNIA AV (2800 W) TO S",
+      "cost": 21113.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Sidewalk",
+      "location": "800 S STATE ST",
+      "cost": 3394.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Sidewalk",
+      "location": "ON N CALIFORNIA AVE FROM W WASHINGTON BV (100 N)",
+      "cost": 215.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Sidewalk",
+      "location": "ON S JEFFERSON ST FROM W TILDEN ST (426 S) TO W VAN",
+      "cost": 19182.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON S LAFLIN ST FROM W POLK ST (800 S) TO W FILLMORE",
+      "cost": 107489.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON W POLK ST FROM S FRANCISCO AV (2900 W) TO S",
+      "cost": 66167.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON S SANGAMON ST FROM W JACKSON BV (300 S) TO Dead",
+      "cost": 135686.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON S THROOP ST FROM W WASHBURNE AV (1225 S) TO W",
+      "cost": 35504.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Resurfacing",
+      "location": "ON S THROOP ST FROM W TAYLOR ST (1000 S) TO W",
+      "cost": 108718.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Floodlight",
+      "location": "ON LAKE FROM N ALBANY AV (3100 W) TO N",
+      "cost": 5500.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Left-Turn Arrow",
+      "location": "S CLARK ST & W HARRISON ST",
+      "cost": 11500.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Piggy Back",
+      "location": "ON 32 FROM DR. MARTIN LUTHER KING JR. DR (358 E) TO S",
+      "cost": 5400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Piggy Back",
+      "location": "ON 24 FROM S STATE ST (0 E) TO S INDIANA AV (200 E)",
+      "cost": 8100.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON GREEN FROM W ADAMS ST (200 S) TO W VAN BUREN ST",
+      "cost": 1500.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON ROOSEVELT FROM S LOOMIS ST (1400 W) TO S",
+      "cost": 6600.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON VAN BUREN FROM S FRANKLIN ST (300 W) TO S",
+      "cost": 2400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON S HOYNE AVE FROM W CONGRESS PW (500 S) TO W",
+      "cost": 1800.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON POLK FROM S PAULINA ST (1700 W) TO S DAMEN AV",
+      "cost": 5000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON CANAL FROM W 14 PL (1440 S) TO W ROOSEVELT RD",
+      "cost": 12000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON HERMITAGE FROM W TAYLOR ST (1000 S) TO W",
+      "cost": 2400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON MICHIGAN FROM E ROOSEVELT RD (1200 S) TO E",
+      "cost": 18500.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON 24 FROM S STATE ST (0 E) TO S INDIANA AV (200 E)",
+      "cost": 4200.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON PAULINA FROM W MADISON ST (0 N) TO W JACKSON",
+      "cost": 3600.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON S STATE ST FROM W ROOSEVELT RD (1200 S) TO W 15 ST",
+      "cost": 14100.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON ADAMS FROM S MORGAN ST (1000 W) TO S GREEN ST",
+      "cost": 2400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON HARRISON FROM S OAKLEY BV (2300 W) TO S DAMEN",
+      "cost": 12600.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON VAN BUREN FROM S STATE ST (0 E) TO S CONGRESS",
+      "cost": 8600.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON MONROE FROM S MORGAN ST (1000 W) TO S PEORIA ST",
+      "cost": 2400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON PAULINA FROM W HARRISON ST (600 S) TO W POLK ST",
+      "cost": 3300.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON S WOLCOTT AVE FROM W GRENSHAW ST (1120 S) TO W",
+      "cost": 1200.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON LAKE FROM N ALBANY AV (3100 W) TO N",
+      "cost": 6000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON TAYLOR FROM S LOOMIS ST (1400 W) TO S RACINE AV",
+      "cost": 7500.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON W CONGRESS PKWY FROM W OGDEN AV (1875 W) TO S",
+      "cost": 6000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON ROOSEVELT FROM S ASHLAND AV (1600 W) TO S",
+      "cost": 24000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON CONGRESS FROM S MORGAN ST (1000 W) TO E",
+      "cost": 5700.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON 32 FROM DR. MARTIN LUTHER KING JR. DR (358 E) TO S",
+      "cost": 1500.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON MAYPOLE FROM N OAKLEY BV (2300 W) TO N",
+      "cost": 2400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Pole Painting",
+      "location": "ON S WOOD ST FROM W ROOSEVELT RD (1200 S) TO W",
+      "cost": 1200.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON MONROE FROM S MORGAN ST (1000 W) TO S PEORIA ST",
+      "cost": 3200.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON PAULINA FROM W MADISON ST (0 N) TO W JACKSON",
+      "cost": 4000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON S WOLCOTT AVE FROM W GRENSHAW ST (1120 S) TO W",
+      "cost": 2400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON ADAMS FROM S LEAVITT ST (2200 W) TO S SEELEY AV",
+      "cost": 1750.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON ROOSEVELT FROM S LOOMIS ST (1400 W) TO S",
+      "cost": 6000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "317 S CAMPBELL AVE",
+      "cost": 350.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "201 S ASHLAND AVE",
+      "cost": 350.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON 11 FROM S STATE ST (0 E) TO S MICHIGAN AV (120 E)",
+      "cost": 400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON POLK FROM S STATE ST (0 E) TO S FINANCIAL PL (146",
+      "cost": 1200.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON S HOYNE AVE FROM W CONGRESS PW (500 S) TO W",
+      "cost": 2400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON PAULINA FROM W HARRISON ST (600 S) TO W POLK ST",
+      "cost": 4400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "157 S ASHLAND AVE",
+      "cost": 350.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON S STATE ST FROM W ROOSEVELT RD (1200 S) TO W 15 ST",
+      "cost": 18800.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON CANAL FROM W 14 PL (1440 S) TO W ROOSEVELT RD",
+      "cost": 14000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON ADAMS FROM S MORGAN ST (1000 W) TO S GREEN ST",
+      "cost": 3200.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON HERMITAGE FROM W TAYLOR ST (1000 S) TO W",
+      "cost": 3200.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "3550 S GILES AVE",
+      "cost": 350.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON BALBO FROM S STATE ST (0 E) TO S MICHIGAN AV (120",
+      "cost": 1600.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON GREEN FROM W ADAMS ST (200 S) TO W VAN BUREN ST",
+      "cost": 1600.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON CONGRESS FROM S MORGAN ST (1000 W) TO E",
+      "cost": 7600.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON VAN BUREN FROM S LEAVITT ST (2200 W) TO S SEELEY",
+      "cost": 1750.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON HARRISON FROM S STATE ST (0 E) TO S WABASH AV (44",
+      "cost": 400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON MAYPOLE FROM N OAKLEY BV (2300 W) TO N",
+      "cost": 2000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON STATE FROM W HARRISON ST (600 S) TO W ROOSEVELT",
+      "cost": 18000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON S WOOD ST FROM W TAYLOR ST (1000 S) TO W",
+      "cost": 1200.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON 24 FROM S STATE ST (0 E) TO S INDIANA AV (200 E)",
+      "cost": 4800.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON HOYNE FROM W MADISON ST (0 N) TO W MONROE ST",
+      "cost": 1400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON POLK FROM S PAULINA ST (1700 W) TO S DAMEN AV",
+      "cost": 6400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "1319 S STATE ST",
+      "cost": 21000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "547 S CLARK ST",
+      "cost": 350.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON LAKE FROM N MOZART ST (2832 W) TO N SACRAMENTO",
+      "cost": 8000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON W CONGRESS PKWY FROM W OGDEN AV (1875 W) TO S",
+      "cost": 8000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON HARRISON FROM S OAKLEY BV (2300 W) TO S DAMEN",
+      "cost": 12000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON 32 FROM DR. MARTIN LUTHER KING JR. DR (358 E) TO S",
+      "cost": 2000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON SEELEY FROM W JACKSON BV (300 S) TO W VAN BUREN",
+      "cost": 1400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON MONROE FROM S RACINE AV (1200 W) TO S GREEN ST",
+      "cost": 5250.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Street Light Upgrade",
+      "location": "ON VAN BUREN FROM S GREEN ST (832 W) TO W TILDEN ST",
+      "cost": 5600.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "ON HARRISON FROM S OAKLEY BV (2300 W) TO S DAMEN",
+      "cost": 2400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "ON 24 FROM S STATE ST (0 E) TO S INDIANA AV (200 E)",
+      "cost": 400.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "ON S STATE ST FROM W ROOSEVELT RD (1200 S) TO W 15 ST",
+      "cost": 2750.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "ON PAULINA FROM W HARRISON ST (600 S) TO W POLK ST",
+      "cost": 200.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "ON STATE FROM W HARRISON ST (600 S) TO W ROOSEVELT",
+      "cost": 25650.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "ON ROOSEVELT FROM S ASHLAND AV (1600 W) TO S",
+      "cost": 11000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "W ROOSEVELT RD & S WOOD ST",
+      "cost": 3500.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "ON STATE FROM W CONGRESS PW (500 S) TO W HARRISON",
+      "cost": 8000.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "ON MICHIGAN FROM E ROOSEVELT RD (1200 S) TO E",
+      "cost": 19500.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "ON ASHLAND FROM W MADISON ST (0 N) TO W",
+      "cost": 5450.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "W ROOSEVELT RD & S PAULINA ST",
+      "cost": 3500.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "W ROOSEVELT RD & S ASHLAND W AVE",
+      "cost": 3500.0
+    },
+    {
+      "ward": 2,
+      "year": 2012,
+      "category": "Traffic Equipment",
+      "location": "ON JEFFERSON FROM W MADISON ST (0 N) TO W ADAMS ST",
+      "cost": 1550.0
+    },
+    {
+      "ward": 3,
+      "year": 2012,
+      "category": "Alley Apron",
+      "location": "ON S MICHIGAN AVE FROM 4944 S TO E 49 ST (4900 S)",
+      "cost": 8666.0
+    },
+    {
+      "ward": 3,
+      "year": 2012,
+      "category": "Concrete Alley",
+      "location": "1503 S State",
+      "cost": 216149.0
+    },
+    {
+      "ward": 3,
+      "year": 2012,
+      "category": "Curb & Gutter",
+      "location": "ON E 37TH PL FROM S STATE ST (0 E) TO S WABASH AV (44",
+      "cost": 51363.0
+    },
+    {
+      "ward": 3,
+      "year": 2012,
+      "category": "Curb & Gutter",
+      "location": "ON S PRINCETON AVE FROM W 48TH PL (4850 S) TO W 50TH",
+      "cost": 23977.0
+    },
+    {
+      "ward": 3,
+      "year": 2012,
+      "category": "In-Road \"State Law Stop",
+      "location": "S STATE ST & W 23RD ST",
+      "cost": 550.0
+    },
+    {
+      "ward": 3,
+      "year": 2012,
+      "category": "Miscellaneous Other",
+      "location": "4501-33 & 4524-50 S McDowell, & 1400 W 46th St Tree planting",
+      "cost": 14166.0
+    },
+    {
+      "ward": 3,
+      "year": 2012,
+      "category": "Miscellaneous Other",
+      "location": "4434 S DR MARTIN LUTHER KING JR DR",
+      "cost": 413.0
+    },
+    {
+      "ward": 3,
+      "year": 2012,
+      "category": "Miscellaneous Other",
+      "location": "4700 S LASALLE ST Decorative Plaza Planter Fencing",
+      "cost": 3370.0
+    },
+    {
+      "ward": 3,
+      "year": 2012,
+      "category": "Miscellaneous Other",
+      "location": "E 43RD ST & S DR MARTIN LUTHER KING JR DR E two decorative baskets",
+      "cost": 680.0
+    },
+    {
+      "ward": 3,
+      "year": 2012,
+      "category": "Miscellaneous Other",
+      "location": "8 decorative garbage cans decorative garbage cans",
+      "cost": 11450.0
+    }
+  ]
+}
