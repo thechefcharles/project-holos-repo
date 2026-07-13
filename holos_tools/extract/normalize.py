@@ -124,11 +124,11 @@ class MenuAdapter2012:
 class MenuAdapter2017Plus:
     """Adapter for 2017+ menu format.
 
-    Format (from actual PDFs):
-    MenuPackage is in first column (may have year/code), Locations in middle, Cost at end.
-    Example: "Street Resurfacing Menu (1-5) (2017) ON W SUPERIOR ST FROM N LEAVITT ST (2200 W) TO N HOYNE AVE (2100 W) $72,193.56"
+    Format (from actual PDFs): Single-line format
+    "Alley Resurfacing Menu (1-1) (2017) W CHICAGO AVE & N BISHOP ST&W FRY ST & N GREENVIEW AVE $12,838.14"
 
-    Strategy: Extract cost (rightmost $), work backward to find location, extract category from start.
+    Strategy: Extract cost (rightmost $), extract category (everything up to first parenthesis),
+    everything in between = location.
     """
 
     @staticmethod
@@ -136,7 +136,7 @@ class MenuAdapter2017Plus:
         """Parse a 2017+ format row.
 
         Args:
-            text: Full line from PDF (may have category + location + cost)
+            text: Full line from PDF (category + location + cost, single line)
             ward: Ward number from header
             year: Year from filename or header
             category: Category from PDF header (preferred over auto-detection)
@@ -158,36 +158,28 @@ class MenuAdapter2017Plus:
         if cost == 0.0:
             return None
 
-        # Extract location: everything between category and cost
-        # Remove leading MenuPackage metadata and clean up
-        cost_start = text.rfind('$')
-        pre_cost = text[:cost_start].strip()
+        # Extract location: everything between category/metadata and cost
+        cost_pos = text.rfind('$')
+        pre_cost = text[:cost_pos].strip()
 
-        # Strategy: If category is from header, everything remaining is likely location
-        # Remove parenthetical codes like (1-5) or (2017)
-        if "Menu" in pre_cost or "Menu" in category:
-            # This line starts with category; extract everything after it
-            # Find where the category metadata ends (look for parenthetical or street pattern)
-            location = re.sub(r'^[^(]*\([^)]*\)\s*', '', pre_cost)  # Remove "Category (code)" prefix
-            location = re.sub(r'^\([^)]*\)\s*', '', location)  # Remove any leading (year)
-            location = location.strip()
+        # Extract category from the start (everything before first parenthesis with year/code)
+        # Pattern: "Category Name Menu (code) (year) location"
+        cat_match = re.match(r'^([^(]+?)\s+Menu\s+', pre_cost)
+        if cat_match:
+            extracted_cat = cat_match.group(1).strip()
+            if not category or category == "Unknown":
+                category = extracted_cat
+            # Location = everything after the category + Menu + parenthesized codes
+            location = re.sub(r'^[^(]*\s+Menu\s*(\([^)]*\)\s*)*', '', pre_cost).strip()
         else:
-            # If no category metadata, the whole thing might be location
-            location = pre_cost
+            # No "Menu" keyword; treat first parenthetical section as metadata
+            location = re.sub(r'^([^(]+?)\s*(\([^)]*\)\s*)*', '', pre_cost).strip()
 
-        # Final cleanup: remove trailing parenthetical codes (they may be unit counts)
-        location = re.sub(r'\s+\([^)]*\)\s*$', '', location).strip()
+        # Clean up: remove trailing parenthetical codes (coordinate references)
+        location = re.sub(r'\s*\([^)]*\)\s*$', '', location).strip()
 
-        if not location or len(location) < 5:
+        if not location or len(location) < 3:
             return None
-
-        # Determine category from prefix if not provided
-        if category == "Unknown" or not category:
-            cat_match = re.match(r'^([^(]+)', text)
-            if cat_match:
-                category = cat_match.group(1).strip()
-                # Remove "Menu" suffix
-                category = category.replace(" Menu", "").strip()
 
         return SpendingRecord(
             ward=ward,
@@ -197,9 +189,6 @@ class MenuAdapter2017Plus:
             cost=cost,
             source_text=text,
         )
-
-        if not location:
-            return None
 
         return SpendingRecord(
             ward=ward,

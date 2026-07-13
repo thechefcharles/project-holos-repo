@@ -1,0 +1,8 @@
+{
+  "source_id": "menu_pdfs",
+  "url": "https://www.chicago.gov/content/dam/city/depts/obm/general/CIP/CIPDocs/AldermanicMenuPostings/2012Menu.pdf",
+  "checksum": "sha256:1500246b319292e835045f716232d7a655db1252b399b7626bd8f425caa45887",
+  "retrieved_at": "2026-07-12T22:54:07.878540",
+  "size_bytes": 1168460,
+  "acquisition_method": "http_discovery"
+}
