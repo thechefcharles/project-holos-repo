@@ -2,8 +2,6 @@
 
 from dataclasses import dataclass
 from typing import List, Optional, Tuple
-import psycopg2
-from psycopg2.extras import DictCursor
 
 
 @dataclass
