@@ -3,7 +3,6 @@ tests
 db
 docs
 phase3
-*.py
 pyproject.toml
 uv.lock
 setup.py
