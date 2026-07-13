@@ -882,3 +882,30 @@ Difference driven by data quality (2012 PDF is cleaner), not architecture.
 1. Pulling historical 2017-era ward boundaries (Chicago may have archived versions)
 2. Verifying extracted ward extraction (spot-check raw PDF)
 3. Checking for CRS or geometry validity issues
+
+### 2026-07-13 — Phase 1 MVP complete: 2017 aldermanic spending map ready for deploy
+
+**Map built:** web/2017_map.html + 2017_aldermanic_verified.geojson (878 features, $14.1M)
+
+**Features:**
+- Points (blue): intersections, single addresses
+- Lines (orange): street ranges, width scaled to budget
+- Polygons (green): alley blocks
+- Ward filter (all 50 wards selectable)
+- Ward boundary overlay toggle
+- Click popups: cost, ward, type, caveat on mismatches
+
+**Quality communicated:**
+- "54.7% composite accuracy" banner (extraction × geocoding × correctness)
+- "⚠️ 2022 redistricting" caveat: some projects appear in different wards today than when allocated
+- On mismatch: "Project allocated to Ward X (2017), now in Ward Y"
+
+**Why this is MVP, not final:**
+- 2012 data deferred (109/129 records lack spatial match to ref.wards; cause TBD)
+- Street_segment geocoding weak (47% of failures); fixable with FROM/TO bounding
+- Gazetteer empty (named_place grammar unused)
+
+**Next:**
+1. Deploy to Vercel (CI/CD, domain, public URL)
+2. Register URL in Notion + social channels
+3. Phase 2: Fix 2012 ward-derivation mystery + complete 2012 extraction (full year)
