@@ -699,6 +699,25 @@ Committed docs/verifier-spec.md as the single source of truth for all data-quali
 
 **Standing rule going forward:** Whenever any session finds a new failure mode, append one line to docs/verifier-spec.md failure-mode ledger before context is lost. Knowledge survives across sessions this way.
 
+### 2026-07-13 — Step 6 (Load): Verified 2012 + 2017 data to staging.spending_projects
+
+**Status:** Loaded 1007 records to staging (2012: 129, 2017: 878), ready for promotion to core.
+
+**Data prep workflow:**
+1. Recovered ward field for 2012 by joining geocoded records to extracted records on location (129/129 matched — ward was in source extraction, dropped in GeoJSON transform)
+2. Prepared both datasets: source_id, method, score, geometry_type, ward, year, category, cost, geometry (POINT WKT)
+3. Generated staging_load.json (1157 records total, 1007 with POINT geometry)
+4. Created ops.sources entries (2012Menu, 2017Menu) with rights='public_record'
+5. Executed load_staging.sql: INSERT 1007 rows to staging.spending_projects
+
+**Load breakdown:**
+- 2012: 129 records, avg_score=0.68 (matches 69.9% composite: extraction×geocoding×correctness)
+- 2017: 878 records, avg_score=0.95 (scores > 0; 150 escalations or non-POINT geometry not included this pass)
+
+**Terminology clarification:** Ward ASSIGNMENT (which ward should this be?) differs from Ward CONTAINMENT verification (does the known ward's point fall inside that ward polygon?). The ward is already determined from extraction; Tier-1 verification checks containment via PostGIS spatial join.
+
+**Next step:** `holos load promote staging → core` with human-gate review (CLAUDE.md rule 6). No technical blockers.
+
 *Add new decisions below this line.*
 
 ### 2026-07-13 — 2017 verification gauntlet: grammar classifier verified at 93.3% correctness
