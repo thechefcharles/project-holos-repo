@@ -177,6 +177,22 @@ Both adapters now integrated into extract_from_pdf_text():
 
 holos extract normalize CLI ready for full PDF set. Next: integrate with Step 4 (Parse) to test end-to-end chain (Acquire → Classify → Normalize → Parse → Geocode).
 
+### 2026-07-12 — Step 3 (Normalize): WORKING but not yet MEASURED
+
+**Status: Extraction pipeline is extracting real data.**
+- 2012Menu.pdf (317 pages) → 2,009 spending records
+- Categories: 33 types (Street Resurfacing: 437, Sidewalk: 422, etc.)
+- Total: $66.2M across all wards
+- All records parsed: ward, year, category, location_text, cost
+
+**But measurement is incomplete:**
+- No extraction fidelity measurement (are locations correct? missing fields?)
+- No quality metrics (recall, precision on random sample)
+- No end-to-end test (hasn't passed through Parse or Geocode)
+- No success rate measured (% records that geocode to coordinates)
+
+**Next step (required before marking "done"):** Hand-audit 50–100 random records from different wards/categories to measure field accuracy. Calculate extraction recall + fidelity. Then run subset through Parse→Geocode pipeline to measure end-to-end success rate.
+
 **What stays in Notion (human/business layer):**
 - Pitch & strategy (investor-facing)
 - Legal & formation drafts (attorney review)
