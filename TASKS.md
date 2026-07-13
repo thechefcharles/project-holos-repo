@@ -227,12 +227,14 @@ Last updated: 2026-07-12
   - Owner: Claude Code
   - BUILD FROM: Master Brief §7–8 + roadmap Tool 1
   - AC: **PHASE 1 EXIT GATE** — public MapLibre map of geocoded menu spending by ward + year; a stranger can open, pick ward, see spending vs. need. Deployed (Vercel)
-  - Status: **MAP COMPLETE, READY FOR DEPLOYMENT** (2026-07-13)
+  - Status: **DEPLOYED TO PRODUCTION** ✅ (2026-07-13)
     - ✓ 2017 aldermanic spending (878 geocoded records, $14.1M)
     - ✓ MapLibre visualization (points, lines, polygons by geometry type)
     - ✓ Ward filter + boundary toggle
     - ✓ Quality indicators (54.7% composite, 2022 redistricting caveat)
-    - ⊘ Vercel deployment next (URL registration, CI/CD pipeline)
+    - ✓ Vercel deployment: https://project-holos-repo-80yn40hik-chef-charles-projects.vercel.app/
+    - ✓ Landing page + interactive map live
+  - **PHASE 1 EXIT GATE PASSED** ✅
 
 ---
 
