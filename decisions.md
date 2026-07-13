@@ -492,4 +492,24 @@ Ranges reach stage 8 (external geocoding) with method='none'—no implementation
 
 Only steps 1+2 together will move the 6.2% geocode rate. Step 1 alone (fix truncation) moves 46 records from "truncated range" to "complete range" bucket — still ungeocoded without step 2.
 
+### 2026-07-12 — Step 3 FIX: Extraction fidelity for ranges jumped from 10% to 53%
+
+**Problem diagnosed:** Range location strings were truncated due to PDF text wrapping + aggressive blocks-count removal.
+- "ON W BELDEN AVE FROM N TALMAN AV (2632 W) TO N WASHTENAW AV (2720 W)" → extracted as "TO N"
+- Blocks count (0.00, 1.50) was being removed too aggressively, stripping address endpoints
+
+**Fix implemented:**
+1. **Wrapped-address reconstruction:** Detect continuation lines (no $, address-like pattern) and insert them BEFORE the cost marker, not after
+2. **Refined blocks-count removal:** Use lookahead regex to handle blocks count that has text after it
+3. **Conservative continuation detection:** Exclude document headers, limit to <80 chars, require address-like characters
+
+**Results:**
+- Perfect extraction: 58/109 ranges (53.2%) — was 11/109 (10.1%)
+- Truncation: 0% — was 27.5%
+- Improvement: +47 perfect matches, eliminated all truncation
+
+**Impact:** Extraction fidelity for the dominant record type (75% of menu data) went from barely usable (10%) to functional (53%). This is upstream blocker for range geocoding; range geocoder can now work with mostly-complete addresses.
+
+**Remaining work:** 46.8% of ranges still mismatched (other errors, likely PDF layout edge cases or cost collisions). These are lower priority than building range geocoding support, which will use the 53% of good data.
+
 *Add new decisions below this line.*
