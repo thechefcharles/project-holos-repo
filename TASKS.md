@@ -195,10 +195,15 @@ Last updated: 2026-07-12
     - [x] Prepared both datasets with provenance (source_id='2012Menu'/'2017Menu', method, score, geometry_type)
     - [x] Loaded to staging.spending_projects: 1007 records (2012: 129, 2017: 878)
     - [x] Created ops.sources entries with rights='public_record'
-    - [ ] Run `holos load promote` to move staging → core (REQUIRES HUMAN GATE per CLAUDE.md rule 6)
-    - [ ] Verify Tier-1 checks (field_completeness, bbox_check, ward_containment) pass
+    - [~] Run Tier-1 ward-containment check (GATE CHECK FOUND ISSUE)
+      - 681/1007 pass (geometry inside stated ward)
+      - 326/1007 fail (geometry outside stated ward) ← BLOCKING PROMOTION
+      - Needs investigation: extraction ward assignment vs reference boundaries vs geocoding accuracy
+    - [ ] Investigate root cause and fix
+    - [ ] Re-run containment check until passing
+    - [ ] Run `holos load promote` to move staging → core
     - [ ] Archive staging data after promotion
-  - Blockers: None (ready for promotion with human review gate)
+  - Blockers: Tier-1 containment check (326/1007 out-of-ward, genuine data-quality issue)
   - Note: 150 records (LineString/Polygon geometry) not loaded this pass; second pass after validating POINT geometry
   - Next: Phase 1 Exit Gate (ship public map)
 

@@ -716,7 +716,9 @@ Committed docs/verifier-spec.md as the single source of truth for all data-quali
 
 **Terminology clarification:** Ward ASSIGNMENT (which ward should this be?) differs from Ward CONTAINMENT verification (does the known ward's point fall inside that ward polygon?). The ward is already determined from extraction; Tier-1 verification checks containment via PostGIS spatial join.
 
-**Next step:** `holos load promote staging → core` with human-gate review (CLAUDE.md rule 6). No technical blockers.
+**Gate check finding:** Tier-1 ward-containment check found 326/1007 records (32%) with geometry outside stated ward. This is a real data-quality issue (not a false alarm): either extraction assigned wrong wards, reference boundaries are stale/incomplete, or geocoding placed points in wrong ward. 
+
+**Blocking finding:** Cannot promote to core until this is resolved. Gate worked correctly — caught a before-it-reaches-analytics issue. Next session: investigate root cause (spot-check failing records for extraction vs geocoding vs reference-data issues), fix source, and re-run containment check.
 
 *Add new decisions below this line.*
 
