@@ -129,13 +129,16 @@ Last updated: 2026-07-12
         - Shared leverage: works on both 2012 + 2017
         - Guard: <3 corners → escalate (never return confidently-wrong centroid)
         - Classifier update: discriminates alley_block (no house numbers) from multi_location (with house numbers)
-      * [ ] **PENDING: Run full 2017 verification gauntlet** (after alley grammar + extraction fixes land)
-        - Re-geocode 1714 valid records
-        - Histogram failures by grammar
-        - Measure correctness spot-check
-        - Report measured composite (not projection)
+      * [~] **PENDING: Run full 2017 verification gauntlet** (after alley grammar + extraction fixes land)
+        - [x] Parse ground truth: 173 records from pages 1-10 (42 intersections, 26 ranges, 90 single-addr, 16 empty)
+        - [x] Create test set: 2017_gt_test_set.json (173 records for verification)
+        - [ ] Re-geocode 1714 valid records (full 2017 extraction) — **BLOCKED: uv dependency resolution (libpostal)**
+        - [ ] Histogram failures by grammar
+        - [ ] Measure correctness spot-check (hand-verify ~30 records against ground truth)
+        - [ ] Report measured composite (not projection)
         - Expected: 65-70% geocoding rate (alley blocks now included)
         - Expected composite: ~96% extraction × ~67% geocoding ≈ **64% composite** (vs 53% before alley grammar)
+        - **Blocker Note:** Python environment setup requires libpostal system library + uv dep resolution. Defer full pipeline run to next session with clean env setup (Docker or managed venv).
       * [ ] After 2017 verified: declare corpus finding (each format has its own profile; 2017 needs alley grammar)
     
     - [~] **2025 end-to-end pipeline test** (Validation Task)

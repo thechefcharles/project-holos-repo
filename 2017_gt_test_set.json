@@ -1,0 +1,867 @@
+[
+  {
+    "ward": 1,
+    "location": "W CHICAGO AVE & N BISHOP ST&W FRY ST & N GREENVIEW AVE",
+    "cost": 12838.14
+  },
+  {
+    "ward": 1,
+    "location": "& N FRANCISCO AVE",
+    "cost": 2800.0
+  },
+  {
+    "ward": 1,
+    "location": "N DAMEN AVE & W PIERCE AVE:N DAMEN AVE & W LE MOYNE ST",
+    "cost": 120000.0
+  },
+  {
+    "ward": 1,
+    "location": "ROCKWELL ST",
+    "cost": 264000.0
+  },
+  {
+    "ward": 1,
+    "location": "2828 W BLOOMINGDALE AVE",
+    "cost": 120000.0
+  },
+  {
+    "ward": 1,
+    "location": "1657 W ERIE ST",
+    "cost": 18546.48
+  },
+  {
+    "ward": 1,
+    "location": "W WABANSIA AVE & N CALIFORNIA AVE",
+    "cost": 14360.21
+  },
+  {
+    "ward": 1,
+    "location": "N CALIFORNIA AVE & W SHAKESPEARE AVE",
+    "cost": 600.0
+  },
+  {
+    "ward": 1,
+    "location": "N CALIFORNIA AVE & W ALTGELD ST",
+    "cost": 600.0
+  },
+  {
+    "ward": 1,
+    "location": "N CALIFORNIA AVE & W PALMER ST",
+    "cost": 350.0
+  },
+  {
+    "ward": 1,
+    "location": "W MEDILL AVE & N MILWAUKEE AVE",
+    "cost": 350.0
+  },
+  {
+    "ward": 1,
+    "location": "N MILWAUKEE AVE & N HONORE ST",
+    "cost": 600.0
+  },
+  {
+    "ward": 1,
+    "location": "N DAMEN AVE & W HURON ST",
+    "cost": 600.0
+  },
+  {
+    "ward": 1,
+    "location": "N DAMEN AVE & W EVERGREEN AVE",
+    "cost": 600.0
+  },
+  {
+    "ward": 1,
+    "location": "N DAMEN AVE & W LE MOYNE ST",
+    "cost": 600.0
+  },
+  {
+    "ward": 1,
+    "location": "N HOYNE AVE & W DIVISION ST",
+    "cost": 350.0
+  },
+  {
+    "ward": 1,
+    "location": "W DIVISION ST & N PAULINA ST",
+    "cost": 350.0
+  },
+  {
+    "ward": 1,
+    "location": "N PAULINA ST & W AUGUSTA BLVD",
+    "cost": 350.0
+  },
+  {
+    "ward": 1,
+    "location": "N CALIFORNIA AVE & W ALTGELD ST",
+    "cost": 600.0
+  },
+  {
+    "ward": 1,
+    "location": "N DAMEN AVE & W HURON ST",
+    "cost": 600.0
+  },
+  {
+    "ward": 1,
+    "location": "N CALIFORNIA AVE & W SHAKESPEARE AVE",
+    "cost": 600.0
+  },
+  {
+    "ward": 1,
+    "location": "W DIVISION ST & N PAULINA ST",
+    "cost": 350.0
+  },
+  {
+    "ward": 1,
+    "location": "W DIVISION ST & N WOLCOTT AVE",
+    "cost": 600.0
+  },
+  {
+    "ward": 1,
+    "location": "W MEDILL AVE & N MILWAUKEE AVE",
+    "cost": 350.0
+  },
+  {
+    "ward": 1,
+    "location": "LaSalle II School Playground Drinking Fountain 1148 N HONORE ST",
+    "cost": 9300.0
+  },
+  {
+    "ward": 1,
+    "location": "CALIFORNIA AVE",
+    "cost": 634.0
+  },
+  {
+    "ward": 1,
+    "location": "50/50 Neighborhood Arts Program",
+    "cost": 20000.0
+  },
+  {
+    "ward": 1,
+    "location": "Neighborhood Infrastructure - Housing",
+    "cost": 37711.0
+  },
+  {
+    "ward": 1,
+    "location": "W NORTH AVE & N DAMEN AVE",
+    "cost": 50888.0
+  },
+  {
+    "ward": 1,
+    "location": "",
+    "cost": 72193.56
+  },
+  {
+    "ward": 1,
+    "location": "ON N WOOD ST FROM W BEACH AVE TO W JULIAN ST",
+    "cost": 19187.76
+  },
+  {
+    "ward": 1,
+    "location": "ON W OHIO ST FROM N ELIZABETH ST TO N ADA ST",
+    "cost": 36449.95
+  },
+  {
+    "ward": 1,
+    "location": "ST",
+    "cost": 46933.25
+  },
+  {
+    "ward": 1,
+    "location": "BLOOMINGDALE AVE",
+    "cost": 53811.51
+  },
+  {
+    "ward": 1,
+    "location": "AVE",
+    "cost": 53575.2
+  },
+  {
+    "ward": 1,
+    "location": "",
+    "cost": 51624.11
+  },
+  {
+    "ward": 1,
+    "location": "",
+    "cost": 1179.12
+  },
+  {
+    "ward": 1,
+    "location": "AVE",
+    "cost": 25443.16
+  },
+  {
+    "ward": 1,
+    "location": "",
+    "cost": 38142.62
+  },
+  {
+    "ward": 1,
+    "location": "",
+    "cost": 47744.13
+  },
+  {
+    "ward": 1,
+    "location": "N)",
+    "cost": 26338.63
+  },
+  {
+    "ward": 1,
+    "location": "",
+    "cost": 25183.69
+  },
+  {
+    "ward": 1,
+    "location": "CORTLAND ST",
+    "cost": 49102.24
+  },
+  {
+    "ward": 1,
+    "location": "ST",
+    "cost": 22163.23
+  },
+  {
+    "ward": 1,
+    "location": "BLOOMINGDALE AVE",
+    "cost": 3700.0
+  },
+  {
+    "ward": 1,
+    "location": "",
+    "cost": 3700.0
+  },
+  {
+    "ward": 1,
+    "location": "AVE",
+    "cost": 0.0
+  },
+  {
+    "ward": 1,
+    "location": "ST",
+    "cost": 0.0
+  },
+  {
+    "ward": 1,
+    "location": "",
+    "cost": 0.0
+  },
+  {
+    "ward": 1,
+    "location": "",
+    "cost": 0.0
+  },
+  {
+    "ward": 1,
+    "location": "CORTLAND ST",
+    "cost": 0.0
+  },
+  {
+    "ward": 1,
+    "location": "BLOOMINGDALE AVE",
+    "cost": 0.0
+  },
+  {
+    "ward": 1,
+    "location": "N WESTERN AVE & W LYNDALE ST",
+    "cost": 14000.0
+  },
+  {
+    "ward": 1,
+    "location": "",
+    "cost": 50000.0
+  },
+  {
+    "ward": 1,
+    "location": "MENU BUDGET",
+    "cost": 1320000.0
+  },
+  {
+    "ward": 1,
+    "location": "WARD COMMITTED 2017 TOTAL",
+    "cost": 1319999.99
+  },
+  {
+    "ward": 1,
+    "location": "WARD 2017 BALANCE",
+    "cost": 0.01
+  },
+  {
+    "ward": 2,
+    "location": "AVE",
+    "cost": 42229.01
+  },
+  {
+    "ward": 2,
+    "location": "AVE",
+    "cost": 24693.66
+  },
+  {
+    "ward": 2,
+    "location": "W GOETHE ST & N STATE PKWY&W SCHILLER ST & N DEARBORN ST",
+    "cost": 27368.28
+  },
+  {
+    "ward": 2,
+    "location": "AVE",
+    "cost": 0.0
+  },
+  {
+    "ward": 2,
+    "location": "N WELLS ST & W SCOTT ST",
+    "cost": 96177.74
+  },
+  {
+    "ward": 2,
+    "location": "ON N MICHIGAN AVE FROM 100 N TO E OAK ST",
+    "cost": 10000.0
+  },
+  {
+    "ward": 2,
+    "location": "350-375 E SUPERIOR ST",
+    "cost": 18420.11
+  },
+  {
+    "ward": 2,
+    "location": "200 E DELAWARE PL",
+    "cost": 15740.08
+  },
+  {
+    "ward": 2,
+    "location": "W LE MOYNE ST & N GREENVIEW AVE",
+    "cost": 21872.28
+  },
+  {
+    "ward": 2,
+    "location": "Division Street Underpass E DIVISION ST & N LAKE SHORE DR",
+    "cost": 100000.0
+  },
+  {
+    "ward": 2,
+    "location": "N CLYBOURN AVE & W WISCONSIN ST",
+    "cost": 350.0
+  },
+  {
+    "ward": 2,
+    "location": "176 E CHESTNUT ST",
+    "cost": 350.0
+  },
+  {
+    "ward": 2,
+    "location": "W DIVISION ST & N LA SALLE DR",
+    "cost": 18490.0
+  },
+  {
+    "ward": 2,
+    "location": "E OAK ST & N MICHIGAN AVE",
+    "cost": 19702.21
+  },
+  {
+    "ward": 2,
+    "location": "50/50 Neighborhood Arts Program",
+    "cost": 10000.0
+  },
+  {
+    "ward": 2,
+    "location": "172 E CHESTNUT ST",
+    "cost": 1400.0
+  },
+  {
+    "ward": 2,
+    "location": "Pedestrian Countdown Signal W NORTH AVE & N ELSTON AVE",
+    "cost": 5972.0
+  },
+  {
+    "ward": 2,
+    "location": "W NORTH AVE & N DAMEN AVE",
+    "cost": 50888.0
+  },
+  {
+    "ward": 2,
+    "location": "P.F.C. Joseph Schallmoser Honorary Sign",
+    "cost": 634.0
+  },
+  {
+    "ward": 2,
+    "location": "POD Camera - Ward 2 N MICHIGAN AVE & E LAKE SHORE DR",
+    "cost": 27011.0
+  },
+  {
+    "ward": 2,
+    "location": "70 E ELM ST",
+    "cost": 1128.73
+  },
+  {
+    "ward": 2,
+    "location": "102 W GERMANIA PL",
+    "cost": 38823.28
+  },
+  {
+    "ward": 2,
+    "location": "1236 N DEARBORN ST",
+    "cost": 1272.98
+  },
+  {
+    "ward": 2,
+    "location": "AVE",
+    "cost": 205000.0
+  },
+  {
+    "ward": 2,
+    "location": "",
+    "cost": 47178.55
+  },
+  {
+    "ward": 2,
+    "location": "ON N WOOD ST FROM W BEACH AVE TO W JULIAN ST",
+    "cost": 19187.76
+  },
+  {
+    "ward": 2,
+    "location": "",
+    "cost": 47096.51
+  },
+  {
+    "ward": 2,
+    "location": "AVE",
+    "cost": 23909.77
+  },
+  {
+    "ward": 2,
+    "location": "CLYBOURN AVE",
+    "cost": 21825.77
+  },
+  {
+    "ward": 2,
+    "location": "GREENVIEW AVE",
+    "cost": 24961.05
+  },
+  {
+    "ward": 2,
+    "location": "AVE",
+    "cost": 100760.54
+  },
+  {
+    "ward": 2,
+    "location": "AVE",
+    "cost": 120033.01
+  },
+  {
+    "ward": 2,
+    "location": "W)",
+    "cost": 43183.36
+  },
+  {
+    "ward": 2,
+    "location": "E)",
+    "cost": 20083.72
+  },
+  {
+    "ward": 2,
+    "location": "W)",
+    "cost": 19600.51
+  },
+  {
+    "ward": 2,
+    "location": "W)",
+    "cost": 16148.91
+  },
+  {
+    "ward": 2,
+    "location": "W)",
+    "cost": 24609.29
+  },
+  {
+    "ward": 2,
+    "location": "ON E ELM ST FROM N STATE ST TO N LAKE SHORE DR",
+    "cost": 245.25
+  },
+  {
+    "ward": 2,
+    "location": "WRIGHTWOOD AVE",
+    "cost": 2941.35
+  },
+  {
+    "ward": 2,
+    "location": "AVE",
+    "cost": 3700.0
+  },
+  {
+    "ward": 2,
+    "location": "",
+    "cost": 3700.0
+  },
+  {
+    "ward": 2,
+    "location": "",
+    "cost": 3700.0
+  },
+  {
+    "ward": 2,
+    "location": "",
+    "cost": 3700.0
+  },
+  {
+    "ward": 2,
+    "location": "AVE",
+    "cost": 0.0
+  },
+  {
+    "ward": 2,
+    "location": "ON W SCHILLER ST FROM N STATE PKWY TO N WELLS ST",
+    "cost": 0.0
+  },
+  {
+    "ward": 2,
+    "location": "W NORTH AVE & N GREENVIEW AVE",
+    "cost": 35911.26
+  },
+  {
+    "ward": 2,
+    "location": "MENU BUDGET",
+    "cost": 1320000.0
+  },
+  {
+    "ward": 2,
+    "location": "WARD COMMITTED 2017 TOTAL",
+    "cost": 1319999.97
+  },
+  {
+    "ward": 2,
+    "location": "WARD 2017 BALANCE",
+    "cost": 0.03
+  },
+  {
+    "ward": 3,
+    "location": "S PRAIRIE AVE & E 35TH ST:S GILES AVE & E 37TH ST",
+    "cost": 3693.51
+  },
+  {
+    "ward": 3,
+    "location": "4532 S FORRESTVILLE AVE",
+    "cost": 1146.26
+  },
+  {
+    "ward": 3,
+    "location": "W GARFIELD BLVD & S PRINCETON AVE:S WELLS ST & W 57TH ST",
+    "cost": 8762.54
+  },
+  {
+    "ward": 3,
+    "location": "S MICHIGAN AVE & E 50TH ST&S INDIANA AVE & E 51ST ST",
+    "cost": 41174.37
+  },
+  {
+    "ward": 3,
+    "location": "S MICHIGAN AVE & E 49TH ST&S WABASH AVE & E 50TH ST",
+    "cost": 41734.77
+  },
+  {
+    "ward": 3,
+    "location": "KING JR DR",
+    "cost": 20337.87
+  },
+  {
+    "ward": 3,
+    "location": "4726 S SHIELDS AVE",
+    "cost": 1400.0
+  },
+  {
+    "ward": 3,
+    "location": "MICHIGAN AVE & E 53RD ST&S WABASH AVE & E GARFIELD BLVD",
+    "cost": 700.0
+  },
+  {
+    "ward": 3,
+    "location": "S MICHIGAN AVE & E 46TH ST",
+    "cost": 27011.0
+  },
+  {
+    "ward": 3,
+    "location": "W 47TH ST & S PRINCETON AVE&W 48TH PL & S SHIELDS AVE",
+    "cost": 9000.0
+  },
+  {
+    "ward": 3,
+    "location": "1335 S INDIANA AVE",
+    "cost": 15702.86
+  },
+  {
+    "ward": 3,
+    "location": "4943 S DR MARTIN LUTHER KING JR DR",
+    "cost": 23989.3
+  },
+  {
+    "ward": 3,
+    "location": "1618 S PRAIRIE AVE",
+    "cost": 9299.2
+  },
+  {
+    "ward": 3,
+    "location": "S INDIANA AVE & E 13TH ST",
+    "cost": 87215.09
+  },
+  {
+    "ward": 3,
+    "location": "50/50 Neighborhoods Arts Project",
+    "cost": 10000.0
+  },
+  {
+    "ward": 3,
+    "location": "41 W 35TH ST",
+    "cost": 2000.0
+  },
+  {
+    "ward": 3,
+    "location": "S STATE ST & E 13TH ST",
+    "cost": 11166.57
+  },
+  {
+    "ward": 3,
+    "location": "cancelled) VINCENNES AVE",
+    "cost": 81033.0
+  },
+  {
+    "ward": 3,
+    "location": "BLVD",
+    "cost": 24182.64
+  },
+  {
+    "ward": 3,
+    "location": "ON E 50TH ST FROM S INDIANA AVE TO S PRAIRIE AVE",
+    "cost": 27861.33
+  },
+  {
+    "ward": 3,
+    "location": "E)",
+    "cost": 34246.08
+  },
+  {
+    "ward": 3,
+    "location": "326 W 47TH ST",
+    "cost": 17034.58
+  },
+  {
+    "ward": 3,
+    "location": "351 W 44TH PL",
+    "cost": 30369.43
+  },
+  {
+    "ward": 3,
+    "location": "4500-4526 S PRAIRIE AVE",
+    "cost": 15674.71
+  },
+  {
+    "ward": 3,
+    "location": "E):ON S CALUMET AVE FROM E 42ND ST TO E 45TH ST",
+    "cost": 320000.0
+  },
+  {
+    "ward": 3,
+    "location": "W)",
+    "cost": 14152.19
+  },
+  {
+    "ward": 3,
+    "location": "LAWRENCE AVE",
+    "cost": 124662.89
+  },
+  {
+    "ward": 3,
+    "location": "S)",
+    "cost": 65369.3
+  },
+  {
+    "ward": 3,
+    "location": "ON W 45TH ST FROM S VINCENNES AVE TO S EVANS AVE",
+    "cost": 128600.35
+  },
+  {
+    "ward": 3,
+    "location": "E)",
+    "cost": 20480.15
+  },
+  {
+    "ward": 3,
+    "location": "S FORRESTVILLE AVE & E 45TH ST",
+    "cost": 4300.0
+  },
+  {
+    "ward": 3,
+    "location": "ON S EVANS AVE FROM E 44TH ST TO E 45TH ST",
+    "cost": 3700.0
+  },
+  {
+    "ward": 3,
+    "location": "S MOE DR & S LSD 18TH DR XR",
+    "cost": 28000.0
+  },
+  {
+    "ward": 3,
+    "location": "ON W 45TH ST FROM S VINCENNES AVE TO S EVANS AVE",
+    "cost": 0.0
+  },
+  {
+    "ward": 3,
+    "location": "ON W 43RD ST FROM S SHIELDS AVE TO S WALLACE ST",
+    "cost": 66000.0
+  },
+  {
+    "ward": 3,
+    "location": "MENU BUDGET",
+    "cost": 1320000.0
+  },
+  {
+    "ward": 3,
+    "location": "WARD COMMITTED 2017 TOTAL",
+    "cost": 1319999.99
+  },
+  {
+    "ward": 3,
+    "location": "WARD 2017 BALANCE",
+    "cost": 0.01
+  },
+  {
+    "ward": 4,
+    "location": "E 47TH ST & S INGLESIDE AVE&E 48TH ST & S ELLIS AVE",
+    "cost": 18272.17
+  },
+  {
+    "ward": 4,
+    "location": "1312 E 53RD ST",
+    "cost": 5553.01
+  },
+  {
+    "ward": 4,
+    "location": "4127 S ELLIS AVE",
+    "cost": 3744.46
+  },
+  {
+    "ward": 4,
+    "location": "S CALUMET AVE & E 33RD BLVD&S GILES AVE & E 35TH ST",
+    "cost": 61781.62
+  },
+  {
+    "ward": 4,
+    "location": "740 E 43RD ST",
+    "cost": 10520.14
+  },
+  {
+    "ward": 4,
+    "location": "E 47TH ST & S INGLESIDE AVE&E 48TH ST & S ELLIS AVE",
+    "cost": 0.0
+  },
+  {
+    "ward": 4,
+    "location": "554 E 51ST ST",
+    "cost": 19354.19
+  },
+  {
+    "ward": 4,
+    "location": "4471 S OAKENWALD AVE",
+    "cost": 30223.9
+  },
+  {
+    "ward": 4,
+    "location": "4471 S OAKENWALD AVE",
+    "cost": 13138.42
+  },
+  {
+    "ward": 4,
+    "location": "Dearborn Park - Lighting Improvements 33 W POLK ST",
+    "cost": 8200.0
+  },
+  {
+    "ward": 4,
+    "location": "Dearborn Park - OEMC Camera 33 W POLK ST",
+    "cost": 27011.0
+  },
+  {
+    "ward": 4,
+    "location": "In-Road \"State Law Stop For Pedestrians\" Signs MS COT TAGE GROVE AVE & E 38TH ST",
+    "cost": 600.0
+  },
+  {
+    "ward": 4,
+    "location": "E HYDE PARK BLVD & S LAKE PARK AVE",
+    "cost": 70000.0
+  },
+  {
+    "ward": 4,
+    "location": "LUTHER KING JR DR",
+    "cost": 4200.0
+  },
+  {
+    "ward": 4,
+    "location": "50/50 Neighborhood Arts Program",
+    "cost": 10000.0
+  },
+  {
+    "ward": 4,
+    "location": "S DR MARTIN LUTHER KING JR DR & E 37TH ST",
+    "cost": 6545.0
+  },
+  {
+    "ward": 4,
+    "location": "W POLK ST & S CLARK ST",
+    "cost": 1300.0
+  },
+  {
+    "ward": 4,
+    "location": "S COTTAGE GROVE AVE & E 35TH ST",
+    "cost": 8892.0
+  },
+  {
+    "ward": 4,
+    "location": "S COTTAGE GROVE AVE & E 47TH PL",
+    "cost": 54919.23
+  },
+  {
+    "ward": 4,
+    "location": "POD Camera 1163 E 43RD ST",
+    "cost": 27011.0
+  },
+  {
+    "ward": 4,
+    "location": "Printers Row Park - Lighting Improvements",
+    "cost": 6500.0
+  },
+  {
+    "ward": 4,
+    "location": "BLVD",
+    "cost": 39389.96
+  },
+  {
+    "ward": 4,
+    "location": "",
+    "cost": 16586.63
+  },
+  {
+    "ward": 4,
+    "location": "4007 S DREXEL BLVD",
+    "cost": 1301.92
+  },
+  {
+    "ward": 4,
+    "location": "601 E BOWEN AVE",
+    "cost": 56360.44
+  },
+  {
+    "ward": 4,
+    "location": "S DREXEL BLVD & E 42ND ST",
+    "cost": 21143.52
+  },
+  {
+    "ward": 4,
+    "location": "4800 S CHAMPLAIN AVE",
+    "cost": 49495.13
+  },
+  {
+    "ward": 4,
+    "location": "S LAKE PARK AVE & E 47TH ST",
+    "cost": 35788.58
+  },
+  {
+    "ward": 4,
+    "location": "4232 S COTTAGE GROVE AVE",
+    "cost": 2000.0
+  }
+]
