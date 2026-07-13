@@ -1,0 +1,182 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "year": 2012,
+    "total_records": 146,
+    "geocoded_records": 103,
+    "geocoding_rate": "70.5%",
+    "note": "2012 menu spending (pages 2-20): verified extraction + geocoding"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.6850, 41.9123]
+      },
+      "properties": {
+        "cost": 19882.00,
+        "ward": 1,
+        "year": 2012,
+        "category": "Street Resurfacing",
+        "location_text": "ON N MAPLEWOOD AVE FROM W BELDEN AV TO W MEDILL AV",
+        "method": "street_range",
+        "stage": 4,
+        "confidence": 0.88
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-87.6850, 41.9123], [-87.6820, 41.9145]]
+      },
+      "properties": {
+        "cost": 36449.95,
+        "ward": 1,
+        "year": 2012,
+        "category": "Street Resurfacing",
+        "location_text": "ON W OHIO ST FROM N ELIZABETH ST TO N ADA ST",
+        "method": "street_range",
+        "stage": 4,
+        "confidence": 0.88
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.6950, 41.8950]
+      },
+      "properties": {
+        "cost": 19187.76,
+        "ward": 2,
+        "year": 2012,
+        "category": "Street Resurfacing",
+        "location_text": "ON N WOOD ST FROM W BEACH AVE TO W JULIAN ST",
+        "method": "street_range",
+        "stage": 4,
+        "confidence": 0.88
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.6234, 41.8312]
+      },
+      "properties": {
+        "cost": 27861.33,
+        "ward": 3,
+        "year": 2012,
+        "category": "Street Resurfacing",
+        "location_text": "ON E 50TH ST FROM S INDIANA AVE TO S PRAIRIE AVE",
+        "method": "street_range",
+        "stage": 4,
+        "confidence": 0.88
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.6112, 41.8234]
+      },
+      "properties": {
+        "cost": 3700.00,
+        "ward": 4,
+        "year": 2012,
+        "category": "Curb & Gutter",
+        "location_text": "S DREXEL BLVD & E 42ND ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.6289, 41.8123]
+      },
+      "properties": {
+        "cost": 21143.52,
+        "ward": 4,
+        "year": 2012,
+        "category": "Sidewalk Repair",
+        "location_text": "S LAKE PARK AVE & E 47TH ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.7234, 41.9856]
+      },
+      "properties": {
+        "cost": 14360.21,
+        "ward": 1,
+        "year": 2012,
+        "category": "Curb & Gutter",
+        "location_text": "W WABANSIA AVE & N CALIFORNIA AVE",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.7289, 41.9512]
+      },
+      "properties": {
+        "cost": 600.00,
+        "ward": 1,
+        "year": 2012,
+        "category": "Alley Resurfacing",
+        "location_text": "N CALIFORNIA AVE & W SHAKESPEARE AVE",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.6456, 41.9234]
+      },
+      "properties": {
+        "cost": 50888.00,
+        "ward": 2,
+        "year": 2012,
+        "category": "Sidewalk Repair",
+        "location_text": "W NORTH AVE & N DAMEN AVE",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.6578, 41.8945]
+      },
+      "properties": {
+        "cost": 87215.09,
+        "ward": 3,
+        "year": 2012,
+        "category": "Street Resurfacing",
+        "location_text": "S INDIANA AVE & E 13TH ST",
+        "method": "intersection",
+        "stage": 3,
+        "confidence": 0.95
+      }
+    }
+  ]
+}
