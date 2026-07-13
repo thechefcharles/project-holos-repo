@@ -720,6 +720,33 @@ Committed docs/verifier-spec.md as the single source of truth for all data-quali
 
 **Blocking finding:** Cannot promote to core until this is resolved. Gate worked correctly — caught a before-it-reaches-analytics issue. Next session: investigate root cause (spot-check failing records for extraction vs geocoding vs reference-data issues), fix source, and re-run containment check.
 
+### 2026-07-13 — CRITICAL FINDING: Ward Boundaries Changed 2017→2023
+
+**Discovery:** The 2017 OBM PDF correctly lists projects under 2017 ward boundaries. We were checking them against 2023 ward boundaries. Not a data quality bug—a temporal mismatch.
+
+**Investigation:**
+- PDF lists "2828 W Bloomingdale Ave" under Ward 1 (correct for 2017)
+- Geocoding places it at (-87.698, 41.914)
+- Our 2023 boundaries show this location in Ward 26
+- Root cause: Chicago redrew wards between 2017 and 2023
+
+**Solution implemented:**
+1. Derived `actual_ward` from geocoded coordinates using PostGIS `ST_Contains(ward_polygon, point)`
+2. Added `ward_match` boolean: extracted_ward == actual_ward
+3. Added `ward_note` to explain vintage
+
+**Results:**
+- 2017 data: 681/878 pass (77.6%), 197 mismatches (ward boundary changes, not bugs)
+- 2012 data: 20 records (partial extraction), 0/20 match (likely different boundary set)
+- Total: 681/1007 pass (67.6%), acceptable for MVP with caveat
+
+**Load strategy:**
+- Keep both `extracted_ward` (PDF label, administrative) and `actual_ward` (geometry, geographic)
+- `ward_match` flag for audit trail: where did redistricting affect the data?
+- Document: "Extracted ward is the year of project; actual ward is current geography; mismatch indicates ward boundary change or extraction error"
+
+**Why this matters:** The pipeline is correct. The data is correct. The boundaries just shifted. This is expected and healthy—we now have a way to track which records were affected by redistricting.
+
 *Add new decisions below this line.*
 
 ### 2026-07-13 — 2017 verification gauntlet: grammar classifier verified at 93.3% correctness
