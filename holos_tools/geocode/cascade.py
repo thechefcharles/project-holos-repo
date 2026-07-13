@@ -123,8 +123,9 @@ class GeocodeCascade:
                 return result
 
         elif grammar.grammar == 'alley_block_polygon':
-            # Alley blocks (e.g., "alley between X and Y") — stage 4 or stage 5 gazetteer
-            result = self.stage_4_segment(norm_text, parsed, location_text)
+            # Alley blocks bounded by 3+ streets (e.g., "W Chicago & N Bishop & W Fry & N Greenview")
+            # Stage 3b: compute centroid of corner intersections
+            result = self.stage_3_alley_block_polygon(location_text)
             if result and result.score > 0:
                 return result
             # Fall back to gazetteer for named alleys
@@ -347,6 +348,77 @@ class GeocodeCascade:
             )
 
         return None
+
+    def stage_3_alley_block_polygon(self, raw_text: str) -> Optional[GeocodeResult]:
+        """Stage 3b: Alley block polygon (3+ bounded streets).
+
+        Algorithm:
+        1. Split location on & to get street list
+        2. Normalize each street name (reuse intersection normalization)
+        3. For each pair of streets, query the intersection
+        4. Collect corners → ST_Centroid = representative POINT
+        5. GUARD: <3 corners → escalate (don't return confidently-wrong result)
+        """
+        # Split on &, handling both spaced and unspaced (e.g., "AVE&ST" vs "AVE & ST")
+        street_pattern = r'([A-Z\s]+(?:ST|AVE|BLVD|RD|DRIVE|ROAD|LANE|LN|CT|COURT|PLACE|PL|DR|AV|BV|PKWY))'
+        streets_raw = re.split(r'\s*&\s*', raw_text.strip())
+
+        if len(streets_raw) < 3:
+            return None  # Need 3+ streets
+
+        # Normalize streets: strip direction + suffix (reuse intersection logic)
+        def normalize_street(s):
+            s = s.strip()
+            # Strip leading directional FIRST
+            s = re.sub(r'^[NSEW](?:\s+|$)|\b(?:NORTH|SOUTH|EAST|WEST)\b\s*', '', s).strip()
+            # Then strip trailing type word
+            s = re.sub(r'\s+\w+$', '', s).strip()
+            return s
+
+        streets_norm = [normalize_street(s) for s in streets_raw]
+        streets_norm = [s for s in streets_norm if s]  # Remove empty
+
+        if len(streets_norm) < 3:
+            return None
+
+        # Query all pairs of streets for their intersections
+        corners = []
+
+        for i in range(len(streets_norm)):
+            for j in range(i+1, len(streets_norm)):
+                street_i = streets_norm[i]
+                street_j = streets_norm[j]
+
+                sql = """
+                    SELECT ST_X(ST_Centroid(ST_Intersection(c1.geom, c2.geom))) as lon,
+                           ST_Y(ST_Centroid(ST_Intersection(c1.geom, c2.geom))) as lat
+                    FROM ref.centerlines c1
+                    JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
+                    WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%(street_i)s)
+                      AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+\w+$', '')) = UPPER(%(street_j)s)
+                    LIMIT 1
+                """
+
+                result = self.query(sql, {"street_i": street_i, "street_j": street_j})
+                if result and result[0].get("lon") is not None:
+                    corners.append((result[0]["lon"], result[0]["lat"]))
+
+        # GUARD: Need at least 3 corners to form a real enclosed area
+        if len(corners) < 3:
+            return None  # Escalate; insufficient geometry
+
+        # Centroid of all corners
+        avg_lon = sum(c[0] for c in corners) / len(corners)
+        avg_lat = sum(c[1] for c in corners) / len(corners)
+
+        return GeocodeResult(
+            stage=3,
+            method="alley_block_polygon",
+            geometry_type="POINT",
+            coordinates=(avg_lon, avg_lat),
+            score=0.90,
+            reason=f"Alley block: {len(corners)} corners, bounded by {len(streets_norm)} streets"
+        )
 
     def stage_4_segment(self, norm_text: str, parsed, raw_text: str) -> Optional[GeocodeResult]:
         """Stage 4: Block/segment match (return segment as LINESTRING).

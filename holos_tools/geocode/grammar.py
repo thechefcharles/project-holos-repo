@@ -91,11 +91,25 @@ class GrammarClassifier:
             return GrammarClassification('hundred_block', 0.95, 'regex')
 
         # Alley block polygon: double-dash format (blocks bounded by streets)
+        # OR: 3+ street names joined by & with NO house numbers
         # Must come before multi_location (which also has &)
         if any(re.search(p, text) for p in cls.PATTERNS.get('alley_block_polygon', [])):
             # But exclude if it looks like a multi-location address (has comma, semicolon + number)
             if not re.search(r'[;,]\s*\d+', text):
                 return GrammarClassification('alley_block_polygon', 0.90, 'regex')
+
+        # NEW: 3+ street names with & but no house numbers = alley block
+        # Pattern: "STREET & STREET & STREET" (street names separated by &, no leading digits)
+        ampersand_count = text.count('&')
+        if ampersand_count >= 2:  # 3+ street names = 2+ ampersands
+            parts = [p.strip() for p in text.split('&')]
+            # Check if NONE of the parts have house number coordinates (leading digit)
+            has_coords = sum(1 for p in parts if re.search(r'^\d+\s+', p))
+            # All parts are street names (no coordinates) = alley block
+            if has_coords == 0 and len(parts) >= 3:
+                # And all parts look like street names (not random text)
+                if all(re.search(r'[NSEW]?\s*\w+\s+(ST|AVE|BLVD|RD|STREET|AVENUE|DRIVE|ROAD|LANE|LN|CT|COURT|PLACE|PL|DR|AV|BV)', p) for p in parts):
+                    return GrammarClassification('alley_block_polygon', 0.95, 'regex')
 
         # Multi-location: multiple & (street1 & street2 & avenue1 & avenue2 type patterns)
         # or semicolon separating full addresses
