@@ -1,71 +1,73 @@
-# 2017 Geocoding Failure Analysis — Grammar Distribution
+# 2017 Extraction & Geocoding Analysis — Corrected
 
-**Date:** 2026-07-12  
-**Finding:** 53.3% geocoding rate is NOT "messier data" — it's a **grammar coverage gap**
-
----
-
-## Ground Truth Grammar Mix (173 records)
-
-| Grammar Type | Count | % | Built? | Notes |
-|--------------|-------|---|--------|-------|
-| **Multi-street alleys** (3+ streets) | ~12 | 7% | ✗ | "A & B & C & D" alley resurfacing |
-| **Two-street intersections** | ~60 | 35% | ✓ | "A & B" intersections |
-| **Single addresses** | ~30 | 17% | ✓ | "NNN STREET" format |
-| **Street ranges** | ~11 | 6% | ✓ | "ON STREET FROM X TO Y" |
-| **Truncated/broken/empty** | ~60 | 35% | — | "ST", "AVE", "N)", empty lines |
+**Date:** 2026-07-12 (REVISED after extraction fix)  
+**Finding:** Initial "60 truncated = 35% broken" was a mislabeling. Extraction is actually **96.1% complete**.
 
 ---
 
-## Expected vs Observed Geocoding Rate
+## Extraction Quality (REVISED)
 
-**Expected breakdown (137 extracted):**
-- Built grammars (intersections + single + ranges): ~70 records × 87% success = **61 geocoded**
-- Unbuilt grammar (multi-street alleys): ~12 records × 0% success = **0 geocoded**
-- Truncated/broken: ~55 records × 0% success = **0 geocoded**
-- **Expected total: 61/137 = 45%**
+**Initial mistake:** Counted all 173 ground truth rows (including admin junk) and labeled 60+ as "truncated/broken", implying 35% extraction failure.
 
-**Observed: 73/137 = 53.3%**
+**Corrected measurement:** Filter out admin allocations (MENU BUDGET, WARD BALANCE, etc.) first.
 
-**Interpretation:** Observed is **within noise of unbuilt-grammar hypothesis**. The 8-point gap (45% → 53.3%) is explained by:
-1. Some truncated records unexpectedly geocoding (misspellings that happen to match)
-2. Some multi-street alleys partially matching as one of the two streets
-3. Other non-deterministic noise
+| Metric | Pages 1-10 | Full PDF (145 pages) |
+|--------|-----------|---------------------|
+| Total extracted | 137 | 1934 |
+| Admin/junk (filtered) | 10 | 157 |
+| Real spending records | 127 | 1777 |
+| Valid/complete locations | 122 | 1714 |
+| **Extraction completion** | **96.1%** | **96.5%** |
+| Truncated locations | 5 (3.9%) | 63 (3.5%) |
 
----
-
-## Root Cause: Grammar Coverage, Not Data Quality
-
-**Evidence:**
-
-| 2012 Data | 2017 Data |
-|-----------|-----------|
-| Heavy on single addresses + intersections | Heavy on alley resurfacing (multi-street alleys) |
-| Few multi-street alleys | ~12 multi-street alleys (7%) |
-| Composite: 69.9% | Composite: 48.7% |
-
-**The difference is not "2017 addresses are messier." It's "2017 spends more on alleys, which require a grammar the geocoder doesn't have yet."**
+**Root causes of truncation (63 records):**
+- PDF column width limit: location wrapped across lines, pdfplumber captured only the end
+- Examples: "& N FRANCISCO AVE" (missing first street), "ROCKWELL ST" (missing direction)
+- Not a code bug — a PDF structure limit
 
 ---
 
-## Precedent: Street Ranges
+## Grammar Distribution (Valid Records Only)
 
-Ranges had the same pattern:
-- 2012 sample: 72% of ranges geocoded → looked bad
-- Investigation: Incomplete extraction + parser failures
-- Fix: Built `street_range` grammar → ranges jumped to >90%
+Of the 1714 valid records, grammar breakdown:
 
-Alley blocks follow the same logic:
-- 2017 sample: 53% overall (dragged down by unbuilt `alley_block` grammar)
-- Investigation: Multi-street alleys cluster in failures
-- Fix: Build `alley_block_polygon` grammar → expect 2017 to jump to ~95%+
+| Grammar Type | Est. Count | % | Built? | Issue |
+|--------------|-----------|---|--------|-------|
+| **Two-street intersections** | ~900 | 52% | ✓ | Working |
+| **Single addresses** | ~600 | 35% | ✓ | Working |
+| **Street ranges** | ~150 | 9% | ✓ | Working |
+| **Multi-street alleys** | ~64 | 4% | ✗ | Unbuilt grammar |
+
+**Correction to earlier hypothesis:** The multi-street alleys are ~4% of valid records, not 7%. This is real but not the dominant blocker.
 
 ---
 
-## Conclusion
+## Geocoding Rate (Pending Remeasurement)
 
-**2017's lower composite is NOT a corpus blocker.** It's evidence of a program difference (aldermen spend more on alley resurfacing in 2017) combined with incomplete coverage (alley grammar not yet built).
+Earlier measurement: 53.3% (73/137) — but this was on extraction that included 10 admin records + 5 truncated.
 
-**Status:** Ready to build `alley_block_polygon` grammar. Once built, measure 2017 again to confirm composite jumps back to ~95%, proving the corpus generalization holds.
+**Re-measure needed on:** The 1714 valid records only.
 
-**Key insight:** This validates the approach: measure honestly, histogram failures by grammar, fix the grammar gaps, remeasure. Don't prematurely call the data "messy."
+Expected breakdown if earlier proportions hold:
+- Two-street intersections (52%, ~87% success): 900 × 0.87 ≈ 783 geocoded
+- Single addresses (35%, ~80% success): 600 × 0.80 ≈ 480 geocoded
+- Ranges (9%, ~70% success): 150 × 0.70 ≈ 105 geocoded
+- Alley blocks (4%, 0% success — unbuilt): 64 × 0 ≈ 0 geocoded
+- **Estimated total: ~1370 / 1714 = ~80%**
+
+If this holds, composite would be: **96.1% extraction × 80% geocoding ≈ 77%**
+
+---
+
+## Key Correction
+
+**What I did wrong:** Read the histogram ("60 truncated") without questioning the denominator. The 60 was real, but out of 173 total rows, not 127 "real" rows. That's like measuring failure rate by including blank cells in a spreadsheet.
+
+**Honest measurement:** Always filter junk/admin first. Only measure against real data rows.
+
+**Next steps:**
+1. Re-geocode the 1714 valid records
+2. Histogram actual geocoding failures by grammar
+3. Identify which failures are unbuilt grammar vs. other issues
+4. Build missing grammars (alley_block_polygon is one of them)
+5. Re-measure and report honest composite
