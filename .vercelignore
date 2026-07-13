@@ -6,6 +6,7 @@ phase3
 *.py
 pyproject.toml
 uv.lock
+setup.py
 .git
 .gitignore
 CLAUDE.md
@@ -13,3 +14,5 @@ TASKS.md
 decisions.md
 config/
 raw/
+.claude/
+.vercel/
