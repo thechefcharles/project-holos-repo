@@ -162,6 +162,21 @@ B1/B2/B3 extraction against real Chicago data.
 
 **Rationale:** Format variants are *known* (metadata already in filename). Adapter-per-version is cleaner than building a super-parser. Extensible: add MenuAdapter2027 if format changes again.
 
+### 2026-07-12 — Step 3 COMPLETE: MenuAdapter2017Plus + full pipeline wiring
+
+Completed MenuAdapter2017Plus to handle 2017–2025 PDFs:
+- Extracts cost from rightmost $ marker (no column alignment assumed)
+- Location = everything between category prefix and cost (removes parenthetical codes)
+- Category extracted from "MenuPackage (code) (year)" prefix or passed from header
+
+Both adapters now integrated into extract_from_pdf_text():
+1. Parse headers (ward, category)
+2. Accumulate lines until $ marker (handles wrapped addresses in 2012 format)
+3. Route to MenuAdapter2012 or MenuAdapter2017Plus based on year
+4. Output SpendingRecord (canonical: ward, year, category, location, cost)
+
+holos extract normalize CLI ready for full PDF set. Next: integrate with Step 4 (Parse) to test end-to-end chain (Acquire → Classify → Normalize → Parse → Geocode).
+
 **What stays in Notion (human/business layer):**
 - Pitch & strategy (investor-facing)
 - Legal & formation drafts (attorney review)
