@@ -471,4 +471,25 @@ Ranges reach stage 8 (external geocoding) with method='none'—no implementation
 
 **Recommendation:** Option 2. The extraction is solid; the geocoding gap is clear. Cowork's prediction was correct—real data is messier. Better to acknowledge the gap now than to demo a 94% number that doesn't hold up in production.
 
+### 2026-07-12 — CORRECTED: Extraction fidelity for ranges is 10%, not 100%. Roadmap inverts.
+
+**Finding:** Re-measured extraction fidelity specifically on ranges (the 75% of real data):
+- Perfect match (location identical to ground truth): **11/109 (10.1%)**
+- Truncated (e.g., "TO W" instead of "TO W MEDILL AV"): 30/109 (27.5%)
+- Other errors (partial match, mangled): 68/109 (62.4%)
+- **Total fidelity failure: 98/109 (89.9%)**
+
+**Why the benchmark was wrong:** The 20-record fidelity spot-check reported 100% by checking ward/category/cost without verifying that location strings survived intact. The range records — the ones that matter most — were either in the sample without careful location verification, or excluded from the sample entirely.
+
+**Implication:** "Extraction 100% fidelity, production-ready" was an overclaim. Extraction is production-ready **for ward/year/category/cost fields**. Location field fidelity is broken for ranges (10% perfect, 90% broken).
+
+**Roadmap inversion:** Menu data is 75-80% address ranges. The dominant grammar is NOT single_address (92% accuracy tuned), but street_segment / range. The product lives or dies on range handling, not on single-address polish.
+
+**Honest priority sequence:**
+1. **Fix extraction fidelity for ranges** (upstream blocker): line-wrap reconstruction, tighten regex `\s+[\d.]+\s*$` to strip only blocks count not address endpoint. Measure against ground truth. Goal: 80%+ perfect location match on ranges.
+2. **Build range/segment geocoding** (the actual geocoding work): FROM/TO bounding (find two endpoint intersections, return segment between them) + hundred-block interpolation. This is THE priority, not a tail task.
+3. **Small tails:** multi-part intersection parser (11 records), named-places gazetteer (7 records).
+
+Only steps 1+2 together will move the 6.2% geocode rate. Step 1 alone (fix truncation) moves 46 records from "truncated range" to "complete range" bucket — still ungeocoded without step 2.
+
 *Add new decisions below this line.*
