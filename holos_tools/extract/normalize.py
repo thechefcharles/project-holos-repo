@@ -68,9 +68,11 @@ class MenuAdapter2012:
         """Parse a 2012 format row.
 
         Actual format (from PDF): Full Address ... Blocks Cost
-        Example: "ON N MAPLEWOOD AVE FROM W BELDEN AV (2300 N) TO W 0.00 $19,882.00"
+        Example: "ON N MAPLEWOOD AVE FROM W BELDEN AV (2300 N) TO W MEDILL AV (2334 N) 0.00 $19,882.00"
 
-        Note: 'Desc Of Work' is NOT in data rows, only in headers.
+        Note: PDF text extraction often breaks lines mid-address due to column wrapping.
+        Blocks count is a decimal number (0.00, 1.50, etc.) and should be removed carefully
+        to avoid truncating address endpoints like "TO W" or "E CERMAK RD & E".
         """
         text = text.strip()
         if not text or "$" not in text:
@@ -86,13 +88,25 @@ class MenuAdapter2012:
         if cost == 0.0:
             return None
 
-        # Extract location (everything before the cost, stripped of trailing numbers)
+        # Extract location (everything before the cost, stripped of blocks count)
         cost_start = text.rfind('$')
         pre_cost = text[:cost_start].strip()
 
-        # The last numeric value before the cost is typically blocks/unit count
-        # Remove trailing numeric values (0.00, 1.00, etc.)
-        location = re.sub(r'\s+[\d.]+\s*$', '', pre_cost).strip()
+        # Remove the blocks count: a standalone decimal number like 0.00, 1.50, etc.
+        # Pattern: space(s) + 1-3 digits + dot + exactly 2 digits + space(s)
+        # This removes blocks count that may have text after it (due to wrapped addresses)
+        # E.g., "ON STREET TO W 0.00 MEDILL AV" -> "ON STREET TO W MEDILL AV"
+        location = re.sub(r'\s+\d{1,3}\.\d{2}(?=\s)', '', pre_cost).strip()
+        # Also handle trailing blocks count (no continuation)
+        location = re.sub(r'\s+\d{1,3}\.\d{2}\s*$', '', location).strip()
+        # Clean up multiple spaces that might result from removals
+        location = re.sub(r'\s+', ' ', location).strip()
+
+        # Detect incomplete address (ends with single directional letter: "TO W", "& E", etc.)
+        # This indicates PDF text wrapping cut the address short
+        if location and re.search(r'\s+[NESW]\s*$', location):
+            # Mark as incomplete but keep it—geocoder will handle the fidelity issue
+            pass
 
         if not location:
             return None
@@ -280,7 +294,12 @@ def normalize_records(raw_records: List[Dict], year: int) -> List[SpendingRecord
 def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
     """Extract spending records from PDF text.
 
-    Handles wrapped addresses by looking ahead for cost markers.
+    Handles PDF text wrapping by reconstructing split addresses.
+    pdfplumber breaks lines at column boundaries, so addresses can span multiple lines:
+      Line N: "ON STREET FROM A TO W 0.00 $1,234.00"
+      Line N+1: "ENDPOINT AV (COORDS)"  <- continuation, missing $ marker
+
+    This function accumulates continuation lines before parsing.
     """
     records = []
     lines = [line.strip() for line in text.split("\n")]
@@ -288,6 +307,7 @@ def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
 
     current_ward = None
     current_category = None
+    last_record_line_text = None  # Track the full line text that had the cost marker
 
     i = 0
     while i < len(lines):
@@ -327,6 +347,8 @@ def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
 
         # Check if this line contains a cost marker
         if "$" in line:
+            last_record_line_text = line
+
             if current_ward and current_category:
                 adapter = MenuAdapter2012 if 2012 <= year <= 2016 else MenuAdapter2017Plus
 
@@ -336,6 +358,34 @@ def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
                         records.append(record)
                 except Exception:
                     pass
+
+        # WRAPPED ADDRESS RECONSTRUCTION:
+        # If this line looks like it's continuing an address (starts with street pattern,
+        # doesn't start a new section, has no $), insert it BEFORE the cost marker
+        elif (
+            last_record_line_text is not None
+            and not any(x in line for x in ["Ward", "Program", "CDOT", "OBM", "Total", "Menu"])
+            and re.match(r'^[A-Z]', line)  # Starts with capital letter (like "MEDILL AV")
+            and "$" not in line  # Not a new record
+        ):
+            # This looks like a continuation. Insert it before the cost marker
+            if records:
+                # Find the $ in the last line and insert the continuation before it
+                cost_match = re.search(r'\$[\d,\.]+', last_record_line_text)
+                if cost_match:
+                    cost_pos = last_record_line_text.rfind('$')
+                    # Reconstruct: everything before $, then continuation, then space + cost
+                    reconstructed = last_record_line_text[:cost_pos].rstrip() + " " + line + " " + last_record_line_text[cost_pos:]
+
+                    try:
+                        adapter = MenuAdapter2012 if 2012 <= year <= 2016 else MenuAdapter2017Plus
+                        new_record = adapter.parse_row(reconstructed, current_ward, year, current_category)
+                        if new_record:
+                            # Replace the last record with the new, more complete one
+                            records[-1] = new_record
+                            last_record_line_text = reconstructed  # Update for chained continuations
+                    except Exception:
+                        pass
 
         i += 1
 
