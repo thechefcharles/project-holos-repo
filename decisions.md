@@ -549,4 +549,38 @@ Only steps 1+2 together will move the 6.2% geocode rate. Step 1 alone (fix trunc
 
 **Composite went from 6.2% → 5.9%:** Not a regression. We captured 6 more records (extraction now honest), geocoding successes stayed flat (9→9). The dip is extraction being more complete, not less effective. Likely removed false positives (truncated fragments geocoding to wrong spots) and replaced with honest misses.
 
+### 2026-07-12 — Range Geocoding: Infrastructure in Place, Composite Still 5.9%
+
+**Current state of range geocoding build:**
+
+✅ **Extraction working well:**
+- 151 records extracted from pages 2–20
+- 114/151 are ranges (FROM...TO format)
+- Full location strings intact (no truncation)
+- Extraction variance: 53.2% perfect, +17% near-miss, = ~70% geocodable
+
+✅ **Range parsing proven:**
+- Regex pattern detects "ON STREET FROM A TO B" format correctly
+- Extracts: main street, from street, to street
+- Street name cleaning works (removes directionals, coordinates)
+
+✅ **Intersection queries proven:**
+- Reused stage_3 JOIN + ST_Intersects pattern (proven at 82.9% accuracy)
+- Both endpoints resolve: MAPLEWOOD ∩ BELDEN returns coordinates (-87.6914, 41.9232)
+- Both endpoints resolve: MAPLEWOOD ∩ MEDILL returns coordinates (-87.6914, 41.9240)
+- Query confirmed working in direct SQL tests
+
+❌ **Linkage issue:**
+- stage_4_segment detects range pattern correctly
+- Calls _geocode_bounded_range with cleaned streets
+- But _geocode_bounded_range is still escalating (returning None)
+- Cause unknown (queries work in isolation; logic flow TBD)
+
+**Composite rate: 5.9%** (same as before)
+- No ranges geocoding yet, but all infrastructure pieces verified separately
+- Single blocker: debug why _geocode_bounded_range escalates despite working queries
+- Expected: once fixed, ranges should geocode, pushing composite hard (targets 45-55%)
+
+**Next session:** Single debug point—trace _geocode_bounded_range execution to find the escalation trigger.
+
 *Add new decisions below this line.*
