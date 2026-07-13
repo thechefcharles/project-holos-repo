@@ -1,0 +1,582 @@
+{
+  "metadata": {
+    "year": 2012,
+    "wards": "1-10",
+    "total_extracted": 366,
+    "total_geocoded": 36,
+    "geocoding_rate": "9.8%",
+    "total_cost_geocoded": 354826.0
+  },
+  "records": [
+    {
+      "ward": 1,
+      "category": "Pavement Markings",
+      "location": "W CHARLESTON ST & N WESTERN AVE",
+      "cost": 1000.0,
+      "coordinates": [
+        -87.6874868973139,
+        41.919980226726786
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 1,
+      "category": "Pavement Markings",
+      "location": "W ARMITAGE AVE & N MILWAUKEE AVE",
+      "cost": 400.0,
+      "coordinates": [
+        -87.68859598034832,
+        41.91756300197112
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 1,
+      "category": "Pavement Markings",
+      "location": "W DIVERSEY PKWY & N ROCKWELL ST",
+      "cost": 600.0,
+      "coordinates": [
+        -87.69277295923523,
+        41.93213022120513
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 1,
+      "category": "Floodlight",
+      "location": "W POTOMAC AVE & N LEAVITT ST",
+      "cost": 2500.0,
+      "coordinates": [
+        -87.68219368797513,
+        41.90492137839087
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 1,
+      "category": "Floodlight",
+      "location": "N CAMPBELL AVE & W IOWA ST",
+      "cost": 500.0,
+      "coordinates": [
+        -87.6893513588036,
+        41.89753475134079
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 1,
+      "category": "Street Light Arterial",
+      "location": "W POTOMAC AVE & N LEAVITT ST",
+      "cost": 11000.0,
+      "coordinates": [
+        -87.68219368797513,
+        41.90492137839087
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 1,
+      "category": "Street Light Upgrade",
+      "location": "1300 N LEAVITT ST",
+      "cost": 700.0,
+      "coordinates": [
+        -87.68246941,
+        41.90505545
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 1,
+      "category": "Street Light Upgrade",
+      "location": "N CAMPBELL AVE & W IOWA ST",
+      "cost": 400.0,
+      "coordinates": [
+        -87.6893513588036,
+        41.89753475134079
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 2,
+      "category": "Alley Resurfacing",
+      "location": "S MORGAN ST & S SANGAMON ST & W MONROE ST & W",
+      "cost": 12736.0,
+      "coordinates": [
+        -87.64696745389695,
+        41.683604417211306
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 2,
+      "category": "Alley Resurfacing",
+      "location": "S WABASH AVE & S WABASH AVE & E CERMAK RD & E",
+      "cost": 2981.0,
+      "coordinates": [
+        -87.62065451089556,
+        41.714829382188654
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 2,
+      "category": "Sidewalk",
+      "location": "800 S STATE ST",
+      "cost": 3394.0,
+      "coordinates": [
+        -87.62819939217572,
+        41.89667739281364
+      ],
+      "method": "centerline_interpolation",
+      "stage": 2,
+      "confidence": 0.88
+    },
+    {
+      "ward": 2,
+      "category": "Left-Turn Arrow",
+      "location": "S CLARK ST & W HARRISON ST",
+      "cost": 11500.0,
+      "coordinates": [
+        -87.63067547794996,
+        41.874521632735544
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 2,
+      "category": "Street Light Upgrade",
+      "location": "317 S CAMPBELL AVE",
+      "cost": 350.0,
+      "coordinates": [
+        -87.68850259,
+        41.87698402
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 2,
+      "category": "Street Light Upgrade",
+      "location": "201 S ASHLAND AVE",
+      "cost": 350.0,
+      "coordinates": [
+        -87.66625134,
+        41.87876349
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 2,
+      "category": "Street Light Upgrade",
+      "location": "157 S ASHLAND AVE",
+      "cost": 350.0,
+      "coordinates": [
+        -87.6669064028193,
+        41.88508703314856
+      ],
+      "method": "centerline_interpolation",
+      "stage": 2,
+      "confidence": 0.88
+    },
+    {
+      "ward": 2,
+      "category": "Street Light Upgrade",
+      "location": "3550 S GILES AVE",
+      "cost": 350.0,
+      "coordinates": [
+        -87.61961159,
+        41.8295953
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 2,
+      "category": "Street Light Upgrade",
+      "location": "1319 S STATE ST",
+      "cost": 21000.0,
+      "coordinates": [
+        -87.62701777,
+        41.86513848
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 2,
+      "category": "Street Light Upgrade",
+      "location": "547 S CLARK ST",
+      "cost": 350.0,
+      "coordinates": [
+        -87.630680770551,
+        41.87474691764609
+      ],
+      "method": "centerline_interpolation",
+      "stage": 2,
+      "confidence": 0.88
+    },
+    {
+      "ward": 2,
+      "category": "Traffic Equipment",
+      "location": "W ROOSEVELT RD & S WOOD ST",
+      "cost": 3500.0,
+      "coordinates": [
+        -87.67135019597913,
+        41.86682323030296
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 2,
+      "category": "Traffic Equipment",
+      "location": "W ROOSEVELT RD & S PAULINA ST",
+      "cost": 3500.0,
+      "coordinates": [
+        -87.66890300877421,
+        41.86685865025718
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 2,
+      "category": "Traffic Equipment",
+      "location": "W ROOSEVELT RD & S ASHLAND W AVE",
+      "cost": 3500.0,
+      "coordinates": [
+        -87.66638355149423,
+        41.8668614895409
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 3,
+      "category": "Concrete Alley",
+      "location": "1503 S State",
+      "cost": 216149.0,
+      "coordinates": [
+        -87.62690163,
+        41.86174666
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 3,
+      "category": "In-Road \"State Law Stop",
+      "location": "S STATE ST & W 23RD ST",
+      "cost": 550.0,
+      "coordinates": [
+        -87.62704433654828,
+        41.85106600778147
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 3,
+      "category": "Pavement Markings",
+      "location": "W 46TH PL & S SHIELDS AVE",
+      "cost": 300.0,
+      "coordinates": [
+        -87.63478958988615,
+        41.810225015155005
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 3,
+      "category": "Street Light Upgrade",
+      "location": "342 W 42ND PL",
+      "cost": 350.0,
+      "coordinates": [
+        -87.63512405,
+        41.81836706
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 3,
+      "category": "Street Light Upgrade",
+      "location": "501 E 44TH PL",
+      "cost": 350.0,
+      "coordinates": [
+        -87.61386894,
+        41.81468245
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 3,
+      "category": "Street Light Upgrade",
+      "location": "5048 S INDIANA AVE",
+      "cost": 427.0,
+      "coordinates": [
+        -87.6213409,
+        41.80241423
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 3,
+      "category": "Street Light Upgrade",
+      "location": "4753 S FORRESTVILLE AVE",
+      "cost": 500.0,
+      "coordinates": [
+        -87.61229728,
+        41.80791899
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 4,
+      "category": "Alley Resurfacing",
+      "location": "E 47TH ST & E 47TH PL & S DREXEL BLVD & S COTTAGE",
+      "cost": 18351.0,
+      "coordinates": [
+        -87.71867788064311,
+        41.807932829653296
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 4,
+      "category": "Alley Resurfacing",
+      "location": "S GREENWOOD AVE & S ELLIS AVE & E 47TH ST & E 48TH",
+      "cost": 5844.0,
+      "coordinates": [
+        -87.59764285132458,
+        41.65859809434042
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 8,
+      "category": "Street Light Upgrade",
+      "location": "8836 S EUCLID AVE",
+      "cost": 350.0,
+      "coordinates": [
+        -87.57717735,
+        41.73410079
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 8,
+      "category": "Street Light Upgrade",
+      "location": "837 E 88TH PL",
+      "cost": 350.0,
+      "coordinates": [
+        -87.6031627,
+        41.73466971
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 8,
+      "category": "Street Light Upgrade",
+      "location": "1837 E 90TH ST",
+      "cost": 350.0,
+      "coordinates": [
+        -87.57901536,
+        41.73132809
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    },
+    {
+      "ward": 10,
+      "category": "Alley Resurfacing",
+      "location": "E 105TH ST & E 106TH ST & S EWING AVE & S AVENUE J",
+      "cost": 25711.0,
+      "coordinates": [
+        -87.53256518358464,
+        41.70749720627789
+      ],
+      "method": "alley_block_polygon",
+      "stage": 3,
+      "confidence": 0.9
+    },
+    {
+      "ward": 10,
+      "category": "Alley Speed Hump",
+      "location": "E 111TH ST & S MACKINAW AVE&E 112TH ST & S GREEN",
+      "cost": 700.0,
+      "coordinates": [
+        -87.54253001387335,
+        41.69373026871236
+      ],
+      "method": "intersection",
+      "stage": 3,
+      "confidence": 0.95
+    },
+    {
+      "ward": 10,
+      "category": "Sidewalk",
+      "location": "13300 S Avenue N",
+      "cost": 3583.0,
+      "coordinates": [
+        -87.5389481,
+        41.65352871
+      ],
+      "method": "address_point_exact",
+      "stage": 1,
+      "confidence": 0.97
+    }
+  ],
+  "failures": [
+    {
+      "location": "N WESTERN AVE & N CLAREMONT AVE & W NORTH AVE &",
+      "cost": 6354.0,
+      "reason": "No match found (intersection); escalate to human review"
+    },
+    {
+      "location": "N WOOD ST & N HONORE ST & W AUGUSTA BLVD & W",
+      "cost": 2800.0,
+      "reason": "No match found (intersection); escalate to human review"
+    },
+    {
+      "location": "ON W BELMONT AVE FROM 2441 W TO N CAMPBELL AV",
+      "cost": 3150.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON N MAPLEWOOD AVE FROM W BELDEN AV (2300 N) TO W",
+      "cost": 19882.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON W BELDEN AVE FROM N TALMAN AV (2632 W) TO N",
+      "cost": 11954.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON N WOOD ST FROM W BEACH AV (1422 N) TO W LE",
+      "cost": 10065.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON N MARION CT FROM W DIVISION ST (1200 N) TO W",
+      "cost": 1594.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON N CAMPBELL AVE FROM W NORTH AV (1600 N) TO W",
+      "cost": 193749.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON N ROCKWELL ST FROM W CORTLAND ST (1900 N) TO W",
+      "cost": 73623.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON W JULIA CT FROM N STAVE ST (2728 W) TO Dead End",
+      "cost": 10588.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON W LE MOYNE ST FROM N OAKLEY BV (2300 W) TO N",
+      "cost": 19195.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON W CHARLESTON ST FROM N CAMPBELL AV (2450 W) TO",
+      "cost": 34143.0,
+      "reason": "No match found (unresolvable_text); escalate to human review"
+    },
+    {
+      "location": "ON N ROCKWELL ST FROM N MILWAUKEE AV (2125 N) TO",
+      "cost": 47986.0,
+      "reason": "No match found (unresolvable_text); escalate to human review"
+    },
+    {
+      "location": "ON N ELK GROVE AVE FROM N WOOD ST (1800 W) TO W",
+      "cost": 3700.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON N MARION CT FROM W DIVISION ST (1200 N) TO W",
+      "cost": 3700.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON N ROCKWELL ST FROM W FULLERTON AV (2400 N) TO W",
+      "cost": 3700.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "ON W ST PAUL AVE FROM N WINNEBAGO AV (2269 W) TO N",
+      "cost": 3700.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    },
+    {
+      "location": "N WESTERN AVE & W NORTH AVE",
+      "cost": 15011.0,
+      "reason": "No match found (intersection); escalate to human review"
+    },
+    {
+      "location": "ON ROCKWELL FROM W BLOOMINGDALE AV (1800 N) TO",
+      "cost": 128000.0,
+      "reason": "No match found (unresolvable_text); escalate to human review"
+    },
+    {
+      "location": "ON WINCHESTER FROM W AUGUSTA BV (1000 N) TO W",
+      "cost": 1400.0,
+      "reason": "No match found (street_segment); escalate to human review"
+    }
+  ]
+}

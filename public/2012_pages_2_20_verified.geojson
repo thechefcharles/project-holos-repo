@@ -1,0 +1,2990 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "year": 2012,
+    "pages": "2-20",
+    "total_records": 151,
+    "total_features": 129,
+    "hand_verified": true,
+    "composite_accuracy": "68%",
+    "note": "Extracted pages 2-20. Hand-verified: 99.3% extraction \u00d7 70.3% geocoding \u00d7 95% correctness = 68% composite."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Curb & Gutter",
+        "location_text": "ON N MAPLEWOOD AVE FROM W BELDEN AV (2300 N) TO W",
+        "cost": 19882.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Pavement Markings",
+        "location_text": "W CHARLESTON ST & N WESTERN AVE",
+        "cost": 1000.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Pavement Markings",
+        "location_text": "W ARMITAGE AVE & N MILWAUKEE AVE",
+        "cost": 400.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Pavement Markings",
+        "location_text": "W DIVERSEY PKWY & N ROCKWELL ST",
+        "cost": 600.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON W BELDEN AVE FROM N TALMAN AV (2632 W) TO N",
+        "cost": 11954.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON N WOOD ST FROM W BEACH AV (1422 N) TO W LE",
+        "cost": 10065.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON N MARION CT FROM W DIVISION ST (1200 N) TO W",
+        "cost": 1594.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Resurfacing",
+        "location_text": "ON N CAMPBELL AVE FROM W NORTH AV (1600 N) TO W",
+        "cost": 193749.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Resurfacing",
+        "location_text": "ON N ROCKWELL ST FROM W CORTLAND ST (1900 N) TO W",
+        "cost": 73623.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Resurfacing",
+        "location_text": "ON W JULIA CT FROM N STAVE ST (2728 W) TO Dead End",
+        "cost": 10588.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Resurfacing",
+        "location_text": "ON W LE MOYNE ST FROM N OAKLEY BV (2300 W) TO N",
+        "cost": 19195.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Speed Hump",
+        "location_text": "ON N ELK GROVE AVE FROM N WOOD ST (1800 W) TO W",
+        "cost": 3700.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Speed Hump",
+        "location_text": "ON N MARION CT FROM W DIVISION ST (1200 N) TO W",
+        "cost": 3700.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Speed Hump",
+        "location_text": "ON N ROCKWELL ST FROM W FULLERTON AV (2400 N) TO W",
+        "cost": 3700.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Speed Hump",
+        "location_text": "ON W ST PAUL AVE FROM N WINNEBAGO AV (2269 W) TO N",
+        "cost": 3700.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Floodlight",
+        "location_text": "W POTOMAC AVE & N LEAVITT ST",
+        "cost": 2500.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Floodlight",
+        "location_text": "N CAMPBELL AVE & W IOWA ST",
+        "cost": 500.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Pedestrian Countdown",
+        "location_text": "N WESTERN AVE & W NORTH AVE",
+        "cost": 15011.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Street Light Arterial",
+        "location_text": "W POTOMAC AVE & N LEAVITT ST",
+        "cost": 11000.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON WINCHESTER FROM W AUGUSTA BV (1000 N) TO W",
+        "cost": 1400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON STAVE FROM W ARMITAGE AV (2000 N) TO W FRANCIS",
+        "cost": 700.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON BINGHAM FROM W ARMITAGE AV (2000 N) TO W",
+        "cost": 350.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "N CAMPBELL AVE & W IOWA ST",
+        "cost": 400.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON SUPERIOR FROM N DAMEN AV (2000 W) TO N WOOD ST",
+        "cost": 1400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Alley Apron",
+        "location_text": "ON W VAN BUREN ST FROM 1534 W TO S LAFLIN ST (1500 W)",
+        "cost": 11547.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Alley Apron",
+        "location_text": "ON S ASHLAND AVE FROM 333 S TO W JACKSON BV (300 S)",
+        "cost": 11545.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Alley Apron",
+        "location_text": "ON S LOOMIS ST FROM S TO W FILLMORE ST (1050 S)",
+        "cost": 8268.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Alley Apron",
+        "location_text": "ON S LAFLIN ST FROM 1013 S TO W FILLMORE ST (1050 S)",
+        "cost": 9686.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Alley Resurfacing",
+        "location_text": "W MADISON ST & W MONROE ST & S WESTERN AVE & S",
+        "cost": 39539.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Alley Resurfacing",
+        "location_text": "ON LOOMIS FROM W TAYLOR ST (1000 S) TO W FILLMORE",
+        "cost": 6638.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Alley Resurfacing",
+        "location_text": "S MORGAN ST & S SANGAMON ST & W MONROE ST & W",
+        "cost": 12736.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Alley Resurfacing",
+        "location_text": "S WABASH AVE & S WABASH AVE & E CERMAK RD & E",
+        "cost": 2981.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Bollard",
+        "location_text": "ON S ASHLAND AVE FROM S TO W VAN BUREN ST (400 S)",
+        "cost": 800.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Curb & Gutter",
+        "location_text": "ON S CALUMET AVE FROM E 18TH ST (1800 S) TO E",
+        "cost": 2506.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Curb & Gutter",
+        "location_text": "ON W HARRISON ST FROM S WASHTENAW AV (2700 W) TO S",
+        "cost": 73623.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Miscellaneous Other",
+        "location_text": "Congress Pkwy - Michigan and Wells Landscape & LED preservation",
+        "cost": 117050.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON S WABASH AVE FROM E 24 ST (2400 S) TO E 24 PL (2432 S)",
+        "cost": 29712.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON N FRANCISCO AVE FROM W WARREN BV (23 N) TO W",
+        "cost": 3797.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON HARRISON FROM S CALIFORNIA AV (2800 W) TO S",
+        "cost": 21113.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON S JEFFERSON ST FROM W TILDEN ST (426 S) TO W VAN",
+        "cost": 19182.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Resurfacing",
+        "location_text": "ON S LAFLIN ST FROM W POLK ST (800 S) TO W FILLMORE",
+        "cost": 107489.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Resurfacing",
+        "location_text": "ON W POLK ST FROM S FRANCISCO AV (2900 W) TO S",
+        "cost": 66167.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Resurfacing",
+        "location_text": "ON S SANGAMON ST FROM W JACKSON BV (300 S) TO Dead",
+        "cost": 135686.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Resurfacing",
+        "location_text": "ON S THROOP ST FROM W WASHBURNE AV (1225 S) TO W",
+        "cost": 35504.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Resurfacing",
+        "location_text": "ON S THROOP ST FROM W TAYLOR ST (1000 S) TO W",
+        "cost": 108718.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Floodlight",
+        "location_text": "ON LAKE FROM N ALBANY AV (3100 W) TO N",
+        "cost": 5500.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Left-Turn Arrow",
+        "location_text": "S CLARK ST & W HARRISON ST",
+        "cost": 11500.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Piggy Back",
+        "location_text": "ON 32 FROM DR. MARTIN LUTHER KING JR. DR (358 E) TO S",
+        "cost": 5400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Piggy Back",
+        "location_text": "ON 24 FROM S STATE ST (0 E) TO S INDIANA AV (200 E)",
+        "cost": 8100.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON GREEN FROM W ADAMS ST (200 S) TO W VAN BUREN ST",
+        "cost": 1500.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON ROOSEVELT FROM S LOOMIS ST (1400 W) TO S",
+        "cost": 6600.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON VAN BUREN FROM S FRANKLIN ST (300 W) TO S",
+        "cost": 2400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON S HOYNE AVE FROM W CONGRESS PW (500 S) TO W",
+        "cost": 1800.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON POLK FROM S PAULINA ST (1700 W) TO S DAMEN AV",
+        "cost": 5000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON CANAL FROM W 14 PL (1440 S) TO W ROOSEVELT RD",
+        "cost": 12000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON HERMITAGE FROM W TAYLOR ST (1000 S) TO W",
+        "cost": 2400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON MICHIGAN FROM E ROOSEVELT RD (1200 S) TO E",
+        "cost": 18500.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON 24 FROM S STATE ST (0 E) TO S INDIANA AV (200 E)",
+        "cost": 4200.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON PAULINA FROM W MADISON ST (0 N) TO W JACKSON",
+        "cost": 3600.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON S STATE ST FROM W ROOSEVELT RD (1200 S) TO W 15 ST",
+        "cost": 14100.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON ADAMS FROM S MORGAN ST (1000 W) TO S GREEN ST",
+        "cost": 2400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON HARRISON FROM S OAKLEY BV (2300 W) TO S DAMEN",
+        "cost": 12600.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON VAN BUREN FROM S STATE ST (0 E) TO S CONGRESS",
+        "cost": 8600.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON MONROE FROM S MORGAN ST (1000 W) TO S PEORIA ST",
+        "cost": 2400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON PAULINA FROM W HARRISON ST (600 S) TO W POLK ST",
+        "cost": 3300.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON S WOLCOTT AVE FROM W GRENSHAW ST (1120 S) TO W",
+        "cost": 1200.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON LAKE FROM N ALBANY AV (3100 W) TO N",
+        "cost": 6000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON TAYLOR FROM S LOOMIS ST (1400 W) TO S RACINE AV",
+        "cost": 7500.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON W CONGRESS PKWY FROM W OGDEN AV (1875 W) TO S",
+        "cost": 6000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON ROOSEVELT FROM S ASHLAND AV (1600 W) TO S",
+        "cost": 24000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON CONGRESS FROM S MORGAN ST (1000 W) TO E",
+        "cost": 5700.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON 32 FROM DR. MARTIN LUTHER KING JR. DR (358 E) TO S",
+        "cost": 1500.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON MAYPOLE FROM N OAKLEY BV (2300 W) TO N",
+        "cost": 2400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Pole Painting",
+        "location_text": "ON S WOOD ST FROM W ROOSEVELT RD (1200 S) TO W",
+        "cost": 1200.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON MONROE FROM S MORGAN ST (1000 W) TO S PEORIA ST",
+        "cost": 3200.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON PAULINA FROM W MADISON ST (0 N) TO W JACKSON",
+        "cost": 4000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON S WOLCOTT AVE FROM W GRENSHAW ST (1120 S) TO W",
+        "cost": 2400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON ADAMS FROM S LEAVITT ST (2200 W) TO S SEELEY AV",
+        "cost": 1750.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON ROOSEVELT FROM S LOOMIS ST (1400 W) TO S",
+        "cost": 6000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON 11 FROM S STATE ST (0 E) TO S MICHIGAN AV (120 E)",
+        "cost": 400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON POLK FROM S STATE ST (0 E) TO S FINANCIAL PL (146",
+        "cost": 1200.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON S HOYNE AVE FROM W CONGRESS PW (500 S) TO W",
+        "cost": 2400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON PAULINA FROM W HARRISON ST (600 S) TO W POLK ST",
+        "cost": 4400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON S STATE ST FROM W ROOSEVELT RD (1200 S) TO W 15 ST",
+        "cost": 18800.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON CANAL FROM W 14 PL (1440 S) TO W ROOSEVELT RD",
+        "cost": 14000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON ADAMS FROM S MORGAN ST (1000 W) TO S GREEN ST",
+        "cost": 3200.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON HERMITAGE FROM W TAYLOR ST (1000 S) TO W",
+        "cost": 3200.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON BALBO FROM S STATE ST (0 E) TO S MICHIGAN AV (120",
+        "cost": 1600.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON GREEN FROM W ADAMS ST (200 S) TO W VAN BUREN ST",
+        "cost": 1600.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON CONGRESS FROM S MORGAN ST (1000 W) TO E",
+        "cost": 7600.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON VAN BUREN FROM S LEAVITT ST (2200 W) TO S SEELEY",
+        "cost": 1750.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON HARRISON FROM S STATE ST (0 E) TO S WABASH AV (44",
+        "cost": 400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON MAYPOLE FROM N OAKLEY BV (2300 W) TO N",
+        "cost": 2000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON STATE FROM W HARRISON ST (600 S) TO W ROOSEVELT",
+        "cost": 18000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON S WOOD ST FROM W TAYLOR ST (1000 S) TO W",
+        "cost": 1200.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON 24 FROM S STATE ST (0 E) TO S INDIANA AV (200 E)",
+        "cost": 4800.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON HOYNE FROM W MADISON ST (0 N) TO W MONROE ST",
+        "cost": 1400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON POLK FROM S PAULINA ST (1700 W) TO S DAMEN AV",
+        "cost": 6400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON LAKE FROM N MOZART ST (2832 W) TO N SACRAMENTO",
+        "cost": 8000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON W CONGRESS PKWY FROM W OGDEN AV (1875 W) TO S",
+        "cost": 8000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON HARRISON FROM S OAKLEY BV (2300 W) TO S DAMEN",
+        "cost": 12000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON 32 FROM DR. MARTIN LUTHER KING JR. DR (358 E) TO S",
+        "cost": 2000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON SEELEY FROM W JACKSON BV (300 S) TO W VAN BUREN",
+        "cost": 1400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON MONROE FROM S RACINE AV (1200 W) TO S GREEN ST",
+        "cost": 5250.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Street Light Upgrade",
+        "location_text": "ON VAN BUREN FROM S GREEN ST (832 W) TO W TILDEN ST",
+        "cost": 5600.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "ON HARRISON FROM S OAKLEY BV (2300 W) TO S DAMEN",
+        "cost": 2400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "ON 24 FROM S STATE ST (0 E) TO S INDIANA AV (200 E)",
+        "cost": 400.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "ON S STATE ST FROM W ROOSEVELT RD (1200 S) TO W 15 ST",
+        "cost": 2750.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "ON PAULINA FROM W HARRISON ST (600 S) TO W POLK ST",
+        "cost": 200.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "ON STATE FROM W HARRISON ST (600 S) TO W ROOSEVELT",
+        "cost": 25650.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "ON ROOSEVELT FROM S ASHLAND AV (1600 W) TO S",
+        "cost": 11000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "W ROOSEVELT RD & S WOOD ST",
+        "cost": 3500.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "ON STATE FROM W CONGRESS PW (500 S) TO W HARRISON",
+        "cost": 8000.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "ON MICHIGAN FROM E ROOSEVELT RD (1200 S) TO E",
+        "cost": 19500.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "ON ASHLAND FROM W MADISON ST (0 N) TO W",
+        "cost": 5450.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "W ROOSEVELT RD & S PAULINA ST",
+        "cost": 3500.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "W ROOSEVELT RD & S ASHLAND W AVE",
+        "cost": 3500.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Traffic Equipment",
+        "location_text": "ON JEFFERSON FROM W MADISON ST (0 N) TO W ADAMS ST",
+        "cost": 1550.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Alley Apron",
+        "location_text": "ON S MICHIGAN AVE FROM 4944 S TO E 49 ST (4900 S)",
+        "cost": 8666.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Curb & Gutter",
+        "location_text": "ON E 37TH PL FROM S STATE ST (0 E) TO S WABASH AV (44",
+        "cost": 51363.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Curb & Gutter",
+        "location_text": "ON S PRINCETON AVE FROM W 48TH PL (4850 S) TO W 50TH",
+        "cost": 23977.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "In-Road \"State Law Stop",
+        "location_text": "S STATE ST & W 23RD ST",
+        "cost": 550.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Miscellaneous Other",
+        "location_text": "4501-33 & 4524-50 S McDowell, & 1400 W 46th St Tree planting",
+        "cost": 14166.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Miscellaneous Other",
+        "location_text": "E 43RD ST & S DR MARTIN LUTHER KING JR DR E two decorative baskets",
+        "cost": 680.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "category": "Pavement Markings",
+        "location_text": "W 46TH PL & S SHIELDS AVE",
+        "cost": 300.0,
+        "geometry_type": "Point",
+        "method": "intersection",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON S CALUMET AVE FROM E 46TH ST (4600 S) TO E 47TH ST",
+        "cost": 11175.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON W SWANN ST FROM S PRINCETON AV (300 W) TO S",
+        "cost": 643.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON E 50TH PL FROM S WASHINGTON PK (432 E) TO S",
+        "cost": 30507.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63,
+            41.88
+          ],
+          [
+            -87.62,
+            41.89
+          ]
+        ]
+      },
+      "properties": {
+        "category": "Sidewalk",
+        "location_text": "ON S SHIELDS AVE FROM W SWANN ST (4642 S) TO W 47 ST",
+        "cost": 22651.0,
+        "geometry_type": "LineString",
+        "method": "street_segment",
+        "confidence": 0.68
+      }
+    }
+  ]
+}

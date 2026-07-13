@@ -1,7 +1,4 @@
 {
-  "outputDirectory": "web",
-  "installCommand": "echo 'Static deployment, no build needed'",
-  "buildCommand": "echo 'Static deployment, no build needed'",
   "git": {
     "deploymentEnabled": {
       "main": false

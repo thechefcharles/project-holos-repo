@@ -1,0 +1,12 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "year": 2012,
+    "wards": "1-10",
+    "total_extracted": 366,
+    "total_geocoded": 0,
+    "geocoding_rate": "0%",
+    "note": "Regenerated with CURRENT cascade (range + alley stages active)"
+  },
+  "features": []
+}
