@@ -123,37 +123,36 @@
                 <input type="checkbox" id="toggle-wards" style="margin-right: 8px; cursor: pointer;">
                 <span>Show Ward Boundaries</span>
             </label>
-            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
-                <input type="checkbox" id="toggle-2012-real" style="margin-right: 8px; cursor: pointer;" checked>
-                <span>Show 2012 Real Data (Wards 1-10)</span>
-            </label>
         </div>
         <div class="stats">
-            <div><span class="stats-number" id="displayed-count">0</span> records displayed</div>
-            <div><span class="stats-number" id="total-count">0</span> total 2012 records</div>
-            <div><span class="stats-number" id="geocoding-rate">0%</span> geocoded</div>
+            <div><span class="stats-number" id="displayed-count">0</span> / <span class="stats-number" id="total-count">0</span> geocoded</div>
+            <div style="font-size: 11px; color: #888; margin-top: 8px;">
+                <span id="geocoding-rate">0</span> extracted total
+            </div>
         </div>
     </div>
     <div class="legend">
-        <div style="font-weight: bold; margin-bottom: 10px;">Geometry Types</div>
+        <div style="font-weight: bold; margin-bottom: 10px;">2012 Geocoded Data</div>
         <div class="legend-item">
             <div class="legend-swatch" style="background: #0066cc; border-radius: 50%; width: 8px; height: 8px; margin: auto;"></div>
-            <span>Points (blue)</span>
+            <span>Points (intersections) — blue</span>
         </div>
         <div class="legend-item">
             <div class="legend-swatch" style="background: #ff6600; height: 2px;"></div>
-            <span>Lines (orange, width = cost)</span>
+            <span>Lines (ranges) — orange, width = cost</span>
         </div>
         <div class="legend-item">
             <div class="legend-swatch" style="background: #66cc00; height: 2px;"></div>
-            <span>Polygons (green)</span>
+            <span>Polygons (alleys) — green</span>
         </div>
-        <div class="legend-item">
-            <div class="legend-swatch" style="background: #cc0000; border-radius: 50%; width: 8px; height: 8px; margin: auto;"></div>
-            <span>Real 2012 data (red)</span>
+        <div style="font-weight: bold; margin-top: 10px; font-size: 12px;">Note</div>
+        <div style="font-size: 11px; color: #888;">
+            Only geocoded records shown.<br>
+            Ranges/segments didn't geocode in this dataset.
         </div>
-        <div style="font-weight: bold; margin-top: 10px; margin-bottom: 5px;">Debug</div>
-        <div style="font-size: 11px; color: #888;">Check console for out-of-ward records</div>
+        <div style="font-size: 11px; color: #888; margin-top: 6px;">
+            Check console for out-of-ward records.
+        </div>
     </div>
 
     <script>
@@ -184,54 +183,41 @@
         });
 
         let allFeatures = [];
-        let geojsonData = null;
-        let wardsData = null;
         let realData2012 = null;
+        let wardsData = null;
 
-        // Load real 2012 data (extracted + geocoded, wards 1-10)
-        console.log('Loading real 2012 data...');
-        fetch('2012_wards_1_10.geojson')
-            .then(res => {
-                console.log('2012 real data response:', res.status);
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                return res.json();
-            })
-            .then(data => {
-                console.log('2012 real data loaded:', data.features.length, 'features');
-                realData2012 = data;
-            })
-            .catch(err => console.error('Error loading 2012 real data:', err));
-
-        // Load ward boundaries
+        // Load ward boundaries (reference layer)
         console.log('Loading ward boundaries...');
         fetch('wards_2023.geojson')
             .then(res => {
-                console.log('Wards response:', res.status);
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.json();
             })
             .then(data => {
-                console.log('Wards loaded:', data.features.length, 'wards');
+                console.log('Wards loaded:', data.features.length);
                 wardsData = data;
             })
             .catch(err => console.error('Error loading wards:', err));
 
-        // Load GeoJSON
-        console.log('Loading GeoJSON...');
-        fetch('spending_2012.geojson')
+        // SINGLE DATA SOURCE: Real 2012 geocoded data (wards 1-10)
+        console.log('Loading 2012 geocoded data (wards 1-10)...');
+        fetch('2012_wards_1_10.geojson')
             .then(res => {
-                console.log('GeoJSON response:', res.status, res.statusText);
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.json();
             })
             .then(data => {
-                console.log('GeoJSON loaded:', data.features.length, 'features');
-                geojsonData = data;
+                console.log('2012 data loaded:', data.features.length, 'geocoded records');
+                realData2012 = data;
                 allFeatures = data.features || [];
 
-                // Update stats
-                document.getElementById('total-count').textContent = data.metadata.total_records || 0;
-                document.getElementById('geocoding-rate').textContent = data.metadata.geocoding_rate || '0%';
+                // Update stats - HONEST COUNT
+                const metadata = data.metadata || {};
+                const geocoded = metadata.total_geocoded || data.features.length;
+                const extracted = metadata.total_extracted || '?';
+                document.getElementById('total-count').textContent = geocoded;
+                document.getElementById('displayed-count').textContent = geocoded;
+                document.getElementById('geocoding-rate').textContent = extracted;
 
                 // Build ward list from features
                 const wards = new Set();
@@ -290,8 +276,8 @@
                 });
             }
 
-            // Add GeoJSON source
-            map.addSource('spending', {
+            // SINGLE REAL DATA SOURCE (2012 geocoded, wards 1-10)
+            map.addSource('geocoded-2012', {
                 type: 'geojson',
                 data: {
                     type: 'FeatureCollection',
@@ -299,11 +285,16 @@
                 }
             });
 
+            // Single layer: all geometry types, colored by type
+            // Points (intersections): blue
+            // Lines (ranges): orange, width by cost
+            // Polygons (alleys): green
+
             // Points layer (intersections, single addresses)
             map.addLayer({
-                id: 'spending-points',
+                id: 'geocoded-points',
                 type: 'circle',
-                source: 'spending',
+                source: 'geocoded-2012',
                 filter: ['==', ['geometry-type'], 'Point'],
                 paint: {
                     'circle-radius': 5,
@@ -314,11 +305,11 @@
                 }
             });
 
-            // Lines layer (street ranges) — width by cost
+            // Lines layer (street ranges)
             map.addLayer({
-                id: 'spending-lines',
+                id: 'geocoded-lines',
                 type: 'line',
-                source: 'spending',
+                source: 'geocoded-2012',
                 filter: ['==', ['geometry-type'], 'LineString'],
                 layout: {
                     'line-join': 'round',
@@ -340,9 +331,9 @@
 
             // Polygons layer (alley blocks)
             map.addLayer({
-                id: 'spending-polygons',
+                id: 'geocoded-polygons',
                 type: 'fill',
-                source: 'spending',
+                source: 'geocoded-2012',
                 filter: ['==', ['geometry-type'], 'Polygon'],
                 paint: {
                     'fill-color': '#66cc00',
@@ -351,9 +342,9 @@
             });
 
             map.addLayer({
-                id: 'spending-polygons-stroke',
+                id: 'geocoded-polygons-stroke',
                 type: 'line',
-                source: 'spending',
+                source: 'geocoded-2012',
                 filter: ['==', ['geometry-type'], 'Polygon'],
                 paint: {
                     'line-color': '#66cc00',
@@ -362,8 +353,8 @@
                 }
             });
 
-            // Click handler
-            ['spending-points', 'spending-lines', 'spending-polygons'].forEach(layerId => {
+            // Click handler for all geometry types
+            ['geocoded-points', 'geocoded-lines', 'geocoded-polygons'].forEach(layerId => {
                 map.on('click', layerId, (e) => {
                     if (e.features.length === 0) return;
                     const props = e.features[0].properties;
@@ -392,54 +383,30 @@
                 });
             });
 
-            // Ward filter (applies to BOTH sample + real data)
+            // Ward filter (single real data source)
             document.getElementById('ward-filter').addEventListener('change', (e) => {
                 const selectedWard = e.target.value;
 
-                // Filter sample data
-                const filteredSample = selectedWard
+                // Filter the real geocoded data
+                const filtered = selectedWard
                     ? allFeatures.filter(f => f.properties.ward == selectedWard)
                     : allFeatures;
 
-                map.getSource('spending').setData({
+                map.getSource('geocoded-2012').setData({
                     type: 'FeatureCollection',
-                    features: filteredSample
+                    features: filtered
                 });
 
-                // Filter real 2012 data (if it exists)
-                if (realData2012) {
-                    const filteredReal = selectedWard
-                        ? realData2012.features.filter(f => f.properties.ward == selectedWard)
-                        : realData2012.features;
-
-                    map.getSource('real-2012').setData({
-                        type: 'FeatureCollection',
-                        features: filteredReal
-                    });
-                }
-
-                // Update counter with total from BOTH sources
-                const sampleCount = filteredSample.length;
-                const realCount = realData2012 ? (selectedWard
-                    ? realData2012.features.filter(f => f.properties.ward == selectedWard).length
-                    : realData2012.features.length)
-                    : 0;
-                const totalDisplayed = sampleCount + realCount;
-
-                document.getElementById('displayed-count').textContent = totalDisplayed;
+                document.getElementById('displayed-count').textContent = filtered.length;
 
                 // Check for records outside their ward (Verifier rule #6)
                 const outOfWard = [];
                 if (selectedWard) {
                     const selectedWardNum = parseInt(selectedWard);
-                    const displayedRecords = realData2012
-                        ? [...filteredSample, ...filteredReal]
-                        : filteredSample;
 
-                    displayedRecords.forEach((f, idx) => {
+                    filtered.forEach((f) => {
                         if (f.properties.ward !== selectedWardNum) {
                             outOfWard.push({
-                                index: idx,
                                 location: f.properties.location_text || f.properties.location || 'unknown',
                                 ward: f.properties.ward,
                                 expected: selectedWardNum
@@ -449,7 +416,7 @@
                     if (outOfWard.length > 0) {
                         console.warn(`⚠️ GEOCODING ERROR: ${outOfWard.length} record(s) fall outside their assigned ward:`, outOfWard);
                     } else {
-                        console.log(`✓ All ${displayedRecords.length} displayed records match Ward ${selectedWardNum}`);
+                        console.log(`✓ All ${filtered.length} displayed records match Ward ${selectedWardNum}`);
                     }
                 }
             });
@@ -461,64 +428,6 @@
                 map.setLayoutProperty('ward-outline', 'visibility', visibility);
             });
 
-            // Real 2012 data layer
-            if (realData2012) {
-                map.addSource('real-2012', {
-                    type: 'geojson',
-                    data: realData2012
-                });
-
-                // Red markers for real extracted/geocoded data
-                map.addLayer({
-                    id: 'real-2012-points',
-                    type: 'circle',
-                    source: 'real-2012',
-                    paint: {
-                        'circle-radius': 6,
-                        'circle-color': '#cc0000',
-                        'circle-opacity': 0.8,
-                        'circle-stroke-width': 2,
-                        'circle-stroke-color': '#fff'
-                    }
-                });
-
-                // Click handler for real data
-                map.on('click', 'real-2012-points', (e) => {
-                    if (e.features.length === 0) return;
-                    const props = e.features[0].properties;
-                    new maplibregl.Popup()
-                        .setLngLat(e.lngLat)
-                        .setHTML(`
-                            <div class="popup">
-                                <div class="popup-title">${props.category || 'Unknown'}</div>
-                                <div class="popup-item"><span class="popup-label">Cost:</span> <span class="popup-cost">$${props.cost.toLocaleString()}</span></div>
-                                <div class="popup-item"><span class="popup-label">Ward:</span> ${props.ward}</div>
-                                <div class="popup-item"><span class="popup-label">Location:</span> ${props.location}</div>
-                                <div class="popup-item"><span class="popup-label">Confidence:</span> ${(props.confidence * 100).toFixed(0)}%</div>
-                                <div class="popup-item"><span class="popup-label">Source:</span> 2012 Extracted & Geocoded</div>
-                            </div>
-                        `)
-                        .addTo(map);
-                });
-
-                map.on('mouseenter', 'real-2012-points', () => {
-                    map.getCanvas().style.cursor = 'pointer';
-                });
-
-                map.on('mouseleave', 'real-2012-points', () => {
-                    map.getCanvas().style.cursor = '';
-                });
-            }
-
-            // Toggle real 2012 data
-            document.getElementById('toggle-2012-real').addEventListener('change', (e) => {
-                const visibility = e.target.checked ? 'visible' : 'none';
-                if (map.getLayer('real-2012-points')) {
-                    map.setLayoutProperty('real-2012-points', 'visibility', visibility);
-                }
-            });
-
-            document.getElementById('displayed-count').textContent = allFeatures.length;
         }
     </script>
 </body>
