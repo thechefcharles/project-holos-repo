@@ -193,10 +193,18 @@ Last updated: 2026-07-12
   - BUILD FROM: gap-register Gap 3
   - AC: holos link events CLI; many-to-many spend→utility links with reasons
 
-- [ ] **Build the Verifier (validation + golden benchmark)** (Component: Hub)
-  - Owner: TBD
-  - BUILD FROM: tech-spec Part III Step 5
+- [~] **Build the Verifier (validation + golden benchmark)** (Component: Hub)
+  - Owner: Claude Code
+  - BUILD FROM: docs/verifier-spec.md (the consolidated rulebook)
   - AC: deterministic validators for schema, geography, deduplication, QL discipline; golden benchmark maintained; failure reason-coded
+  - Status: **TIER-1 VALIDATORS LIVE** (2026-07-13)
+    - [x] field_completeness — catches missing ward/year/cost/location (golden test: pass + fail cases)
+    - [x] bbox_check — catches lon/lat swap and out-of-bounds coordinates (golden test: pass + fail cases)
+    - [x] budget_tieout — catches wholesale over/under-extraction (golden test: pass + fail cases)
+    - [x] Wired into: holos validate field-completeness, holos validate bbox-check, holos validate budget-tieout
+    - [ ] ward_containment — point-in-polygon PostGIS check (requires DB schema init; deferred to scale-up phase)
+    - [ ] Tier 2 & 3 checks (cross-geocoder agreement, recall/fidelity calibration, spot-checks) — scoped in spec, defer to corpus scale-up
+  - Next: Do NOT build full Verifier yet. Tier-1 checks are enough for Phase 1 exit gate. Leave marked in-progress.
 
 ---
 

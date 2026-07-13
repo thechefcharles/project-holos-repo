@@ -105,7 +105,7 @@ The Component A backbone. Already prototyped at ~87% geocode rate on 46k project
    
    Point for single addresses, line (clipped centerline) for segments, polygon (ward/park/alley footprint join) for area work.
 
-6. **Verify.** Deterministic checks: geocoded point falls inside the stated ward polygon (2023 boundaries `p293-wvbd`, with pre-2023 remap table for historic years); segment length sanity vs. reported cost; duplicate detection. Failures → review queue with reason codes.
+6. **Verify.** Deterministic checks (full rulebook: `/docs/verifier-spec.md`): geocoded point falls inside the stated ward polygon (2023 boundaries `p293-wvbd`, with pre-2023 remap table for historic years); segment length sanity vs. reported cost; duplicate detection; field completeness; budget tie-out; bounding-box check. Failures → review queue with reason codes.
 
 7. **Load.** GeoPandas → GeoParquet snapshot + `ogr2ogr` / `ST_GeomFromGeoJSON` into PostGIS `core.spending_projects` (4326) with generated-column 3435 mirror for measurement queries.
 

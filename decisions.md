@@ -682,4 +682,21 @@ Extracted 2070 records from 2025 Aldermanic Menu Q4 PDF; total $216.8M. Geometry
 
 **Implication:** Grammar rules are the leverage point for clean location strings. Geocoding step follows grammar classification; upstream data quality work (better grammar) prevents downstream geocoding failures.
 
+### 2026-07-13 — Tier-1 Verifier spec committed; 4 cheap validators live with golden tests
+Committed docs/verifier-spec.md as the single source of truth for all data-quality checks. This is a living document: every failure mode discovered by hand gets appended immediately (failure-mode ledger at bottom). 
+
+**Tier-1 validators now live** (deterministic, no external answer key needed):
+1. **field_completeness** — catches missing ward/year/cost/location (golden test: pass case + fail case)
+2. **bbox_check** — catches lon/lat swap and out-of-bounds coordinates (protects against the #1 map bug)
+3. **budget_tieout** — catches wholesale over/under-extraction (per-ward/year totals vs $1.3M expected)
+4. **ward_containment** — deferred (requires PostGIS; built but not wired to CLI yet)
+
+**Wired into CLI:** `holos validate field-completeness`, `holos validate bbox-check`, `holos validate budget-tieout` — each exits 0 (pass) or 1 (fail) with JSON output per agent-output schema.
+
+**Discipline:** Each validator has a golden test that includes BOTH a known-good pass case AND a known-bad fail case. This is non-negotiable — a validator that only passes clean data is untested. All 3 golden test sets pass.
+
+**Not building yet:** Tier 2 (cross-geocoder agreement), Tier 3 (recall/fidelity calibration), and full taxonomy — these are scoped in the spec and wait for corpus scale-up. Verifier task stays [~] (in progress), not [x].
+
+**Standing rule going forward:** Whenever any session finds a new failure mode, append one line to docs/verifier-spec.md failure-mode ledger before context is lost. Knowledge survives across sessions this way.
+
 *Add new decisions below this line.*
