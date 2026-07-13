@@ -360,17 +360,20 @@ def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
                     pass
 
         # WRAPPED ADDRESS RECONSTRUCTION:
-        # If this line looks like it's continuing an address (starts with street pattern,
-        # doesn't start a new section, has no $), insert it BEFORE the cost marker
+        # If this line looks like it's continuing an address, insert it BEFORE the cost marker
+        # Conservative: only treat as continuation if it looks like a street name or coordinate
+        # Exclude page headers, document footers, section breaks
         elif (
             last_record_line_text is not None
-            and not any(x in line for x in ["Ward", "Program", "CDOT", "OBM", "Total", "Menu"])
-            and re.match(r'^[A-Z]', line)  # Starts with capital letter (like "MEDILL AV")
             and "$" not in line  # Not a new record
+            and len(line) < 80  # Continuations are usually short (just the missing part)
+            and not any(x in line for x in ["Ward", "Program", "CDOT", "OBM", "Total", "Menu",
+                                             "Chicago", "Department", "Transportation", "Detail", "Report"])
+            and re.match(r'^[A-Z][A-Z\s\-&\(\)\d\.]+$', line)  # Only letters, spaces, and address-like chars
         ):
-            # This looks like a continuation. Insert it before the cost marker
+            # This looks like a continuation (likely a street name or coordinate ending)
+            # Insert it before the cost marker
             if records:
-                # Find the $ in the last line and insert the continuation before it
                 cost_match = re.search(r'\$[\d,\.]+', last_record_line_text)
                 if cost_match:
                     cost_pos = last_record_line_text.rfind('$')
