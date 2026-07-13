@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/admin/Charlie Foreman/My Projects/Project Holos/project-holos-repo/.codex/hooks/session_start.sh'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/admin/Charlie Foreman/My Projects/Project Holos/project-holos-repo/.codex/hooks/stop_reminder.sh'"
+          }
+        ]
+      }
+    ]
+  }
+}
