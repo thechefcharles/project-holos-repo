@@ -746,3 +746,31 @@ Ran full 2017 pipeline end-to-end (extract → geocode cascade → measure compo
 
 All three are known items already in TASKS.md. 2017 validates the platform, doesn't invalidate it.
 
+
+### 2026-07-13 (corrected) — 2017 stage analysis: street_segment failures are data quality, not parsing
+
+Traced the 47% street_segment escalation rate. Initial hypothesis: "stage 4 needs fixing" was WRONG.
+
+Actual diagnosis:
+1. Stage 4 regex works on all examples (matched 4/4 test cases with and without prefix)
+2. From/To extraction successful
+3. **Problem downstream:** Extracted cross-streets are malformed (house numbers, truncations)
+   - "FROM 100 N" → cleaned "100" → no DB match → escalate
+   - "TO N" → cleaned "N" → no DB match → escalate
+   - These aren't bugs; they're PDF source corruption
+
+Cascade is correct to escalate on bad data. 2017's 71% street_segment escalation rate reflects the data quality, not an architectural flaw.
+
+**Separate finding: address_range is a genuine stage gap** (0% success). Ranges like "350-375 E SUPERIOR ST" should interpolate on centerline (stage 2) but are escalating. This is a real TODO, distinct from street_segment.
+
+**Corrected composite breakdown (754 failures):**
+- street_segment: 356 (47.2%) → data quality (malformed PDF)
+- unresolvable_text: 214 (28.4%) → data quality (incomplete text)
+- address_range: 66 (8.8%) → stage gap (needs centerline interpolation)
+- Other: 118 (15.6%) → small blockers (named_place needs gazetteer, etc.)
+
+**Revised next steps:**
+1. Fix address_range centerline interpolation (9% potential gain)
+2. (Don't "fix" street_segment stage 4; it's not broken)
+3. Document data quality as context (2017 PDF noisier than 2012)
+
