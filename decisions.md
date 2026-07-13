@@ -909,3 +909,26 @@ Difference driven by data quality (2012 PDF is cleaner), not architecture.
 1. Deploy to Vercel (CI/CD, domain, public URL)
 2. Register URL in Notion + social channels
 3. Phase 2: Fix 2012 ward-derivation mystery + complete 2012 extraction (full year)
+
+### 2026-07-13 (INVESTIGATION COMPLETE) — 2012 "missing ward" root cause: geocoding failures, not ward boundary issue
+
+**Finding:** 109 of 129 2012 records have LineString geometry (geocoding fallback); only 20 have Point geometry (successful geocodes).
+
+**Evidence:**
+```
+Geometry Type | Count | With Derived Ward
+-------------|-------|------------------
+LineString   |   109 |        0 (all NULL)
+Point        |    20 |       20 (100% match)
+```
+
+LineString records represent **failed geocoding**, not incomplete data. When geocoding fails, the cascade returns a bounding box or line segment representing "unknown location" instead of a coordinate.
+
+**Why ST_Contains fails on LineString:** A LineString (or any non-point geometry) doesn't neatly fall "inside" a ward polygon the way a point does. The entire line would need to be contained, or we'd need to test the line's centroid.
+
+**Phase 1 decision:** Keep 2017 only (878 records, 100% successful). Phase 2 will:
+1. Re-run geocoding on 109 failed 2012 records (debug why they returned LineString)
+2. Promote 20 successfully geocoded 2012 records to core
+3. Investigate and fix the cascade stage(s) causing 109 misses
+
+**Why this is good news:** The 2012 data itself isn't damaged. The geocoding pipeline just needs tuning. The 20 Point records prove extraction works; the LineString records are a known geocoder artifact. Phase 2 has a clear path to recovery.
