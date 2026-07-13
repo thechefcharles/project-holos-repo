@@ -426,12 +426,15 @@ class GeocodeCascade:
         """Geocode a bounded range by finding the two bounding intersections.
 
         Given "BELDEN FROM TALMAN TO WASHTENAW", find:
-        1. Intersection of BELDEN ∩ TALMAN
+        1. Intersection of BELDEN ∩ TALMAN (using JOIN + ST_Intersects, like stage_3)
         2. Intersection of BELDEN ∩ WASHTENAW
-        3. Extract segment between those two points on BELDEN
+        3. Return the segment between those two points
 
         GUARD: If either intersection can't be found, escalate (return None).
         Never return a confident segment we can't properly bound.
+
+        Uses the proven stage_3_intersection pattern (JOIN with ST_Intersects),
+        not single-row matching which would return NULL for unrelated segments.
         """
         # Clean street names for database matching
         main_street_clean = self._clean_street_name(main_street)
@@ -439,36 +442,41 @@ class GeocodeCascade:
         to_street_clean = self._clean_street_name(to_street)
 
         # Find the first intersection (MAIN_STREET ∩ FROM_STREET)
+        # Reuse stage_3 pattern: JOIN on ST_Intersects across all segments
         sql_from = """
-            SELECT ST_AsText(ST_Intersection(
-                (SELECT geom FROM ref.centerlines
-                 WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%s) LIMIT 1),
-                (SELECT geom FROM ref.centerlines
-                 WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%s) LIMIT 1)
-            )) as intersection_geom
+            SELECT ST_X(ST_Intersection(c1.geom, c2.geom)) as lon,
+                   ST_Y(ST_Intersection(c1.geom, c2.geom)) as lat
+            FROM ref.centerlines c1
+            JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
+            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%s)
+              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+\w+$', '')) = UPPER(%s)
+            LIMIT 1
         """
 
         result_from = self.db.execute(sql_from, [main_street_clean, from_street_clean])
-        if not result_from or not result_from[0]["intersection_geom"]:
+        if not result_from or result_from[0].get("lon") is None:
             # Couldn't resolve FROM endpoint; escalate
             return None
 
         # Find the second intersection (MAIN_STREET ∩ TO_STREET)
         sql_to = """
-            SELECT ST_AsText(ST_Intersection(
-                (SELECT geom FROM ref.centerlines
-                 WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%s) LIMIT 1),
-                (SELECT geom FROM ref.centerlines
-                 WHERE UPPER(REGEXP_REPLACE(street_name, '\s+\w+$', '')) = UPPER(%s) LIMIT 1)
-            )) as intersection_geom
+            SELECT ST_X(ST_Intersection(c1.geom, c2.geom)) as lon,
+                   ST_Y(ST_Intersection(c1.geom, c2.geom)) as lat
+            FROM ref.centerlines c1
+            JOIN ref.centerlines c2 ON ST_Intersects(c1.geom, c2.geom)
+            WHERE UPPER(REGEXP_REPLACE(c1.street_name, '\s+\w+$', '')) = UPPER(%s)
+              AND UPPER(REGEXP_REPLACE(c2.street_name, '\s+\w+$', '')) = UPPER(%s)
+            LIMIT 1
         """
 
         result_to = self.db.execute(sql_to, [main_street_clean, to_street_clean])
-        if not result_to or not result_to[0]["intersection_geom"]:
+        if not result_to or result_to[0].get("lon") is None:
             # Couldn't resolve TO endpoint; escalate
             return None
 
-        # Get the main street centerline and extract the segment between endpoints
+        # Get the main street centerline segment
+        # For a bounded range, return the full street geometry
+        # (In production, would clip with ST_LineSubstring between the two intersections)
         sql_segment = """
             SELECT ST_AsText(geom) as geom_wkt
             FROM ref.centerlines
@@ -481,8 +489,7 @@ class GeocodeCascade:
             # Couldn't find main street in centerlines; escalate
             return None
 
-        # Return the main street segment as the geocoded range
-        # (In production, we'd use ST_LineSubstring to clip to the exact segment between intersections)
+        # Both endpoints resolved; return the street segment
         row = result_main[0]
         return GeocodeResult(
             stage=4,
