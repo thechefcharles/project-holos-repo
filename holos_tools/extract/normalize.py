@@ -287,12 +287,13 @@ def normalize_records(raw_records: List[Dict], year: int) -> List[SpendingRecord
 def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
     """Extract spending records from PDF text.
 
-    Handles PDF text wrapping by reconstructing split addresses.
-    pdfplumber breaks lines at column boundaries, so addresses can span multiple lines:
+    2012-2016 format: wrapped addresses across lines, category in headers
       Line N: "ON STREET FROM A TO W 0.00 $1,234.00"
       Line N+1: "ENDPOINT AV (COORDS)"  <- continuation, missing $ marker
 
-    This function accumulates continuation lines before parsing.
+    2017+ format: single-line format (category + location + cost all on one line)
+      Line N: "Category Menu (code) (year) ADDRESS $cost"
+      Lines without $: skip (incomplete/junk from PDF wrapping)
     """
     records = []
     lines = [line.strip() for line in text.split("\n")]
@@ -301,6 +302,7 @@ def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
     current_ward = None
     current_category = None
     last_record_line_text = None  # Track the full line text that had the cost marker
+    pending_continuation_lines = []  # For 2012 format: accumulate wrapped lines
 
     i = 0
     while i < len(lines):
@@ -334,13 +336,14 @@ def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
             continue
 
         # Skip column headers and summaries
-        if any(x in line for x in ["Full Address", "Desc Of Work", "CDOT :", "OBM :"]):
+        if any(x in line for x in ["Full Address", "Desc Of Work", "CDOT :", "OBM :", "MenuPackage", "Locations", "Estimated"]):
             i += 1
             continue
 
         # Check if this line contains a cost marker
         if "$" in line:
             last_record_line_text = line
+            pending_continuation_lines = []  # Reset accumulator
 
             # 2012-2016: requires current_category (from "Program:" header)
             # 2017+: category is IN the line; process without header-based category gate
@@ -365,36 +368,37 @@ def extract_from_pdf_text(text: str, year: int) -> List[SpendingRecord]:
                     except Exception:
                         pass
 
-        # WRAPPED ADDRESS RECONSTRUCTION:
-        # If this line looks like it's continuing an address, insert it BEFORE the cost marker
-        # Conservative: only treat as continuation if it looks like a street name or coordinate
-        # Exclude page headers, document footers, section breaks
-        elif (
-            last_record_line_text is not None
-            and "$" not in line  # Not a new record
-            and len(line) < 80  # Continuations are usually short (just the missing part)
-            and not any(x in line for x in ["Ward", "Program", "CDOT", "OBM", "Total", "Menu",
-                                             "Chicago", "Department", "Transportation", "Detail", "Report"])
-            and re.match(r'^[A-Z][A-Z\s\-&\(\)\d\.]+$', line)  # Only letters, spaces, and address-like chars
-        ):
-            # This looks like a continuation (likely a street name or coordinate ending)
-            # Insert it before the cost marker
-            if records:
-                cost_match = re.search(r'\$[\d,\.]+', last_record_line_text)
-                if cost_match:
-                    cost_pos = last_record_line_text.rfind('$')
-                    # Reconstruct: everything before $, then continuation, then space + cost
-                    reconstructed = last_record_line_text[:cost_pos].rstrip() + " " + line + " " + last_record_line_text[cost_pos:]
-
-                    try:
-                        adapter = MenuAdapter2012 if 2012 <= year <= 2016 else MenuAdapter2017Plus
-                        new_record = adapter.parse_row(reconstructed, current_ward, year, current_category)
-                        if new_record:
-                            # Replace the last record with the new, more complete one
-                            records[-1] = new_record
-                            last_record_line_text = reconstructed  # Update for chained continuations
-                    except Exception:
-                        pass
+        # Lines without $ are handled differently by year
+        elif "$" not in line:
+            if 2012 <= year <= 2016:
+                # 2012 format: wrapped locations span multiple lines
+                # Accumulate lines until we hit one with $
+                if (
+                    last_record_line_text is not None
+                    and len(line) < 80  # Continuations are usually short
+                    and not any(x in line for x in ["Ward", "Program", "CDOT", "OBM", "Total", "Menu",
+                                                     "Chicago", "Department", "Transportation", "Detail", "Report"])
+                    and re.match(r'^[\d\-A-Z][\dA-Z\s\-&\(\)\.]+$', line)  # Address-like chars
+                ):
+                    pending_continuation_lines.append(line)
+            else:
+                # 2017+ format: Most lines without $ are junk. BUT: if the last record's
+                # location looks truncated (starts with &, or is just a street name),
+                # this line might be a wrapped continuation. Merge it in.
+                if (
+                    records
+                    and len(line) < 80
+                    and not any(x in line for x in ["Ward", "Program", "CDOT", "OBM", "Total", "Menu",
+                                                     "Chicago", "Department", "Transportation", "Detail", "Report", "Locations"])
+                    and re.match(r'^[\dA-Z][\dA-Z\s\-&\(\)\.]+$', line)  # Address-like chars
+                ):
+                    last_record = records[-1]
+                    # Only merge if location looks truncated
+                    if (last_record.location.startswith('&') or
+                        len(last_record.location.split()) <= 2 or  # Just street name / house # + street
+                        last_record.location.isupper() and len(last_record.location) < 20):  # Abbreviated
+                        # Append to the last record's location
+                        last_record.location = (last_record.location + " " + line).strip()
 
         i += 1
 
