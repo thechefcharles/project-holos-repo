@@ -432,10 +432,15 @@
                 const outOfWard = [];
                 if (selectedWard) {
                     const selectedWardNum = parseInt(selectedWard);
-                    [...filteredSample, ...(realData2012 ? realData2012.features : [])].forEach((f, idx) => {
+                    const displayedRecords = realData2012
+                        ? [...filteredSample, ...filteredReal]
+                        : filteredSample;
+
+                    displayedRecords.forEach((f, idx) => {
                         if (f.properties.ward !== selectedWardNum) {
                             outOfWard.push({
                                 index: idx,
+                                location: f.properties.location_text || f.properties.location || 'unknown',
                                 ward: f.properties.ward,
                                 expected: selectedWardNum
                             });
@@ -443,6 +448,8 @@
                     });
                     if (outOfWard.length > 0) {
                         console.warn(`⚠️ GEOCODING ERROR: ${outOfWard.length} record(s) fall outside their assigned ward:`, outOfWard);
+                    } else {
+                        console.log(`✓ All ${displayedRecords.length} displayed records match Ward ${selectedWardNum}`);
                     }
                 }
             });
