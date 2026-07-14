@@ -2,16 +2,21 @@
 
 import json
 import logging
+import os
 from typing import Optional
 
 from flask import Flask, request, jsonify
 from holos_tools.core import Config, HolosDB
 
 logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
 config = Config()
 db = HolosDB(config.db_url)
+
+# Log database connection info (for debugging)
+logger.info(f"Connecting to PostGIS at {config.db_url.split('@')[1] if '@' in config.db_url else 'localhost'}")
 
 
 @app.route('/api/streets.geojson', methods=['GET'])
@@ -120,5 +125,5 @@ def health():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO)
-    app.run(debug=True, port=5000)
+    port = int(os.getenv('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
