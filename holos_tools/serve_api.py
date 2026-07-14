@@ -13,10 +13,17 @@ logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
 config = Config()
-db = HolosDB(config.db_url)
+_db = None
 
-# Log database connection info (for debugging)
-logger.info(f"Connecting to PostGIS at {config.db_url.split('@')[1] if '@' in config.db_url else 'localhost'}")
+
+def get_db() -> HolosDB:
+    """Lazy database connection (connects on first use)."""
+    global _db
+    if _db is None:
+        logger.info("Connecting to PostGIS database...")
+        _db = HolosDB(config.db_url)
+        logger.info("✓ Connected to PostGIS")
+    return _db
 
 
 @app.route('/api/streets.geojson', methods=['GET'])
@@ -58,7 +65,7 @@ def get_streets():
         """
 
     try:
-        results = db.execute(sql)
+        results = get_db().execute(sql)
         features = []
         for row in results:
             features.append({
@@ -99,7 +106,7 @@ def get_curbs():
         """
 
     try:
-        results = db.execute(sql)
+        results = get_db().execute(sql)
         features = []
         for row in results:
             features.append({
