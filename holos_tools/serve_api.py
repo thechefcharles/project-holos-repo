@@ -131,6 +131,36 @@ def health():
     return jsonify({'status': 'ok'})
 
 
+@app.route('/admin/load-data', methods=['POST'])
+def load_data():
+    """Load centerline data (one-time, requires password)."""
+    password = request.args.get('pwd')
+    if password != os.getenv('ADMIN_PASSWORD', 'change_me'):
+        return jsonify({'error': 'unauthorized'}), 401
+
+    try:
+        from holos_tools.load_centerlines import load_centerlines
+        from pathlib import Path
+
+        logger.info("Loading centerlines...")
+        docs_dir = Path(__file__).parent.parent / "docs"
+
+        load_centerlines(
+            docs_dir / "street_centerlines.geojson",
+            "street_centerlines",
+            schema="public",
+        )
+        load_centerlines(
+            docs_dir / "curb_centerlines.geojson",
+            "curb_centerlines",
+            schema="public",
+        )
+        return jsonify({'status': 'Data loaded successfully'})
+    except Exception as e:
+        logger.error(f"Load failed: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
     app.run(debug=False, host='0.0.0.0', port=port)
