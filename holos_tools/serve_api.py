@@ -23,8 +23,11 @@ def get_db() -> HolosDB:
     """Lazy database connection (connects on first use)."""
     global _db
     if _db is None:
-        logger.info("Connecting to PostGIS database...")
-        _db = HolosDB(config.db_url)
+        db_url = config.db_url
+        # Log connection host (not password)
+        host = db_url.split('@')[-1].split('/')[0] if '@' in db_url else 'unknown'
+        logger.info(f"Connecting to PostGIS database at {host}...")
+        _db = HolosDB(db_url)
         logger.info("✓ Connected to PostGIS")
     return _db
 
