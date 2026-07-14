@@ -152,7 +152,7 @@ def get_curbs():
 
 @app.route('/api/tiger-roads.geojson', methods=['GET'])
 def get_tiger_roads():
-    """Serve TIGER roads with bbox filtering."""
+    """Serve TIGER roads clipped to Chicago boundary."""
     bbox = request.args.get('bbox')
 
     if bbox:
@@ -162,6 +162,7 @@ def get_tiger_roads():
                 SELECT ST_AsGeoJSON(geometry) as geometry
                 FROM public.tiger_roads
                 WHERE ST_Intersects(geometry, ST_MakeEnvelope({min_lon}, {min_lat}, {max_lon}, {max_lat}, 4326))
+                AND ST_Contains((SELECT geom FROM public.chicago_boundary LIMIT 1), geometry)
                 LIMIT 50000
             """
         except ValueError:
