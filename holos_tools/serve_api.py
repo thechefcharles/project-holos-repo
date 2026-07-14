@@ -29,6 +29,13 @@ def get_db() -> HolosDB:
     return _db
 
 
+@app.route('/', methods=['GET'])
+def index():
+    """Serve the interactive map."""
+    with open('/app/docs/2017_map.html', 'r') as f:
+        return f.read()
+
+
 @app.route('/api/streets.geojson', methods=['GET'])
 def get_streets():
     """Serve street centerlines as GeoJSON."""
