@@ -162,11 +162,12 @@ def get_tiger_roads():
                 SELECT ST_AsGeoJSON(geometry) as geometry
                 FROM public.tiger_roads
                 WHERE ST_Intersects(geometry, ST_MakeEnvelope({min_lon}, {min_lat}, {max_lon}, {max_lat}, 4326))
+                LIMIT 50000
             """
         except ValueError:
             return jsonify({'error': 'Invalid bbox format'}), 400
     else:
-        sql = "SELECT ST_AsGeoJSON(geometry) as geometry FROM public.tiger_roads"
+        return jsonify({'error': 'bbox parameter required'}), 400
 
     try:
         results = get_db().execute(sql)
