@@ -142,22 +142,10 @@ def load_data():
         return jsonify({'error': 'unauthorized'}), 401
 
     try:
-        from holos_tools.load_centerlines import load_centerlines
-        from pathlib import Path
+        from holos_tools.load_all_reference_data import load_all_data
 
-        logger.info("Loading centerlines...")
-        docs_dir = Path(__file__).parent.parent / "docs"
-
-        load_centerlines(
-            docs_dir / "street_centerlines.geojson",
-            "street_centerlines",
-            schema="public",
-        )
-        load_centerlines(
-            docs_dir / "curb_centerlines.geojson",
-            "curb_centerlines",
-            schema="public",
-        )
+        logger.info("Loading reference datasets...")
+        load_all_data()
         return jsonify({'status': 'Data loaded successfully'})
     except Exception as e:
         logger.error(f"Load failed: {e}", exc_info=True)
