@@ -138,6 +138,10 @@
                 <input type="checkbox" id="toggle-wards" style="margin-right: 8px; cursor: pointer;">
                 <span>Show Ward Boundaries</span>
             </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-tiger" style="margin-right: 8px; cursor: pointer;">
+                <span>Show TIGER Roads (Reference)</span>
+            </label>
         </div>
         <div class="stats">
             <div><span class="stats-number" id="displayed-count">0</span> / <span class="stats-number" id="total-count">0</span> projects</div>
@@ -201,6 +205,20 @@
 
         let allFeatures = [];
         let wardsBoundaries = null;
+        let tigerRoads = null;
+
+        // Load TIGER roads (reference data)
+        console.log('Loading TIGER roads...');
+        fetch('tiger_roads.geojson')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                tigerRoads = data;
+                console.log('TIGER roads loaded:', data.features.length);
+            })
+            .catch(err => console.warn('TIGER roads not available:', err.message));
 
         // Load 2017 geodata
         console.log('Loading 2017 aldermanic spending...');
@@ -283,6 +301,26 @@
                         'line-color': '#666',
                         'line-width': 2,
                         'line-opacity': 0.6
+                    }
+                });
+            }
+
+            // TIGER roads (reference layer)
+            if (tigerRoads) {
+                map.addSource('tiger-roads', {
+                    type: 'geojson',
+                    data: tigerRoads
+                });
+
+                map.addLayer({
+                    id: 'tiger-roads-layer',
+                    type: 'line',
+                    source: 'tiger-roads',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#999',
+                        'line-width': 0.5,
+                        'line-opacity': 0.4
                     }
                 });
             }
@@ -428,6 +466,14 @@
                 const visibility = e.target.checked ? 'visible' : 'none';
                 map.setLayoutProperty('ward-fill', 'visibility', visibility);
                 map.setLayoutProperty('ward-outline', 'visibility', visibility);
+            });
+
+            // TIGER roads toggle
+            document.getElementById('toggle-tiger').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('tiger-roads-layer')) {
+                    map.setLayoutProperty('tiger-roads-layer', 'visibility', visibility);
+                }
             });
         }
     </script>
