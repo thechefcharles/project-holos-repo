@@ -285,7 +285,7 @@
             .catch(err => console.warn('Ward boundaries not available:', err.message));
 
         function addTigerLayer() {
-            if (!tigerRoads || !map.getSource('tiger-roads')) {
+            if (tigerRoads && !map.getSource('tiger-roads')) {
                 map.addSource('tiger-roads', {
                     type: 'geojson',
                     data: tigerRoads
