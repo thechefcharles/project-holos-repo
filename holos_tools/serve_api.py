@@ -49,25 +49,25 @@ def get_streets():
         try:
             min_lon, min_lat, max_lon, max_lat = map(float, bbox.split(','))
             sql = f"""
-                SELECT ST_AsGeoJSON(geom) as geometry, properties
+                SELECT ST_AsGeoJSON(geometry) as geometry, properties
                 FROM (
-                    SELECT geom,
+                    SELECT geometry,
                            jsonb_build_object(
                                'street_name', street_nam,
                                'street_type', street_typ,
                                'class', class
                            ) as properties
                     FROM public.street_centerlines
-                    WHERE ST_Intersects(geom, ST_MakeEnvelope({min_lon}, {min_lat}, {max_lon}, {max_lat}, 4326))
+                    WHERE ST_Intersects(geometry, ST_MakeEnvelope({min_lon}, {min_lat}, {max_lon}, {max_lat}, 4326))
                 ) t
             """
         except ValueError:
             return jsonify({'error': 'Invalid bbox format'}), 400
     else:
         sql = """
-            SELECT ST_AsGeoJSON(geom) as geometry, properties
+            SELECT ST_AsGeoJSON(geometry) as geometry, properties
             FROM (
-                SELECT geom,
+                SELECT geometry,
                        jsonb_build_object(
                            'street_name', street_nam,
                            'street_type', street_typ,
@@ -106,15 +106,15 @@ def get_curbs():
         try:
             min_lon, min_lat, max_lon, max_lat = map(float, bbox.split(','))
             sql = f"""
-                SELECT ST_AsGeoJSON(geom) as geometry
+                SELECT ST_AsGeoJSON(geometry) as geometry
                 FROM public.curb_centerlines
-                WHERE ST_Intersects(geom, ST_MakeEnvelope({min_lon}, {min_lat}, {max_lon}, {max_lat}, 4326))
+                WHERE ST_Intersects(geometry, ST_MakeEnvelope({min_lon}, {min_lat}, {max_lon}, {max_lat}, 4326))
             """
         except ValueError:
             return jsonify({'error': 'Invalid bbox format'}), 400
     else:
         sql = """
-            SELECT ST_AsGeoJSON(geom) as geometry
+            SELECT ST_AsGeoJSON(geometry) as geometry
             FROM public.curb_centerlines
         """
 
