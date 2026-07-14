@@ -135,12 +135,10 @@ def health():
 @app.route('/admin/load-data', methods=['POST'])
 def load_data():
     """Load centerline data (one-time, requires admin password in header)."""
-    admin_pw = os.getenv('ADMIN_PASSWORD')
-    if not admin_pw:
-        return jsonify({'error': 'admin disabled'}), 503
-
+    admin_pw = os.getenv('ADMIN_PASSWORD', '')
     provided_pw = request.headers.get('X-Admin-Password', '')
-    if not hmac.compare_digest(provided_pw, admin_pw):
+
+    if not admin_pw or not hmac.compare_digest(provided_pw, admin_pw):
         return jsonify({'error': 'unauthorized'}), 401
 
     try:
