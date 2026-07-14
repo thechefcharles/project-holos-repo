@@ -349,20 +349,28 @@
 
         // Load curb centerlines from API (with bbox)
         function loadCurbCenterlines() {
-            const bbox = map.getBounds();
-            const url = `https://project-holos-repo-production.up.railway.app/api/curbs.geojson?bbox=${bbox.getWest()},${bbox.getSouth()},${bbox.getEast()},${bbox.getNorth()}`;
-            console.log('Loading curb centerlines...');
-            fetch(url)
-                .then(res => {
-                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                    return res.json();
-                })
-                .then(data => {
-                    curbCenterlines = data;
-                    console.log('Curb centerlines loaded:', data.features.length, 'features');
-                    if (mapReady) addCurbCenterlinesLayer();
-                })
-                .catch(err => console.warn('Curb centerlines not available:', err.message));
+            try {
+                const bbox = map.getBounds();
+                const url = `https://project-holos-repo-production.up.railway.app/api/curbs.geojson?bbox=${bbox.getWest()},${bbox.getSouth()},${bbox.getEast()},${bbox.getNorth()}`;
+                console.log('Loading curb centerlines from:', url);
+                fetch(url)
+                    .then(res => {
+                        console.log('Curb fetch response:', res.status);
+                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                        return res.json();
+                    })
+                    .then(data => {
+                        curbCenterlines = data;
+                        console.log('✓ Curb centerlines loaded:', data.features.length, 'features');
+                        if (mapReady) {
+                            console.log('Adding curb layer to map...');
+                            addCurbCenterlinesLayer();
+                        }
+                    })
+                    .catch(err => console.error('✗ Curb centerlines error:', err.message, err));
+            } catch (e) {
+                console.error('✗ Curb loading exception:', e.message);
+            }
         }
 
         // Load on map ready
