@@ -152,7 +152,7 @@ def get_curbs():
 
 @app.route('/api/tiger-roads.geojson', methods=['GET'])
 def get_tiger_roads():
-    """Serve TIGER roads clipped to Chicago boundary."""
+    """Serve TIGER roads with bbox filtering."""
     bbox = request.args.get('bbox')
 
     if bbox:
@@ -162,16 +162,11 @@ def get_tiger_roads():
                 SELECT ST_AsGeoJSON(geometry) as geometry
                 FROM public.tiger_roads
                 WHERE ST_Intersects(geometry, ST_MakeEnvelope({min_lon}, {min_lat}, {max_lon}, {max_lat}, 4326))
-                AND ST_Intersects(geometry, (SELECT geometry FROM public.chicago_boundary LIMIT 1))
             """
         except ValueError:
             return jsonify({'error': 'Invalid bbox format'}), 400
     else:
-        sql = """
-            SELECT ST_AsGeoJSON(geometry) as geometry
-            FROM public.tiger_roads
-            WHERE ST_Intersects(geometry, (SELECT geometry FROM public.chicago_boundary LIMIT 1))
-        """
+        sql = "SELECT ST_AsGeoJSON(geometry) as geometry FROM public.tiger_roads"
 
     try:
         results = get_db().execute(sql)
