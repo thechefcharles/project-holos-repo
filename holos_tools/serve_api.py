@@ -6,7 +6,7 @@ import logging
 import os
 from typing import Optional
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory, abort
 from flask_cors import CORS
 from holos_tools.core import Config, HolosDB
 
@@ -42,12 +42,13 @@ def index():
 @app.route('/<path:filename>', methods=['GET'])
 def serve_static(filename):
     """Serve static GeoJSON files from docs directory."""
-    import os
-    filepath = f'/app/docs/{filename}'
-    if os.path.exists(filepath) and filename.endswith('.geojson'):
-        with open(filepath, 'r') as f:
-            return f.read(), 200, {'Content-Type': 'application/geo+json'}
-    return jsonify({'error': 'File not found'}), 404
+    if not filename.endswith('.geojson'):
+        abort(404)
+    docs_dir = os.path.realpath('/app/docs')
+    requested = os.path.realpath(os.path.join(docs_dir, filename))
+    if not requested.startswith(docs_dir + os.sep):
+        abort(404)
+    return send_from_directory(docs_dir, filename, mimetype='application/geo+json')
 
 
 @app.route('/api/streets.geojson', methods=['GET'])
