@@ -183,11 +183,11 @@
                 version: 8,
                 name: 'Modern Data Map',
                 sources: {
-                    positron: {
+                    osm: {
                         type: 'raster',
-                        tiles: ['https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png'],
+                        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
                         tileSize: 256,
-                        attribution: '© CartoDB, © OpenStreetMap contributors'
+                        attribution: '© OpenStreetMap contributors'
                     }
                 },
                 layers: [
@@ -197,9 +197,9 @@
                         paint: { 'background-color': '#ffffff' }
                     },
                     {
-                        id: 'positron-tiles',
+                        id: 'osm-tiles',
                         type: 'raster',
-                        source: 'positron',
+                        source: 'osm',
                         minzoom: 0,
                         maxzoom: 18
                     }
