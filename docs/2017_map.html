@@ -183,18 +183,23 @@
                 version: 8,
                 name: 'Modern Data Map',
                 sources: {
-                    stamen: {
+                    osm: {
                         type: 'raster',
-                        tiles: ['https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}.png'],
+                        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
                         tileSize: 256,
-                        attribution: '© Stadia Maps, © OpenStreetMap contributors'
+                        attribution: '© OpenStreetMap contributors'
                     }
                 },
                 layers: [
                     {
                         id: 'background',
+                        type: 'background',
+                        paint: { 'background-color': '#f5f5f5' }
+                    },
+                    {
+                        id: 'osm-tiles',
                         type: 'raster',
-                        source: 'stamen',
+                        source: 'osm',
                         minzoom: 0,
                         maxzoom: 18
                     }
