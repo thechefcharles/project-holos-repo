@@ -7,12 +7,14 @@ import os
 from typing import Optional
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from holos_tools.core import Config, HolosDB
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
+CORS(app)
 config = Config()
 _db = None
 

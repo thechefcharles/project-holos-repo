@@ -318,7 +318,7 @@
 
         // Load street centerlines from API
         console.log('Loading street centerlines...');
-        fetch('/api/streets.geojson')
+        fetch('http://localhost:9000/api/streets.geojson')
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.json();
@@ -332,7 +332,7 @@
 
         // Load curb centerlines from API
         console.log('Loading curb centerlines...');
-        fetch('/api/curbs.geojson')
+        fetch('http://localhost:9000/api/curbs.geojson')
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.json();
