@@ -135,6 +135,10 @@
         </select>
         <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 12px;">
             <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" id="toggle-city-boundary" style="margin-right: 8px; cursor: pointer;">
+                <span>Show City Boundary</span>
+            </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
                 <input type="checkbox" id="toggle-wards" style="margin-right: 8px; cursor: pointer;">
                 <span>Show Ward Boundaries</span>
             </label>
@@ -212,6 +216,7 @@
 
         let allFeatures = [];
         let wardsBoundaries = null;
+        let chicagoBoundary = null;
         let tigerRoads = null;
         let mapReady = false;
 
@@ -263,6 +268,7 @@
                 map.on('load', () => {
                     mapReady = true;
                     addMapLayers();
+                    if (chicagoBoundary) addChicagoBoundaryLayer();
                     if (tigerRoads) addTigerLayer();
                 });
             })
@@ -283,6 +289,41 @@
                 console.log('Wards loaded:', data.features.length);
             })
             .catch(err => console.warn('Ward boundaries not available:', err.message));
+
+        // Load Chicago boundary
+        console.log('Loading Chicago boundary...');
+        fetch('chicago_boundary.geojson')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                chicagoBoundary = data;
+                console.log('Chicago boundary loaded');
+                if (mapReady) addChicagoBoundaryLayer();
+            })
+            .catch(err => console.warn('Chicago boundary not available:', err.message));
+
+        function addChicagoBoundaryLayer() {
+            if (chicagoBoundary && !map.getSource('chicago-boundary')) {
+                map.addSource('chicago-boundary', {
+                    type: 'geojson',
+                    data: chicagoBoundary
+                });
+
+                map.addLayer({
+                    id: 'chicago-boundary-outline',
+                    type: 'line',
+                    source: 'chicago-boundary',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#333',
+                        'line-width': 3,
+                        'line-opacity': 0.8
+                    }
+                });
+            }
+        }
 
         function addTigerLayer() {
             if (tigerRoads && !map.getSource('tiger-roads')) {
@@ -486,6 +527,14 @@
                 const spend = filtered.reduce((sum, f) => sum + (f.properties.cost || 0), 0);
                 document.getElementById('displayed-count').textContent = filtered.length;
                 document.getElementById('displayed-spend').textContent = (spend / 1000000).toFixed(2) + 'M';
+            });
+
+            // City boundary toggle
+            document.getElementById('toggle-city-boundary').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('chicago-boundary-outline')) {
+                    map.setLayoutProperty('chicago-boundary-outline', 'visibility', visibility);
+                }
             });
 
             // Ward boundaries toggle
