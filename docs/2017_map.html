@@ -143,6 +143,14 @@
                 <span>Show Ward Boundaries</span>
             </label>
             <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-streets" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Street Centerlines</span>
+            </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-curbs" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Curb Centerlines</span>
+            </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
                 <input type="checkbox" id="toggle-tiger" style="margin-right: 8px; cursor: pointer;">
                 <span>Show TIGER Roads (Reference)</span>
             </label>
@@ -217,6 +225,8 @@
         let allFeatures = [];
         let wardsBoundaries = null;
         let chicagoBoundary = null;
+        let streetCenterlines = null;
+        let curbCenterlines = null;
         let tigerRoads = null;
         let mapReady = false;
 
@@ -268,6 +278,8 @@
                 map.on('load', () => {
                     mapReady = true;
                     addMapLayers();
+                    if (curbCenterlines) addCurbCenterlinesLayer();
+                    if (streetCenterlines) addStreetCenterlinesLayer();
                     if (chicagoBoundary) addChicagoBoundaryLayer();
                     if (tigerRoads) addTigerLayer();
                 });
@@ -303,6 +315,76 @@
                 if (mapReady) addChicagoBoundaryLayer();
             })
             .catch(err => console.warn('Chicago boundary not available:', err.message));
+
+        // Load street centerlines from API
+        console.log('Loading street centerlines...');
+        fetch('/api/streets.geojson')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                streetCenterlines = data;
+                console.log('Street centerlines loaded:', data.features.length, 'features');
+                if (mapReady) addStreetCenterlinesLayer();
+            })
+            .catch(err => console.warn('Street centerlines not available:', err.message));
+
+        // Load curb centerlines from API
+        console.log('Loading curb centerlines...');
+        fetch('/api/curbs.geojson')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                curbCenterlines = data;
+                console.log('Curb centerlines loaded:', data.features.length, 'features');
+                if (mapReady) addCurbCenterlinesLayer();
+            })
+            .catch(err => console.warn('Curb centerlines not available:', err.message));
+
+        function addCurbCenterlinesLayer() {
+            if (curbCenterlines && !map.getSource('curb-centerlines')) {
+                map.addSource('curb-centerlines', {
+                    type: 'geojson',
+                    data: curbCenterlines
+                });
+
+                map.addLayer({
+                    id: 'curb-centerlines-layer',
+                    type: 'line',
+                    source: 'curb-centerlines',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#cc99ff',
+                        'line-width': 0.8,
+                        'line-opacity': 0.6
+                    }
+                });
+            }
+        }
+
+        function addStreetCenterlinesLayer() {
+            if (streetCenterlines && !map.getSource('street-centerlines')) {
+                map.addSource('street-centerlines', {
+                    type: 'geojson',
+                    data: streetCenterlines
+                });
+
+                map.addLayer({
+                    id: 'street-centerlines-layer',
+                    type: 'line',
+                    source: 'street-centerlines',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#999',
+                        'line-width': 1,
+                        'line-opacity': 0.5
+                    }
+                });
+            }
+        }
 
         function addChicagoBoundaryLayer() {
             if (chicagoBoundary && !map.getSource('chicago-boundary')) {
@@ -534,6 +616,22 @@
                 const visibility = e.target.checked ? 'visible' : 'none';
                 if (map.getLayer('chicago-boundary-outline')) {
                     map.setLayoutProperty('chicago-boundary-outline', 'visibility', visibility);
+                }
+            });
+
+            // Street centerlines toggle
+            document.getElementById('toggle-streets').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('street-centerlines-layer')) {
+                    map.setLayoutProperty('street-centerlines-layer', 'visibility', visibility);
+                }
+            });
+
+            // Curb centerlines toggle
+            document.getElementById('toggle-curbs').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('curb-centerlines-layer')) {
+                    map.setLayoutProperty('curb-centerlines-layer', 'visibility', visibility);
                 }
             });
 

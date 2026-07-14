@@ -24,7 +24,9 @@ class HolosDB:
     def connect(self) -> Engine:
         """Create or return SQLAlchemy engine."""
         if self.engine is None:
-            self.engine = sa.create_engine(self.db_url, poolclass=NullPool)
+            # Use psycopg3 driver (postgresql+psycopg://)
+            db_url = self.db_url.replace('postgresql://', 'postgresql+psycopg://')
+            self.engine = sa.create_engine(db_url, poolclass=NullPool)
         return self.engine
 
     def execute(self, sql: str, params: Optional[dict] = None) -> list[dict]:
