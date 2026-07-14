@@ -181,20 +181,20 @@
             container: 'map',
             style: {
                 version: 8,
-                name: 'OSM Bright',
+                name: 'Light Canvas',
                 sources: {
-                    osm: {
+                    cartodb: {
                         type: 'raster',
-                        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+                        tiles: ['https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'],
                         tileSize: 256,
-                        attribution: '© OpenStreetMap contributors'
+                        attribution: '© OpenStreetMap, © CartoDB'
                     }
                 },
                 layers: [
                     {
-                        id: 'osm',
+                        id: 'cartodb-light',
                         type: 'raster',
-                        source: 'osm'
+                        source: 'cartodb'
                     }
                 ]
             },
