@@ -40,6 +40,10 @@ class Config:
     @property
     def db_url(self) -> str:
         """PostgreSQL connection string from environment."""
+        # Railway provides DATABASE_URL; fallback to individual vars
+        if database_url := os.getenv("DATABASE_URL"):
+            return database_url
+
         user = os.getenv("POSTGRES_USER", "holos")
         password = os.getenv("POSTGRES_PASSWORD", "holos_dev_only")
         host = os.getenv("POSTGRES_HOST", "localhost")
