@@ -194,14 +194,18 @@
                     {
                         id: 'background',
                         type: 'background',
-                        paint: { 'background-color': '#f5f5f5' }
+                        paint: { 'background-color': '#ffffff' }
                     },
                     {
                         id: 'osm-tiles',
                         type: 'raster',
                         source: 'osm',
                         minzoom: 0,
-                        maxzoom: 18
+                        maxzoom: 18,
+                        paint: {
+                            'raster-opacity': 0.3,
+                            'raster-fade-duration': 0
+                        }
                     }
                 ]
             },
@@ -312,22 +316,37 @@
                 });
             }
 
-            // TIGER roads (reference layer)
+            // TIGER roads (reference layer) - with glow effect
             if (tigerRoads) {
                 map.addSource('tiger-roads', {
                     type: 'geojson',
                     data: tigerRoads
                 });
 
+                // Glow/halo layer (white outline)
+                map.addLayer({
+                    id: 'tiger-roads-glow',
+                    type: 'line',
+                    source: 'tiger-roads',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#ffffff',
+                        'line-width': 4,
+                        'line-opacity': 0.6,
+                        'line-blur': 2
+                    }
+                });
+
+                // Main layer (bright cyan)
                 map.addLayer({
                     id: 'tiger-roads-layer',
                     type: 'line',
                     source: 'tiger-roads',
                     layout: { visibility: 'none' },
                     paint: {
-                        'line-color': '#999',
-                        'line-width': 0.5,
-                        'line-opacity': 0.4
+                        'line-color': '#00d9ff',
+                        'line-width': 3,
+                        'line-opacity': 0.85
                     }
                 });
             }
@@ -475,9 +494,12 @@
                 map.setLayoutProperty('ward-outline', 'visibility', visibility);
             });
 
-            // TIGER roads toggle
+            // TIGER roads toggle (both glow and main layers)
             document.getElementById('toggle-tiger').addEventListener('change', (e) => {
                 const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('tiger-roads-glow')) {
+                    map.setLayoutProperty('tiger-roads-glow', 'visibility', visibility);
+                }
                 if (map.getLayer('tiger-roads-layer')) {
                     map.setLayoutProperty('tiger-roads-layer', 'visibility', visibility);
                 }
