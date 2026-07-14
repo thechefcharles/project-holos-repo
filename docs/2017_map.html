@@ -312,8 +312,41 @@
             .then(data => {
                 wardsBoundaries = data;
                 console.log('Wards loaded:', data.features.length);
+                if (mapReady) addWardLayers();
             })
             .catch(err => console.warn('Ward boundaries not available:', err.message));
+
+        function addWardLayers() {
+            if (wardsBoundaries && !map.getSource('wards')) {
+                map.addSource('wards', {
+                    type: 'geojson',
+                    data: wardsBoundaries
+                });
+
+                map.addLayer({
+                    id: 'ward-fill',
+                    type: 'fill',
+                    source: 'wards',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'fill-color': '#808080',
+                        'fill-opacity': 0.05
+                    }
+                });
+
+                map.addLayer({
+                    id: 'ward-outline',
+                    type: 'line',
+                    source: 'wards',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#666',
+                        'line-width': 2,
+                        'line-opacity': 0.6
+                    }
+                });
+            }
+        }
 
         // Load Chicago boundary
         console.log('Loading Chicago boundary...');
@@ -479,37 +512,6 @@
         }
 
         function addMapLayers() {
-            // Ward boundaries
-            if (wardsBoundaries) {
-                map.addSource('wards', {
-                    type: 'geojson',
-                    data: wardsBoundaries
-                });
-
-                map.addLayer({
-                    id: 'ward-fill',
-                    type: 'fill',
-                    source: 'wards',
-                    layout: { visibility: 'none' },
-                    paint: {
-                        'fill-color': '#808080',
-                        'fill-opacity': 0.05
-                    }
-                });
-
-                map.addLayer({
-                    id: 'ward-outline',
-                    type: 'line',
-                    source: 'wards',
-                    layout: { visibility: 'none' },
-                    paint: {
-                        'line-color': '#666',
-                        'line-width': 2,
-                        'line-opacity': 0.6
-                    }
-                });
-            }
-
             // Spending data source
             map.addSource('spending-2017', {
                 type: 'geojson',
