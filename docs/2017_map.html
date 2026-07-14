@@ -282,6 +282,19 @@
                     if (streetCenterlines) addStreetCenterlinesLayer();
                     if (chicagoBoundary) addChicagoBoundaryLayer();
                     if (tigerRoads) addTigerLayer();
+                    // Load API data with bbox
+                    loadStreetCenterlines();
+                    loadCurbCenterlines();
+
+                    // Reload data on move/zoom (throttled)
+                    let moveTimeout;
+                    map.on('moveend', () => {
+                        clearTimeout(moveTimeout);
+                        moveTimeout = setTimeout(() => {
+                            loadStreetCenterlines();
+                            loadCurbCenterlines();
+                        }, 500);
+                    });
                 });
             })
             .catch(err => {
@@ -316,33 +329,47 @@
             })
             .catch(err => console.warn('Chicago boundary not available:', err.message));
 
-        // Load street centerlines from API
-        console.log('Loading street centerlines...');
-        fetch('https://project-holos-repo-production.up.railway.app/api/streets.geojson')
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                return res.json();
-            })
-            .then(data => {
-                streetCenterlines = data;
-                console.log('Street centerlines loaded:', data.features.length, 'features');
-                if (mapReady) addStreetCenterlinesLayer();
-            })
-            .catch(err => console.warn('Street centerlines not available:', err.message));
+        // Load street centerlines from API (with bbox)
+        function loadStreetCenterlines() {
+            const bbox = map.getBounds();
+            const url = `https://project-holos-repo-production.up.railway.app/api/streets.geojson?bbox=${bbox.getWest()},${bbox.getSouth()},${bbox.getEast()},${bbox.getNorth()}`;
+            console.log('Loading street centerlines...');
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })
+                .then(data => {
+                    streetCenterlines = data;
+                    console.log('Street centerlines loaded:', data.features.length, 'features');
+                    if (mapReady) addStreetCenterlinesLayer();
+                })
+                .catch(err => console.warn('Street centerlines not available:', err.message));
+        }
 
-        // Load curb centerlines from API
-        console.log('Loading curb centerlines...');
-        fetch('https://project-holos-repo-production.up.railway.app/api/curbs.geojson')
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                return res.json();
-            })
-            .then(data => {
-                curbCenterlines = data;
-                console.log('Curb centerlines loaded:', data.features.length, 'features');
-                if (mapReady) addCurbCenterlinesLayer();
-            })
-            .catch(err => console.warn('Curb centerlines not available:', err.message));
+        // Load curb centerlines from API (with bbox)
+        function loadCurbCenterlines() {
+            const bbox = map.getBounds();
+            const url = `https://project-holos-repo-production.up.railway.app/api/curbs.geojson?bbox=${bbox.getWest()},${bbox.getSouth()},${bbox.getEast()},${bbox.getNorth()}`;
+            console.log('Loading curb centerlines...');
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })
+                .then(data => {
+                    curbCenterlines = data;
+                    console.log('Curb centerlines loaded:', data.features.length, 'features');
+                    if (mapReady) addCurbCenterlinesLayer();
+                })
+                .catch(err => console.warn('Curb centerlines not available:', err.message));
+        }
+
+        // Load on map ready
+        if (mapReady) {
+            loadStreetCenterlines();
+            loadCurbCenterlines();
+        }
 
         function addCurbCenterlinesLayer() {
             if (curbCenterlines && !map.getSource('curb-centerlines')) {
