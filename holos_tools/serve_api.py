@@ -1,5 +1,6 @@
 """Flask API to serve centerlines from PostGIS."""
 
+import hmac
 import json
 import logging
 import os
@@ -133,9 +134,13 @@ def health():
 
 @app.route('/admin/load-data', methods=['POST'])
 def load_data():
-    """Load centerline data (one-time, requires password)."""
-    password = request.args.get('pwd')
-    if password != os.getenv('ADMIN_PASSWORD', 'change_me'):
+    """Load centerline data (one-time, requires admin password in header)."""
+    admin_pw = os.getenv('ADMIN_PASSWORD')
+    if not admin_pw:
+        return jsonify({'error': 'admin disabled'}), 503
+
+    provided_pw = request.headers.get('X-Admin-Password', '')
+    if not hmac.compare_digest(provided_pw, admin_pw):
         return jsonify({'error': 'unauthorized'}), 401
 
     try:
