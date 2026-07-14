@@ -161,7 +161,7 @@ def load_data():
         return jsonify({'status': 'Data loaded successfully'})
     except Exception as e:
         logger.error(f"Load failed: {e}", exc_info=True)
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': 'Load failed'}), 500
 
 
 if __name__ == '__main__':
