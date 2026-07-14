@@ -681,8 +681,12 @@
             // Ward boundaries toggle
             document.getElementById('toggle-wards').addEventListener('change', (e) => {
                 const visibility = e.target.checked ? 'visible' : 'none';
-                map.setLayoutProperty('ward-fill', 'visibility', visibility);
-                map.setLayoutProperty('ward-outline', 'visibility', visibility);
+                if (map.getLayer('ward-fill')) {
+                    map.setLayoutProperty('ward-fill', 'visibility', visibility);
+                }
+                if (map.getLayer('ward-outline')) {
+                    map.setLayoutProperty('ward-outline', 'visibility', visibility);
+                }
             });
 
             // TIGER roads toggle (both glow and main layers)
