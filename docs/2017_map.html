@@ -213,6 +213,7 @@
         let allFeatures = [];
         let wardsBoundaries = null;
         let tigerRoads = null;
+        let mapReady = false;
 
         // Load TIGER roads (reference data)
         console.log('Loading TIGER roads...');
@@ -224,6 +225,7 @@
             .then(data => {
                 tigerRoads = data;
                 console.log('TIGER roads loaded:', data.features.length);
+                if (mapReady) addTigerLayer();
             })
             .catch(err => console.warn('TIGER roads not available:', err.message));
 
@@ -259,7 +261,9 @@
 
                 // Initialize map
                 map.on('load', () => {
+                    mapReady = true;
                     addMapLayers();
+                    if (tigerRoads) addTigerLayer();
                 });
             })
             .catch(err => {
@@ -280,40 +284,8 @@
             })
             .catch(err => console.warn('Ward boundaries not available:', err.message));
 
-        function addMapLayers() {
-            // Ward boundaries
-            if (wardsBoundaries) {
-                map.addSource('wards', {
-                    type: 'geojson',
-                    data: wardsBoundaries
-                });
-
-                map.addLayer({
-                    id: 'ward-fill',
-                    type: 'fill',
-                    source: 'wards',
-                    layout: { visibility: 'none' },
-                    paint: {
-                        'fill-color': '#808080',
-                        'fill-opacity': 0.05
-                    }
-                });
-
-                map.addLayer({
-                    id: 'ward-outline',
-                    type: 'line',
-                    source: 'wards',
-                    layout: { visibility: 'none' },
-                    paint: {
-                        'line-color': '#666',
-                        'line-width': 2,
-                        'line-opacity': 0.6
-                    }
-                });
-            }
-
-            // TIGER roads (reference layer) - with glow effect
-            if (tigerRoads) {
+        function addTigerLayer() {
+            if (!tigerRoads || !map.getSource('tiger-roads')) {
                 map.addSource('tiger-roads', {
                     type: 'geojson',
                     data: tigerRoads
@@ -343,6 +315,39 @@
                         'line-color': '#00d9ff',
                         'line-width': 2,
                         'line-opacity': 0.35
+                    }
+                });
+            }
+        }
+
+        function addMapLayers() {
+            // Ward boundaries
+            if (wardsBoundaries) {
+                map.addSource('wards', {
+                    type: 'geojson',
+                    data: wardsBoundaries
+                });
+
+                map.addLayer({
+                    id: 'ward-fill',
+                    type: 'fill',
+                    source: 'wards',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'fill-color': '#808080',
+                        'fill-opacity': 0.05
+                    }
+                });
+
+                map.addLayer({
+                    id: 'ward-outline',
+                    type: 'line',
+                    source: 'wards',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#666',
+                        'line-width': 2,
+                        'line-opacity': 0.6
                     }
                 });
             }
