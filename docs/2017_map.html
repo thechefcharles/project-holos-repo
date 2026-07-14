@@ -183,11 +183,11 @@
                 version: 8,
                 name: 'Modern Data Map',
                 sources: {
-                    osm: {
+                    positron: {
                         type: 'raster',
-                        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+                        tiles: ['https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png'],
                         tileSize: 256,
-                        attribution: '© OpenStreetMap contributors'
+                        attribution: '© CartoDB, © OpenStreetMap contributors'
                     }
                 },
                 layers: [
@@ -197,15 +197,11 @@
                         paint: { 'background-color': '#ffffff' }
                     },
                     {
-                        id: 'osm-tiles',
+                        id: 'positron-tiles',
                         type: 'raster',
-                        source: 'osm',
+                        source: 'positron',
                         minzoom: 0,
-                        maxzoom: 18,
-                        paint: {
-                            'raster-opacity': 0.3,
-                            'raster-fade-duration': 0
-                        }
+                        maxzoom: 18
                     }
                 ]
             },
@@ -331,8 +327,8 @@
                     layout: { visibility: 'none' },
                     paint: {
                         'line-color': '#ffffff',
-                        'line-width': 4,
-                        'line-opacity': 0.6,
+                        'line-width': 5,
+                        'line-opacity': 1.0,
                         'line-blur': 2
                     }
                 });
@@ -345,8 +341,8 @@
                     layout: { visibility: 'none' },
                     paint: {
                         'line-color': '#00d9ff',
-                        'line-width': 3,
-                        'line-opacity': 0.85
+                        'line-width': 3.5,
+                        'line-opacity': 1.0
                     }
                 });
             }
