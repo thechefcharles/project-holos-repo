@@ -230,19 +230,23 @@
         let tigerRoads = null;
         let mapReady = false;
 
-        // Load TIGER roads (reference data)
-        console.log('Loading TIGER roads...');
-        fetch('tiger_roads.geojson')
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                return res.json();
-            })
-            .then(data => {
-                tigerRoads = data;
-                console.log('TIGER roads loaded:', data.features.length);
-                if (mapReady) addTigerLayer();
-            })
-            .catch(err => console.warn('TIGER roads not available:', err.message));
+        // Load TIGER roads (reference data, clipped to Chicago boundary)
+        function loadTigerRoads() {
+            const bbox = map.getBounds();
+            const url = `https://project-holos-repo-production.up.railway.app/api/tiger-roads.geojson?bbox=${bbox.getWest()},${bbox.getSouth()},${bbox.getEast()},${bbox.getNorth()}`;
+            console.log('Loading TIGER roads...');
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })
+                .then(data => {
+                    tigerRoads = data;
+                    console.log('TIGER roads loaded:', data.features.length);
+                    if (mapReady) addTigerLayer();
+                })
+                .catch(err => console.warn('TIGER roads not available:', err.message));
+        }
 
         // Load 2017 geodata
         console.log('Loading 2017 aldermanic spending...');
@@ -285,6 +289,7 @@
                     // Load API data with bbox
                     loadStreetCenterlines();
                     loadCurbCenterlines();
+                    loadTigerRoads();
 
                     // Reload data on move/zoom (throttled)
                     let moveTimeout;
@@ -293,6 +298,7 @@
                         moveTimeout = setTimeout(() => {
                             loadStreetCenterlines();
                             loadCurbCenterlines();
+                            loadTigerRoads();
                         }, 500);
                     });
                 });
