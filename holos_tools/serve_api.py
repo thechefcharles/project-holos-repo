@@ -39,6 +39,17 @@ def index():
         return f.read()
 
 
+@app.route('/<path:filename>', methods=['GET'])
+def serve_static(filename):
+    """Serve static GeoJSON files from docs directory."""
+    import os
+    filepath = f'/app/docs/{filename}'
+    if os.path.exists(filepath) and filename.endswith('.geojson'):
+        with open(filepath, 'r') as f:
+            return f.read(), 200, {'Content-Type': 'application/geo+json'}
+    return jsonify({'error': 'File not found'}), 404
+
+
 @app.route('/api/streets.geojson', methods=['GET'])
 def get_streets():
     """Serve street centerlines as GeoJSON."""
