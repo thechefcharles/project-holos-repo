@@ -282,6 +282,7 @@
                 map.on('load', () => {
                     mapReady = true;
                     addMapLayers();
+                    if (wardsBoundaries) addWardLayers();
                     if (curbCenterlines) addCurbCenterlinesLayer();
                     if (streetCenterlines) addStreetCenterlinesLayer();
                     if (chicagoBoundary) addChicagoBoundaryLayer();
