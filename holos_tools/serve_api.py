@@ -190,6 +190,45 @@ def get_tiger_roads():
         return jsonify({'error': str(e)}), 500
 
 
+@app.route('/api/alleys.geojson', methods=['GET'])
+def get_alleys():
+    """Serve alleys within Chicago boundary."""
+    bbox = request.args.get('bbox')
+
+    if bbox:
+        try:
+            min_lon, min_lat, max_lon, max_lat = map(float, bbox.split(','))
+            sql = f"""
+                SELECT ST_AsGeoJSON(geometry) as geometry, "FULLNAME" as name
+                FROM public.alleys
+                WHERE ST_Intersects(geometry, ST_MakeEnvelope({min_lon}, {min_lat}, {max_lon}, {max_lat}, 4326))
+                LIMIT 50000
+            """
+        except ValueError:
+            return jsonify({'error': 'Invalid bbox format'}), 400
+    else:
+        return jsonify({'error': 'bbox parameter required'}), 400
+
+    try:
+        results = get_db().execute(sql)
+        features = []
+        for row in results:
+            features.append({
+                'type': 'Feature',
+                'geometry': json.loads(row['geometry']),
+                'properties': {'name': row['name']}
+            })
+
+        geojson = {
+            'type': 'FeatureCollection',
+            'features': features
+        }
+        return jsonify(geojson)
+    except Exception as e:
+        logger.error(f"Error fetching alleys: {e}")
+        return jsonify({'error': str(e)}), 500
+
+
 @app.route('/health', methods=['GET'])
 def health():
     """Health check."""

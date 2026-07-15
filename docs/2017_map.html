@@ -154,6 +154,10 @@
                 <input type="checkbox" id="toggle-tiger" style="margin-right: 8px; cursor: pointer;">
                 <span>Show TIGER Roads (Reference)</span>
             </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-alleys" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Alleys</span>
+            </label>
         </div>
         <div class="stats">
             <div><span class="stats-number" id="displayed-count">0</span> / <span class="stats-number" id="total-count">0</span> projects</div>
@@ -225,6 +229,7 @@
         let allFeatures = [];
         let wardsBoundaries = null;
         let chicagoBoundary = null;
+        let alleys = null;
         let streetCenterlines = null;
         let curbCenterlines = null;
         let tigerRoads = null;
@@ -246,6 +251,24 @@
                     if (mapReady) addTigerLayer();
                 })
                 .catch(err => console.warn('TIGER roads not available:', err.message));
+        }
+
+        // Load alleys from API (with bbox)
+        function loadAlleys() {
+            const bbox = map.getBounds();
+            const url = `https://project-holos-repo-production.up.railway.app/api/alleys.geojson?bbox=${bbox.getWest()},${bbox.getSouth()},${bbox.getEast()},${bbox.getNorth()}`;
+            console.log('Loading alleys...');
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })
+                .then(data => {
+                    alleys = data;
+                    console.log('Alleys loaded:', data.features.length);
+                    if (mapReady) addAlleysLayer();
+                })
+                .catch(err => console.warn('Alleys not available:', err.message));
         }
 
         // Load 2017 geodata
@@ -291,6 +314,7 @@
                     loadStreetCenterlines();
                     loadCurbCenterlines();
                     loadTigerRoads();
+                    loadAlleys();
 
                     // Reload data on move/zoom (throttled)
                     let moveTimeout;
@@ -300,6 +324,7 @@
                             loadStreetCenterlines();
                             loadCurbCenterlines();
                             loadTigerRoads();
+                            loadAlleys();
                         }, 500);
                     });
                 });
@@ -518,6 +543,27 @@
             }
         }
 
+        function addAlleysLayer() {
+            if (alleys && !map.getSource('alleys')) {
+                map.addSource('alleys', {
+                    type: 'geojson',
+                    data: alleys
+                });
+
+                map.addLayer({
+                    id: 'alleys-layer',
+                    type: 'line',
+                    source: 'alleys',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#ff6b9d',
+                        'line-width': 1.5,
+                        'line-opacity': 0.7
+                    }
+                });
+            }
+        }
+
         function addMapLayers() {
             // Spending data source
             map.addSource('spending-2017', {
@@ -698,6 +744,14 @@
                 }
                 if (map.getLayer('tiger-roads-layer')) {
                     map.setLayoutProperty('tiger-roads-layer', 'visibility', visibility);
+                }
+            });
+
+            // Alleys toggle
+            document.getElementById('toggle-alleys').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('alleys-layer')) {
+                    map.setLayoutProperty('alleys-layer', 'visibility', visibility);
                 }
             });
         }
