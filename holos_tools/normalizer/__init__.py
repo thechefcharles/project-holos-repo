@@ -254,24 +254,20 @@ def validate_geography(
                 continue
 
             try:
-                # Try to check if point is within ward polygon (multiple table name options)
-                result = None
-                for table_name in ['ref.wards_2023', 'ref.wards', 'public.wards']:
-                    try:
-                        cur.execute(
-                            f"""
-                            SELECT ST_Contains(
-                                (SELECT geom FROM {table_name} WHERE ward_id = %s OR ward = %s),
-                                ST_Point(%s, %s)
-                            ) as is_contained
-                            """,
-                            (int(ward), int(ward), float(lon), float(lat))
-                        )
-                        result = cur.fetchone()
-                        if result:
-                            break
-                    except:
-                        continue
+                # Check if point is within ward polygon
+                # Table: ref.wards (columns: ward_number, geom, vintage)
+                cur.execute(
+                    """
+                    SELECT ST_Contains(
+                        (SELECT geom FROM ref.wards
+                         WHERE ward_number = %s
+                         ORDER BY vintage DESC LIMIT 1),
+                        ST_Point(%s, %s)
+                    ) as is_contained
+                    """,
+                    (int(ward), float(lon), float(lat))
+                )
+                result = cur.fetchone()
 
                 if result and result[0]:
                     passes += 1
@@ -285,8 +281,7 @@ def validate_geography(
                     )
             except Exception as e:
                 skip += 1
-                # Don't print every error, just track it
-                pass
+                typer.echo(f"  [{idx:4d}] ? Error: {e}", err=True)
 
     conn.close()
 
@@ -298,6 +293,7 @@ def validate_geography(
     typer.echo(f"  Passed (contained): {passes}/{total_checked} ({pass_rate:.1f}%)")
     typer.echo(f"  Failed (mismatch): {fails}/{total_checked}")
     typer.echo(f"  Skipped (missing coords): {skip}")
+    typer.echo(f"  Note: Validation requires ref.wards table with ward_number + geom columns")
 
     if fails > 0:
         typer.echo(f"\n⚠️  {fails} records have ward-containment issues.")
