@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "ward": 1,
+    "year": 2017,
+    "segmentation_type": "alley_by_block",
+    "method": "street_intersection_division",
+    "unit": "feet",
+    "note": "Pilot segmentation using synthetic data; production will use real street intersections from PostGIS"
+  },
+  "segments": [
+    {
+      "segment_id": "alley_001_seg1",
+      "alley_id": "alley_001",
+      "alley_name": "Alley between California & Francisco",
+      "block": "2700-2800 W Shakespeare Ave",
+      "segment_number": 1,
+      "total_segments": 1,
+      "coordinates": [
+        [
+          -87.6972,
+          41.9206
+        ],
+        [
+          -87.6972,
+          41.9201
+        ]
+      ],
+      "length_m": 55.6,
+      "length_ft": 182.41,
+      "distance_from_start_m": 0.0,
+      "distance_from_start_ft": 0.0,
+      "intersecting_streets": [
+        {
+          "name": "W Shakespeare Ave",
+          "coord": [
+            -87.6972,
+            41.9206
+          ]
+        },
+        {
+          "name": "W Palmer St",
+          "coord": [
+            -87.6972,
+            41.9201
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "alley_002_seg1",
+      "alley_id": "alley_002",
+      "alley_name": "Alley at Chicago & Bishop",
+      "block": "1500-1600 W Chicago Ave",
+      "segment_number": 1,
+      "total_segments": 1,
+      "coordinates": [
+        [
+          -87.6641,
+          41.8966
+        ],
+        [
+          -87.6636,
+          41.8966
+        ]
+      ],
+      "length_m": 41.38,
+      "length_ft": 135.77,
+      "distance_from_start_m": 0.0,
+      "distance_from_start_ft": 0.0,
+      "intersecting_streets": [
+        {
+          "name": "N Bishop St",
+          "coord": [
+            -87.6641,
+            41.8966
+          ]
+        },
+        {
+          "name": "N Armour St",
+          "coord": [
+            -87.6636,
+            41.8966
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "alley_003_seg1",
+      "alley_id": "alley_003",
+      "alley_name": "Alley at Bloomingdale",
+      "block": "2800-2900 W Bloomingdale Ave",
+      "segment_number": 1,
+      "total_segments": 1,
+      "coordinates": [
+        [
+          -87.698,
+          41.914
+        ],
+        [
+          -87.6975,
+          41.914
+        ]
+      ],
+      "length_m": 41.37,
+      "length_ft": 135.74,
+      "distance_from_start_m": 0.0,
+      "distance_from_start_ft": 0.0,
+      "intersecting_streets": [
+        {
+          "name": "N Claremont Ave",
+          "coord": [
+            -87.698,
+            41.914
+          ]
+        },
+        {
+          "name": "N Ashland Ave",
+          "coord": [
+            -87.6975,
+            41.914
+          ]
+        }
+      ]
+    }
+  ]
+}
