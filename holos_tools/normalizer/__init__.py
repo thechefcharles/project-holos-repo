@@ -220,22 +220,12 @@ def validate_geography(
 
     # Connect to database (Supabase or local)
     import os
-    supabase_url = os.getenv("SUPABASE_URL")
-    supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+    supabase_conn_str = os.getenv("SUPABASE_CONNECTION_STRING")
 
     try:
-        if supabase_url and supabase_key and supabase_key != "PASTE_SERVICE_ROLE_KEY_HERE":
-            # Connect to Supabase
-            # Supabase URL format: https://xxxxx.supabase.co
-            # Extract project ref from URL
-            project_ref = supabase_url.split("//")[1].split(".")[0]
-            conn = psycopg.connect(
-                host=f"{project_ref}.supabase.co",
-                database="postgres",
-                user="postgres",
-                password=supabase_key,
-                port=5432
-            )
+        if supabase_conn_str and "pooler.supabase.com" in supabase_conn_str:
+            # Connect to Supabase via connection pooler
+            conn = psycopg.connect(supabase_conn_str)
         else:
             # Fall back to local Postgres
             conn = psycopg.connect(
@@ -247,7 +237,7 @@ def validate_geography(
             )
     except Exception as e:
         typer.echo(f"✗ Database connection failed: {e}", err=True)
-        typer.echo(f"  Tip: Add SUPABASE_SERVICE_ROLE_KEY to .env to connect to production", err=True)
+        typer.echo(f"  Tip: Add SUPABASE_CONNECTION_STRING to .env for production", err=True)
         raise typer.Exit(1)
 
     # Load geocoded CSV
@@ -274,17 +264,17 @@ def validate_geography(
 
             try:
                 # Check if point is within ward polygon
-                # Table: ref.wards (columns: ward_number, geom, vintage)
+                # Table: public.wards_2023 (ward is TEXT, geom is MultiPolygon SRID 4326)
+                # Must use ST_Point with SRID to match ward geometry SRID
                 cur.execute(
                     """
                     SELECT ST_Contains(
-                        (SELECT geom FROM ref.wards
-                         WHERE ward_number = %s
-                         ORDER BY vintage DESC LIMIT 1),
-                        ST_Point(%s, %s)
+                        (SELECT geom FROM public.wards_2023
+                         WHERE ward::text = %s),
+                        ST_Point(%s, %s, 4326)
                     ) as is_contained
                     """,
-                    (int(ward), float(lon), float(lat))
+                    (str(ward), float(lon), float(lat))
                 )
                 result = cur.fetchone()
 
