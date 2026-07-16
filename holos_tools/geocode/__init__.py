@@ -126,6 +126,10 @@ def cascade(
             "reason": result.reason,
         }
 
+        # Include geometry_wkt for LINESTRING results (street segments)
+        if result.geometry_wkt:
+            output["geometry_wkt"] = result.geometry_wkt
+
         if json_output:
             print(json.dumps(output, indent=2))
         else:

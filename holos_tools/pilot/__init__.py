@@ -106,7 +106,12 @@ def geocode_batch(
 
         result = run_geocode_cascade(location_text, run_id, ward="1")
 
-        if result.get('status') == 'success' and result.get('coordinates'):
+        # Success: either POINT with coordinates OR LINESTRING (street segment)
+        has_result = result.get('status') == 'success' and (
+            result.get('coordinates') or
+            result.get('geometry_wkt')  # LINESTRING for street segments
+        )
+        if has_result:
             success_count += 1
             typer.echo(" ✓")
         else:
@@ -135,9 +140,38 @@ def geocode_batch(
             result = rec['_geocoding_result']
             coords = result.get('coordinates') or []
 
-            # coordinates are [lon, lat] from holos geocode cascade
-            lat = coords[1] if len(coords) > 1 else ''
-            lon = coords[0] if len(coords) > 0 else ''
+            # For POINT results: coordinates are [lon, lat]
+            # For LINESTRING results: extract centroid via PostGIS if available
+            lat = ''
+            lon = ''
+
+            if len(coords) > 1:  # POINT geometry
+                lon = coords[0]
+                lat = coords[1]
+            elif result.get('geometry_wkt'):  # LINESTRING or MULTILINESTRING: extract centroid
+                # Simple WKT parser for LINESTRING/MULTILINESTRING
+                wkt = result['geometry_wkt']
+                try:
+                    import re
+                    # Extract all coordinates from LINESTRING(...) or MULTILINESTRING((...),(...))
+                    # Pattern: any sequence of (x y, x y, ...) groups
+                    coord_groups = re.findall(r'\(([^)]+)\)', wkt)
+                    points = []
+                    for group in coord_groups:
+                        # Parse all points in this group: "x y, x y, ..."
+                        for point_str in group.split(','):
+                            parts = point_str.strip().split()
+                            if len(parts) >= 2:
+                                try:
+                                    points.append((float(parts[0]), float(parts[1])))
+                                except ValueError:
+                                    pass
+                    # Compute centroid as average of all points
+                    if points:
+                        lon = sum(p[0] for p in points) / len(points)
+                        lat = sum(p[1] for p in points) / len(points)
+                except Exception:
+                    pass  # If parsing fails, leave empty
 
             writer.writerow({
                 'ward': rec['ward'],
