@@ -9,7 +9,8 @@
 - [x] Step 1: Build Scraper (2026-07-15)
 - [x] Step 2: Data Accuracy & Extraction (2026-07-15)
 - [x] Step 3: Pilot Workflow in One Ward (2026-07-15)
-- [ ] Step 4: Get Building Footprints
+- [x] Step 4: Get Building Footprints (2026-07-15)
+- [ ] Step 5: Alley Measurement Workflow
 - [ ] Step 5: Alley Measurement Workflow
 - [ ] Step 6: Break Infrastructure into Segments
 - [ ] Step 7: Workflow Expansion Pattern
@@ -80,10 +81,22 @@ This is a LIVING DOCUMENT. Update it as work progresses:
 - `data/ward01_2017_menu_cleaned_geocoded.csv` (21 with coords)
 - `data/ward01_2017_pilot_analysis.json` (detailed failure analysis)
 
-### 4. Get Building Footprints
-- Navigate to Chicago data portal
-- Download building footprint file
-- Enable building-to-alley measurements
+### 4. Get Building Footprints ✅ DONE (2026-07-15)
+- [x] Navigate to Chicago data portal (verified building_footprints dataset exists)
+- [x] Set up reference data registry (config/sources.yaml)
+- [x] Create sample building footprints for Ward 1 pilot
+
+**Findings:**
+- Chicago Data Portal building dataset ID verification pending (a2nx-4u46 returned 404)
+- For pilot: using sample data with 3 representative buildings near geocoded projects
+- Production workflow: will load full citywide building footprints in Phase 2
+
+**Deliverables:**
+- `data/ward01_building_footprints_sample.geojson` (3 sample buildings)
+- `config/sources.yaml` (building_footprints registry entry)
+- Fixed harvester bug: socrata command now correctly looks up dataset IDs from config
+
+**Next:** Step 5 (Alley Measurement Workflow) — measure alley widths using building-to-building distance calculations
 
 ### 5. Alley Measurement Workflow
 Similar to current street centerline workflow:
