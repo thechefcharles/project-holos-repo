@@ -1,0 +1,418 @@
+{
+  "expansion": "Phase 1: All 50 Wards, 2017",
+  "timestamp": "2026-07-15",
+  "status": "COMPLETE",
+  "results": {
+    "total_wards": 50,
+    "extracted_records": 0,
+    "cleaned_records": 0,
+    "geocoded_records": 1749,
+    "total_spend": "$47,013,812.10",
+    "spend_geocoded": "$13,908,319.29",
+    "geocoding_success_rate_by_count": "49.1%",
+    "geocoding_success_rate_by_value": "29.6%",
+    "spend_geocoded_records": 859
+  },
+  "ward_details": [
+    {
+      "ward": 1,
+      "records": 3,
+      "spend": "$135,638.14",
+      "geocoded": 1,
+      "geocoded_spend": "$12,838.14",
+      "success_rate": "33.3%"
+    },
+    {
+      "ward": 2,
+      "records": 33,
+      "spend": "$1,090,999.12",
+      "geocoded": 11,
+      "geocoded_spend": "$270,153.31",
+      "success_rate": "33.3%"
+    },
+    {
+      "ward": 3,
+      "records": 30,
+      "spend": "$1,185,752.27",
+      "geocoded": 14,
+      "geocoded_spend": "$297,254.13",
+      "success_rate": "46.7%"
+    },
+    {
+      "ward": 4,
+      "records": 38,
+      "spend": "$1,116,811.49",
+      "geocoded": 13,
+      "geocoded_spend": "$292,887.00",
+      "success_rate": "34.2%"
+    },
+    {
+      "ward": 5,
+      "records": 21,
+      "spend": "$1,023,485.68",
+      "geocoded": 5,
+      "geocoded_spend": "$118,606.70",
+      "success_rate": "23.8%"
+    },
+    {
+      "ward": 6,
+      "records": 25,
+      "spend": "$1,292,951.14",
+      "geocoded": 5,
+      "geocoded_spend": "$141,216.88",
+      "success_rate": "20.0%"
+    },
+    {
+      "ward": 7,
+      "records": 24,
+      "spend": "$1,227,651.45",
+      "geocoded": 3,
+      "geocoded_spend": "$62,799.61",
+      "success_rate": "12.5%"
+    },
+    {
+      "ward": 8,
+      "records": 27,
+      "spend": "$1,066,687.29",
+      "geocoded": 7,
+      "geocoded_spend": "$51,851.70",
+      "success_rate": "25.9%"
+    },
+    {
+      "ward": 9,
+      "records": 27,
+      "spend": "$896,745.91",
+      "geocoded": 5,
+      "geocoded_spend": "$28,809.74",
+      "success_rate": "18.5%"
+    },
+    {
+      "ward": 10,
+      "records": 38,
+      "spend": "$973,539.56",
+      "geocoded": 21,
+      "geocoded_spend": "$245,056.83",
+      "success_rate": "55.3%"
+    },
+    {
+      "ward": 11,
+      "records": 38,
+      "spend": "$1,267,998.51",
+      "geocoded": 22,
+      "geocoded_spend": "$655,673.61",
+      "success_rate": "57.9%"
+    },
+    {
+      "ward": 12,
+      "records": 41,
+      "spend": "$1,029,789.29",
+      "geocoded": 22,
+      "geocoded_spend": "$166,026.50",
+      "success_rate": "53.7%"
+    },
+    {
+      "ward": 13,
+      "records": 68,
+      "spend": "$975,999.99",
+      "geocoded": 45,
+      "geocoded_spend": "$312,548.64",
+      "success_rate": "66.2%"
+    },
+    {
+      "ward": 14,
+      "records": 43,
+      "spend": "$939,999.33",
+      "geocoded": 9,
+      "geocoded_spend": "$56,508.88",
+      "success_rate": "20.9%"
+    },
+    {
+      "ward": 15,
+      "records": 28,
+      "spend": "$907,602.03",
+      "geocoded": 18,
+      "geocoded_spend": "$113,649.03",
+      "success_rate": "64.3%"
+    },
+    {
+      "ward": 16,
+      "records": 31,
+      "spend": "$960,056.85",
+      "geocoded": 17,
+      "geocoded_spend": "$706,914.39",
+      "success_rate": "54.8%"
+    },
+    {
+      "ward": 17,
+      "records": 36,
+      "spend": "$878,987.78",
+      "geocoded": 19,
+      "geocoded_spend": "$345,740.55",
+      "success_rate": "52.8%"
+    },
+    {
+      "ward": 18,
+      "records": 30,
+      "spend": "$1,039,042.38",
+      "geocoded": 7,
+      "geocoded_spend": "$46,132.96",
+      "success_rate": "23.3%"
+    },
+    {
+      "ward": 19,
+      "records": 14,
+      "spend": "$474,080.29",
+      "geocoded": 3,
+      "geocoded_spend": "$43,128.10",
+      "success_rate": "21.4%"
+    },
+    {
+      "ward": 20,
+      "records": 30,
+      "spend": "$1,024,298.93",
+      "geocoded": 8,
+      "geocoded_spend": "$148,826.98",
+      "success_rate": "26.7%"
+    },
+    {
+      "ward": 21,
+      "records": 41,
+      "spend": "$824,945.97",
+      "geocoded": 22,
+      "geocoded_spend": "$234,395.24",
+      "success_rate": "53.7%"
+    },
+    {
+      "ward": 22,
+      "records": 37,
+      "spend": "$1,217,816.54",
+      "geocoded": 26,
+      "geocoded_spend": "$772,793.67",
+      "success_rate": "70.3%"
+    },
+    {
+      "ward": 23,
+      "records": 62,
+      "spend": "$852,710.10",
+      "geocoded": 41,
+      "geocoded_spend": "$352,457.64",
+      "success_rate": "66.1%"
+    },
+    {
+      "ward": 24,
+      "records": 18,
+      "spend": "$574,672.44",
+      "geocoded": 6,
+      "geocoded_spend": "$205,507.18",
+      "success_rate": "33.3%"
+    },
+    {
+      "ward": 25,
+      "records": 20,
+      "spend": "$960,263.89",
+      "geocoded": 10,
+      "geocoded_spend": "$500,596.05",
+      "success_rate": "50.0%"
+    },
+    {
+      "ward": 26,
+      "records": 33,
+      "spend": "$920,845.37",
+      "geocoded": 12,
+      "geocoded_spend": "$263,214.85",
+      "success_rate": "36.4%"
+    },
+    {
+      "ward": 27,
+      "records": 32,
+      "spend": "$1,200,080.03",
+      "geocoded": 14,
+      "geocoded_spend": "$185,414.91",
+      "success_rate": "43.8%"
+    },
+    {
+      "ward": 28,
+      "records": 28,
+      "spend": "$1,273,580.66",
+      "geocoded": 12,
+      "geocoded_spend": "$447,627.43",
+      "success_rate": "42.9%"
+    },
+    {
+      "ward": 29,
+      "records": 42,
+      "spend": "$918,510.45",
+      "geocoded": 11,
+      "geocoded_spend": "$203,743.94",
+      "success_rate": "26.2%"
+    },
+    {
+      "ward": 30,
+      "records": 52,
+      "spend": "$706,024.27",
+      "geocoded": 29,
+      "geocoded_spend": "$392,327.94",
+      "success_rate": "55.8%"
+    },
+    {
+      "ward": 31,
+      "records": 37,
+      "spend": "$769,698.69",
+      "geocoded": 26,
+      "geocoded_spend": "$400,111.55",
+      "success_rate": "70.3%"
+    },
+    {
+      "ward": 32,
+      "records": 33,
+      "spend": "$837,956.03",
+      "geocoded": 17,
+      "geocoded_spend": "$276,532.21",
+      "success_rate": "51.5%"
+    },
+    {
+      "ward": 33,
+      "records": 42,
+      "spend": "$1,046,745.26",
+      "geocoded": 24,
+      "geocoded_spend": "$336,435.33",
+      "success_rate": "57.1%"
+    },
+    {
+      "ward": 34,
+      "records": 22,
+      "spend": "$672,356.77",
+      "geocoded": 15,
+      "geocoded_spend": "$293,170.88",
+      "success_rate": "68.2%"
+    },
+    {
+      "ward": 35,
+      "records": 32,
+      "spend": "$1,129,724.93",
+      "geocoded": 19,
+      "geocoded_spend": "$549,748.89",
+      "success_rate": "59.4%"
+    },
+    {
+      "ward": 36,
+      "records": 38,
+      "spend": "$949,250.85",
+      "geocoded": 21,
+      "geocoded_spend": "$275,952.14",
+      "success_rate": "55.3%"
+    },
+    {
+      "ward": 37,
+      "records": 27,
+      "spend": "$940,700.82",
+      "geocoded": 15,
+      "geocoded_spend": "$459,688.81",
+      "success_rate": "55.6%"
+    },
+    {
+      "ward": 38,
+      "records": 24,
+      "spend": "$700,983.56",
+      "geocoded": 3,
+      "geocoded_spend": "$37,576.51",
+      "success_rate": "12.5%"
+    },
+    {
+      "ward": 39,
+      "records": 27,
+      "spend": "$805,480.71",
+      "geocoded": 8,
+      "geocoded_spend": "$113,250.81",
+      "success_rate": "29.6%"
+    },
+    {
+      "ward": 40,
+      "records": 42,
+      "spend": "$985,640.10",
+      "geocoded": 20,
+      "geocoded_spend": "$256,085.90",
+      "success_rate": "47.6%"
+    },
+    {
+      "ward": 41,
+      "records": 28,
+      "spend": "$467,752.74",
+      "geocoded": 13,
+      "geocoded_spend": "$145,112.15",
+      "success_rate": "46.4%"
+    },
+    {
+      "ward": 42,
+      "records": 35,
+      "spend": "$924,931.87",
+      "geocoded": 16,
+      "geocoded_spend": "$255,746.87",
+      "success_rate": "45.7%"
+    },
+    {
+      "ward": 43,
+      "records": 34,
+      "spend": "$902,791.23",
+      "geocoded": 22,
+      "geocoded_spend": "$189,606.97",
+      "success_rate": "64.7%"
+    },
+    {
+      "ward": 44,
+      "records": 59,
+      "spend": "$721,501.91",
+      "geocoded": 42,
+      "geocoded_spend": "$472,747.35",
+      "success_rate": "71.2%"
+    },
+    {
+      "ward": 45,
+      "records": 44,
+      "spend": "$1,061,002.01",
+      "geocoded": 24,
+      "geocoded_spend": "$385,276.06",
+      "success_rate": "54.5%"
+    },
+    {
+      "ward": 46,
+      "records": 28,
+      "spend": "$1,033,795.08",
+      "geocoded": 12,
+      "geocoded_spend": "$448,242.90",
+      "success_rate": "42.9%"
+    },
+    {
+      "ward": 47,
+      "records": 74,
+      "spend": "$1,266,210.36",
+      "geocoded": 55,
+      "geocoded_spend": "$332,444.62",
+      "success_rate": "74.3%"
+    },
+    {
+      "ward": 48,
+      "records": 71,
+      "spend": "$1,192,604.10",
+      "geocoded": 46,
+      "geocoded_spend": "$693,272.47",
+      "success_rate": "64.8%"
+    },
+    {
+      "ward": 49,
+      "records": 32,
+      "spend": "$895,941.30",
+      "geocoded": 15,
+      "geocoded_spend": "$273,009.18",
+      "success_rate": "46.9%"
+    },
+    {
+      "ward": 50,
+      "records": 30,
+      "spend": "$751,176.63",
+      "geocoded": 8,
+      "geocoded_spend": "$39,605.16",
+      "success_rate": "26.7%"
+    }
+  ]
+}
