@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "start_ward": 1,
+    "end_ward": 1,
+    "year": 2017,
+    "timestamp": "2026-07-15T21:52:36.278488",
+    "successful": 1,
+    "failed": 0
+  },
+  "results": [
+    {
+      "ward": 1,
+      "year": 2017,
+      "timestamp": "2026-07-15T21:52:36.278118",
+      "steps": {
+        "extract": "skipped",
+        "validate": "skipped",
+        "geocode": "skipped"
+      },
+      "status": "complete"
+    }
+  ]
+}
