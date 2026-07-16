@@ -44,6 +44,7 @@ second original.**
 - Decisions log: **`decisions.md`** (append-only record of engineering choices)
 - The data-source registry: **`config/sources.yaml`** (dataset IDs, URLs, status, rights)
 - Reference documentation: `/docs/master-brief.md`, `/docs/tech-spec.md`, `/docs/runbook.md`, `/docs/gap-register.md`, `/docs/roadmap.md`
+- Planning & roadmaps: `/docs/sam-voice-memo-plan-*.md` (product roadmaps, updated as work progresses)
 - This constitution: `CLAUDE.md` (non-negotiable rules + Definition of Done/Ready)
 
 ### Notion owns (human/business layer only)

@@ -1,5 +1,16 @@
 # Sam Voice Memo Plan 1
 
+**Status: In Progress**
+**Last Updated: 2026-07-15**
+
+This is a LIVING DOCUMENT. Update it as work progresses:
+- Mark completed steps with `[x]`
+- Update status at the top when phases change
+- Add blockers or discoveries as they emerge
+- Link to related commits/PRs/decisions when work ships
+
+---
+
 ## Phase 1: Perfect Workflow for Ward 1, 2017
 
 ### 1. Build Scraper
