@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-07-15",
+  "ward": 1,
+  "year": 2017,
+  "pilot_results": {
+    "total_records": 38,
+    "geocoded": 21,
+    "failed": 17,
+    "success_rate_by_count": "55.3%"
+  },
+  "failure_categories": {
+    "truncated_address": {
+      "count": 1,
+      "cost": 2800.0,
+      "examples": [
+        "& N FRANCISCO AVE"
+      ],
+      "root_cause": "PDF text extraction broke lines mid-address due to column width limits"
+    },
+    "street_range": {
+      "count": 8,
+      "cost": 250569.82,
+      "examples": [
+        "LaSalle II School Playground Drinking Fountain 1148 N HONORE ST",
+        "ON N WOOD ST FROM W BEACH AVE (1420 N) TO W JULIAN ST"
+      ],
+      "root_cause": "Range addresses (FROM/TO segments) need special street_segment grammar"
+    },
+    "program_allocation": {
+      "count": 3,
+      "cost": 58345.0,
+      "examples": [
+        "Miscellaneous CDOT Projects (2017) CALIFORNIA AVE",
+        "50/50 Neighborhood Arts Program"
+      ],
+      "root_cause": "Not geographic projects - budget allocations for programs"
+    },
+    "ambiguous_address": {
+      "count": 2,
+      "cost": 314000.0,
+      "examples": [
+        "ROCKWELL ST",
+        "Tree Planting"
+      ],
+      "root_cause": "No precise address/intersection data"
+    }
+  }
+}
