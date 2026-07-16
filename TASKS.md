@@ -275,6 +275,21 @@ Last updated: 2026-07-15
     - ✓ Identified architecture gap: street_segment grammar needs tuning for range addresses
     - ✓ Deliverable: data/ward01_2017_menu_cleaned_geocoded.csv + pilot_analysis.json
 
+- [x] **Phase 1 Step 3a: Fix Street Segment Geocoding (Option A)** (Component: A - Civic)
+  - Owner: Claude Code
+  - BUILD FROM: Phase 1 Step 3 failure analysis + user approval (2026-07-15)
+  - AC: Accept LINESTRING results from stage 4 (range_bounding); convert to point coordinates via centroid
+  - Status: **DONE** (2026-07-15)
+    - ✓ Root cause: Cascade was returning LINESTRING geometry for "FROM/TO" ranges, but pilot geocode-batch rejected null coordinates
+    - ✓ Fixes:
+      * Cascade now exports geometry_wkt in JSON for LINESTRING results
+      * Pilot geocode-batch now accepts both POINT (coordinates) and LINESTRING (geometry_wkt)
+      * Added WKT parser to extract centroid from LINESTRING/MULTILINESTRING geometries
+    - ✓ Impact (Ward 1, 2017): 55.3% → 73.7% (added 7 street resurfacing projects, +$150K spend)
+    - ✓ Decision logged: decisions.md (2026-07-15)
+    - ✓ Committed: 83b0fff + b279447
+    - ✓ Next: Re-expand to all 50 wards (running in background)
+
 - [ ] **Phase 1 Step 4: Get Building Footprints** (Component: Reference Data)
   - Owner: TBD
   - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 4
