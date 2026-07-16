@@ -1005,3 +1005,27 @@ LineString records represent **failed geocoding**, not incomplete data. When geo
 - 4 are data quality issues (truncation, ambiguous addresses; fixable via Phase 2 data review)
 
 **Why this is progress:** The pipeline works. Intersections geocode at 95%+ confidence. Infrastructure/range spending is a known gap. Step 3 validates the approach; Phase 2 extends it.
+
+### 2026-07-15 — Street segment geocoding fix: LINESTRING → centroid
+**Problem:** Stage 4 (range_bounding) was successfully geocoding "FROM/TO" range addresses (e.g., "ON N WOOD ST FROM W BEACH AVE TO W JULIAN ST") and returning LINESTRING geometry, but the pilot geocode-batch command was rejecting them because it only accepted POINT coordinates.
+
+**Analysis:**
+- Grammar classifier: ✓ correctly identified "FROM/TO" patterns as street_segment
+- Stage 4 regex: ✓ correctly parsed "ON street FROM x TO y" format
+- _geocode_bounded_range: ✓ successfully found both intersection points and returned street segment geometry
+- Cascade output serialization: ✗ geometry_wkt field was missing from JSON
+- Pilot geocode-batch: ✗ checked only for coordinates field, rejected null coordinates from LINESTRING results
+
+**Solution (three fixes):**
+1. Cascade now exports geometry_wkt in JSON output for LINESTRING results
+2. Pilot geocode-batch now accepts both POINT (coordinates) and LINESTRING (geometry_wkt) results
+3. WKT parser in pilot extracts centroid from LINESTRING/MULTILINESTRING via point averaging
+
+**Impact (Ward 1, 2017 pilot):**
+- Before: 21/38 records (55.3%) ✓ geocoded with coordinates
+- After: 28/38 records (73.7%) ✓ geocoded with coordinates
+- Gained: 7 street resurfacing projects (+$150K spend now locatable)
+
+**Next:** Expand to all 50 wards and measure citywide improvement. Expected: +~$240K in locatable spend (based on Phase 1 failure analysis).
+
+**Why this works:** Stage 4 was always correct. The bug was in the pipeline integration (accepting results), not the geocoding logic itself. This validates the grammar-routed cascade architecture.
