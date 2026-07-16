@@ -8,7 +8,7 @@
 ### Phase 1 Completion Status
 - [x] Step 1: Build Scraper (2026-07-15)
 - [x] Step 2: Data Accuracy & Extraction (2026-07-15)
-- [ ] Step 3: Pilot Workflow in One Ward
+- [x] Step 3: Pilot Workflow in One Ward (2026-07-15)
 - [ ] Step 4: Get Building Footprints
 - [ ] Step 5: Alley Measurement Workflow
 - [ ] Step 6: Break Infrastructure into Segments
@@ -54,9 +54,31 @@ This is a LIVING DOCUMENT. Update it as work progresses:
 - `data/ward01_2017_menu_enhanced.csv` — with corrections + confidence scores
 - `data/ward01_2017_corrections.json` — manual review log (8 corrections, 14 pending PDF review)
 
-### 3. Pilot Workflow in One Ward
-- Start with Ward 1, test full workflow before scaling
-- This allows us to validate the entire pipeline
+### 3. Pilot Workflow in One Ward ✅ DONE (2026-07-15)
+- [x] Extract → Geocode → Validate end-to-end on Ward 1, 2017
+- [x] Measure accuracy and identify blockers
+- [x] Document findings for Phase 1 Step 4+
+
+**Results:**
+- **Records:** 21/38 geocoded successfully (55.3%)
+- **Spend:** $187K/$985K (19.0%) — high-cost projects failed!
+- **Key finding:** Most failures are street range addresses (FROM/TO), not single locations
+
+**Failure breakdown:**
+- Street range addresses (8 records, $251K): "FROM X TO Y" pattern needs street_segment grammar
+- Program allocations (3 records, $58K): "Arts Program", "Infrastructure" — not geographic
+- Ambiguous addresses (2 records, $314K): "ROCKWELL ST" (no number), single street name
+- Truncated locations (1 record, $3K): PDF parsing cut off text
+
+**What this means:** The geocoding cascade works great for intersections ($600-50K projects), but fails on the infrastructure spend category (street resurfacing $19-54K each). This is a platform gap: street_segment grammar stage is present but not tuned.
+
+**Decision:** Proceed to Step 4 (Building Footprints) with 21 successfully geocoded projects (~19% of budget). Phase 2 will fix street_segment grammar for remaining projects.
+
+**Deliverables:**
+- `holos pilot geocode-batch` — batch geocoding CLI
+- `holos pilot validate` — accuracy validation & reporting
+- `data/ward01_2017_menu_cleaned_geocoded.csv` (21 with coords)
+- `data/ward01_2017_pilot_analysis.json` (detailed failure analysis)
 
 ### 4. Get Building Footprints
 - Navigate to Chicago data portal
