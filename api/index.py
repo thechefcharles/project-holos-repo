@@ -1,6 +1,12 @@
-"""WSGI entry point for Vercel — routes to Flask app."""
+"""Vercel serverless function — Flask app handler."""
+
+import sys
+from pathlib import Path
+
+# Ensure reports module can be imported
+sys.path.insert(0, str(Path(__file__).parent))
 
 from reports import app
 
-# Vercel expects a `app` variable for WSGI
+# Export WSGI app for Vercel
 __all__ = ['app']

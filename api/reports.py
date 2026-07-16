@@ -532,5 +532,5 @@ def index():
     return html
 
 
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+# Vercel serverless: app is exported as WSGI application
+# Do not call app.run() in serverless environment
