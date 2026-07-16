@@ -121,18 +121,21 @@ def socrata(
     """
     config = _load_sources_config()
 
-    # Verify dataset is in config
+    # Verify dataset is in config and get the Socrata ID
     socrata_datasets = config.get("chicago", {}).get("datasets", {})
     if dataset not in socrata_datasets:
         typer.echo(f"✗ Dataset {dataset} not in config/sources.yaml", err=True)
         raise typer.Exit(1)
+
+    # Look up the actual Socrata dataset ID
+    dataset_id = socrata_datasets[dataset]
 
     timestamp = datetime.utcnow().strftime("%Y-%m-%d")
     source_dir = Path(f"raw/socrata/{dataset}/{timestamp}")
     source_dir.mkdir(parents=True, exist_ok=True)
 
     try:
-        url = f"https://data.cityofchicago.org/api/views/{dataset}/rows.csv"
+        url = f"https://data.cityofchicago.org/api/views/{dataset_id}/rows.csv"
         response = httpx.get(url, timeout=30.0)
         response.raise_for_status()
         data = response.content

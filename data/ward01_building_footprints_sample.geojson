@@ -1,0 +1,110 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -87.697,
+              41.9206
+            ],
+            [
+              -87.6965,
+              41.9206
+            ],
+            [
+              -87.6965,
+              41.9201
+            ],
+            [
+              -87.697,
+              41.9201
+            ],
+            [
+              -87.697,
+              41.9206
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "bldg_id": "1001",
+        "address": "2743 W Shakespeare Ave",
+        "area_sqft": 3500
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -87.6643,
+              41.8966
+            ],
+            [
+              -87.6638,
+              41.8966
+            ],
+            [
+              -87.6638,
+              41.8961
+            ],
+            [
+              -87.6643,
+              41.8961
+            ],
+            [
+              -87.6643,
+              41.8966
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "bldg_id": "1002",
+        "address": "1550 W Chicago Ave",
+        "area_sqft": 4200
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -87.698,
+              41.914
+            ],
+            [
+              -87.6975,
+              41.914
+            ],
+            [
+              -87.6975,
+              41.9135
+            ],
+            [
+              -87.698,
+              41.9135
+            ],
+            [
+              -87.698,
+              41.914
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "bldg_id": "1003",
+        "address": "2828 W Bloomingdale Ave",
+        "area_sqft": 5100
+      }
+    }
+  ]
+}

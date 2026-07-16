@@ -10,6 +10,14 @@ coordinate_systems:
 chicago:
   socrata_base: "https://data.cityofchicago.org/resource"
 
+  # Flat dataset mapping for holos harvest socrata CLI
+  datasets:
+    street_center_lines: "6imu-meau"
+    ward_boundaries_2023: "p293-wvbd"
+    ward_offices: "f4sz-sn2p"
+    service_requests_311: "v6vf-nfxy"
+    building_footprints: "a2nx-4u46"
+
   # Reference layers (public, no special rights needed)
   reference_data:
     street_center_lines:
@@ -46,6 +54,17 @@ chicago:
     #   rights: "public-record"
     #   status: "to_verify"
     #   role: "exact-match geocoding stage"
+
+    building_footprints:
+      id: "a2nx-4u46"
+      tier: "public"
+      rights: "public-record"
+      status: "in_hand"
+      role: "alley/street width measurement; Phase 1 Step 4"
+      notes: |
+        Chicago building outlines dataset; used for measuring alley/street widths.
+        For Phase 1 pilot: using sample data (data/ward01_building_footprints_sample.geojson).
+        Production load: will use full Chicago Data Portal dataset when dataset ID verified.
 
     # building_permits:
     #   id: "[[verify on portal]]"
