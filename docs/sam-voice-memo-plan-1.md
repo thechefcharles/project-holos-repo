@@ -12,7 +12,8 @@
 - [x] Step 4: Get Building Footprints (2026-07-15)
 - [x] Step 5: Alley Measurement Workflow (2026-07-15)
 - [x] Step 6: Break Infrastructure into Segments (2026-07-15)
-- [ ] Step 7: Workflow Expansion Pattern
+- [x] Step 7: Workflow Expansion Pattern (2026-07-15)
+- [ ] Step 8: Data Pipeline Goal
 - [ ] Step 5: Alley Measurement Workflow
 - [ ] Step 6: Break Infrastructure into Segments
 - [ ] Step 7: Workflow Expansion Pattern
@@ -168,11 +169,43 @@ We replicate this for alleys to enable block-level spending analysis.
 - `data/ward01_alleys_segmented.json` (segment-level metadata)
 - Reusable geometry functions: line_length(), segment_line_by_points()
 
-### 7. Workflow Expansion Pattern
-Once Ward 1, 2017 is working perfectly:
-1. Expand to all wards for year 2017
-2. Once all wards in 2017 are accurate
-3. Then expand to multi-year mapping and assessment
+### 7. Workflow Expansion Pattern ✅ DONE (2026-07-15)
+- [x] Build pipeline orchestration for multi-ward processing
+- [x] Implement idempotent workflow (skip already-processed wards)
+- [x] Create status tracking and metrics reporting
+- [x] Enable incremental expansion (one ward at a time)
+
+**Expansion Path:**
+1. ✅ Prove workflow on Ward 1, 2017 (Step 1-6 complete)
+2. **Ready:** Expand to all wards for year 2017 (scaling phase)
+3. **Next:** Once all wards in 2017 are accurate, expand to multi-year (2012-2025)
+
+**Commands:**
+```bash
+# Expand to wards 1-10
+holos workflow expand-to-wards --start-ward 1 --end-ward 10 --year 2017
+
+# Check status across all 50 wards
+holos workflow status --year 2017
+
+# Force reprocessing if needed
+holos workflow expand-to-wards --start-ward 11 --end-ward 20 --force
+```
+
+**Orchestration Strategy:**
+- Idempotent: skips completed wards
+- Sequential: processes one ward at a time (or parallel with fleet of workers)
+- Tracked: outputs workflow_results_YYYY_wNN-wMM.json per run
+- Resumable: can restart mid-batch without losing progress
+
+**Status Dashboard (pilot result):**
+- Complete (geocoded): 1/50 (Ward 1)
+- Ready to expand: All infrastructure in place
+
+**Deliverables:**
+- `holos workflow expand-to-wards` (multi-ward orchestration)
+- `holos workflow status` (progress tracking)
+- `workflow_results_*.json` (metrics and results logging)
 
 ### 8. Data Pipeline Goal
 Navigate public documents → Download → Extract → Geo-locate → Encode
