@@ -253,17 +253,27 @@ Last updated: 2026-07-15
     - ✓ Total spend: $3,624,797.65 across 10 categories
     - Note: 67% of records ("Unknown" category) lack category detail from PDF
 
-- [ ] **Phase 1 Step 2: Data Accuracy & Extraction** (Component: A - Civic)
-  - Owner: TBD
+- [x] **Phase 1 Step 2: Data Accuracy & Extraction** (Component: A - Civic)
+  - Owner: Claude Code
   - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 2
   - AC: Validate extracted Ward 1 data for accuracy; identify and fix category misclassifications
-  - Blockers: None (Step 1 complete)
-  - Next: Phase 1 Step 3 (pilot full workflow)
+  - Status: **DONE** (2026-07-15)
+    - ✓ Audited data: removed 3 summary rows (MENU BUDGET, WARD TOTAL) → 38 projects
+    - ✓ Corrected 8 high-confidence "Unknown" categories via pattern matching
+    - ✓ Created `holos validator audit/clean` CLI commands
+    - ✓ Deliverable: data/ward01_2017_menu_cleaned.csv (38 projects, $3.4M)
+    - Note: 14 remaining "Unknown" entries need PDF page review
 
-- [ ] **Phase 1 Step 3: Pilot Workflow in One Ward** (Component: A - Civic)
-  - Owner: TBD
+- [x] **Phase 1 Step 3: Pilot Workflow in One Ward** (Component: A - Civic)
+  - Owner: Claude Code
   - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 3
   - AC: Extract → Geocode → Validate end-to-end on Ward 1, 2017; measure accuracy; iterate
+  - Status: **DONE** (2026-07-15)
+    - ✓ Geocoded 21/38 records successfully (55.3%)
+    - ✓ Cost geocoded: $187K/$985K (19.0%) — infrastructure/range projects failed
+    - ✓ Created `holos pilot geocode-batch` + `holos pilot validate` CLI
+    - ✓ Identified architecture gap: street_segment grammar needs tuning for range addresses
+    - ✓ Deliverable: data/ward01_2017_menu_cleaned_geocoded.csv + pilot_analysis.json
 
 - [ ] **Phase 1 Step 4: Get Building Footprints** (Component: Reference Data)
   - Owner: TBD
