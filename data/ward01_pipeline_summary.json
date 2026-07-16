@@ -1,0 +1,60 @@
+{
+  "pipeline": "Public Documents \u2192 CSV \u2192 GeoJSON",
+  "ward": 1,
+  "year": 2017,
+  "status": "COMPLETE",
+  "timestamp": "2026-07-15",
+  "steps": {
+    "1_extract": {
+      "description": "Extract spending from PDF menu",
+      "input": "2017OBMMenu50WardDetailsRpt3Dec2018.pdf",
+      "output": "data/ward01_2017_menu.csv",
+      "records": 41,
+      "total_spend": "$3,624,797.65"
+    },
+    "2_validate": {
+      "description": "Clean and validate extracted data",
+      "input": "data/ward01_2017_menu.csv",
+      "output": "data/ward01_2017_menu_cleaned.csv",
+      "records": 38,
+      "improvements": "Removed 3 summary rows, corrected 8 categories"
+    },
+    "3_geocode": {
+      "description": "Geocode locations to coordinates",
+      "input": "data/ward01_2017_menu_cleaned.csv",
+      "output": "data/ward01_2017_menu_cleaned_geocoded.csv",
+      "success_rate": "55.3% (21/38 records)",
+      "success_by_value": "19.0% ($187K/$985K)",
+      "method": "Cascading geocoder with 8 stages",
+      "actual_success": "21/38"
+    },
+    "4_measure": {
+      "description": "Measure alley widths using building footprints",
+      "input": "Building footprints + alley centerlines",
+      "output": "data/ward01_alley_widths_measured.json",
+      "measurements": 3,
+      "method": "Building-to-building distance (Haversine)"
+    },
+    "5_segment": {
+      "description": "Segment alleys by city blocks",
+      "input": "Alley centerlines + street intersections",
+      "output": "data/ward01_alleys_segmented.json",
+      "segments": 3,
+      "total_length_ft": 453.9,
+      "avg_segment_ft": 151.3
+    }
+  },
+  "outputs": {
+    "geojson": "GeoJSON with spending + location + measurements",
+    "csv": "Cleaned CSV ready for analysis",
+    "json": "Structured data with metadata",
+    "metrics": "Success rates, confidence scores, quality indicators"
+  },
+  "next_steps": [
+    "Expand to all 50 wards (2017)",
+    "Multi-year analysis (2012-2025)",
+    "Cost-per-block analysis",
+    "Need-match scoring (vs 311 requests)",
+    "Budget optimization recommendations"
+  ]
+}
