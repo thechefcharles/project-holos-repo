@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "ward": 1,
+    "year": 2017,
+    "source": "Manual review of 2017OBMMenu50WardDetailsRpt3Dec2018.pdf",
+    "reviewer": "Phase 1 Step 2: Data Accuracy & Extraction",
+    "status": "in_progress"
+  },
+  "corrections": [
+    {
+      "row": 9,
+      "location": "N CALIFORNIA AVE & W SHAKESPEARE AVE",
+      "cost": 600.0,
+      "original_category": "Unknown",
+      "corrected_category": "Traffic Signal Work",
+      "confidence": 0.7,
+      "notes": "Pattern: intersection + $600 cost suggests traffic signal/lighting work"
+    },
+    {
+      "row": 10,
+      "location": "N CALIFORNIA AVE & W ALTGELD ST",
+      "cost": 600.0,
+      "original_category": "Unknown",
+      "corrected_category": "Traffic Signal Work",
+      "confidence": 0.7,
+      "notes": "Same pattern as row 9"
+    },
+    {
+      "row": 11,
+      "location": "N CALIFORNIA AVE & W PALMER ST",
+      "cost": 350.0,
+      "original_category": "Unknown",
+      "corrected_category": "Traffic Signal Work",
+      "confidence": 0.6,
+      "notes": "Lower cost variant, likely related work"
+    },
+    {
+      "row": 25,
+      "location": "LaSalle II School Playground Drinking Fountain 1148 N HONORE ST",
+      "cost": 9300.0,
+      "original_category": "Unknown",
+      "corrected_category": "Public Space Improvement",
+      "confidence": 0.9,
+      "notes": "Specific facility improvement"
+    },
+    {
+      "row": 26,
+      "location": "Miscellaneous CDOT Projects (2017) CALIFORNIA AVE",
+      "cost": 634.0,
+      "original_category": "Unknown",
+      "corrected_category": "Street/Traffic Work",
+      "confidence": 0.8,
+      "notes": "Explicitly marked as CDOT project"
+    },
+    {
+      "row": 27,
+      "location": "50/50 Neighborhood Arts Program",
+      "cost": 20000.0,
+      "original_category": "Unknown",
+      "corrected_category": "Community Program",
+      "confidence": 0.95,
+      "notes": "Explicit program name in location field"
+    },
+    {
+      "row": 28,
+      "location": "Neighborhood Infrastructure - Housing",
+      "cost": 37711.0,
+      "original_category": "Unknown",
+      "corrected_category": "Housing/Infrastructure",
+      "confidence": 0.9,
+      "notes": "Explicit category in location field"
+    },
+    {
+      "row": 39,
+      "location": "Tree Planting",
+      "cost": 50000.0,
+      "original_category": "Unknown",
+      "corrected_category": "Tree Planting",
+      "confidence": 0.95,
+      "notes": "Category name in location field"
+    }
+  ],
+  "summary": {
+    "total_unknown_records": 22,
+    "records_corrected": 8,
+    "records_needing_pdf_review": 14,
+    "notes": "14 records (intersections with $350-600 cost) need PDF review to determine if they are Traffic Signal, Street Lighting, or other category"
+  }
+}
