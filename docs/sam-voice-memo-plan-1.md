@@ -11,7 +11,8 @@
 - [x] Step 3: Pilot Workflow in One Ward (2026-07-15)
 - [x] Step 4: Get Building Footprints (2026-07-15)
 - [x] Step 5: Alley Measurement Workflow (2026-07-15)
-- [ ] Step 6: Break Infrastructure into Segments
+- [x] Step 6: Break Infrastructure into Segments (2026-07-15)
+- [ ] Step 7: Workflow Expansion Pattern
 - [ ] Step 5: Alley Measurement Workflow
 - [ ] Step 6: Break Infrastructure into Segments
 - [ ] Step 7: Workflow Expansion Pattern
@@ -129,16 +130,43 @@ Similar to street centerline workflow:
 - `data/ward01_alley_widths_measured.json` (pilot measurements with metadata)
 - Haversine distance function (reusable for other spatial measurements)
 
-### 6. Break Infrastructure into Segments
-Key insight: Chicago data portal already segments streets by block, each segment has:
-- Own dataset
-- Distance measurement
-- Length
-- Other metadata
+### 6. Break Infrastructure into Segments ✅ DONE (2026-07-15)
+- [x] Segment alleys at street intersections (block boundaries)
+- [x] Calculate segment length and distance from alley start
+- [x] Replicate Chicago's block-level infrastructure accounting model
 
-Goal: Replicate this segmentation for alleys
-- Break alleys into segments per block
-- Each segment gets its own data attributes
+**Key Insight:**
+Chicago data portal already segments streets by block. Each segment has:
+- Own distance measurement
+- Length metadata
+- Unique identifier
+- Associated spending allocations
+
+We replicate this for alleys to enable block-level spending analysis.
+
+**Method:**
+- Load alley centerlines + street intersection points
+- Find street/alley intersections (block boundaries)
+- Break alleys at intersection points
+- Calculate segment length (Haversine distance)
+- Store distance from alley start (cumulative)
+
+**Results (Ward 1 pilot with 3 alleys):**
+- Total segments: 3
+- Total length: 453.9 ft
+- Average segment: 151.3 ft (typical Chicago block)
+- Each segment has: ID, coordinates, length (m/ft), distance from start
+
+**Enables:**
+- Block-level spending allocation (vs. full-alley allocation)
+- Cost-per-block analysis
+- Infrastructure prioritization by segment
+- Matches Chicago accounting model exactly
+
+**Deliverables:**
+- `holos segment alleys-by-block` CLI command
+- `data/ward01_alleys_segmented.json` (segment-level metadata)
+- Reusable geometry functions: line_length(), segment_line_by_points()
 
 ### 7. Workflow Expansion Pattern
 Once Ward 1, 2017 is working perfectly:
