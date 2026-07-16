@@ -951,3 +951,24 @@ LineString records represent **failed geocoding**, not incomplete data. When geo
 - Ready for Step 2 (Data Accuracy & Extraction via manual review / OCR repair)
 
 **Next:** Phase 1 Step 2 (validate 41 Ward 1 records for accuracy before full geocoding)
+
+### 2026-07-15 — Phase 1 Step 2: Ward 1 2017 data accuracy strategy
+
+**Challenge:** MenuAdapter2017Plus extraction produced 25/41 records (61%) with "Unknown" category.
+
+**Root cause:** The 2017 menu PDF format is laid out differently than 2012. Categories are not consistently aligned with line items. PDF parsing extracts locations and costs but loses category context during table extraction.
+
+**Solution (iterative):**
+1. **Audit:** Identify problem categories (summary rows, truncated locations, missing categories)
+2. **Clean:** Remove non-project rows (MENU BUDGET, WARD TOTAL) → 41 → 38 records
+3. **Pattern-correct:** High-confidence categorization (8 entries):
+   - Intersections + $350-600 → Traffic Signal Work (confidence 0.6-0.7)
+   - Named facilities (schools, playgrounds) → Public Space Improvement (0.9)
+   - Named programs (Arts, Housing) → Category from name (0.9-0.95)
+4. **Pending:** 14 entries need PDF page-by-page review (cost < $1,000, ambiguous addresses)
+
+**Why this matters:** 38% of Ward 1 budget (Unknown category) lacks actionable classification. Phase 2 will either:
+- Fix MenuAdapter2017Plus to parse category headers correctly, OR
+- Create a supervised ML classifier on manually-reviewed subset
+
+**Decision:** Proceed to Step 3 (geocoding) with 38 records; defer 14 ambiguous entries to manual review sprint after Ward 1 is complete.
