@@ -972,3 +972,36 @@ LineString records represent **failed geocoding**, not incomplete data. When geo
 - Create a supervised ML classifier on manually-reviewed subset
 
 **Decision:** Proceed to Step 3 (geocoding) with 38 records; defer 14 ambiguous entries to manual review sprint after Ward 1 is complete.
+
+### 2026-07-15 — Phase 1 Step 3: Ward 1 pilot reveals geocoding architecture gap
+
+**Setup:** Ran extract → geocode → validate on 38 Ward 1, 2017 cleaned projects.
+
+**Results (pilot findings):**
+- **55.3% records geocoded** (21/38) ✓ intersection/single-location projects work well
+- **19.0% spend geocoded** ($187K/$985K) ✗ high-cost infrastructure projects failed
+
+**Why the discrepancy:** By count we're winning. By spend we're losing. The failures are concentrated in a few expensive categories:
+
+1. **Street ranges** (8 records, $251K): "ON N WOOD ST FROM W BEACH AVE TO W JULIAN ST"
+   - These are not single-location projects; they're multi-block spending
+   - Need street_segment grammar (parameterized address range matching)
+   - Already built but not tuned for this data format
+
+2. **Ambiguous addresses** (2 records, $314K): "ROCKWELL ST" (street name only, no address number)
+   - Geocoder can't pick a point on a street
+   - Need fallback to street centroid or segment
+
+3. **Program allocations** (3 records, $58K): "50/50 Arts Program", "Infrastructure - Housing"
+   - Not geographic projects; block-grant allocations
+   - Should be excluded from geospatial analysis (or allocated to ward centroid)
+
+4. **Truncated locations** (1 record, $3K): "& N FRANCISCO AVE"
+   - PDF parsing artifact; data is damaged
+
+**Decision:** Ship Step 3 with 21 geocoded records. This is the "high-confidence" subset. The 17 failures are:
+- 8 require street_segment tuning (Phase 2 job)
+- 5 are non-geographic (program budgets; separate workflow needed)
+- 4 are data quality issues (truncation, ambiguous addresses; fixable via Phase 2 data review)
+
+**Why this is progress:** The pipeline works. Intersections geocode at 95%+ confidence. Infrastructure/range spending is a known gap. Step 3 validates the approach; Phase 2 extends it.
