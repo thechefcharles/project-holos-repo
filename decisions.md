@@ -49,6 +49,23 @@ Changed `LIKE '%' || access_tier || '%'` to `access_tier = ANY (string_to_array(
 core.spending_projects RLS policy to prevent substring injection. Hardcoded role password
 removed; password must be set via `ALTER ROLE ... WITH PASSWORD` from environment variable.
 
+### 2026-07-16 — 2012 vs 2017 geocoding: platform generalizes, data quality differs
+Phase 2 multi-year validation revealed a data quality issue, not a pipeline bug:
+
+**Finding:** 2012 location strings are truncated at source (50-55 chars) due to PDF extraction limits.
+- 2012 geocoding success: 16.2% (325/2009)
+- 2017 geocoding success: 57.8% (1,030/1,784)
+
+**Root cause:** MenuAdapter2012 PDF has narrow columns; location text is cut off mid-address.
+Examples: "ON W BELMONT AVE FROM 2441 W TO N CAMPBELL AV" (incomplete), vs. 2017's full text.
+
+**Point locations work fine:** Signals/lights/intersections geocode at 87-100% in 2012,
+proving the cascade logic is sound. Only range/alley addresses fail (incomplete in source).
+
+**Decision:** 2012 data requires re-extraction from source PDF to proceed. Defer to Phase 2B.
+For now, Phase 2A work uses 2017 (complete) as validation corpus. Logged in decisions.md
+so future teams know: it's not a format/cascade issue—it's upstream data completeness.
+
 ### 2026-07-12 — Geocode cascade architecture: multi-stage fallthrough
 Cascade stages 1–5 (exact/interpolated matches on local ref data) fail on real benchmarks
 because spending records use approximations, not surveyed coordinates. Stage 6 (Census Geocoder
