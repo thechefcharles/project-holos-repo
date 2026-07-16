@@ -13,6 +13,7 @@ from holos_tools.extract import app as extract_app
 from holos_tools.scraper import app as scraper_app
 from holos_tools.validator import app as validator_app
 from holos_tools.pilot import app as pilot_app
+from holos_tools.measure import app as measure_app
 from holos_tools.geocode import app as geocode_app
 from holos_tools.validate import app as validate_app
 from holos_tools.load import app as load_app
@@ -30,6 +31,7 @@ app.add_typer(extract_app, name="extract")
 app.add_typer(scraper_app, name="scraper")
 app.add_typer(validator_app, name="validator")
 app.add_typer(pilot_app, name="pilot")
+app.add_typer(measure_app, name="measure")
 app.add_typer(geocode_app, name="geocode")
 app.add_typer(validate_app, name="validate")
 app.add_typer(load_app, name="load")

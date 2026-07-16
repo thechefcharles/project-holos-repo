@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "ward": 1,
+    "year": 2017,
+    "measurement_type": "alley_width",
+    "method": "building_footprint_distance",
+    "unit": "feet",
+    "confidence": 0.6,
+    "note": "Pilot measurement using sample data; production load will use full Chicago building footprints"
+  },
+  "measurements": [
+    {
+      "segment_id": "alley_001",
+      "segment_name": "Alley between California & Francisco",
+      "alley_width_m": 738.54,
+      "alley_width_ft": 2423.02,
+      "nearest_building_1": "2743 W Shakespeare Ave",
+      "nearest_building_2": "2828 W Bloomingdale Ave",
+      "confidence": 0.6,
+      "notes": "Pilot measurement using sample building footprints"
+    },
+    {
+      "segment_id": "alley_002",
+      "segment_name": "Alley at Chicago & Bishop",
+      "alley_width_m": 3394.33,
+      "alley_width_ft": 11136.24,
+      "nearest_building_1": "1550 W Chicago Ave",
+      "nearest_building_2": "2828 W Bloomingdale Ave",
+      "confidence": 0.6,
+      "notes": "Pilot measurement using sample building footprints"
+    },
+    {
+      "segment_id": "alley_003",
+      "segment_name": "Alley at Bloomingdale",
+      "alley_width_m": 738.54,
+      "alley_width_ft": 2423.02,
+      "nearest_building_1": "2828 W Bloomingdale Ave",
+      "nearest_building_2": "2743 W Shakespeare Ave",
+      "confidence": 0.6,
+      "notes": "Pilot measurement using sample building footprints"
+    }
+  ]
+}
