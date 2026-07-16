@@ -3,6 +3,18 @@
 **Status: In Progress**
 **Last Updated: 2026-07-15**
 
+## Progress Summary
+
+### Phase 1 Completion Status
+- [x] Step 1: Build Scraper (2026-07-15)
+- [ ] Step 2: Data Accuracy & Extraction
+- [ ] Step 3: Pilot Workflow in One Ward
+- [ ] Step 4: Get Building Footprints
+- [ ] Step 5: Alley Measurement Workflow
+- [ ] Step 6: Break Infrastructure into Segments
+- [ ] Step 7: Workflow Expansion Pattern
+- [ ] Step 8: Data Pipeline Goal
+
 This is a LIVING DOCUMENT. Update it as work progresses:
 - Mark completed steps with `[x]`
 - Update status at the top when phases change
@@ -13,10 +25,16 @@ This is a LIVING DOCUMENT. Update it as work progresses:
 
 ## Phase 1: Perfect Workflow for Ward 1, 2017
 
-### 1. Build Scraper
-- Navigate the aldermanic publications archived download
-- Download Ward 1's 2017 file
-- Convert PDF to XLS format for geo-location processing
+### 1. Build Scraper ✅ DONE (2026-07-15)
+- [x] Navigate the aldermanic publications archived download (Playwright scraper built in harvester)
+- [x] Download Ward 1's 2017 file (2017OBMMenu50WardDetailsRpt3Dec2018.pdf harvested)
+- [x] Convert PDF to structured format for geo-location processing
+
+**Deliverable:** `holos scraper extract-ward --year 2017 --ward 1`
+- Extracts 41 Ward 1 projects from 2017 menu PDF
+- Outputs: `data/ward01_2017_menu.csv`
+- Total spend: $3,624,797.65 across 10 categories
+- Key insight: 25 projects (67%) lack category classification ("Unknown")
 
 ### 2. Data Accuracy & Extraction
 - Ensure highest accuracy with extracted data
