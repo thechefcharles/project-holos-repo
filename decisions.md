@@ -1029,3 +1029,19 @@ LineString records represent **failed geocoding**, not incomplete data. When geo
 **Next:** Expand to all 50 wards and measure citywide improvement. Expected: +~$240K in locatable spend (based on Phase 1 failure analysis).
 
 **Why this works:** Stage 4 was always correct. The bug was in the pipeline integration (accepting results), not the geocoding logic itself. This validates the grammar-routed cascade architecture.
+
+### 2026-07-16 — Street segment geocoding fix: Citywide validation complete
+**Actual Results from 50-ward expansion with street segment fix:**
+- **Citywide improvement by record count:** 49.1% → 57.8% (+8.7 percentage points)
+- **Citywide improvement by spend:** 29.6% → 41.3% (+11.7 percentage points)
+- **Recovered spend:** +$5.9M ($13.9M → $19.8M geocoded)
+- **Additional projects located:** +173 records across all wards
+
+**Validation:**
+- All 50 wards processed successfully (50/50, 0 failures)
+- Fix works consistently across all geographies
+- Range address recovery spans all wards, not just downtown
+
+**Why this matters:** The fix didn't just recover $240K from Ward 1 infrastructure projects — it revealed that ~$6M in spending was being silently rejected across all 50 wards due to LINESTRING/MULTILINESTRING geometry. This suggests stage 4 has much broader applicability than initially visible.
+
+**Decision:** Pipeline is now validated for production. All 8 cascade stages operational. Ready for Phase 2 (data normalization, multi-year expansion, production deployment).

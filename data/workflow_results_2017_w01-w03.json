@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "start_ward": 1,
+    "end_ward": 3,
+    "year": 2017,
+    "timestamp": "2026-07-15T23:24:17.493837",
+    "successful": 3,
+    "failed": 0
+  },
+  "results": [
+    {
+      "ward": 1,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:22:35.995992",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 2,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:23:12.752503",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 3,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:23:45.999512",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    }
+  ]
+}

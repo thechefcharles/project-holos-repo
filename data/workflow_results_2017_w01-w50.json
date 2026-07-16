@@ -1,0 +1,562 @@
+{
+  "metadata": {
+    "start_ward": 1,
+    "end_ward": 50,
+    "year": 2017,
+    "timestamp": "2026-07-15T23:53:05.225713",
+    "successful": 50,
+    "failed": 0
+  },
+  "results": [
+    {
+      "ward": 1,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:24:39.486090",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 2,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:25:16.834360",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 3,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:25:53.128330",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 4,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:26:23.914740",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 5,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:27:00.167860",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 6,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:27:22.810116",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 7,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:27:50.219526",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 8,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:28:17.320901",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 9,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:28:46.330467",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 10,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:29:15.045535",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 11,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:29:54.974497",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 12,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:30:34.783634",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 13,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:31:15.343588",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 14,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:32:14.431547",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 15,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:33:00.936471",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 16,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:33:38.616767",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 17,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:34:09.473096",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 18,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:34:40.507377",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 19,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:35:10.628079",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 20,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:35:24.999243",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 21,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:35:54.426423",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 22,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:36:32.188788",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 23,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:37:06.932047",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 24,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:38:00.628580",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 25,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:38:19.660468",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 26,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:38:40.530673",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 27,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:39:12.867672",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 28,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:39:42.806144",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 29,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:40:09.610925",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 30,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:40:54.191434",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 31,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:41:39.804802",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 32,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:42:12.713888",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 33,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:42:43.766807",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 34,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:43:24.458271",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 35,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:43:46.083923",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 36,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:44:17.424767",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 37,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:44:52.424524",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 38,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:45:18.928565",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 39,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:45:43.537346",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 40,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:46:11.153471",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 41,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:46:52.440816",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 42,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:47:19.413303",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 43,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:47:53.810370",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 44,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:48:24.496957",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 45,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:49:14.625507",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 46,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:49:51.442955",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 47,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:50:14.999326",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 48,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:51:14.237917",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 49,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:52:11.277042",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    },
+    {
+      "ward": 50,
+      "year": 2017,
+      "timestamp": "2026-07-15T23:52:38.041516",
+      "steps": {
+        "extract": "success",
+        "validate": "success",
+        "geocode": "success"
+      },
+      "status": "complete"
+    }
+  ]
+}
