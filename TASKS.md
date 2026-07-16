@@ -370,12 +370,19 @@ Last updated: 2026-07-15
       * `holos report by-category` — Category-level spending breakdown
     - [x] 2017 snapshot: $47.9M total spend, 57.8% geocoding success
     - [x] Wired into holos CLI
+    - [x] Web dashboard built (Flask + responsive UI)
+      * GET /api/reports/summary?year=2017
+      * GET /api/reports/by-ward?year=2017
+      * GET /api/reports/by-category?year=2017
+      * Dashboard with tabbed interface, metric cards, responsive tables
+    - [x] Ready for Vercel deployment
   - Deliverables:
     - holos report summary --year 2017
     - holos report by-ward --year 2017
     - holos report by-category --year 2017
+    - Web UI at api/reports.py (endpoints + dashboard)
   - Note: Reports export to data/report_*.json for archival
-  - Next: Add need-match scoring against 311 service requests
+  - Next: Add need-match scoring against 311 service requests (Phase 2B)
 
 - [~] **Multi-year validation (2012 corpus)** (Component: A - Civic)
   - Owner: Claude Code
