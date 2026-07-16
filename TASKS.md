@@ -2,7 +2,7 @@
 
 **Repo-native build task tracker.** Grouped by phase and status. Source of truth for all build work.
 
-Last updated: 2026-07-12
+Last updated: 2026-07-15
 
 ---
 
@@ -235,6 +235,60 @@ Last updated: 2026-07-12
     - ✓ Vercel deployment: https://project-holos-repo-80yn40hik-chef-charles-projects.vercel.app/
     - ✓ Landing page + interactive map live
   - **PHASE 1 EXIT GATE PASSED** ✅
+
+---
+
+## Phase 1 Extended: Sam's Ward 1 Workflow (Detailed accuracy pipeline)
+
+**Source of truth:** `/docs/sam-voice-memo-plan-1.md` (living document, updated as work progresses)
+
+- [x] **Phase 1 Step 1: Build Scraper** (Component: A - Civic)
+  - Owner: Claude Code
+  - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 1
+  - AC: Download Ward 1's 2017 menu PDF, extract to structured CSV for geo-location processing
+  - Status: **DONE** (2026-07-15)
+    - ✓ Created `holos scraper extract-ward` CLI command
+    - ✓ Extracted 41 Ward 1 projects from 2017OBMMenu50WardDetailsRpt3Dec2018.pdf
+    - ✓ Output: data/ward01_2017_menu.csv
+    - ✓ Total spend: $3,624,797.65 across 10 categories
+    - Note: 67% of records ("Unknown" category) lack category detail from PDF
+
+- [ ] **Phase 1 Step 2: Data Accuracy & Extraction** (Component: A - Civic)
+  - Owner: TBD
+  - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 2
+  - AC: Validate extracted Ward 1 data for accuracy; identify and fix category misclassifications
+  - Blockers: None (Step 1 complete)
+  - Next: Phase 1 Step 3 (pilot full workflow)
+
+- [ ] **Phase 1 Step 3: Pilot Workflow in One Ward** (Component: A - Civic)
+  - Owner: TBD
+  - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 3
+  - AC: Extract → Geocode → Validate end-to-end on Ward 1, 2017; measure accuracy; iterate
+
+- [ ] **Phase 1 Step 4: Get Building Footprints** (Component: Reference Data)
+  - Owner: TBD
+  - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 4
+  - AC: Download Chicago building footprints from data portal; load to ref schema
+
+- [ ] **Phase 1 Step 5: Alley Measurement Workflow** (Component: A+B - Civic+Subsurface)
+  - Owner: TBD
+  - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 5
+  - AC: Measure alley widths using building footprints; replicate street centerline workflow
+
+- [ ] **Phase 1 Step 6: Break Infrastructure into Segments** (Component: A+B - Civic+Subsurface)
+  - Owner: TBD
+  - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 6
+  - AC: Segment alleys by block with distance/length metadata; match Chicago portal model
+
+- [ ] **Phase 1 Step 7: Workflow Expansion** (Component: A - Civic)
+  - Owner: TBD
+  - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 7
+  - AC: Once Ward 1, 2017 perfect; expand to all wards 2017; then multi-year
+
+- [ ] **Phase 1 Step 8: Data Pipeline Goal** (Component: A - Civic)
+  - Owner: TBD
+  - BUILD FROM: sam-voice-memo-plan-1.md Phase 1 Step 8
+  - AC: Public documents → CSV download → GIS layers with spend/location/measurement linkage
 
 ---
 
