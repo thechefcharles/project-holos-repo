@@ -338,10 +338,23 @@ Last updated: 2026-07-15
 
 ## Phase 2 (Component A+: Analytics + Component B prep)
 
-- [ ] **Build the Normalizer (master schema enforcement)** (Component: A - Civic)
-  - Owner: TBD
-  - BUILD FROM: tech-spec Part III Step 5
+- [~] **Build the Normalizer (master schema enforcement)** (Component: A - Civic)
+  - Owner: Claude Code
+  - BUILD FROM: tech-spec Part III Step 5 + Phase 1 validation results
   - AC: enforces controlled vocabularies; reconciles duplicates into conflation candidates
+  - Status: **IN PROGRESS** (2026-07-16)
+    - [x] Normalizer CLI framework built with two commands:
+      * `holos normalizer classify-unknown` — Infer categories via pattern matching
+      * `holos normalizer validate-geography` — Check ward containment (ST_Contains)
+    - [x] Pattern-based classification for 32 category types
+    - [~] Ward containment validation (schema-ready, needs boundary tables)
+    - [ ] Manual review workflow for non-geographic entries
+    - [ ] Deduplication candidate detection (conflation)
+  - Current Data Quality Snapshot:
+    - Unknown entries: 209/1784 (11.7% by count, 19.5% by spend)
+    - Ward 1 Unknown: 22/38 (58%, need manual classification)
+    - All Unknown entries flagged for review in classification output
+  - Next: Load ward boundary tables, implement manual review UI
 
 - [ ] **Ship report cards (Tool 2)** (Component: A - Civic)
   - Owner: TBD
