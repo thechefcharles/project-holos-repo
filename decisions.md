@@ -932,3 +932,22 @@ LineString records represent **failed geocoding**, not incomplete data. When geo
 3. Investigate and fix the cascade stage(s) causing 109 misses
 
 **Why this is good news:** The 2012 data itself isn't damaged. The geocoding pipeline just needs tuning. The 20 Point records prove extraction works; the LineString records are a known geocoder artifact. Phase 2 has a clear path to recovery.
+
+### 2026-07-15 — Phase 1 Step 1: Scraper for ward-specific menu extraction
+
+**Built:** `holos scraper extract-ward` command for converting aldermanic menu PDFs to structured CSV.
+
+**Architecture:**
+- Input: Extracted + normalized JSON from `holos extract pdf-tables` (produces master schema: ward, year, category, location, cost)
+- Filter: By ward number (1-50) and year
+- Output: CSV file for geo-location processing pipeline
+
+**Why separate from harvester:** The harvester discovers and downloads PDFs. The scraper extracts structured data from already-harvested PDFs. Two concerns: acquisition vs. transformation.
+
+**Current state (Ward 1, 2017):**
+- 41 projects extracted from 2017OBMMenu50WardDetailsRpt3Dec2018.pdf
+- Total spend: $3,624,797.65
+- 10 categories (10 unknown; extraction pipeline needs category refinement)
+- Ready for Step 2 (Data Accuracy & Extraction via manual review / OCR repair)
+
+**Next:** Phase 1 Step 2 (validate 41 Ward 1 records for accuracy before full geocoding)
