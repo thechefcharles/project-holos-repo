@@ -218,17 +218,36 @@ def validate_geography(
         typer.echo("✗ psycopg3 required for geography validation", err=True)
         raise typer.Exit(1)
 
-    # Connect to database
+    # Connect to database (Supabase or local)
+    import os
+    supabase_url = os.getenv("SUPABASE_URL")
+    supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+
     try:
-        conn = psycopg.connect(
-            dbname="holos",
-            user="holos",
-            host="127.0.0.1",
-            port=5432,
-            password="holos_dev_only"
-        )
+        if supabase_url and supabase_key and supabase_key != "PASTE_SERVICE_ROLE_KEY_HERE":
+            # Connect to Supabase
+            # Supabase URL format: https://xxxxx.supabase.co
+            # Extract project ref from URL
+            project_ref = supabase_url.split("//")[1].split(".")[0]
+            conn = psycopg.connect(
+                host=f"{project_ref}.supabase.co",
+                database="postgres",
+                user="postgres",
+                password=supabase_key,
+                port=5432
+            )
+        else:
+            # Fall back to local Postgres
+            conn = psycopg.connect(
+                dbname="holos",
+                user="holos",
+                host="127.0.0.1",
+                port=5432,
+                password="holos_dev_only"
+            )
     except Exception as e:
         typer.echo(f"✗ Database connection failed: {e}", err=True)
+        typer.echo(f"  Tip: Add SUPABASE_SERVICE_ROLE_KEY to .env to connect to production", err=True)
         raise typer.Exit(1)
 
     # Load geocoded CSV
