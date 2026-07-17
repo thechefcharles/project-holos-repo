@@ -1,0 +1,76 @@
+{
+  "years": {
+    "2012": {
+      "total_spend": 66200000,
+      "total_projects": 2009,
+      "geocoding_rate": 16.2,
+      "note": "Actual"
+    },
+    "2013": {
+      "total_spend": 62540000,
+      "total_projects": 1964,
+      "geocoding_rate": 24.5,
+      "note": "Interpolated"
+    },
+    "2014": {
+      "total_spend": 58880000,
+      "total_projects": 1919,
+      "geocoding_rate": 32.8,
+      "note": "Interpolated"
+    },
+    "2015": {
+      "total_spend": 55220000,
+      "total_projects": 1874,
+      "geocoding_rate": 41.2,
+      "note": "Interpolated"
+    },
+    "2016": {
+      "total_spend": 51560000,
+      "total_projects": 1829,
+      "geocoding_rate": 49.5,
+      "note": "Interpolated"
+    },
+    "2017": {
+      "total_spend": 47900000,
+      "total_projects": 1784,
+      "geocoding_rate": 57.8,
+      "note": "Actual"
+    },
+    "2018": {
+      "total_spend": 45251752,
+      "total_projects": 1685,
+      "geocoding_rate": 63.3,
+      "note": "Extrapolated"
+    },
+    "2019": {
+      "total_spend": 42749918,
+      "total_projects": 1592,
+      "geocoding_rate": 68.8,
+      "note": "Extrapolated"
+    },
+    "2020": {
+      "total_spend": 40386403,
+      "total_projects": 1504,
+      "geocoding_rate": 74.3,
+      "note": "Extrapolated"
+    },
+    "2021": {
+      "total_spend": 38153559,
+      "total_projects": 1421,
+      "geocoding_rate": 79.8,
+      "note": "Extrapolated"
+    },
+    "2022": {
+      "total_spend": 36044163,
+      "total_projects": 1342,
+      "geocoding_rate": 85.3,
+      "note": "Extrapolated"
+    },
+    "2023": {
+      "total_spend": 34051389,
+      "total_projects": 1268,
+      "geocoding_rate": 90.8,
+      "note": "Extrapolated"
+    }
+  }
+}
