@@ -52,6 +52,25 @@ def index():
     return '<h1>Map not found</h1><p>Checked paths: ' + '<br>'.join(possible_paths) + '</p>', 404
 
 
+@app.route('/dashboard', methods=['GET'])
+def dashboard():
+    """Serve the dashboard analytics page."""
+    # Try multiple paths
+    possible_paths = [
+        os.path.join(os.path.dirname(__file__), '../..', 'web', 'dashboard.html'),  # Local: web/dashboard.html
+        '/var/task/web/dashboard.html',   # Vercel/Lambda path
+        '/workspace/web/dashboard.html',  # Alt Railway path
+    ]
+
+    for path in possible_paths:
+        expanded = os.path.expanduser(os.path.abspath(path))
+        if os.path.exists(expanded):
+            with open(expanded, 'r') as f:
+                return f.read()
+
+    return '<h1>Dashboard not found</h1><p>Checked paths: ' + '<br>'.join(possible_paths) + '</p>', 404
+
+
 @app.route('/<path:filename>', methods=['GET'])
 def serve_static(filename):
     """Serve static GeoJSON files from web directory."""
