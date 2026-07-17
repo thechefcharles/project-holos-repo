@@ -1,0 +1,1804 @@
+[
+  {
+    "ward": 2,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON N SOUTHPORT AVE FROM W WEBSTER AVE (2200 N) TO N",
+    "cost": 23909.77,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON N SOUTHPORT AVE FROM W WE W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON N SOUTHPORT AVE FROM W WE W CHICAGO",
+        0.65
+      ],
+      [
+        "AVE ON N SOUTHPORT AVE FROM W WE W OHIO",
+        0.65
+      ],
+      [
+        "AVE ON N SOUTHPORT AVE FROM W WE W CONGRESS",
+        0.65
+      ],
+      [
+        "AVE ON N SOUTHPORT AVE FROM W WE W HARRISON",
+        0.65
+      ],
+      [
+        "AVE ON N SOUTHPORT AVE FROM W WE W POLK",
+        0.65
+      ],
+      [
+        "AVE ON N SOUTHPORT AVE FROM W WE W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 2,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "CLYBOURN AVE ON W WRIGHTWOOD AVE FROM N SOUTHPORT AVE (1400 W) TO N",
+    "cost": 21825.77,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "CLYBOURN AVE ON W WRIGHTWOOD AVE FROM N SO N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "CLYBOURN AVE ON W WRIGHTWOOD AVE FROM N SO N MICHIGAN",
+        0.65
+      ],
+      [
+        "CLYBOURN AVE ON W WRIGHTWOOD AVE FROM N SO N CLARK",
+        0.65
+      ],
+      [
+        "CLYBOURN AVE ON W WRIGHTWOOD AVE FROM N SO N STATE",
+        0.65
+      ],
+      [
+        "CLYBOURN AVE ON W WRIGHTWOOD AVE FROM N SO N DEARBORN",
+        0.65
+      ],
+      [
+        "CLYBOURN AVE ON W WRIGHTWOOD AVE FROM N SO N LASALLE",
+        0.65
+      ],
+      [
+        "CLYBOURN AVE ON W WRIGHTWOOD AVE FROM N SO N WELLS",
+        0.65
+      ],
+      [
+        "CLYBOURN AVE ON W WRIGHTWOOD AVE FROM N SO N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 7,
+    "year": 2017,
+    "category": "Curb & Gutter",
+    "location": "9005 S PAXTON AVE ON S KINGSTON AVE FROM S SOUTH CHICAGO AVE (8820 S) TO S",
+    "cost": 5806.25,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "9005 S PAXTON AVE ON S KINGSTON AVE FROM S SO S MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "9005 S PAXTON AVE ON S KINGSTON AVE FROM S SO S MICHIGAN",
+        0.65
+      ],
+      [
+        "9005 S PAXTON AVE ON S KINGSTON AVE FROM S SO S CLARK",
+        0.65
+      ],
+      [
+        "9005 S PAXTON AVE ON S KINGSTON AVE FROM S SO S STATE",
+        0.65
+      ],
+      [
+        "9005 S PAXTON AVE ON S KINGSTON AVE FROM S SO S HALSTED",
+        0.65
+      ],
+      [
+        "9005 S PAXTON AVE ON S KINGSTON AVE FROM S SO S COTTAGE GROVE",
+        0.65
+      ],
+      [
+        "9005 S PAXTON AVE ON S KINGSTON AVE FROM S SO S ELLIS",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 9,
+    "year": 2017,
+    "category": "Sidewalk",
+    "location": "AVE ON E 111TH PL FROM S COTTAGE GROVE AVE (500 E) TO S",
+    "cost": 14754.41,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON E 111TH PL FROM S CO S MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON E 111TH PL FROM S CO S MICHIGAN",
+        0.65
+      ],
+      [
+        "AVE ON E 111TH PL FROM S CO S CLARK",
+        0.65
+      ],
+      [
+        "AVE ON E 111TH PL FROM S CO S STATE",
+        0.65
+      ],
+      [
+        "AVE ON E 111TH PL FROM S CO S HALSTED",
+        0.65
+      ],
+      [
+        "AVE ON E 111TH PL FROM S CO S COTTAGE GROVE",
+        0.65
+      ],
+      [
+        "AVE ON E 111TH PL FROM S CO S ELLIS",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 9,
+    "year": 2017,
+    "category": "Sidewalk",
+    "location": "FORRESTVILLE AVE ON E 112TH ST FROM S COTTAGE GROVE AVE (500 E) TO S",
+    "cost": 55573.29,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "FORRESTVILLE AVE ON E 112TH ST FROM S CO S MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "FORRESTVILLE AVE ON E 112TH ST FROM S CO S MICHIGAN",
+        0.65
+      ],
+      [
+        "FORRESTVILLE AVE ON E 112TH ST FROM S CO S CLARK",
+        0.65
+      ],
+      [
+        "FORRESTVILLE AVE ON E 112TH ST FROM S CO S STATE",
+        0.65
+      ],
+      [
+        "FORRESTVILLE AVE ON E 112TH ST FROM S CO S HALSTED",
+        0.65
+      ],
+      [
+        "FORRESTVILLE AVE ON E 112TH ST FROM S CO S COTTAGE GROVE",
+        0.65
+      ],
+      [
+        "FORRESTVILLE AVE ON E 112TH ST FROM S CO S ELLIS",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 24,
+    "year": 2017,
+    "category": "Street Speed Hump",
+    "location": "INDEPENDENCE BLVD ON W GRENSHAW ST FROM S INDEPENDENCE BLVD (3800 W) TO S",
+    "cost": 7400.0,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "INDEPENDENCE BLVD ON W GRENSHAW ST FROM S IN S MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "INDEPENDENCE BLVD ON W GRENSHAW ST FROM S IN S MICHIGAN",
+        0.65
+      ],
+      [
+        "INDEPENDENCE BLVD ON W GRENSHAW ST FROM S IN S CLARK",
+        0.65
+      ],
+      [
+        "INDEPENDENCE BLVD ON W GRENSHAW ST FROM S IN S STATE",
+        0.65
+      ],
+      [
+        "INDEPENDENCE BLVD ON W GRENSHAW ST FROM S IN S HALSTED",
+        0.65
+      ],
+      [
+        "INDEPENDENCE BLVD ON W GRENSHAW ST FROM S IN S COTTAGE GROVE",
+        0.65
+      ],
+      [
+        "INDEPENDENCE BLVD ON W GRENSHAW ST FROM S IN S ELLIS",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 26,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON N MONTICELLO AVE FROM W WABANSIA AVE (1700 N) TO W",
+    "cost": 20834.0,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON N MONTICELLO AVE FROM W WA W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON N MONTICELLO AVE FROM W WA W CHICAGO",
+        0.65
+      ],
+      [
+        "AVE ON N MONTICELLO AVE FROM W WA W OHIO",
+        0.65
+      ],
+      [
+        "AVE ON N MONTICELLO AVE FROM W WA W CONGRESS",
+        0.65
+      ],
+      [
+        "AVE ON N MONTICELLO AVE FROM W WA W HARRISON",
+        0.65
+      ],
+      [
+        "AVE ON N MONTICELLO AVE FROM W WA W POLK",
+        0.65
+      ],
+      [
+        "AVE ON N MONTICELLO AVE FROM W WA W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 27,
+    "year": 2017,
+    "category": "Sidewalk",
+    "location": "431 N RIDGEWAY AVE ON N SEDGWICK ST FROM W EVERGREEN AVE (1340 N) TO W",
+    "cost": 361.52,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "431 N RIDGEWAY AVE ON N SEDGWICK ST FROM W EV W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "431 N RIDGEWAY AVE ON N SEDGWICK ST FROM W EV W CHICAGO",
+        0.65
+      ],
+      [
+        "431 N RIDGEWAY AVE ON N SEDGWICK ST FROM W EV W OHIO",
+        0.65
+      ],
+      [
+        "431 N RIDGEWAY AVE ON N SEDGWICK ST FROM W EV W CONGRESS",
+        0.65
+      ],
+      [
+        "431 N RIDGEWAY AVE ON N SEDGWICK ST FROM W EV W HARRISON",
+        0.65
+      ],
+      [
+        "431 N RIDGEWAY AVE ON N SEDGWICK ST FROM W EV W POLK",
+        0.65
+      ],
+      [
+        "431 N RIDGEWAY AVE ON N SEDGWICK ST FROM W EV W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 28,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON W ARTHINGTON ST FROM S CALIFORNIA AVE (2800 W) TO S",
+    "cost": 31931.99,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON W ARTHINGTON ST FROM S CA S MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON W ARTHINGTON ST FROM S CA S MICHIGAN",
+        0.65
+      ],
+      [
+        "AVE ON W ARTHINGTON ST FROM S CA S CLARK",
+        0.65
+      ],
+      [
+        "AVE ON W ARTHINGTON ST FROM S CA S STATE",
+        0.65
+      ],
+      [
+        "AVE ON W ARTHINGTON ST FROM S CA S HALSTED",
+        0.65
+      ],
+      [
+        "AVE ON W ARTHINGTON ST FROM S CA S COTTAGE GROVE",
+        0.65
+      ],
+      [
+        "AVE ON W ARTHINGTON ST FROM S CA S ELLIS",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 28,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "FRANCISCO AVE ON S KILBOURN AVE FROM W WASHINGTON BLVD (100 N) TO W",
+    "cost": 53556.72,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "FRANCISCO AVE ON S KILBOURN AVE FROM W WA W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "FRANCISCO AVE ON S KILBOURN AVE FROM W WA W CHICAGO",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON S KILBOURN AVE FROM W WA W OHIO",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON S KILBOURN AVE FROM W WA W CONGRESS",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON S KILBOURN AVE FROM W WA W HARRISON",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON S KILBOURN AVE FROM W WA W POLK",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON S KILBOURN AVE FROM W WA W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 29,
+    "year": 2017,
+    "category": "Sidewalk",
+    "location": "7050 W BELMONT AVE ON N MENARD AVE FROM W WABANSIA AVE (1700 N) TO W",
+    "cost": 25889.35,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "7050 W BELMONT AVE ON N MENARD AVE FROM W WA W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "7050 W BELMONT AVE ON N MENARD AVE FROM W WA W CHICAGO",
+        0.65
+      ],
+      [
+        "7050 W BELMONT AVE ON N MENARD AVE FROM W WA W OHIO",
+        0.65
+      ],
+      [
+        "7050 W BELMONT AVE ON N MENARD AVE FROM W WA W CONGRESS",
+        0.65
+      ],
+      [
+        "7050 W BELMONT AVE ON N MENARD AVE FROM W WA W HARRISON",
+        0.65
+      ],
+      [
+        "7050 W BELMONT AVE ON N MENARD AVE FROM W WA W POLK",
+        0.65
+      ],
+      [
+        "7050 W BELMONT AVE ON N MENARD AVE FROM W WA W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 29,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON N MEADE AVE FROM W BLOOMINGDALE AVE (1800 N) TO W",
+    "cost": 24101.25,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON N MEADE AVE FROM W BL W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON N MEADE AVE FROM W BL W CHICAGO",
+        0.65
+      ],
+      [
+        "AVE ON N MEADE AVE FROM W BL W OHIO",
+        0.65
+      ],
+      [
+        "AVE ON N MEADE AVE FROM W BL W CONGRESS",
+        0.65
+      ],
+      [
+        "AVE ON N MEADE AVE FROM W BL W HARRISON",
+        0.65
+      ],
+      [
+        "AVE ON N MEADE AVE FROM W BL W POLK",
+        0.65
+      ],
+      [
+        "AVE ON N MEADE AVE FROM W BL W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 29,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON W CORTLAND ST FROM N MULLIGAN AVE (6340 W) TO N",
+    "cost": 27950.61,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON W CORTLAND ST FROM N MU N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON W CORTLAND ST FROM N MU N MICHIGAN",
+        0.65
+      ],
+      [
+        "AVE ON W CORTLAND ST FROM N MU N CLARK",
+        0.65
+      ],
+      [
+        "AVE ON W CORTLAND ST FROM N MU N STATE",
+        0.65
+      ],
+      [
+        "AVE ON W CORTLAND ST FROM N MU N DEARBORN",
+        0.65
+      ],
+      [
+        "AVE ON W CORTLAND ST FROM N MU N LASALLE",
+        0.65
+      ],
+      [
+        "AVE ON W CORTLAND ST FROM N MU N WELLS",
+        0.65
+      ],
+      [
+        "AVE ON W CORTLAND ST FROM N MU N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 29,
+    "year": 2017,
+    "category": "Street Speed Hump",
+    "location": "MEADE AVE ON W BLOOMINGDALE AVE FROM N MEADE AVE (6100 W) TO N",
+    "cost": 1850.0,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "MEADE AVE ON W BLOOMINGDALE AVE FROM N ME N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "MEADE AVE ON W BLOOMINGDALE AVE FROM N ME N MICHIGAN",
+        0.65
+      ],
+      [
+        "MEADE AVE ON W BLOOMINGDALE AVE FROM N ME N CLARK",
+        0.65
+      ],
+      [
+        "MEADE AVE ON W BLOOMINGDALE AVE FROM N ME N STATE",
+        0.65
+      ],
+      [
+        "MEADE AVE ON W BLOOMINGDALE AVE FROM N ME N DEARBORN",
+        0.65
+      ],
+      [
+        "MEADE AVE ON W BLOOMINGDALE AVE FROM N ME N LASALLE",
+        0.65
+      ],
+      [
+        "MEADE AVE ON W BLOOMINGDALE AVE FROM N ME N WELLS",
+        0.65
+      ],
+      [
+        "MEADE AVE ON W BLOOMINGDALE AVE FROM N ME N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 29,
+    "year": 2017,
+    "category": "Street Speed Hump",
+    "location": "836 N PARKSIDE AVE ON N NATOMA AVE FROM W BLOOMINGDALE AVE (1800 N) TO W",
+    "cost": 1850.0,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "836 N PARKSIDE AVE ON N NATOMA AVE FROM W BL W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "836 N PARKSIDE AVE ON N NATOMA AVE FROM W BL W CHICAGO",
+        0.65
+      ],
+      [
+        "836 N PARKSIDE AVE ON N NATOMA AVE FROM W BL W OHIO",
+        0.65
+      ],
+      [
+        "836 N PARKSIDE AVE ON N NATOMA AVE FROM W BL W CONGRESS",
+        0.65
+      ],
+      [
+        "836 N PARKSIDE AVE ON N NATOMA AVE FROM W BL W HARRISON",
+        0.65
+      ],
+      [
+        "836 N PARKSIDE AVE ON N NATOMA AVE FROM W BL W POLK",
+        0.65
+      ],
+      [
+        "836 N PARKSIDE AVE ON N NATOMA AVE FROM W BL W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 32,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "DIVERSEY PKWY ON W WELLINGTON AVE FROM N PAULINA ST (1700 W) TO N",
+    "cost": 95287.33,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "DIVERSEY PKWY ON W WELLINGTON AVE FROM N PA N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "DIVERSEY PKWY ON W WELLINGTON AVE FROM N PA N MICHIGAN",
+        0.65
+      ],
+      [
+        "DIVERSEY PKWY ON W WELLINGTON AVE FROM N PA N CLARK",
+        0.65
+      ],
+      [
+        "DIVERSEY PKWY ON W WELLINGTON AVE FROM N PA N STATE",
+        0.65
+      ],
+      [
+        "DIVERSEY PKWY ON W WELLINGTON AVE FROM N PA N DEARBORN",
+        0.65
+      ],
+      [
+        "DIVERSEY PKWY ON W WELLINGTON AVE FROM N PA N LASALLE",
+        0.65
+      ],
+      [
+        "DIVERSEY PKWY ON W WELLINGTON AVE FROM N PA N WELLS",
+        0.65
+      ],
+      [
+        "DIVERSEY PKWY ON W WELLINGTON AVE FROM N PA N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 32,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "RAVENSWOOD AVE ON N JANSSEN AVE FROM W DIVERSEY PKWY (2800 N) TO N",
+    "cost": 49070.01,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "RAVENSWOOD AVE ON N JANSSEN AVE FROM W DI W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "RAVENSWOOD AVE ON N JANSSEN AVE FROM W DI W CHICAGO",
+        0.65
+      ],
+      [
+        "RAVENSWOOD AVE ON N JANSSEN AVE FROM W DI W OHIO",
+        0.65
+      ],
+      [
+        "RAVENSWOOD AVE ON N JANSSEN AVE FROM W DI W CONGRESS",
+        0.65
+      ],
+      [
+        "RAVENSWOOD AVE ON N JANSSEN AVE FROM W DI W HARRISON",
+        0.65
+      ],
+      [
+        "RAVENSWOOD AVE ON N JANSSEN AVE FROM W DI W POLK",
+        0.65
+      ],
+      [
+        "RAVENSWOOD AVE ON N JANSSEN AVE FROM W DI W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 32,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "WINCHESTER AVE ON W WABANSIA AVE FROM N BOSWORTH AVE (1530 W) TO N",
+    "cost": 28869.49,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "WINCHESTER AVE ON W WABANSIA AVE FROM N BO N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "WINCHESTER AVE ON W WABANSIA AVE FROM N BO N MICHIGAN",
+        0.65
+      ],
+      [
+        "WINCHESTER AVE ON W WABANSIA AVE FROM N BO N CLARK",
+        0.65
+      ],
+      [
+        "WINCHESTER AVE ON W WABANSIA AVE FROM N BO N STATE",
+        0.65
+      ],
+      [
+        "WINCHESTER AVE ON W WABANSIA AVE FROM N BO N DEARBORN",
+        0.65
+      ],
+      [
+        "WINCHESTER AVE ON W WABANSIA AVE FROM N BO N LASALLE",
+        0.65
+      ],
+      [
+        "WINCHESTER AVE ON W WABANSIA AVE FROM N BO N WELLS",
+        0.65
+      ],
+      [
+        "WINCHESTER AVE ON W WABANSIA AVE FROM N BO N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 33,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON W WELLINGTON AVE FROM N SACRAMENTO AVE (3000 W) TO N",
+    "cost": 65251.37,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON W WELLINGTON AVE FROM N SA N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON W WELLINGTON AVE FROM N SA N MICHIGAN",
+        0.65
+      ],
+      [
+        "AVE ON W WELLINGTON AVE FROM N SA N CLARK",
+        0.65
+      ],
+      [
+        "AVE ON W WELLINGTON AVE FROM N SA N STATE",
+        0.65
+      ],
+      [
+        "AVE ON W WELLINGTON AVE FROM N SA N DEARBORN",
+        0.65
+      ],
+      [
+        "AVE ON W WELLINGTON AVE FROM N SA N LASALLE",
+        0.65
+      ],
+      [
+        "AVE ON W WELLINGTON AVE FROM N SA N WELLS",
+        0.65
+      ],
+      [
+        "AVE ON W WELLINGTON AVE FROM N SA N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 35,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "SUNNYSIDE AVE ON N CENTRAL PARK AVE FROM W CULLOM AVE (4300 N) TO W",
+    "cost": 3622.5,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "SUNNYSIDE AVE ON N CENTRAL PARK AVE FROM W CU W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "SUNNYSIDE AVE ON N CENTRAL PARK AVE FROM W CU W CHICAGO",
+        0.65
+      ],
+      [
+        "SUNNYSIDE AVE ON N CENTRAL PARK AVE FROM W CU W OHIO",
+        0.65
+      ],
+      [
+        "SUNNYSIDE AVE ON N CENTRAL PARK AVE FROM W CU W CONGRESS",
+        0.65
+      ],
+      [
+        "SUNNYSIDE AVE ON N CENTRAL PARK AVE FROM W CU W HARRISON",
+        0.65
+      ],
+      [
+        "SUNNYSIDE AVE ON N CENTRAL PARK AVE FROM W CU W POLK",
+        0.65
+      ],
+      [
+        "SUNNYSIDE AVE ON N CENTRAL PARK AVE FROM W CU W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 35,
+    "year": 2017,
+    "category": "Street Speed Hump",
+    "location": "AVE ON N DRAKE AVE FROM W WRIGHTWOOD AVE (2600 N) TO W",
+    "cost": 3700.0,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON N DRAKE AVE FROM W WR W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON N DRAKE AVE FROM W WR W CHICAGO",
+        0.65
+      ],
+      [
+        "AVE ON N DRAKE AVE FROM W WR W OHIO",
+        0.65
+      ],
+      [
+        "AVE ON N DRAKE AVE FROM W WR W CONGRESS",
+        0.65
+      ],
+      [
+        "AVE ON N DRAKE AVE FROM W WR W HARRISON",
+        0.65
+      ],
+      [
+        "AVE ON N DRAKE AVE FROM W WR W POLK",
+        0.65
+      ],
+      [
+        "AVE ON N DRAKE AVE FROM W WR W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 35,
+    "year": 2017,
+    "category": "Street Speed Hump",
+    "location": "SCHUBERT AVE ON N WOODARD ST FROM N MILWAUKEE AVE (2820 N) TO N",
+    "cost": 3700.0,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "SCHUBERT AVE ON N WOODARD ST FROM N MI N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "SCHUBERT AVE ON N WOODARD ST FROM N MI N MICHIGAN",
+        0.65
+      ],
+      [
+        "SCHUBERT AVE ON N WOODARD ST FROM N MI N CLARK",
+        0.65
+      ],
+      [
+        "SCHUBERT AVE ON N WOODARD ST FROM N MI N STATE",
+        0.65
+      ],
+      [
+        "SCHUBERT AVE ON N WOODARD ST FROM N MI N DEARBORN",
+        0.65
+      ],
+      [
+        "SCHUBERT AVE ON N WOODARD ST FROM N MI N LASALLE",
+        0.65
+      ],
+      [
+        "SCHUBERT AVE ON N WOODARD ST FROM N MI N WELLS",
+        0.65
+      ],
+      [
+        "SCHUBERT AVE ON N WOODARD ST FROM N MI N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 36,
+    "year": 2017,
+    "category": "Street Light Upgrade",
+    "location": "6236 W CORNELIA AVE ON W WRIGHTWOOD AVE FROM N OAK PARK AVE (6800 W) TO N",
+    "cost": 500.0,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "6236 W CORNELIA AVE ON W WRIGHTWOOD AVE FROM N OA N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "6236 W CORNELIA AVE ON W WRIGHTWOOD AVE FROM N OA N MICHIGAN",
+        0.65
+      ],
+      [
+        "6236 W CORNELIA AVE ON W WRIGHTWOOD AVE FROM N OA N CLARK",
+        0.65
+      ],
+      [
+        "6236 W CORNELIA AVE ON W WRIGHTWOOD AVE FROM N OA N STATE",
+        0.65
+      ],
+      [
+        "6236 W CORNELIA AVE ON W WRIGHTWOOD AVE FROM N OA N DEARBORN",
+        0.65
+      ],
+      [
+        "6236 W CORNELIA AVE ON W WRIGHTWOOD AVE FROM N OA N LASALLE",
+        0.65
+      ],
+      [
+        "6236 W CORNELIA AVE ON W WRIGHTWOOD AVE FROM N OA N WELLS",
+        0.65
+      ],
+      [
+        "6236 W CORNELIA AVE ON W WRIGHTWOOD AVE FROM N OA N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 37,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "1400 N LECLAIRE AVE ON N LINDER AVE FROM W BLOOMINGDALE AVE (1800 N) TO W",
+    "cost": 69249.33,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "1400 N LECLAIRE AVE ON N LINDER AVE FROM W BL W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "1400 N LECLAIRE AVE ON N LINDER AVE FROM W BL W CHICAGO",
+        0.65
+      ],
+      [
+        "1400 N LECLAIRE AVE ON N LINDER AVE FROM W BL W OHIO",
+        0.65
+      ],
+      [
+        "1400 N LECLAIRE AVE ON N LINDER AVE FROM W BL W CONGRESS",
+        0.65
+      ],
+      [
+        "1400 N LECLAIRE AVE ON N LINDER AVE FROM W BL W HARRISON",
+        0.65
+      ],
+      [
+        "1400 N LECLAIRE AVE ON N LINDER AVE FROM W BL W POLK",
+        0.65
+      ],
+      [
+        "1400 N LECLAIRE AVE ON N LINDER AVE FROM W BL W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 38,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "POTAWATOMIE AVE ON N FORESTVIEW AVE FROM W WILSON AVE (4600 N) TO N",
+    "cost": 15007.04,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "POTAWATOMIE AVE ON N FORESTVIEW AVE FROM W WI W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "POTAWATOMIE AVE ON N FORESTVIEW AVE FROM W WI W CHICAGO",
+        0.65
+      ],
+      [
+        "POTAWATOMIE AVE ON N FORESTVIEW AVE FROM W WI W OHIO",
+        0.65
+      ],
+      [
+        "POTAWATOMIE AVE ON N FORESTVIEW AVE FROM W WI W CONGRESS",
+        0.65
+      ],
+      [
+        "POTAWATOMIE AVE ON N FORESTVIEW AVE FROM W WI W HARRISON",
+        0.65
+      ],
+      [
+        "POTAWATOMIE AVE ON N FORESTVIEW AVE FROM W WI W POLK",
+        0.65
+      ],
+      [
+        "POTAWATOMIE AVE ON N FORESTVIEW AVE FROM W WI W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 39,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON W GRANVILLE AVE FROM N RIDGEWAY AVE (3730 W) TO N",
+    "cost": 58659.99,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON W GRANVILLE AVE FROM N RI N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON W GRANVILLE AVE FROM N RI N MICHIGAN",
+        0.65
+      ],
+      [
+        "AVE ON W GRANVILLE AVE FROM N RI N CLARK",
+        0.65
+      ],
+      [
+        "AVE ON W GRANVILLE AVE FROM N RI N STATE",
+        0.65
+      ],
+      [
+        "AVE ON W GRANVILLE AVE FROM N RI N DEARBORN",
+        0.65
+      ],
+      [
+        "AVE ON W GRANVILLE AVE FROM N RI N LASALLE",
+        0.65
+      ],
+      [
+        "AVE ON W GRANVILLE AVE FROM N RI N WELLS",
+        0.65
+      ],
+      [
+        "AVE ON W GRANVILLE AVE FROM N RI N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 39,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "5900 N LANDERS AVE ON N ST LOUIS AVE FROM W BRYN MAWR AVE (5600 N) TO W",
+    "cost": 42605.34,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "5900 N LANDERS AVE ON N ST LOUIS AVE FROM W BR W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "5900 N LANDERS AVE ON N ST LOUIS AVE FROM W BR W CHICAGO",
+        0.65
+      ],
+      [
+        "5900 N LANDERS AVE ON N ST LOUIS AVE FROM W BR W OHIO",
+        0.65
+      ],
+      [
+        "5900 N LANDERS AVE ON N ST LOUIS AVE FROM W BR W CONGRESS",
+        0.65
+      ],
+      [
+        "5900 N LANDERS AVE ON N ST LOUIS AVE FROM W BR W HARRISON",
+        0.65
+      ],
+      [
+        "5900 N LANDERS AVE ON N ST LOUIS AVE FROM W BR W POLK",
+        0.65
+      ],
+      [
+        "5900 N LANDERS AVE ON N ST LOUIS AVE FROM W BR W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 40,
+    "year": 2017,
+    "category": "Curb & Gutter",
+    "location": "TALMAN AVE ON W GLENLAKE AVE FROM N WASHTENAW AVE (2700 W) TO N",
+    "cost": 9012.78,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "TALMAN AVE ON W GLENLAKE AVE FROM N WA N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "TALMAN AVE ON W GLENLAKE AVE FROM N WA N MICHIGAN",
+        0.65
+      ],
+      [
+        "TALMAN AVE ON W GLENLAKE AVE FROM N WA N CLARK",
+        0.65
+      ],
+      [
+        "TALMAN AVE ON W GLENLAKE AVE FROM N WA N STATE",
+        0.65
+      ],
+      [
+        "TALMAN AVE ON W GLENLAKE AVE FROM N WA N DEARBORN",
+        0.65
+      ],
+      [
+        "TALMAN AVE ON W GLENLAKE AVE FROM N WA N LASALLE",
+        0.65
+      ],
+      [
+        "TALMAN AVE ON W GLENLAKE AVE FROM N WA N WELLS",
+        0.65
+      ],
+      [
+        "TALMAN AVE ON W GLENLAKE AVE FROM N WA N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 40,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON W SUMMERDALE AVE FROM N ROCKWELL ST (2600 W) TO N",
+    "cost": 54248.36,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON W SUMMERDALE AVE FROM N RO N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON W SUMMERDALE AVE FROM N RO N MICHIGAN",
+        0.65
+      ],
+      [
+        "AVE ON W SUMMERDALE AVE FROM N RO N CLARK",
+        0.65
+      ],
+      [
+        "AVE ON W SUMMERDALE AVE FROM N RO N STATE",
+        0.65
+      ],
+      [
+        "AVE ON W SUMMERDALE AVE FROM N RO N DEARBORN",
+        0.65
+      ],
+      [
+        "AVE ON W SUMMERDALE AVE FROM N RO N LASALLE",
+        0.65
+      ],
+      [
+        "AVE ON W SUMMERDALE AVE FROM N RO N WELLS",
+        0.65
+      ],
+      [
+        "AVE ON W SUMMERDALE AVE FROM N RO N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 40,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON W SCHREIBER AVE FROM N GREENVIEW AVE (1500 W) TO N",
+    "cost": 48109.26,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON W SCHREIBER AVE FROM N GR N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON W SCHREIBER AVE FROM N GR N MICHIGAN",
+        0.65
+      ],
+      [
+        "AVE ON W SCHREIBER AVE FROM N GR N CLARK",
+        0.65
+      ],
+      [
+        "AVE ON W SCHREIBER AVE FROM N GR N STATE",
+        0.65
+      ],
+      [
+        "AVE ON W SCHREIBER AVE FROM N GR N DEARBORN",
+        0.65
+      ],
+      [
+        "AVE ON W SCHREIBER AVE FROM N GR N LASALLE",
+        0.65
+      ],
+      [
+        "AVE ON W SCHREIBER AVE FROM N GR N WELLS",
+        0.65
+      ],
+      [
+        "AVE ON W SCHREIBER AVE FROM N GR N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 40,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON W HOLLYWOOD AVE FROM N ROCKWELL ST (2600 W) TO N",
+    "cost": 42907.5,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON W HOLLYWOOD AVE FROM N RO N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON W HOLLYWOOD AVE FROM N RO N MICHIGAN",
+        0.65
+      ],
+      [
+        "AVE ON W HOLLYWOOD AVE FROM N RO N CLARK",
+        0.65
+      ],
+      [
+        "AVE ON W HOLLYWOOD AVE FROM N RO N STATE",
+        0.65
+      ],
+      [
+        "AVE ON W HOLLYWOOD AVE FROM N RO N DEARBORN",
+        0.65
+      ],
+      [
+        "AVE ON W HOLLYWOOD AVE FROM N RO N LASALLE",
+        0.65
+      ],
+      [
+        "AVE ON W HOLLYWOOD AVE FROM N RO N WELLS",
+        0.65
+      ],
+      [
+        "AVE ON W HOLLYWOOD AVE FROM N RO N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 40,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "MAWR AVE ON W CATALPA AVE FROM N WASHTENAW AVE (2700 W) TO N",
+    "cost": 3265.86,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "MAWR AVE ON W CATALPA AVE FROM N WA N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "MAWR AVE ON W CATALPA AVE FROM N WA N MICHIGAN",
+        0.65
+      ],
+      [
+        "MAWR AVE ON W CATALPA AVE FROM N WA N CLARK",
+        0.65
+      ],
+      [
+        "MAWR AVE ON W CATALPA AVE FROM N WA N STATE",
+        0.65
+      ],
+      [
+        "MAWR AVE ON W CATALPA AVE FROM N WA N DEARBORN",
+        0.65
+      ],
+      [
+        "MAWR AVE ON W CATALPA AVE FROM N WA N LASALLE",
+        0.65
+      ],
+      [
+        "MAWR AVE ON W CATALPA AVE FROM N WA N WELLS",
+        0.65
+      ],
+      [
+        "MAWR AVE ON W CATALPA AVE FROM N WA N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 40,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "CALIFORNIA AVE ON W SUMMERDALE AVE FROM N ROCKWELL ST (2600 W) TO N",
+    "cost": 686.74,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "CALIFORNIA AVE ON W SUMMERDALE AVE FROM N RO N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "CALIFORNIA AVE ON W SUMMERDALE AVE FROM N RO N MICHIGAN",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W SUMMERDALE AVE FROM N RO N CLARK",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W SUMMERDALE AVE FROM N RO N STATE",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W SUMMERDALE AVE FROM N RO N DEARBORN",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W SUMMERDALE AVE FROM N RO N LASALLE",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W SUMMERDALE AVE FROM N RO N WELLS",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W SUMMERDALE AVE FROM N RO N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 41,
+    "year": 2017,
+    "category": "Street Speed Hump",
+    "location": "N) TO W BERWYN AVE ON W CATALPA AVE FROM N CUMBERLAND AVE (8400 W) TO N",
+    "cost": 3700.0,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "N) TO W W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "N) TO W W CHICAGO",
+        0.65
+      ],
+      [
+        "N) TO W W OHIO",
+        0.65
+      ],
+      [
+        "N) TO W W CONGRESS",
+        0.65
+      ],
+      [
+        "N) TO W W HARRISON",
+        0.65
+      ],
+      [
+        "N) TO W W POLK",
+        0.65
+      ],
+      [
+        "N) TO W W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 45,
+    "year": 2017,
+    "category": "Street Speed Hump",
+    "location": "5600 W GUNNISON ST ON N MULLIGAN AVE FROM N NORTHWEST HWY (5720 N) TO W",
+    "cost": 3700.0,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "5600 W GUNNISON ST ON N MULLIGAN AVE FROM N NO N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "5600 W GUNNISON ST ON N MULLIGAN AVE FROM N NO N MICHIGAN",
+        0.65
+      ],
+      [
+        "5600 W GUNNISON ST ON N MULLIGAN AVE FROM N NO N CLARK",
+        0.65
+      ],
+      [
+        "5600 W GUNNISON ST ON N MULLIGAN AVE FROM N NO N STATE",
+        0.65
+      ],
+      [
+        "5600 W GUNNISON ST ON N MULLIGAN AVE FROM N NO N DEARBORN",
+        0.65
+      ],
+      [
+        "5600 W GUNNISON ST ON N MULLIGAN AVE FROM N NO N LASALLE",
+        0.65
+      ],
+      [
+        "5600 W GUNNISON ST ON N MULLIGAN AVE FROM N NO N WELLS",
+        0.65
+      ],
+      [
+        "5600 W GUNNISON ST ON N MULLIGAN AVE FROM N NO N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 48,
+    "year": 2017,
+    "category": "Street Light Pole Painting",
+    "location": "FOSTER AVE ON N LAKEWOOD AVE FROM W BRYN MAWR AVE (5600 N) TO W",
+    "cost": 3400.0,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "FOSTER AVE ON N LAKEWOOD AVE FROM W BR W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "FOSTER AVE ON N LAKEWOOD AVE FROM W BR W CHICAGO",
+        0.65
+      ],
+      [
+        "FOSTER AVE ON N LAKEWOOD AVE FROM W BR W OHIO",
+        0.65
+      ],
+      [
+        "FOSTER AVE ON N LAKEWOOD AVE FROM W BR W CONGRESS",
+        0.65
+      ],
+      [
+        "FOSTER AVE ON N LAKEWOOD AVE FROM W BR W HARRISON",
+        0.65
+      ],
+      [
+        "FOSTER AVE ON N LAKEWOOD AVE FROM W BR W POLK",
+        0.65
+      ],
+      [
+        "FOSTER AVE ON N LAKEWOOD AVE FROM W BR W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 48,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON W THORNDALE AVE FROM N SHERIDAN RD (1000 W) TO N",
+    "cost": 65808.88,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON W THORNDALE AVE FROM N SH N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON W THORNDALE AVE FROM N SH N MICHIGAN",
+        0.65
+      ],
+      [
+        "AVE ON W THORNDALE AVE FROM N SH N CLARK",
+        0.65
+      ],
+      [
+        "AVE ON W THORNDALE AVE FROM N SH N STATE",
+        0.65
+      ],
+      [
+        "AVE ON W THORNDALE AVE FROM N SH N DEARBORN",
+        0.65
+      ],
+      [
+        "AVE ON W THORNDALE AVE FROM N SH N LASALLE",
+        0.65
+      ],
+      [
+        "AVE ON W THORNDALE AVE FROM N SH N WELLS",
+        0.65
+      ],
+      [
+        "AVE ON W THORNDALE AVE FROM N SH N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 49,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON N RAVENSWOOD AVE FROM W GREENLEAF AVE (7040 N) TO W",
+    "cost": 30791.93,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON N RAVENSWOOD AVE FROM W GR W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON N RAVENSWOOD AVE FROM W GR W CHICAGO",
+        0.65
+      ],
+      [
+        "AVE ON N RAVENSWOOD AVE FROM W GR W OHIO",
+        0.65
+      ],
+      [
+        "AVE ON N RAVENSWOOD AVE FROM W GR W CONGRESS",
+        0.65
+      ],
+      [
+        "AVE ON N RAVENSWOOD AVE FROM W GR W HARRISON",
+        0.65
+      ],
+      [
+        "AVE ON N RAVENSWOOD AVE FROM W GR W POLK",
+        0.65
+      ],
+      [
+        "AVE ON N RAVENSWOOD AVE FROM W GR W TAYLOR",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 50,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON W FARWELL AVE FROM N WASHTENAW AVE (2700 W) TO N",
+    "cost": 47340.47,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON W FARWELL AVE FROM N WA N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON W FARWELL AVE FROM N WA N MICHIGAN",
+        0.65
+      ],
+      [
+        "AVE ON W FARWELL AVE FROM N WA N CLARK",
+        0.65
+      ],
+      [
+        "AVE ON W FARWELL AVE FROM N WA N STATE",
+        0.65
+      ],
+      [
+        "AVE ON W FARWELL AVE FROM N WA N DEARBORN",
+        0.65
+      ],
+      [
+        "AVE ON W FARWELL AVE FROM N WA N LASALLE",
+        0.65
+      ],
+      [
+        "AVE ON W FARWELL AVE FROM N WA N WELLS",
+        0.65
+      ],
+      [
+        "AVE ON W FARWELL AVE FROM N WA N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 50,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "MAPLEWOOD AVE ON W NORTH SHORE AVE FROM N MOZART ST (2830 W) TO N",
+    "cost": 20619.25,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "MAPLEWOOD AVE ON W NORTH SHORE AVE FROM N MO N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "MAPLEWOOD AVE ON W NORTH SHORE AVE FROM N MO N MICHIGAN",
+        0.65
+      ],
+      [
+        "MAPLEWOOD AVE ON W NORTH SHORE AVE FROM N MO N CLARK",
+        0.65
+      ],
+      [
+        "MAPLEWOOD AVE ON W NORTH SHORE AVE FROM N MO N STATE",
+        0.65
+      ],
+      [
+        "MAPLEWOOD AVE ON W NORTH SHORE AVE FROM N MO N DEARBORN",
+        0.65
+      ],
+      [
+        "MAPLEWOOD AVE ON W NORTH SHORE AVE FROM N MO N LASALLE",
+        0.65
+      ],
+      [
+        "MAPLEWOOD AVE ON W NORTH SHORE AVE FROM N MO N WELLS",
+        0.65
+      ],
+      [
+        "MAPLEWOOD AVE ON W NORTH SHORE AVE FROM N MO N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 50,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "FRANCISCO AVE ON W JARVIS AVE FROM N WASHTENAW AVE (2700 W) TO N",
+    "cost": 24994.74,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "FRANCISCO AVE ON W JARVIS AVE FROM N WA N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "FRANCISCO AVE ON W JARVIS AVE FROM N WA N MICHIGAN",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON W JARVIS AVE FROM N WA N CLARK",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON W JARVIS AVE FROM N WA N STATE",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON W JARVIS AVE FROM N WA N DEARBORN",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON W JARVIS AVE FROM N WA N LASALLE",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON W JARVIS AVE FROM N WA N WELLS",
+        0.65
+      ],
+      [
+        "FRANCISCO AVE ON W JARVIS AVE FROM N WA N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 50,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "CALIFORNIA AVE ON W BIRCHWOOD AVE FROM N MAPLEWOOD AVE (2530 W) TO N",
+    "cost": 48925.54,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "CALIFORNIA AVE ON W BIRCHWOOD AVE FROM N MA N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "CALIFORNIA AVE ON W BIRCHWOOD AVE FROM N MA N MICHIGAN",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W BIRCHWOOD AVE FROM N MA N CLARK",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W BIRCHWOOD AVE FROM N MA N STATE",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W BIRCHWOOD AVE FROM N MA N DEARBORN",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W BIRCHWOOD AVE FROM N MA N LASALLE",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W BIRCHWOOD AVE FROM N MA N WELLS",
+        0.65
+      ],
+      [
+        "CALIFORNIA AVE ON W BIRCHWOOD AVE FROM N MA N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 50,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "BLVD ON W COYLE AVE FROM N FRANCISCO AVE (2900 W) TO N",
+    "cost": 38762.87,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "BLVD ON W COYLE AVE FROM N FR N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "BLVD ON W COYLE AVE FROM N FR N MICHIGAN",
+        0.65
+      ],
+      [
+        "BLVD ON W COYLE AVE FROM N FR N CLARK",
+        0.65
+      ],
+      [
+        "BLVD ON W COYLE AVE FROM N FR N STATE",
+        0.65
+      ],
+      [
+        "BLVD ON W COYLE AVE FROM N FR N DEARBORN",
+        0.65
+      ],
+      [
+        "BLVD ON W COYLE AVE FROM N FR N LASALLE",
+        0.65
+      ],
+      [
+        "BLVD ON W COYLE AVE FROM N FR N WELLS",
+        0.65
+      ],
+      [
+        "BLVD ON W COYLE AVE FROM N FR N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 50,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "SACRAMENTO AVE ON W ROSEMONT AVE FROM N CALIFORNIA AVE (2800 W) TO N",
+    "cost": 48444.35,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "SACRAMENTO AVE ON W ROSEMONT AVE FROM N CA N MICHIGAN",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "SACRAMENTO AVE ON W ROSEMONT AVE FROM N CA N MICHIGAN",
+        0.65
+      ],
+      [
+        "SACRAMENTO AVE ON W ROSEMONT AVE FROM N CA N CLARK",
+        0.65
+      ],
+      [
+        "SACRAMENTO AVE ON W ROSEMONT AVE FROM N CA N STATE",
+        0.65
+      ],
+      [
+        "SACRAMENTO AVE ON W ROSEMONT AVE FROM N CA N DEARBORN",
+        0.65
+      ],
+      [
+        "SACRAMENTO AVE ON W ROSEMONT AVE FROM N CA N LASALLE",
+        0.65
+      ],
+      [
+        "SACRAMENTO AVE ON W ROSEMONT AVE FROM N CA N WELLS",
+        0.65
+      ],
+      [
+        "SACRAMENTO AVE ON W ROSEMONT AVE FROM N CA N WABASH",
+        0.65
+      ]
+    ]
+  },
+  {
+    "ward": 50,
+    "year": 2017,
+    "category": "Street Resurfacing",
+    "location": "AVE ON N ARTESIAN AVE FROM W NORTH SHORE AVE (6700 N) TO W",
+    "cost": 42399.1,
+    "is_truncated": true,
+    "missing_part": null,
+    "confidence": 0.65,
+    "recovered_location": "AVE ON N ARTESIAN AVE FROM W NO W CHICAGO",
+    "human_review_needed": true,
+    "suggestions": [
+      [
+        "AVE ON N ARTESIAN AVE FROM W NO W CHICAGO",
+        0.65
+      ],
+      [
+        "AVE ON N ARTESIAN AVE FROM W NO W OHIO",
+        0.65
+      ],
+      [
+        "AVE ON N ARTESIAN AVE FROM W NO W CONGRESS",
+        0.65
+      ],
+      [
+        "AVE ON N ARTESIAN AVE FROM W NO W HARRISON",
+        0.65
+      ],
+      [
+        "AVE ON N ARTESIAN AVE FROM W NO W POLK",
+        0.65
+      ],
+      [
+        "AVE ON N ARTESIAN AVE FROM W NO W TAYLOR",
+        0.65
+      ]
+    ]
+  }
+]
