@@ -559,28 +559,38 @@ class GeocodeCascade:
             return None
 
         # Get the main street centerline segment and clip between intersections
-        # Use ST_LineLocatePoint to find fractional position of each intersection on the street
-        # Project intersection points onto the centerline using ST_ClosestPoint to handle geometry inaccuracies
-        # Then ST_LineSubstring to extract the segment between them
-        # Finally ST_LineInterpolatePoint to get the midpoint for a single point result
+        # Find segment closest to both intersection points (minimizes distance to both)
+        # Use ST_LineSubstring to extract segment between intersections on that segment
+        # Finally ST_LineInterpolatePoint to get midpoint for single point result
         sql_clipped = """
-            WITH projected_points AS (
+            WITH all_segments AS (
                 SELECT
-                    ST_LineLocatePoint(c.geom, ST_ClosestPoint(c.geom, ST_Point(%(from_lon)s, %(from_lat)s, 4326))) as from_pos,
-                    ST_LineLocatePoint(c.geom, ST_ClosestPoint(c.geom, ST_Point(%(to_lon)s, %(to_lat)s, 4326))) as to_pos,
-                    c.geom
+                    c.geom,
+                    ST_Distance(c.geom, ST_Point(%(from_lon)s, %(from_lat)s, 4326)) as dist_from,
+                    ST_Distance(c.geom, ST_Point(%(to_lon)s, %(to_lat)s, 4326)) as dist_to
                 FROM ref.centerlines c
                 WHERE UPPER(REGEXP_REPLACE(c.street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(main_street)s)
+            ),
+            best_segment AS (
+                SELECT geom
+                FROM all_segments
+                ORDER BY dist_from + dist_to
                 LIMIT 1
             ),
             clipped_segment AS (
                 SELECT
                     ST_LineSubstring(
                         geom,
-                        LEAST(from_pos, to_pos),
-                        GREATEST(from_pos, to_pos)
+                        LEAST(
+                            ST_LineLocatePoint(geom, ST_Point(%(from_lon)s, %(from_lat)s, 4326)),
+                            ST_LineLocatePoint(geom, ST_Point(%(to_lon)s, %(to_lat)s, 4326))
+                        ),
+                        GREATEST(
+                            ST_LineLocatePoint(geom, ST_Point(%(from_lon)s, %(from_lat)s, 4326)),
+                            ST_LineLocatePoint(geom, ST_Point(%(to_lon)s, %(to_lat)s, 4326))
+                        )
                     ) as segment_geom
-                FROM projected_points
+                FROM best_segment
             )
             SELECT
                 ST_AsText(segment_geom) as segment_wkt,
