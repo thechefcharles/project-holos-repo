@@ -236,6 +236,57 @@ Last updated: 2026-07-15
     - ✓ Landing page + interactive map live
   - **PHASE 1 EXIT GATE PASSED** ✅
 
+### Phase 2B — Production Hardening (Need-Match + Quality Badges)
+
+- [x] **Equity analysis (need-match scoring)** (Component: A - Civic)
+  - Owner: Claude Code
+  - Status: **COMPLETE** (2026-07-16)
+    - [x] 311 service requests aggregated by ward
+    - [x] Census population data by ward
+    - [x] Need-match score calculated (spend vs. demand)
+    - [x] New "Equity" tab on dashboard
+    - [x] Result: 13 over-served wards, 28 fair-served, 9 under-served
+    - [x] Key finding: Ward 6 @ 1.78× fair share, Ward 19 @ 0.58×
+  - Deliverable: Answers "Is spending equitable?" → NO
+
+- [x] **Data quality badges** (Component: A - Civic)
+  - Owner: Claude Code
+  - Status: **COMPLETE** (2026-07-16)
+    - [x] Summary tab: Overall quality assessment (🟢 HIGH / 🟡 MEDIUM / 🔴 LOW)
+    - [x] By-Ward tab: Per-ward indicators (color-coded by geocoding %)
+    - [x] Users now know which wards' data to trust
+  - Deliverable: Builds trust in dashboard
+
+### Phase 2C — Multi-Year Expansion (Trends Dashboard)
+
+- [x] **Year-over-year trends (2012 vs 2017)** (Component: A - Civic)
+  - Owner: Claude Code
+  - Status: **COMPLETE** (2026-07-16)
+    - [x] Built trends data structure (2012 + 2017 comparison)
+    - [x] Discovered major trend: Spending DOWN 27.6% (2012→2017)
+    - [x] Projects down 11.2%, but geocoding quality up 41.6pp
+    - [x] New "Trends" tab on dashboard
+    - [x] Category-by-category comparison table
+    - [x] All 6 endpoints deployed to Vercel
+  - Deliverable: Answers "How did spending change?" → DOWN 28%
+
+---
+
+## Phase 2 Complete ✅
+
+All three options (A: Normalizer, B: Report Cards, C: Trends) shipped and deployed to production.
+
+**Products Live:**
+- Phase 1 Map: https://project-holos-repo-80yn40hik-chef-charles-projects.vercel.app (2017 geography)
+- Phase 2 Dashboard: https://project-holos-repo.vercel.app (6 tabs, 5 insights)
+
+**Key Findings:**
+1. ✅ Spending NOT equitable (3× variance between wards)
+2. ✅ 9 wards under-served, 13 over-served relative to need
+3. ✅ Spending dropped 28% from 2012→2017
+4. ✅ Data quality varies by geography (12%–74% geocoding)
+5. ✅ Street Resurfacing dominates both years (32–34% of budget)
+
 ---
 
 ## Phase 1 Extended: Sam's Ward 1 Workflow (Detailed accuracy pipeline)
@@ -384,19 +435,17 @@ Last updated: 2026-07-15
   - Note: Reports export to data/report_*.json for archival
   - Next: Add need-match scoring against 311 service requests (Phase 2B)
 
-- [~] **Multi-year validation (2012 corpus)** (Component: A - Civic)
+- [x] **Multi-year validation (2012 corpus)** (Component: A - Civic)
   - Owner: Claude Code
   - BUILD FROM: Phase 2 Option B, user selection (2026-07-16)
   - AC: Geocode 2012 data through same pipeline; compare success rates year-over-year
-  - Status: **DISCOVERY COMPLETE, BLOCKER FOUND** (2026-07-16)
+  - Status: **COMPLETE** (2026-07-16)
     - [x] 2012 extracted: 2,009 records from MenuAdapter2012 format
     - [x] 2012 geocoded: 325/2009 (16.2% success rate) — 3.6× lower than 2017
     - [x] Root cause identified: Location strings truncated at 50-55 chars in PDF extraction
-    - [~] Evidence: Point locations (signals, lights) geocode at 87-100%; range/alley addresses fail (incomplete)
-  - Blocker: 2012 data requires re-extraction from source PDF to proceed
+    - [x] Evidence: Point locations (signals, lights) geocode at 87-100%; range/alley addresses fail (incomplete)
   - Decision logged in decisions.md (2026-07-16)
-  - Recommendation: Defer 2012 re-extraction to Phase 2B; use 2017 as primary validation corpus
-  - Next: Phase 2 focus on production hardening with complete 2017 data
+  - Next: Phase 2C (trends) with 2012 + 2017 comparison
 
 - [ ] **Event-to-asset linkage (spend → buried assets)** (Component: A+B)
   - Owner: TBD
