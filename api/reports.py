@@ -435,6 +435,17 @@ def index():
                 const res = await fetch(`/api/reports/summary?year=${currentYear}`);
                 const data = await res.json();
 
+                const geocodeCount = parseFloat(data.geocode_rate_count);
+                let qualityLevel = "🟢 HIGH";
+                let qualityDesc = "Strong data quality";
+                if (geocodeCount < 40) {
+                    qualityLevel = "🔴 LOW";
+                    qualityDesc = "Significant data gaps";
+                } else if (geocodeCount < 60) {
+                    qualityLevel = "🟡 MEDIUM";
+                    qualityDesc = "Moderate coverage";
+                }
+
                 let html = `
                     <div class="summary-grid">
                         <div class="metric-card">
@@ -453,6 +464,11 @@ def index():
                             <div class="label">Geocoding Rate (by spend)</div>
                             <div class="value">${data.geocode_rate_spend}</div>
                         </div>
+                    </div>
+
+                    <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+                        <strong>Data Quality Assessment:</strong> ${qualityLevel}
+                        <br/>${qualityDesc}. See "By Ward" tab for per-ward quality indicators.
                     </div>
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
@@ -502,29 +518,47 @@ def index():
                 const data = await res.json();
 
                 let html = `
+                    <p style="margin: 0 0 20px 0; color: #666; font-size: 0.95em;">
+                        <strong>Data Quality Indicators:</strong>
+                        <span style="color: #4caf50;">🟢 HIGH</span> (>60% geocoded) |
+                        <span style="color: #ffa500;">🟡 MEDIUM</span> (30–60% geocoded) |
+                        <span style="color: #ff6b6b;">🔴 LOW</span> (<30% geocoded)
+                    </p>
+
                     <table>
                         <thead>
                             <tr>
                                 <th>Ward</th>
                                 <th>Projects</th>
                                 <th>Total Spend</th>
-                                <th>Geocoded Projects</th>
+                                <th>Geocoded</th>
                                 <th>Geocoding Rate</th>
-                                <th>Spend Rate</th>
+                                <th>Quality</th>
                             </tr>
                         </thead>
                         <tbody>
                 `;
 
                 Object.entries(data.wards).sort((a, b) => parseInt(a[0]) - parseInt(b[0])).forEach(([ward, stats]) => {
+                    const rateNum = parseFloat(stats.geocode_rate);
+                    let quality = "🔴 LOW";
+                    let qualityColor = "#ff6b6b";
+                    if (rateNum >= 60) {
+                        quality = "🟢 HIGH";
+                        qualityColor = "#4caf50";
+                    } else if (rateNum >= 30) {
+                        quality = "🟡 MEDIUM";
+                        qualityColor = "#ffa500";
+                    }
+
                     html += `
                         <tr>
                             <td><strong>Ward ${ward}</strong></td>
                             <td>${stats.projects}</td>
                             <td>${stats.spend}</td>
                             <td>${stats.geocoded_projects}</td>
-                            <td>${stats.geocode_rate}</td>
-                            <td>${stats.spend_rate}</td>
+                            <td><strong>${stats.geocode_rate}</strong></td>
+                            <td style="color: ${qualityColor}; font-weight: 600;">${quality}</td>
                         </tr>
                     `;
                 });
