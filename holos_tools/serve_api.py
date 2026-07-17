@@ -35,20 +35,46 @@ def get_db() -> HolosDB:
 @app.route('/', methods=['GET'])
 def index():
     """Serve the interactive map."""
-    with open('/app/docs/2017_map.html', 'r') as f:
-        return f.read()
+    # Try multiple paths (local dev, Railway, Vercel)
+    possible_paths = [
+        os.path.join(os.path.dirname(__file__), '../..', 'web', 'app.html'),  # Local: web/app.html
+        '/app/docs/2017_map.html',  # Railway legacy path
+        '/var/task/web/app.html',   # Vercel/Lambda path
+        '/workspace/web/app.html',  # Alt Railway path
+    ]
+
+    for path in possible_paths:
+        expanded = os.path.expanduser(os.path.abspath(path))
+        if os.path.exists(expanded):
+            with open(expanded, 'r') as f:
+                return f.read()
+
+    return '<h1>Map not found</h1><p>Checked paths: ' + '<br>'.join(possible_paths) + '</p>', 404
 
 
 @app.route('/<path:filename>', methods=['GET'])
 def serve_static(filename):
-    """Serve static GeoJSON files from docs directory."""
+    """Serve static GeoJSON files from web directory."""
     if not filename.endswith('.geojson'):
         abort(404)
-    docs_dir = os.path.realpath('/app/docs')
-    requested = os.path.realpath(os.path.join(docs_dir, filename))
-    if not requested.startswith(docs_dir + os.sep):
-        abort(404)
-    return send_from_directory(docs_dir, filename, mimetype='application/geo+json')
+
+    # Try multiple locations for static files
+    possible_dirs = [
+        os.path.join(os.path.dirname(__file__), '../..', 'web'),  # Local: web/
+        '/app/docs',     # Railway legacy
+        '/var/task/web', # Vercel/Lambda
+        '/workspace/web', # Alt Railway
+    ]
+
+    for base_dir in possible_dirs:
+        expanded_dir = os.path.expanduser(os.path.abspath(base_dir))
+        if os.path.exists(expanded_dir):
+            requested = os.path.realpath(os.path.join(expanded_dir, filename))
+            if requested.startswith(os.path.realpath(expanded_dir) + os.sep):
+                if os.path.exists(requested):
+                    return send_from_directory(expanded_dir, filename, mimetype='application/geo+json')
+
+    abort(404)
 
 
 @app.route('/api/streets.geojson', methods=['GET'])
