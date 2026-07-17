@@ -1,0 +1,405 @@
+{
+  "year": 2017,
+  "wards": {
+    "1": {
+      "projects": 38,
+      "spend": "$984,797.65",
+      "geocoded_projects": 28,
+      "geocoded_spend": "$428,864.65",
+      "geocode_rate_by_count": "73.7%",
+      "geocode_rate_by_spend": "43.5%"
+    },
+    "2": {
+      "projects": 33,
+      "spend": "$1,090,999.12",
+      "geocoded_projects": 18,
+      "geocoded_spend": "$626,949.26",
+      "geocode_rate_by_count": "54.5%",
+      "geocode_rate_by_spend": "57.5%"
+    },
+    "3": {
+      "projects": 30,
+      "spend": "$1,185,752.27",
+      "geocoded_projects": 14,
+      "geocoded_spend": "$297,254.13",
+      "geocode_rate_by_count": "46.7%",
+      "geocode_rate_by_spend": "25.1%"
+    },
+    "4": {
+      "projects": 38,
+      "spend": "$1,116,811.49",
+      "geocoded_projects": 14,
+      "geocoded_spend": "$294,188.92",
+      "geocode_rate_by_count": "36.8%",
+      "geocode_rate_by_spend": "26.3%"
+    },
+    "5": {
+      "projects": 21,
+      "spend": "$1,023,485.68",
+      "geocoded_projects": 5,
+      "geocoded_spend": "$118,606.70",
+      "geocode_rate_by_count": "23.8%",
+      "geocode_rate_by_spend": "11.6%"
+    },
+    "6": {
+      "projects": 25,
+      "spend": "$1,292,951.14",
+      "geocoded_projects": 5,
+      "geocoded_spend": "$141,216.88",
+      "geocode_rate_by_count": "20.0%",
+      "geocode_rate_by_spend": "10.9%"
+    },
+    "7": {
+      "projects": 24,
+      "spend": "$1,227,651.45",
+      "geocoded_projects": 3,
+      "geocoded_spend": "$62,799.61",
+      "geocode_rate_by_count": "12.5%",
+      "geocode_rate_by_spend": "5.1%"
+    },
+    "8": {
+      "projects": 27,
+      "spend": "$1,066,687.29",
+      "geocoded_projects": 8,
+      "geocoded_spend": "$52,917.07",
+      "geocode_rate_by_count": "29.6%",
+      "geocode_rate_by_spend": "5.0%"
+    },
+    "9": {
+      "projects": 27,
+      "spend": "$896,745.91",
+      "geocoded_projects": 5,
+      "geocoded_spend": "$28,809.74",
+      "geocode_rate_by_count": "18.5%",
+      "geocode_rate_by_spend": "3.2%"
+    },
+    "10": {
+      "projects": 38,
+      "spend": "$973,539.56",
+      "geocoded_projects": 21,
+      "geocoded_spend": "$245,056.83",
+      "geocode_rate_by_count": "55.3%",
+      "geocode_rate_by_spend": "25.2%"
+    },
+    "11": {
+      "projects": 38,
+      "spend": "$1,267,998.51",
+      "geocoded_projects": 22,
+      "geocoded_spend": "$655,673.61",
+      "geocode_rate_by_count": "57.9%",
+      "geocode_rate_by_spend": "51.7%"
+    },
+    "12": {
+      "projects": 41,
+      "spend": "$1,029,789.29",
+      "geocoded_projects": 22,
+      "geocoded_spend": "$166,026.50",
+      "geocode_rate_by_count": "53.7%",
+      "geocode_rate_by_spend": "16.1%"
+    },
+    "13": {
+      "projects": 68,
+      "spend": "$975,999.99",
+      "geocoded_projects": 45,
+      "geocoded_spend": "$312,548.64",
+      "geocode_rate_by_count": "66.2%",
+      "geocode_rate_by_spend": "32.0%"
+    },
+    "14": {
+      "projects": 43,
+      "spend": "$939,999.33",
+      "geocoded_projects": 11,
+      "geocoded_spend": "$99,567.53",
+      "geocode_rate_by_count": "25.6%",
+      "geocode_rate_by_spend": "10.6%"
+    },
+    "15": {
+      "projects": 28,
+      "spend": "$907,602.03",
+      "geocoded_projects": 18,
+      "geocoded_spend": "$113,649.03",
+      "geocode_rate_by_count": "64.3%",
+      "geocode_rate_by_spend": "12.5%"
+    },
+    "16": {
+      "projects": 31,
+      "spend": "$960,056.85",
+      "geocoded_projects": 17,
+      "geocoded_spend": "$706,914.39",
+      "geocode_rate_by_count": "54.8%",
+      "geocode_rate_by_spend": "73.6%"
+    },
+    "17": {
+      "projects": 36,
+      "spend": "$878,987.78",
+      "geocoded_projects": 19,
+      "geocoded_spend": "$345,740.55",
+      "geocode_rate_by_count": "52.8%",
+      "geocode_rate_by_spend": "39.3%"
+    },
+    "18": {
+      "projects": 30,
+      "spend": "$1,039,042.38",
+      "geocoded_projects": 7,
+      "geocoded_spend": "$46,132.96",
+      "geocode_rate_by_count": "23.3%",
+      "geocode_rate_by_spend": "4.4%"
+    },
+    "19": {
+      "projects": 14,
+      "spend": "$474,080.29",
+      "geocoded_projects": 3,
+      "geocoded_spend": "$43,128.10",
+      "geocode_rate_by_count": "21.4%",
+      "geocode_rate_by_spend": "9.1%"
+    },
+    "20": {
+      "projects": 30,
+      "spend": "$1,024,298.93",
+      "geocoded_projects": 8,
+      "geocoded_spend": "$148,826.98",
+      "geocode_rate_by_count": "26.7%",
+      "geocode_rate_by_spend": "14.5%"
+    },
+    "21": {
+      "projects": 41,
+      "spend": "$824,945.97",
+      "geocoded_projects": 23,
+      "geocoded_spend": "$257,528.78",
+      "geocode_rate_by_count": "56.1%",
+      "geocode_rate_by_spend": "31.2%"
+    },
+    "22": {
+      "projects": 37,
+      "spend": "$1,217,816.54",
+      "geocoded_projects": 26,
+      "geocoded_spend": "$772,793.67",
+      "geocode_rate_by_count": "70.3%",
+      "geocode_rate_by_spend": "63.5%"
+    },
+    "23": {
+      "projects": 62,
+      "spend": "$852,710.10",
+      "geocoded_projects": 42,
+      "geocoded_spend": "$414,900.06",
+      "geocode_rate_by_count": "67.7%",
+      "geocode_rate_by_spend": "48.7%"
+    },
+    "24": {
+      "projects": 18,
+      "spend": "$574,672.44",
+      "geocoded_projects": 6,
+      "geocoded_spend": "$205,507.18",
+      "geocode_rate_by_count": "33.3%",
+      "geocode_rate_by_spend": "35.8%"
+    },
+    "25": {
+      "projects": 20,
+      "spend": "$960,263.89",
+      "geocoded_projects": 11,
+      "geocoded_spend": "$521,632.40",
+      "geocode_rate_by_count": "55.0%",
+      "geocode_rate_by_spend": "54.3%"
+    },
+    "26": {
+      "projects": 33,
+      "spend": "$920,845.37",
+      "geocoded_projects": 17,
+      "geocoded_spend": "$554,466.71",
+      "geocode_rate_by_count": "51.5%",
+      "geocode_rate_by_spend": "60.2%"
+    },
+    "27": {
+      "projects": 32,
+      "spend": "$1,200,080.03",
+      "geocoded_projects": 20,
+      "geocoded_spend": "$552,225.99",
+      "geocode_rate_by_count": "62.5%",
+      "geocode_rate_by_spend": "46.0%"
+    },
+    "28": {
+      "projects": 28,
+      "spend": "$1,273,580.66",
+      "geocoded_projects": 17,
+      "geocoded_spend": "$594,092.70",
+      "geocode_rate_by_count": "60.7%",
+      "geocode_rate_by_spend": "46.6%"
+    },
+    "29": {
+      "projects": 42,
+      "spend": "$918,510.45",
+      "geocoded_projects": 25,
+      "geocoded_spend": "$656,792.95",
+      "geocode_rate_by_count": "59.5%",
+      "geocode_rate_by_spend": "71.5%"
+    },
+    "30": {
+      "projects": 52,
+      "spend": "$706,024.27",
+      "geocoded_projects": 36,
+      "geocoded_spend": "$542,807.65",
+      "geocode_rate_by_count": "69.2%",
+      "geocode_rate_by_spend": "76.9%"
+    },
+    "31": {
+      "projects": 37,
+      "spend": "$769,698.69",
+      "geocoded_projects": 28,
+      "geocoded_spend": "$514,065.93",
+      "geocode_rate_by_count": "75.7%",
+      "geocode_rate_by_spend": "66.8%"
+    },
+    "32": {
+      "projects": 33,
+      "spend": "$837,956.03",
+      "geocoded_projects": 26,
+      "geocoded_spend": "$539,046.31",
+      "geocode_rate_by_count": "78.8%",
+      "geocode_rate_by_spend": "64.3%"
+    },
+    "33": {
+      "projects": 42,
+      "spend": "$1,046,745.26",
+      "geocoded_projects": 27,
+      "geocoded_spend": "$428,738.01",
+      "geocode_rate_by_count": "64.3%",
+      "geocode_rate_by_spend": "41.0%"
+    },
+    "34": {
+      "projects": 22,
+      "spend": "$672,356.77",
+      "geocoded_projects": 15,
+      "geocoded_spend": "$293,170.88",
+      "geocode_rate_by_count": "68.2%",
+      "geocode_rate_by_spend": "43.6%"
+    },
+    "35": {
+      "projects": 32,
+      "spend": "$1,129,724.93",
+      "geocoded_projects": 23,
+      "geocoded_spend": "$625,585.94",
+      "geocode_rate_by_count": "71.9%",
+      "geocode_rate_by_spend": "55.4%"
+    },
+    "36": {
+      "projects": 38,
+      "spend": "$949,250.85",
+      "geocoded_projects": 27,
+      "geocoded_spend": "$444,934.55",
+      "geocode_rate_by_count": "71.1%",
+      "geocode_rate_by_spend": "46.9%"
+    },
+    "37": {
+      "projects": 27,
+      "spend": "$940,700.82",
+      "geocoded_projects": 21,
+      "geocoded_spend": "$810,952.60",
+      "geocode_rate_by_count": "77.8%",
+      "geocode_rate_by_spend": "86.2%"
+    },
+    "38": {
+      "projects": 24,
+      "spend": "$700,983.56",
+      "geocoded_projects": 12,
+      "geocoded_spend": "$286,726.61",
+      "geocode_rate_by_count": "50.0%",
+      "geocode_rate_by_spend": "40.9%"
+    },
+    "39": {
+      "projects": 27,
+      "spend": "$805,480.71",
+      "geocoded_projects": 16,
+      "geocoded_spend": "$408,863.08",
+      "geocode_rate_by_count": "59.3%",
+      "geocode_rate_by_spend": "50.8%"
+    },
+    "40": {
+      "projects": 42,
+      "spend": "$985,640.10",
+      "geocoded_projects": 26,
+      "geocoded_spend": "$576,600.31",
+      "geocode_rate_by_count": "61.9%",
+      "geocode_rate_by_spend": "58.5%"
+    },
+    "41": {
+      "projects": 28,
+      "spend": "$467,752.74",
+      "geocoded_projects": 21,
+      "geocoded_spend": "$389,949.17",
+      "geocode_rate_by_count": "75.0%",
+      "geocode_rate_by_spend": "83.4%"
+    },
+    "42": {
+      "projects": 35,
+      "spend": "$924,931.87",
+      "geocoded_projects": 27,
+      "geocoded_spend": "$665,009.87",
+      "geocode_rate_by_count": "77.1%",
+      "geocode_rate_by_spend": "71.9%"
+    },
+    "43": {
+      "projects": 34,
+      "spend": "$902,791.23",
+      "geocoded_projects": 23,
+      "geocoded_spend": "$191,107.84",
+      "geocode_rate_by_count": "67.6%",
+      "geocode_rate_by_spend": "21.2%"
+    },
+    "44": {
+      "projects": 59,
+      "spend": "$721,501.91",
+      "geocoded_projects": 42,
+      "geocoded_spend": "$472,747.35",
+      "geocode_rate_by_count": "71.2%",
+      "geocode_rate_by_spend": "65.5%"
+    },
+    "45": {
+      "projects": 44,
+      "spend": "$1,061,002.01",
+      "geocoded_projects": 29,
+      "geocoded_spend": "$780,979.92",
+      "geocode_rate_by_count": "65.9%",
+      "geocode_rate_by_spend": "73.6%"
+    },
+    "46": {
+      "projects": 28,
+      "spend": "$1,033,795.08",
+      "geocoded_projects": 13,
+      "geocoded_spend": "$488,683.88",
+      "geocode_rate_by_count": "46.4%",
+      "geocode_rate_by_spend": "47.3%"
+    },
+    "47": {
+      "projects": 74,
+      "spend": "$1,266,210.36",
+      "geocoded_projects": 55,
+      "geocoded_spend": "$332,444.62",
+      "geocode_rate_by_count": "74.3%",
+      "geocode_rate_by_spend": "26.3%"
+    },
+    "48": {
+      "projects": 71,
+      "spend": "$1,192,604.10",
+      "geocoded_projects": 52,
+      "geocoded_spend": "$849,888.10",
+      "geocode_rate_by_count": "73.2%",
+      "geocode_rate_by_spend": "71.3%"
+    },
+    "49": {
+      "projects": 32,
+      "spend": "$895,941.30",
+      "geocoded_projects": 17,
+      "geocoded_spend": "$339,750.66",
+      "geocode_rate_by_count": "53.1%",
+      "geocode_rate_by_spend": "37.9%"
+    },
+    "50": {
+      "projects": 30,
+      "spend": "$751,176.63",
+      "geocoded_projects": 16,
+      "geocoded_spend": "$316,420.51",
+      "geocode_rate_by_count": "53.3%",
+      "geocode_rate_by_spend": "42.1%"
+    }
+  }
+}

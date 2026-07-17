@@ -560,31 +560,34 @@ class GeocodeCascade:
 
         # Get the main street centerline segment and clip between intersections
         # Use ST_LineLocatePoint to find fractional position of each intersection on the street
+        # Project intersection points onto the centerline using ST_ClosestPoint to handle geometry inaccuracies
         # Then ST_LineSubstring to extract the segment between them
         # Finally ST_LineInterpolatePoint to get the midpoint for a single point result
         sql_clipped = """
-            WITH clipped_segment AS (
+            WITH projected_points AS (
                 SELECT
-                    ST_LineSubstring(
-                        c.geom,
-                        LEAST(
-                            ST_LineLocatePoint(c.geom, ST_Point(%(from_lon)s, %(from_lat)s)),
-                            ST_LineLocatePoint(c.geom, ST_Point(%(to_lon)s, %(to_lat)s))
-                        ),
-                        GREATEST(
-                            ST_LineLocatePoint(c.geom, ST_Point(%(from_lon)s, %(from_lat)s)),
-                            ST_LineLocatePoint(c.geom, ST_Point(%(to_lon)s, %(to_lat)s))
-                        )
-                    ) as segment_geom
+                    ST_LineLocatePoint(c.geom, ST_ClosestPoint(c.geom, ST_Point(%(from_lon)s, %(from_lat)s, 4326))) as from_pos,
+                    ST_LineLocatePoint(c.geom, ST_ClosestPoint(c.geom, ST_Point(%(to_lon)s, %(to_lat)s, 4326))) as to_pos,
+                    c.geom
                 FROM ref.centerlines c
                 WHERE UPPER(REGEXP_REPLACE(c.street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(main_street)s)
                 LIMIT 1
+            ),
+            clipped_segment AS (
+                SELECT
+                    ST_LineSubstring(
+                        geom,
+                        LEAST(from_pos, to_pos),
+                        GREATEST(from_pos, to_pos)
+                    ) as segment_geom
+                FROM projected_points
             )
             SELECT
                 ST_AsText(segment_geom) as segment_wkt,
                 ST_X(ST_LineInterpolatePoint(segment_geom, 0.5)) as midpoint_lon,
                 ST_Y(ST_LineInterpolatePoint(segment_geom, 0.5)) as midpoint_lat
             FROM clipped_segment
+            WHERE ST_GeometryType(segment_geom) IN ('ST_LineString', 'ST_MultiLineString')
         """
 
         result_main = self.query(sql_clipped, {

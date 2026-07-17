@@ -1,0 +1,8 @@
+{
+  "source_id": "socrata_street_center_lines",
+  "url": "https://data.cityofchicago.org/api/views/6imu-meau/rows.csv",
+  "checksum": "sha256:73670d34109b72a3586b2d10efdde5388faf37b595d0ed86327f53454ad91704",
+  "retrieved_at": "2026-07-17T04:49:27.070014",
+  "size_bytes": 56339,
+  "acquisition_method": "socrata_api"
+}
