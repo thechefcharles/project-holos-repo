@@ -15,3 +15,9 @@ config/
 raw/
 .claude/
 .vercel/
+Project Holos/
+extractions/
+staging_load.json
+2017_geocoded*.json
+2017_valid_records.json
+supabase/
