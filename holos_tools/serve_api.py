@@ -34,9 +34,14 @@ def get_db() -> HolosDB:
 
 @app.route('/', methods=['GET'])
 def index():
-    """Serve the interactive map."""
-    with open('/app/docs/2017_map.html', 'r') as f:
-        return f.read()
+    """Serve the unified dashboard app (map + analytics)."""
+    # Try new consolidated app first, fall back to legacy map
+    try:
+        with open('/app/docs/app.html', 'r') as f:
+            return f.read()
+    except FileNotFoundError:
+        with open('/app/docs/2017_map.html', 'r') as f:
+            return f.read()
 
 
 @app.route('/<path:filename>', methods=['GET'])
