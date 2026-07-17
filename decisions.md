@@ -1145,3 +1145,33 @@ Deployment Status:
 - ✓ Ready for production geocoding run
 
 Next: Deploy improved cascade to production and run full 2017 re-geocoding to measure actual vs. projected improvement.
+
+### 2026-07-16 — Tier 2 Part 2: Gazetteer data loader (named-place matching)
+
+**Problem:** Stage 5 (named_place) is currently disabled because ref.gazetteer is empty (only 2 sample rows).
+This prevents geocoding of location strings like "GRANT PARK", "MILLENNIUM PARK", etc.
+
+**Solution:** Created gazetteer.py module to load Chicago parks + public facilities:
+- load_chicago_parks(): 10+ major parks with realistic centroids
+- load_public_facilities(): Libraries, police, fire stations
+- build_gazetteer(): Combined 14+ entry sample dataset
+- load_to_database(): Bulk insert to ref.gazetteer with proper SRID
+
+**Sample Data Loaded:**
+- GRANT PARK (41.8761, -87.6192)
+- MILLENNIUM PARK (41.8827, -87.6233)
+- LINCOLN PARK (41.9144, -87.6306)
+- ... 11 more parks + facilities
+
+**Schema:** ref.gazetteer(name TEXT PK, geom POINT SRID 4326, type TEXT)
+
+**Current Status:** 14 sample entries loaded and tested.
+**Production Status:** TODO — Replace with full Chicago Data Portal datasets once IDs verified:
+- chicago_parks: ~600+ entries (all CPD parks)
+- public_facilities: ~200+ entries (libraries, police, fire, etc.)
+
+**Expected Impact:** +1pp citywide geocoding (25 named-place records at 70% success rate)
+- Current: 0/25 named_place success (gazetteer empty)
+- Expected: 17/25 (70% success rate with full gazetteer)
+
+**Next:** Load full Chicago parks dataset and test against 2017 data.
