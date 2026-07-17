@@ -1,8 +1,23 @@
 # Project Holos — Agent Constitution
 
-You are working on Project Holos: converting messy civic records into a
-georeferenced digital twin — above and below ground. Read `/docs/master-brief.md`,
-`/docs/tech-spec.md`, and `/docs/runbook.md` before non-trivial work.
+## What We're Building
+
+You are working on **Project Holos**: converting messy civic records into a georeferenced digital twin — above and below ground. 
+
+**Core mission:** Integrate spending data, utilities, and subsurface features into a unified, georeferenced model for city planners, engineers, subsurface coordinators, and civic transparency advocates.
+
+**Data flow:** Harvest → normalize → geocode → validate → promote to `core` schema.
+
+**Read first:** `/docs/master-brief.md`, `/docs/tech-spec.md`, `/docs/runbook.md` before non-trivial work.
+
+## Technology & Architecture
+
+- **Backend:** Python 3.12, typed (mypy), linted (ruff), tested (pytest golden)
+- **CLI toolbelt:** `holos harvest`, `holos extract`, `holos geocode`, `holos load`, `holos validate`, `holos geometry`
+- **Database:** PostgreSQL 16 + PostGIS (Docker), EPSG:4326 (WGS84) for storage, EPSG:3435 (IL State Plane East) for math
+- **Schemas:** `core` (production, read-only), `staging` (working area, loaded via `holos load`), `ref` (reference geometry), `ops` (metadata, audit)
+- **Deployment:** Flask API on Railway, map UI on Vercel
+- **Testing:** Golden tests (`pytest golden/`), integration tests, E2E validation
 
 ## Non-negotiable rules
 1. Agents decide; deterministic tools execute. Never hand-compute a coordinate,
@@ -96,6 +111,39 @@ out-of-scope, complete, or deferrable. This is the escape hatch you must NOT tak
 - Work is committed, TASKS.md marked `[x]`, decisions logged
 
 If you cannot meet acceptance criteria, do not mark done. State the blocker instead.
+
+## Testing & Deployment
+
+**Local development:**
+```bash
+docker compose up -d hub                    # Start PostgreSQL + PostGIS
+uv run holos --help                         # See all CLI commands
+uv run pytest golden/ -x                    # Run golden tests
+```
+
+**Test discipline:**
+- Unit: `holos_tools/*/test_*.py` (covers extract, geocode, load, validate)
+- Golden: `golden/` (covers end-to-end pipeline behavior)
+- Integration: Geometry math, SQL correctness, RLS policies
+- E2E: Production validation on real 2017 Chicago spending data
+
+**Deploy pipeline:**
+1. Commit + push to `dev` branch
+2. GitHub Actions runs `pytest golden/ -x` + `ruff check` + `mypy`
+3. Merge to `master` (triggers production deployment)
+4. Vercel (frontend) + Railway (API) auto-deploy
+
+**Deployment frequency:** Weekly (MVP iteration cycle)
+
+## Open Decisions
+
+| Decision | Status | Scope | Notes |
+|----------|--------|-------|-------|
+| Multi-segment street geocoding (Tier 2 Part 1) | ✓ Implemented | ST_LineSubstring + best-segment selection | See decisions.md 2026-07-16 |
+| Subsurface feature escalation workflow (Tier 2 Part 3) | Planning | Manual review queue + truncation recovery | Affects 45 records, impacts confidence scoring |
+| Production re-validation timing | TBD | Async or blocking on every load? | Timeout on 1784 records—needs batching or async runner |
+| Address normalization for truncated records | [ ] | Recover "123 ADAMS FROM W MONROE TO W MADISON" | 45 truncated spend records await recovery method |
+| CCD→NAVD88 vertical datum calibration | [ ] | Survey constant validation | Subsurface depths require licensed surveyor confirmation |
 
 ### Notion IDs (targets for the MCP)
 - Project Holos page: `38bf6ea8-4e41-803f-8858-f20effe04b85`

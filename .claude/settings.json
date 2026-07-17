@@ -1,10 +1,44 @@
 {
-  "$comment": "Project Holos — Claude Code hooks. VERIFY exact hook schema against current docs: https://docs.claude.com/en/docs/claude-code/hooks . Hook events and output format can change.",
+  "$schema": "https://docs.claude.com/schema/settings.json",
+  "name": "Project Holos — Phase 1B/C (Geocoding + Validation)",
+  "description": "Georeferenced digital twin of civic records—spending, utilities, subsurface features. Deterministic toolbelt + golden tests.",
+
+  "permissions": {
+    "auto_allow": [
+      "Bash(uv run pytest.*|pytest.*)",
+      "Bash(uv run holos.*|holos.*)",
+      "Bash(git (status|log|diff|show))",
+      "Read(.*)",
+      "Grep(.*)"
+    ],
+    "ask_first": [
+      "Bash(git (commit|push|merge|rebase))",
+      "Bash(uv run holos load promote)",
+      "Bash(docker compose (up|down|restart))"
+    ],
+    "deny": [
+      "Bash(git reset --hard|git clean -fd|git push --force)",
+      "Bash(rm -rf|.*delete.*core.*)",
+      "Bash(psql.*DELETE.*core\\.)"
+    ]
+  },
+
   "hooks": {
     "SessionStart": [
       {
         "hooks": [
           { "type": "command", "command": "bash .claude/hooks/session_start.sh" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [[ \"$BASH_COMMAND\" =~ git\\ commit|git\\ push ]]; then uv run ruff check holos_tools/ && uv run mypy holos_tools/ || exit 1; fi"
+          }
         ]
       }
     ],
@@ -15,5 +49,13 @@
         ]
       }
     ]
+  },
+
+  "context": {
+    "instructions": "./.claude/CLAUDE.md — Project Holos constitution + build discipline",
+    "tasks": "TASKS.md — Living checklist (repo-native source of truth)",
+    "decisions": "decisions.md — Append-only decision log",
+    "skills": "./.claude/skills/ — Domain-specific workflows (geocode, validate, load)",
+    "agents": "./.claude/agents/ — Specialized subagents (geolocator, normalizer, security-auditor)"
   }
 }
