@@ -192,6 +192,19 @@ def api_by_category():
     return jsonify(load_by_category_data(year))
 
 
+@app.route("/api/reports/trends", methods=["GET"])
+def api_trends():
+    """Return year-over-year spending trends."""
+    trends_file = DATA_PATH / "trends_2012_2017.json"
+    if not trends_file.exists():
+        return jsonify({"error": "Trends data not available"}), 404
+
+    with open(trends_file, 'r') as f:
+        data = json.load(f)
+
+    return jsonify(data)
+
+
 @app.route("/api/reports/need-match", methods=["GET"])
 def api_need_match():
     """Return need-match analysis (spending vs. 311 demand)."""
@@ -373,6 +386,7 @@ def index():
 
         <div class="tabs">
             <button class="tab-btn active" onclick="switchTab('summary')">Summary</button>
+            <button class="tab-btn" onclick="switchTab('trends')">Trends</button>
             <button class="tab-btn" onclick="switchTab('by-ward')">By Ward</button>
             <button class="tab-btn" onclick="switchTab('by-category')">By Category</button>
             <button class="tab-btn" onclick="switchTab('need-match')">Equity</button>
@@ -380,6 +394,10 @@ def index():
 
         <div id="summary" class="tab-content active">
             <div id="summary-content" class="loading">Loading...</div>
+        </div>
+
+        <div id="trends" class="tab-content">
+            <div id="trends-content" class="loading">Loading...</div>
         </div>
 
         <div id="by-ward" class="tab-content">
@@ -414,6 +432,8 @@ def index():
         async function loadData(tab) {
             if (tab === 'summary') {
                 loadSummary();
+            } else if (tab === 'trends') {
+                loadTrends();
             } else if (tab === 'by-ward') {
                 loadByWard();
             } else if (tab === 'by-category') {
@@ -425,6 +445,7 @@ def index():
 
         async function loadAllData() {
             loadSummary();
+            loadTrends();
             loadByWard();
             loadByCategory();
             loadNeedMatch();
@@ -509,6 +530,90 @@ def index():
                 document.getElementById('summary-content').innerHTML = html;
             } catch (err) {
                 document.getElementById('summary-content').innerHTML = `<div class="error">Error loading summary: ${err.message}</div>`;
+            }
+        }
+
+        async function loadTrends() {
+            try {
+                const res = await fetch(`/api/reports/trends`);
+                const data = await res.json();
+
+                const y2012 = data.summary[2012];
+                const y2017 = data.summary[2017];
+                const change = data.summary.change;
+
+                let html = `
+                    <p style="margin: 0 0 20px 0; color: #666; font-size: 0.95em;">
+                        <strong>5-Year Trend (2012–2017):</strong> How aldermanic spending changed over time.
+                    </p>
+
+                    <div class="summary-grid">
+                        <div class="metric-card">
+                            <div class="label">Total Spending Change</div>
+                            <div class="value" style="font-size: 1.2em;">${change.spend_pct > 0 ? '+' : ''}${change.spend_pct}%</div>
+                            <div style="font-size: 0.8em; margin-top: 8px;">
+                                2012: $${(y2012.total_spend/1e6).toFixed(1)}M → 2017: $${(y2017.total_spend/1e6).toFixed(1)}M
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="label">Project Count Change</div>
+                            <div class="value" style="font-size: 1.2em;">${change.projects_pct > 0 ? '+' : ''}${change.projects_pct}%</div>
+                            <div style="font-size: 0.8em; margin-top: 8px;">
+                                2012: ${y2012.total_projects} → 2017: ${y2017.total_projects}
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="label">Data Quality Improvement</div>
+                            <div class="value" style="font-size: 1.2em;">+${change.geocoding_pct}pp</div>
+                            <div style="font-size: 0.8em; margin-top: 8px;">
+                                2012: ${y2012.geocoding_rate}% → 2017: ${y2017.geocoding_rate}%
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 40px; margin-bottom: 15px;">Category Trends</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>2012 Spend</th>
+                                <th>2017 Spend</th>
+                                <th>Change</th>
+                                <th>Share (2017)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                // Build category table
+                const allCats = new Set([
+                    ...Object.keys(data.categories[2012]),
+                    ...Object.keys(data.categories[2017])
+                ]);
+
+                const total2017 = y2017.total_spend;
+
+                for (const cat of Array.from(allCats).sort()) {
+                    const s2012 = data.categories[2012][cat]?.spend || 0;
+                    const s2017 = data.categories[2017][cat]?.spend || 0;
+                    const change_pct = s2012 > 0 ? ((s2017 - s2012) / s2012 * 100).toFixed(0) : 'N/A';
+                    const share = ((s2017 / total2017) * 100).toFixed(1);
+
+                    html += `
+                        <tr>
+                            <td><strong>${cat}</strong></td>
+                            <td>$${(s2012/1e6).toFixed(1)}M</td>
+                            <td>$${(s2017/1e6).toFixed(1)}M</td>
+                            <td>${change_pct > 0 ? '+' : ''}${change_pct}%</td>
+                            <td>${share}%</td>
+                        </tr>
+                    `;
+                }
+
+                html += `</tbody></table>`;
+                document.getElementById('trends-content').innerHTML = html;
+            } catch (err) {
+                document.getElementById('trends-content').innerHTML = `<div class="error">Error loading trends: ${err.message}</div>`;
             }
         }
 
