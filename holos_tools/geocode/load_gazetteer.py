@@ -211,8 +211,8 @@ def export_to_json(entries: List[GazetteerEntry], output_path: str) -> int:
 def load_to_database(entries: List[GazetteerEntry], db_connection) -> int:
     """Load gazetteer entries to ref.gazetteer table."""
     sql = """
-        INSERT INTO ref.gazetteer (name, geom, type, source)
-        VALUES (%(name)s, ST_Point(%(lon)s, %(lat)s, 4326), %(type)s, %(source)s)
+        INSERT INTO ref.gazetteer (name, geom, place_type, source)
+        VALUES (%(name)s, ST_Point(%(lon)s, %(lat)s, 4326), %(place_type)s, %(source)s)
         ON CONFLICT(name) DO NOTHING
     """
 
@@ -223,7 +223,7 @@ def load_to_database(entries: List[GazetteerEntry], db_connection) -> int:
                     "name": entry.name,
                     "lat": entry.lat,
                     "lon": entry.lon,
-                    "type": entry.type,
+                    "place_type": entry.type,
                     "source": entry.source,
                 })
             except Exception as e:
