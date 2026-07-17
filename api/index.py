@@ -1,10 +1,16 @@
 """Vercel serverless function — Flask app handler.
 
-Lightweight app that serves the unified dashboard (app.html).
-Does not require database connections (those are local-only).
+Routes to the full Project Holos map with all reference layers and API endpoints.
+Requires database connection (PostGIS for centerlines, TIGER roads, alleys, etc.).
 """
 
-from app import app
+import sys
+from pathlib import Path
 
-# Export WSGI app for Vercel
+# Add parent to path so we can import holos_tools
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from holos_tools.serve_api import app
+
+# Export WSGI app for Railway/Vercel
 __all__ = ['app']

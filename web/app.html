@@ -3,215 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Holos — Interactive Dashboard</title>
+    <title>Project Holos — 2017 Aldermanic Menu Spending Map</title>
     <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js" integrity="sha384-C8SvKhT0WT55AOw5pvwVG699JuuZgN0KFt/4wtpRPhSl+TzRYqDUravAfuy13vJK" crossorigin="anonymous"></script>
     <link href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-lwiCiEXwjwuSiTeYhtgeL/ADQBiUjDsQkKHCwT0j+8iKuBrb7skjKQAYQ+cpZspI" crossorigin="anonymous" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #f5f5f5;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        /* Header & Navigation */
-        .header {
-            background: white;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            height: 60px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-            margin-right: 40px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-tabs {
-            display: flex;
-            gap: 30px;
-            flex: 1;
-        }
-
-        .nav-tab {
-            padding: 8px 0;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            color: #666;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .nav-tab:hover {
-            color: #333;
-        }
-
-        .nav-tab.active {
-            color: #667eea;
-            border-bottom-color: #667eea;
-        }
-
-        /* Content Area */
-        .container {
-            display: flex;
-            height: calc(100vh - 60px);
-            width: 100%;
-        }
-
-        .content {
-            flex: 1;
-            display: none;
-            position: relative;
-        }
-
-        .content.active {
-            display: flex;
-        }
-
-        #map {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Dashboard Styles */
-        .dashboard {
-            overflow-y: auto;
-            padding: 30px;
-            background: #f9f9f9;
-        }
-
-        .dashboard-header {
-            max-width: 1200px;
-            margin: 0 auto 40px;
-        }
-
-        .dashboard-title {
-            font-size: 28px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .dashboard-subtitle {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .dashboard-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-left: 4px solid #667eea;
-        }
-
-        .stat-card.alt1 { border-left-color: #764ba2; }
-        .stat-card.alt2 { border-left-color: #f093fb; }
-        .stat-card.alt3 { border-left-color: #4facfe; }
-        .stat-card.alt4 { border-left-color: #00f2fe; }
-
-        .stat-label {
-            font-size: 12px;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        .stat-value {
-            font-size: 32px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 4px;
-        }
-
-        .stat-desc {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        .section {
-            max-width: 1200px;
-            margin: 0 auto 40px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #e0e0e0;
-        }
-
-        .list {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .list-item {
-            padding: 16px 20px;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .list-item:last-child {
-            border-bottom: none;
-        }
-
-        .list-item-name {
-            font-size: 14px;
-            font-weight: 500;
-            color: #333;
-        }
-
-        .list-item-value {
-            font-size: 14px;
-            color: #667eea;
-            font-weight: 600;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #e8f4f8;
-            color: #0066cc;
-            padding: 4px 8px;
-            border-radius: 3px;
-            font-size: 11px;
-            font-weight: 600;
-            margin-left: 12px;
-        }
-
-        /* Map overlay controls */
-        .map-controls {
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        .controls {
             position: absolute;
             top: 20px;
             left: 20px;
@@ -222,21 +21,18 @@
             z-index: 10;
             max-width: 320px;
         }
-
-        .map-controls h2 {
+        .controls h2 {
             font-size: 16px;
             margin-bottom: 12px;
             color: #333;
         }
-
-        .map-controls label {
+        .controls label {
             display: block;
             font-size: 13px;
             margin-bottom: 8px;
             color: #555;
         }
-
-        .map-controls select {
+        .controls select {
             width: 100%;
             padding: 8px;
             border: 1px solid #ddd;
@@ -245,310 +41,720 @@
             margin-bottom: 15px;
             cursor: pointer;
         }
-
-        .quality-badge {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 4px;
-            padding: 8px 12px;
-            font-size: 12px;
-            color: #856404;
-            margin-bottom: 15px;
-        }
-
-        .footer-text {
+        .stats {
             font-size: 12px;
             color: #666;
+            line-height: 1.6;
             border-top: 1px solid #eee;
             padding-top: 12px;
             margin-top: 12px;
         }
-
-        @media (max-width: 768px) {
-            .nav-tabs {
-                gap: 15px;
-            }
-
-            .nav-tab {
-                font-size: 13px;
-                padding: 6px 0;
-            }
-
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-value {
-                font-size: 24px;
-            }
+        .stats-number {
+            font-weight: bold;
+            color: #333;
+        }
+        .popup {
+            max-width: 300px;
+        }
+        .popup-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+        .popup-item {
+            font-size: 12px;
+            margin-bottom: 6px;
+            color: #555;
+        }
+        .popup-label {
+            font-weight: 600;
+            color: #333;
+        }
+        .popup-cost {
+            color: #0066cc;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .popup-caveat {
+            font-size: 11px;
+            color: #d9534f;
+            margin-top: 8px;
+            padding: 6px;
+            background: #fee;
+            border-radius: 3px;
+            border-left: 3px solid #d9534f;
+        }
+        .legend {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 10;
+            font-size: 12px;
+            color: #666;
+            max-width: 280px;
+        }
+        .legend-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .legend-swatch {
+            width: 30px;
+            height: 3px;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+        .legend-section {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+        }
+        .error {
+            color: #c33;
+            padding: 10px;
+            background: #fee;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <div class="logo">🗺️ Project Holos</div>
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="switchTab('map')">📍 Map</button>
-            <button class="nav-tab" onclick="switchTab('dashboard')">📊 Dashboard</button>
+    <div id="map"></div>
+    <div class="controls">
+        <h2>🗺️ 2017 Aldermanic Menu</h2>
+        <div id="error" class="error" style="display:none;"></div>
+        <label for="ward-filter">Filter by Ward:</label>
+        <select id="ward-filter">
+            <option value="">All Wards (50)</option>
+        </select>
+        <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 12px;">
+            <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" id="toggle-city-boundary" style="margin-right: 8px; cursor: pointer;">
+                <span>Show City Boundary</span>
+            </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-wards" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Ward Boundaries</span>
+            </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-streets" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Street Centerlines</span>
+            </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-curbs" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Curb Centerlines</span>
+            </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-tiger" style="margin-right: 8px; cursor: pointer;">
+                <span>Show TIGER Roads (Reference)</span>
+            </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-alleys" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Alleys</span>
+            </label>
         </div>
-    </div>
-
-    <!-- Content -->
-    <div class="container">
-        <!-- Map Tab -->
-        <div id="map-content" class="content active">
-            <div id="map"></div>
-            <div class="map-controls">
-                <h2>2017 Aldermanic Spending</h2>
-                <label>Filter by Ward:</label>
-                <select id="ward-select" onchange="filterByWard()">
-                    <option value="">All Wards</option>
-                </select>
-                <div class="quality-badge">✓ Phase 1 MVP</div>
-                <div class="footer-text">
-                    <strong>878 projects geocoded</strong><br>
-                    <strong>$14.1M spending</strong><br>
-                    <strong>54.7% accuracy</strong>
-                </div>
+        <div class="stats">
+            <div><span class="stats-number" id="displayed-count">0</span> / <span class="stats-number" id="total-count">0</span> projects</div>
+            <div style="font-size: 11px; color: #888; margin-top: 8px;">
+                Spend: $<span id="displayed-spend">0</span>
             </div>
         </div>
-
-        <!-- Dashboard Tab -->
-        <div id="dashboard-content" class="content">
-            <div class="dashboard">
-                <div class="dashboard-header">
-                    <h1 class="dashboard-title">📊 Analysis Dashboard</h1>
-                    <p class="dashboard-subtitle">2017 Aldermanic Spending Metrics & Equity Analysis</p>
-                </div>
-
-                <!-- Key Metrics -->
-                <div class="dashboard-grid">
-                    <div class="stat-card">
-                        <div class="stat-label">Total Projects</div>
-                        <div class="stat-value">878</div>
-                        <div class="stat-desc">Successfully geocoded</div>
-                    </div>
-                    <div class="stat-card alt1">
-                        <div class="stat-label">Total Spending</div>
-                        <div class="stat-value">$14.1M</div>
-                        <div class="stat-desc">Aldermanic discretionary</div>
-                    </div>
-                    <div class="stat-card alt2">
-                        <div class="stat-label">Wards Covered</div>
-                        <div class="stat-value">50</div>
-                        <div class="stat-desc">Chicago city wards</div>
-                    </div>
-                    <div class="stat-card alt3">
-                        <div class="stat-label">Data Quality</div>
-                        <div class="stat-value">54.7%</div>
-                        <div class="stat-desc">Composite accuracy</div>
-                    </div>
-                </div>
-
-                <!-- Equity Analysis -->
-                <div class="section">
-                    <h2 class="section-title">Equity Analysis: Spending vs. Need</h2>
-                    <div class="list">
-                        <div class="list-item">
-                            <span class="list-item-name">Over-served wards (>1.5× fair share)</span>
-                            <span class="list-item-value">13 wards <span class="badge">Most funded</span></span>
-                        </div>
-                        <div class="list-item">
-                            <span class="list-item-name">Fair-served wards (0.9–1.5× fair share)</span>
-                            <span class="list-item-value">28 wards</span>
-                        </div>
-                        <div class="list-item">
-                            <span class="list-item-name">Under-served wards (<0.9× fair share)</span>
-                            <span class="list-item-value">9 wards <span class="badge">Under-funded</span></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Top Wards -->
-                <div class="section">
-                    <h2 class="section-title">Top 5 Wards by Spending</h2>
-                    <div class="list" id="top-wards-list">
-                        <div class="list-item">
-                            <span class="list-item-name">Ward 6</span>
-                            <span class="list-item-value">1.78× fair share</span>
-                        </div>
-                        <div class="list-item">
-                            <span class="list-item-name">Ward 19</span>
-                            <span class="list-item-value">0.58× fair share</span>
-                        </div>
-                        <div class="list-item">
-                            <span class="list-item-name">Loading data...</span>
-                            <span class="list-item-value">—</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Data Info -->
-                <div class="section">
-                    <h2 class="section-title">About This Data</h2>
-                    <div class="list">
-                        <div class="list-item">
-                            <span class="list-item-name">Source</span>
-                            <span class="list-item-value">Chicago 2017 Aldermanic Menu</span>
-                        </div>
-                        <div class="list-item">
-                            <span class="list-item-name">Extraction Quality</span>
-                            <span class="list-item-value">100% (1784 records)</span>
-                        </div>
-                        <div class="list-item">
-                            <span class="list-item-name">Geocoding Accuracy</span>
-                            <span class="list-item-value">57.6% (1030 geocoded)</span>
-                        </div>
-                        <div class="list-item">
-                            <span class="list-item-name">Data Freshness</span>
-                            <span class="list-item-value">Updated 2026-07-17</span>
-                        </div>
-                        <div class="list-item">
-                            <span class="list-item-name">Next Phase</span>
-                            <span class="list-item-value">Historical data (2012–2025)</span>
-                        </div>
-                    </div>
-                </div>
+    </div>
+    <div class="legend">
+        <div style="font-weight: bold; margin-bottom: 10px;">2017 Aldermanic Spending</div>
+        <div class="legend-item">
+            <div class="legend-swatch" style="background: #0066cc; border-radius: 50%; width: 8px; height: 8px; margin: auto;"></div>
+            <span>Points — intersections, single addresses</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-swatch" style="background: #ff6600; height: 2px;"></div>
+            <span>Lines — street ranges (width = budget)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-swatch" style="background: #66cc00; height: 2px;"></div>
+            <span>Polygons — alley blocks</span>
+        </div>
+        <div class="legend-section">
+            <div style="font-weight: bold; margin-bottom: 8px; font-size: 12px;">Quality</div>
+            <div style="font-size: 11px; color: #666;">
+                <strong>54.7% composite</strong><br>
+                100% extraction ×<br>
+                57.6% geocoding ×<br>
+                95% correctness<br><br>
+                <span style="color: #d9534f;">⚠️ Ward boundaries changed 2022; some projects may appear in different wards than originally allocated.</span>
             </div>
         </div>
     </div>
 
     <script>
-        // Tab switching
-        function switchTab(tab) {
-            // Update nav buttons
-            document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: {
+                version: 8,
+                name: 'Modern Data Map',
+                sources: {
+                    osm: {
+                        type: 'raster',
+                        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+                        tileSize: 256,
+                        attribution: '© OpenStreetMap contributors'
+                    }
+                },
+                layers: [
+                    {
+                        id: 'background',
+                        type: 'background',
+                        paint: { 'background-color': '#ffffff' }
+                    },
+                    {
+                        id: 'osm-tiles',
+                        type: 'raster',
+                        source: 'osm',
+                        minzoom: 0,
+                        maxzoom: 18
+                    }
+                ]
+            },
+            center: [-87.6298, 41.8781],
+            zoom: 10,
+            attributionControl: true
+        });
 
-            // Update content
-            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
-            document.getElementById(tab + '-content').classList.add('active');
+        let allFeatures = [];
+        let wardsBoundaries = null;
+        let chicagoBoundary = null;
+        let alleys = null;
+        let streetCenterlines = null;
+        let curbCenterlines = null;
+        let tigerRoads = null;
+        let mapReady = false;
 
-            // Trigger map resize on map tab switch
-            if (tab === 'map' && window.map) {
-                setTimeout(() => window.map.resize(), 100);
-            }
+        // Load TIGER roads (reference data, clipped to Chicago boundary)
+        function loadTigerRoads() {
+            const bbox = map.getBounds();
+            const url = `https://project-holos-repo-production.up.railway.app/api/tiger-roads.geojson?bbox=${bbox.getWest()},${bbox.getSouth()},${bbox.getEast()},${bbox.getNorth()}`;
+            console.log('Loading TIGER roads...');
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })
+                .then(data => {
+                    tigerRoads = data;
+                    console.log('TIGER roads loaded:', data.features.length);
+                    if (mapReady) addTigerLayer();
+                })
+                .catch(err => console.warn('TIGER roads not available:', err.message));
         }
 
-        // Initialize map (from 2017_map.html)
-        function initMap() {
-            const API_BASE = window.location.origin;
+        // Load alleys from API (with bbox)
+        function loadAlleys() {
+            const bbox = map.getBounds();
+            const url = `https://project-holos-repo-production.up.railway.app/api/alleys.geojson?bbox=${bbox.getWest()},${bbox.getSouth()},${bbox.getEast()},${bbox.getNorth()}`;
+            console.log('Loading alleys...');
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })
+                .then(data => {
+                    alleys = data;
+                    console.log('Alleys loaded:', data.features.length);
+                    if (mapReady) addAlleysLayer();
+                })
+                .catch(err => console.warn('Alleys not available:', err.message));
+        }
 
-            window.map = new maplibregl.Map({
-                container: 'map',
-                style: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
-                center: [-87.6298, 41.8781],
-                zoom: 11,
-            });
+        // Load 2017 geodata
+        console.log('Loading 2017 aldermanic spending...');
+        fetch('2017_aldermanic_verified.geojson')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                console.log('Data loaded:', data.features.length, 'geocoded records');
+                allFeatures = data.features || [];
 
-            window.map.on('load', function() {
-                // Add spending data layer
-                window.map.addSource('spending', {
-                    type: 'geojson',
-                    data: '2017_aldermanic_verified.geojson'
+                // Update stats
+                const totalSpend = allFeatures.reduce((sum, f) => sum + (f.properties.cost || 0), 0);
+                document.getElementById('total-count').textContent = allFeatures.length;
+                document.getElementById('displayed-count').textContent = allFeatures.length;
+                document.getElementById('displayed-spend').textContent = (totalSpend / 1000000).toFixed(1) + 'M';
+
+                // Build ward list
+                const wards = new Set();
+                allFeatures.forEach(f => {
+                    if (f.properties.ward) wards.add(f.properties.ward);
+                });
+                const wardSelect = document.getElementById('ward-filter');
+                Array.from(wards).sort((a, b) => a - b).forEach(w => {
+                    const opt = document.createElement('option');
+                    opt.value = w;
+                    opt.textContent = `Ward ${w}`;
+                    wardSelect.appendChild(opt);
                 });
 
-                // Points layer
-                window.map.addLayer({
-                    id: 'spending-points',
-                    type: 'circle',
-                    source: 'spending',
-                    filter: ['==', ['geometry-type'], 'Point'],
-                    paint: {
-                        'circle-radius': 6,
-                        'circle-color': '#0066cc',
-                        'circle-opacity': 0.7
-                    }
-                }, 'water');
+                // Initialize map
+                map.on('load', () => {
+                    mapReady = true;
+                    addMapLayers();
+                    if (wardsBoundaries) addWardLayers();
+                    if (curbCenterlines) addCurbCenterlinesLayer();
+                    if (streetCenterlines) addStreetCenterlinesLayer();
+                    if (chicagoBoundary) addChicagoBoundaryLayer();
+                    if (tigerRoads) addTigerLayer();
+                    // Load API data with bbox
+                    loadStreetCenterlines();
+                    loadCurbCenterlines();
+                    loadTigerRoads();
+                    loadAlleys();
 
-                // Lines layer
-                window.map.addLayer({
-                    id: 'spending-lines',
-                    type: 'line',
-                    source: 'spending',
-                    filter: ['==', ['geometry-type'], 'LineString'],
-                    paint: {
-                        'line-color': '#ff9800',
-                        'line-width': ['interpolate', ['linear'], ['get', 'cost'], 100, 1, 1000000, 5],
-                        'line-opacity': 0.6
-                    }
-                }, 'water');
-
-                // Polygons layer
-                window.map.addLayer({
-                    id: 'spending-polygons',
-                    type: 'fill',
-                    source: 'spending',
-                    filter: ['==', ['geometry-type'], 'Polygon'],
-                    paint: {
-                        'fill-color': '#4caf50',
-                        'fill-opacity': 0.5
-                    }
-                }, 'water');
-
-                // Add popup on click
-                window.map.on('click', 'spending-points', showPopup);
-                window.map.on('click', 'spending-lines', showPopup);
-                window.map.on('click', 'spending-polygons', showPopup);
-
-                // Populate ward selector
-                populateWardSelector();
+                    // Reload data on move/zoom (throttled)
+                    let moveTimeout;
+                    map.on('moveend', () => {
+                        clearTimeout(moveTimeout);
+                        moveTimeout = setTimeout(() => {
+                            loadStreetCenterlines();
+                            loadCurbCenterlines();
+                            loadTigerRoads();
+                            loadAlleys();
+                        }, 500);
+                    });
+                });
+            })
+            .catch(err => {
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = `Error loading data: ${err.message}`;
             });
 
-            window.map.addControl(new maplibregl.NavigationControl());
-        }
+        // Load ward boundaries
+        console.log('Loading ward boundaries...');
+        fetch('wards_2023.geojson')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                wardsBoundaries = data;
+                console.log('Wards loaded:', data.features.length);
+                if (mapReady) addWardLayers();
+            })
+            .catch(err => console.warn('Ward boundaries not available:', err.message));
 
-        function showPopup(e) {
-            const properties = e.features[0].properties;
-            const popup = new maplibregl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(`
-                    <div class="popup">
-                        <div class="popup-title">${properties.category || 'Project'}</div>
-                        <div class="popup-item">
-                            <span class="popup-label">Location:</span> ${properties.location || 'Unknown'}
-                        </div>
-                        <div class="popup-item">
-                            <span class="popup-label">Cost:</span>
-                            <span class="popup-cost">$${(properties.cost || 0).toLocaleString()}</span>
-                        </div>
-                        <div class="popup-item">
-                            <span class="popup-label">Ward:</span> ${properties.ward || 'Unknown'}
-                        </div>
-                        <div class="popup-item">
-                            <span class="popup-label">Year:</span> ${properties.year || '2017'}
-                        </div>
-                    </div>
-                `)
-                .addTo(window.map);
-        }
+        function addWardLayers() {
+            if (wardsBoundaries && !map.getSource('wards')) {
+                map.addSource('wards', {
+                    type: 'geojson',
+                    data: wardsBoundaries
+                });
 
-        function populateWardSelector() {
-            const select = document.getElementById('ward-select');
-            for (let i = 1; i <= 50; i++) {
-                const option = document.createElement('option');
-                option.value = i;
-                option.textContent = `Ward ${i}`;
-                select.appendChild(option);
+                map.addLayer({
+                    id: 'ward-fill',
+                    type: 'fill',
+                    source: 'wards',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'fill-color': '#808080',
+                        'fill-opacity': 0.05
+                    }
+                });
+
+                map.addLayer({
+                    id: 'ward-outline',
+                    type: 'line',
+                    source: 'wards',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#666',
+                        'line-width': 2,
+                        'line-opacity': 0.6
+                    }
+                });
             }
         }
 
-        function filterByWard() {
-            const wardNum = document.getElementById('ward-select').value;
-            if (wardNum) {
-                window.map.setFilter('spending-points', ['==', ['get', 'ward'], parseInt(wardNum)]);
-                window.map.setFilter('spending-lines', ['==', ['get', 'ward'], parseInt(wardNum)]);
-                window.map.setFilter('spending-polygons', ['==', ['get', 'ward'], parseInt(wardNum)]);
-            } else {
-                window.map.setFilter('spending-points', null);
-                window.map.setFilter('spending-lines', null);
-                window.map.setFilter('spending-polygons', null);
+        // Load Chicago boundary
+        console.log('Loading Chicago boundary...');
+        fetch('chicago_boundary.geojson')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                chicagoBoundary = data;
+                console.log('Chicago boundary loaded');
+                if (mapReady) addChicagoBoundaryLayer();
+            })
+            .catch(err => console.warn('Chicago boundary not available:', err.message));
+
+        // Load street centerlines from API (with bbox)
+        function loadStreetCenterlines() {
+            const bbox = map.getBounds();
+            const url = `https://project-holos-repo-production.up.railway.app/api/streets.geojson?bbox=${bbox.getWest()},${bbox.getSouth()},${bbox.getEast()},${bbox.getNorth()}`;
+            console.log('Loading street centerlines...');
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })
+                .then(data => {
+                    streetCenterlines = data;
+                    console.log('Street centerlines loaded:', data.features.length, 'features');
+                    if (mapReady) addStreetCenterlinesLayer();
+                })
+                .catch(err => console.warn('Street centerlines not available:', err.message));
+        }
+
+        // Load curb centerlines from API (with bbox)
+        function loadCurbCenterlines() {
+            try {
+                const bbox = map.getBounds();
+                const url = `https://project-holos-repo-production.up.railway.app/api/curbs.geojson?bbox=${bbox.getWest()},${bbox.getSouth()},${bbox.getEast()},${bbox.getNorth()}`;
+                console.log('Loading curb centerlines from:', url);
+                fetch(url)
+                    .then(res => {
+                        console.log('Curb fetch response:', res.status);
+                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                        return res.json();
+                    })
+                    .then(data => {
+                        curbCenterlines = data;
+                        console.log('✓ Curb centerlines loaded:', data.features.length, 'features');
+                        if (mapReady) {
+                            console.log('Adding curb layer to map...');
+                            addCurbCenterlinesLayer();
+                        }
+                    })
+                    .catch(err => console.error('✗ Curb centerlines error:', err.message, err));
+            } catch (e) {
+                console.error('✗ Curb loading exception:', e.message);
             }
         }
 
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', initMap);
+        // Load on map ready
+        if (mapReady) {
+            loadStreetCenterlines();
+            loadCurbCenterlines();
+        }
+
+        function addCurbCenterlinesLayer() {
+            if (curbCenterlines && !map.getSource('curb-centerlines')) {
+                map.addSource('curb-centerlines', {
+                    type: 'geojson',
+                    data: curbCenterlines
+                });
+
+                map.addLayer({
+                    id: 'curb-centerlines-layer',
+                    type: 'line',
+                    source: 'curb-centerlines',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#cc99ff',
+                        'line-width': 0.8,
+                        'line-opacity': 0.6
+                    }
+                });
+            }
+        }
+
+        function addStreetCenterlinesLayer() {
+            if (streetCenterlines && !map.getSource('street-centerlines')) {
+                map.addSource('street-centerlines', {
+                    type: 'geojson',
+                    data: streetCenterlines
+                });
+
+                map.addLayer({
+                    id: 'street-centerlines-layer',
+                    type: 'line',
+                    source: 'street-centerlines',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#999',
+                        'line-width': 1,
+                        'line-opacity': 0.5
+                    }
+                });
+            }
+        }
+
+        function addChicagoBoundaryLayer() {
+            if (chicagoBoundary && !map.getSource('chicago-boundary')) {
+                map.addSource('chicago-boundary', {
+                    type: 'geojson',
+                    data: chicagoBoundary
+                });
+
+                map.addLayer({
+                    id: 'chicago-boundary-outline',
+                    type: 'line',
+                    source: 'chicago-boundary',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#333',
+                        'line-width': 3,
+                        'line-opacity': 0.8
+                    }
+                });
+            }
+        }
+
+        function addTigerLayer() {
+            if (tigerRoads && !map.getSource('tiger-roads')) {
+                map.addSource('tiger-roads', {
+                    type: 'geojson',
+                    data: tigerRoads
+                });
+
+                // Glow/halo layer (white outline)
+                map.addLayer({
+                    id: 'tiger-roads-glow',
+                    type: 'line',
+                    source: 'tiger-roads',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#ffffff',
+                        'line-width': 3,
+                        'line-opacity': 0.4,
+                        'line-blur': 1
+                    }
+                });
+
+                // Main layer (bright cyan)
+                map.addLayer({
+                    id: 'tiger-roads-layer',
+                    type: 'line',
+                    source: 'tiger-roads',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#00d9ff',
+                        'line-width': 2,
+                        'line-opacity': 0.35
+                    }
+                });
+            }
+        }
+
+        function addAlleysLayer() {
+            if (alleys && !map.getSource('alleys')) {
+                map.addSource('alleys', {
+                    type: 'geojson',
+                    data: alleys
+                });
+
+                map.addLayer({
+                    id: 'alleys-layer',
+                    type: 'line',
+                    source: 'alleys',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#ff6b9d',
+                        'line-width': 1.5,
+                        'line-opacity': 0.7
+                    }
+                });
+            }
+        }
+
+        function addMapLayers() {
+            // Spending data source
+            map.addSource('spending-2017', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: allFeatures
+                }
+            });
+
+            // Points (intersections, single addresses)
+            map.addLayer({
+                id: 'spending-points',
+                type: 'circle',
+                source: 'spending-2017',
+                filter: ['==', ['geometry-type'], 'Point'],
+                paint: {
+                    'circle-radius': 6,
+                    'circle-color': '#0066cc',
+                    'circle-opacity': 0.7,
+                    'circle-stroke-width': 1.5,
+                    'circle-stroke-color': '#fff'
+                }
+            });
+
+            // Lines (street ranges) — width by budget
+            map.addLayer({
+                id: 'spending-lines',
+                type: 'line',
+                source: 'spending-2017',
+                filter: ['==', ['geometry-type'], 'LineString'],
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#ff6600',
+                    'line-width': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'cost'],
+                        0, 1,
+                        50000, 3,
+                        200000, 8
+                    ],
+                    'line-opacity': 0.7
+                }
+            });
+
+            // Polygons (alley blocks)
+            map.addLayer({
+                id: 'spending-polygons',
+                type: 'fill',
+                source: 'spending-2017',
+                filter: ['==', ['geometry-type'], 'Polygon'],
+                paint: {
+                    'fill-color': '#66cc00',
+                    'fill-opacity': 0.3
+                }
+            });
+
+            map.addLayer({
+                id: 'spending-polygons-outline',
+                type: 'line',
+                source: 'spending-2017',
+                filter: ['==', ['geometry-type'], 'Polygon'],
+                paint: {
+                    'line-color': '#66cc00',
+                    'line-width': 2,
+                    'line-opacity': 0.7
+                }
+            });
+
+            // Click popups
+            ['spending-points', 'spending-lines', 'spending-polygons'].forEach(layerId => {
+                map.on('click', layerId, (e) => {
+                    if (e.features.length === 0) return;
+                    const props = e.features[0].properties;
+
+                    let popupHtml = `
+                        <div class="popup">
+                            <div class="popup-title">${props.category || 'Project'}</div>
+                            <div class="popup-item">
+                                <span class="popup-label">Cost:</span>
+                                <span class="popup-cost">$${(props.cost || 0).toLocaleString()}</span>
+                            </div>
+                            <div class="popup-item">
+                                <span class="popup-label">Ward:</span> ${props.ward}
+                            </div>
+                            <div class="popup-item">
+                                <span class="popup-label">Type:</span> ${props.geometry_type || 'unknown'}
+                            </div>
+                    `;
+
+                    if (props.ward_match === false) {
+                        popupHtml += `
+                            <div class="popup-caveat">
+                                ⚠️ Project originally allocated to Ward ${props.original_ward || '?'} (2017);
+                                now appears in Ward ${props.ward} due to 2022 redistricting.
+                            </div>
+                        `;
+                    }
+
+                    popupHtml += '</div>';
+
+                    new maplibregl.Popup()
+                        .setLngLat(e.lngLat)
+                        .setHTML(popupHtml)
+                        .addTo(map);
+                });
+
+                map.on('mouseenter', layerId, () => {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+
+                map.on('mouseleave', layerId, () => {
+                    map.getCanvas().style.cursor = '';
+                });
+            });
+
+            // Ward filter
+            document.getElementById('ward-filter').addEventListener('change', (e) => {
+                const selectedWard = e.target.value;
+                const filtered = selectedWard
+                    ? allFeatures.filter(f => String(f.properties.ward) === selectedWard)
+                    : allFeatures;
+
+                map.getSource('spending-2017').setData({
+                    type: 'FeatureCollection',
+                    features: filtered
+                });
+
+                const spend = filtered.reduce((sum, f) => sum + (f.properties.cost || 0), 0);
+                document.getElementById('displayed-count').textContent = filtered.length;
+                document.getElementById('displayed-spend').textContent = (spend / 1000000).toFixed(2) + 'M';
+            });
+
+            // City boundary toggle
+            document.getElementById('toggle-city-boundary').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('chicago-boundary-outline')) {
+                    map.setLayoutProperty('chicago-boundary-outline', 'visibility', visibility);
+                }
+            });
+
+            // Street centerlines toggle
+            document.getElementById('toggle-streets').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('street-centerlines-layer')) {
+                    map.setLayoutProperty('street-centerlines-layer', 'visibility', visibility);
+                }
+            });
+
+            // Curb centerlines toggle
+            document.getElementById('toggle-curbs').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('curb-centerlines-layer')) {
+                    map.setLayoutProperty('curb-centerlines-layer', 'visibility', visibility);
+                }
+            });
+
+            // Ward boundaries toggle
+            document.getElementById('toggle-wards').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('ward-fill')) {
+                    map.setLayoutProperty('ward-fill', 'visibility', visibility);
+                }
+                if (map.getLayer('ward-outline')) {
+                    map.setLayoutProperty('ward-outline', 'visibility', visibility);
+                }
+            });
+
+            // TIGER roads toggle (both glow and main layers)
+            document.getElementById('toggle-tiger').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('tiger-roads-glow')) {
+                    map.setLayoutProperty('tiger-roads-glow', 'visibility', visibility);
+                }
+                if (map.getLayer('tiger-roads-layer')) {
+                    map.setLayoutProperty('tiger-roads-layer', 'visibility', visibility);
+                }
+            });
+
+            // Alleys toggle
+            document.getElementById('toggle-alleys').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('alleys-layer')) {
+                    map.setLayoutProperty('alleys-layer', 'visibility', visibility);
+                }
+            });
+        }
     </script>
 </body>
 </html>
