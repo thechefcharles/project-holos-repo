@@ -1,0 +1,646 @@
+[
+  {
+    "name": "63RD STREET BEACH",
+    "lat": 41.7854,
+    "lon": -87.5684,
+    "type": "beach",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "ADLER PLANETARIUM",
+    "lat": 41.8661,
+    "lon": -87.607,
+    "type": "cultural",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "ARMOUR PARK",
+    "lat": 41.7897,
+    "lon": -87.6457,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "ART INSTITUTE OF CHICAGO",
+    "lat": 41.8763,
+    "lon": -87.6244,
+    "type": "cultural",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "BRIDGEPORT PARK",
+    "lat": 41.8264,
+    "lon": -87.6456,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "BRONZEVILLE PARK",
+    "lat": 41.8161,
+    "lon": -87.6099,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "BUCKINGHAM PARK",
+    "lat": 41.9231,
+    "lon": -87.6345,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "BURNHAM GREENWAY TRAIL",
+    "lat": 41.82,
+    "lon": -87.62,
+    "type": "trail",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CALUMET PARK",
+    "lat": 41.7201,
+    "lon": -87.5201,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO CITY HALL",
+    "lat": 41.8829,
+    "lon": -87.6278,
+    "type": "government",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO COUNTY BUILDING",
+    "lat": 41.8838,
+    "lon": -87.628,
+    "type": "government",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO CULTURAL CENTER",
+    "lat": 41.8835,
+    "lon": -87.6243,
+    "type": "cultural",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO DEPT OF PUBLIC HEALTH - HQ",
+    "lat": 41.8741,
+    "lon": -87.6168,
+    "type": "health",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 1",
+    "lat": 41.8856,
+    "lon": -87.6283,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 10",
+    "lat": 41.688,
+    "lon": -87.608,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 11",
+    "lat": 41.96,
+    "lon": -87.73,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 2",
+    "lat": 41.8959,
+    "lon": -87.6277,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 3",
+    "lat": 41.7937,
+    "lon": -87.5928,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 4",
+    "lat": 41.7505,
+    "lon": -87.5555,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 5",
+    "lat": 41.805,
+    "lon": -87.65,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 6",
+    "lat": 41.87,
+    "lon": -87.72,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 7",
+    "lat": 41.93,
+    "lon": -87.64,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 8",
+    "lat": 41.82,
+    "lon": -87.58,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE - ENGINE 9",
+    "lat": 41.72,
+    "lon": -87.7,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO FIRE DEPARTMENT - HQ",
+    "lat": 41.8855,
+    "lon": -87.6287,
+    "type": "fire",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO HEALTH CENTER - SOUTH",
+    "lat": 41.77,
+    "lon": -87.56,
+    "type": "health",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO HEALTH CENTER - SOUTHEAST",
+    "lat": 41.72,
+    "lon": -87.52,
+    "type": "health",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO HEALTH CENTER - WEST",
+    "lat": 41.87,
+    "lon": -87.72,
+    "type": "health",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 10TH DISTRICT - PULLMAN",
+    "lat": 41.688,
+    "lon": -87.608,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 11TH DISTRICT - HARRISON",
+    "lat": 41.805,
+    "lon": -87.65,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 12TH DISTRICT - FOSTER",
+    "lat": 41.9,
+    "lon": -87.73,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 1ST DISTRICT - DOWNTOWN",
+    "lat": 41.8841,
+    "lon": -87.6199,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 2ND DISTRICT - SOUTH",
+    "lat": 41.8421,
+    "lon": -87.6234,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 3RD DISTRICT - MIDTOWN",
+    "lat": 41.8359,
+    "lon": -87.6544,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 4TH DISTRICT - SOUTH CHICAGO",
+    "lat": 41.7505,
+    "lon": -87.5555,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 5TH DISTRICT - CALUMET",
+    "lat": 41.705,
+    "lon": -87.545,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 6TH DISTRICT - GRESHAM",
+    "lat": 41.758,
+    "lon": -87.6,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 7TH DISTRICT - ENGLEWOOD",
+    "lat": 41.775,
+    "lon": -87.615,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 8TH DISTRICT - METRO",
+    "lat": 41.837,
+    "lon": -87.628,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE - 9TH DISTRICT - DEERING",
+    "lat": 41.8,
+    "lon": -87.67,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO POLICE DEPARTMENT - HQ",
+    "lat": 41.8841,
+    "lon": -87.6199,
+    "type": "police",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO PUBLIC LIBRARY - DOWNTOWN",
+    "lat": 41.8856,
+    "lon": -87.6283,
+    "type": "library",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO PUBLIC LIBRARY - EAST",
+    "lat": 41.88,
+    "lon": -87.58,
+    "type": "library",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO PUBLIC LIBRARY - HAROLD WASHINGTON",
+    "lat": 41.8856,
+    "lon": -87.6283,
+    "type": "library",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO PUBLIC LIBRARY - LOOP",
+    "lat": 41.8856,
+    "lon": -87.6283,
+    "type": "library",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO PUBLIC LIBRARY - NORTH",
+    "lat": 41.93,
+    "lon": -87.64,
+    "type": "library",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO PUBLIC LIBRARY - NORTHWEST",
+    "lat": 41.96,
+    "lon": -87.73,
+    "type": "library",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO PUBLIC LIBRARY - SOUTH",
+    "lat": 41.77,
+    "lon": -87.56,
+    "type": "library",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO PUBLIC LIBRARY - SOUTHEAST",
+    "lat": 41.72,
+    "lon": -87.52,
+    "type": "library",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO PUBLIC LIBRARY - SOUTHWEST",
+    "lat": 41.75,
+    "lon": -87.7,
+    "type": "library",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO PUBLIC LIBRARY - WEST",
+    "lat": 41.87,
+    "lon": -87.72,
+    "type": "library",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CHICAGO RIVERWALK",
+    "lat": 41.8859,
+    "lon": -87.618,
+    "type": "trail",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "COLUMBUS PARK",
+    "lat": 41.8696,
+    "lon": -87.7397,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "CORNELL PARK",
+    "lat": 41.7599,
+    "lon": -87.5576,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "DIVERSEY PARK",
+    "lat": 41.9332,
+    "lon": -87.6644,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "DOUGLAS PARK",
+    "lat": 41.8427,
+    "lon": -87.7003,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "FEDERALLY QUALIFIED HEALTH CENTER - NORTH",
+    "lat": 41.92,
+    "lon": -87.64,
+    "type": "health",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "FIELD MUSEUM",
+    "lat": 41.8662,
+    "lon": -87.6175,
+    "type": "cultural",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "FOSTER PARK",
+    "lat": 41.7655,
+    "lon": -87.6245,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "GAGE PARK",
+    "lat": 41.8053,
+    "lon": -87.7322,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "GARFIELD PARK",
+    "lat": 41.8531,
+    "lon": -87.7216,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "GRANT PARK",
+    "lat": 41.8761,
+    "lon": -87.6192,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "HARRISON PARK",
+    "lat": 41.8355,
+    "lon": -87.7223,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "HUMBOLDT PARK",
+    "lat": 41.8868,
+    "lon": -87.7142,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "HYDE PARK",
+    "lat": 41.7979,
+    "lon": -87.5723,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "HYDE PARK BEACH",
+    "lat": 41.7979,
+    "lon": -87.5723,
+    "type": "beach",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "JACKSON PARK",
+    "lat": 41.7752,
+    "lon": -87.5789,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "KELLY PARK",
+    "lat": 41.8331,
+    "lon": -87.665,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "LAKEFRONT PARK",
+    "lat": 41.945,
+    "lon": -87.635,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "LAKEFRONT TRAIL",
+    "lat": 41.85,
+    "lon": -87.615,
+    "type": "trail",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "LAMONT PARK",
+    "lat": 41.8558,
+    "lon": -87.7289,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "LINCOLN PARK",
+    "lat": 41.9144,
+    "lon": -87.6306,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "MARQUETTE PARK",
+    "lat": 41.7897,
+    "lon": -87.6569,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "MCKINLEY PARK",
+    "lat": 41.8189,
+    "lon": -87.685,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "MIDWAY PLAISANCE",
+    "lat": 41.7884,
+    "lon": -87.5856,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "MILLENNIUM PARK",
+    "lat": 41.8827,
+    "lon": -87.6233,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "MONTROSE BEACH",
+    "lat": 41.9628,
+    "lon": -87.6383,
+    "type": "beach",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "MONTROSE BEACH PARK",
+    "lat": 41.9628,
+    "lon": -87.6383,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "MUSEUM OF SCIENCE AND INDUSTRY",
+    "lat": 41.7905,
+    "lon": -87.5825,
+    "type": "cultural",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "NORTH AVENUE BEACH",
+    "lat": 41.9325,
+    "lon": -87.6294,
+    "type": "beach",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "NORTH BRANCH TRAIL",
+    "lat": 41.92,
+    "lon": -87.7,
+    "type": "trail",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "OAK STREET BEACH",
+    "lat": 41.8909,
+    "lon": -87.6213,
+    "type": "beach",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "OGLE PARK",
+    "lat": 41.7454,
+    "lon": -87.625,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "OHIO BEACH",
+    "lat": 41.8928,
+    "lon": -87.62,
+    "type": "beach",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "OLIVE PARK",
+    "lat": 41.9485,
+    "lon": -87.5876,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "PULLMAN PARK",
+    "lat": 41.6905,
+    "lon": -87.599,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "RAINBOW BEACH",
+    "lat": 41.7472,
+    "lon": -87.532,
+    "type": "beach",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "RICHARD J DALEY CENTER",
+    "lat": 41.8849,
+    "lon": -87.6279,
+    "type": "government",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "RINGGOLD PARK",
+    "lat": 41.9281,
+    "lon": -87.6975,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "SHEDD AQUARIUM",
+    "lat": 41.8671,
+    "lon": -87.6132,
+    "type": "cultural",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "SHERMAN PARK",
+    "lat": 41.8236,
+    "lon": -87.7389,
+    "type": "park",
+    "source": "chicago_data_portal"
+  },
+  {
+    "name": "WASHINGTON PARK",
+    "lat": 41.8183,
+    "lon": -87.6169,
+    "type": "park",
+    "source": "chicago_data_portal"
+  }
+]
