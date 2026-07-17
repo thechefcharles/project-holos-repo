@@ -433,8 +433,10 @@ class GeocodeCascade:
         Confident-wrong segments are worse than honest misses.
         """
         # Try to parse range format: "ON STREET FROM X TO Y"
+        # Allows numeric street names (50TH, 43RD) and special characters
+        # Match: ON <main_street> FROM <from_street> TO <to_street>
         range_match = re.search(
-            r'ON\s+([A-Z\s]+?)\s+FROM\s+([A-Z\s\-&\(\)\d\.]+?)\s+TO\s+([A-Z\s\-&\(\)\d\.]+?)(?:\s+\d|$)',
+            r'ON\s+([A-Z0-9\s\-&\(\)\.]+?)\s+FROM\s+([A-Z0-9\s\-&\(\)\.]+?)\s+TO\s+([A-Z0-9\s\-&\(\)\.]+?)(?:\s+\(|\s*$)',
             raw_text.upper()
         )
 
