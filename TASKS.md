@@ -295,18 +295,23 @@ All three options (A: Normalizer, B: Report Cards, C: Trends) shipped and deploy
 
 **Completion Status:** ✅ COMPLETE (2026-07-16) — All 3 parts implemented, code in master, ready for production validation
 
-- [x] **Tier 2 Part 1: Street Range FROM/TO Bounding (ST_LineSubstring)** (Component: A - Civic)
+- [~] **Tier 2 Part 1: Street Range FROM/TO Bounding (ST_LineSubstring)** (Component: A - Civic)
   - Owner: Claude Code
   - BUILD FROM: Accuracy audit findings (street_segment is 47% of failures)
   - AC: Implement ST_LineSubstring + ST_LineInterpolatePoint for bounded range interpolation; handle numbered streets
-  - Status: **COMPLETE** (2026-07-16)
-    - [x] ST_LineSubstring algorithm: locates FROM/TO intersections, clips segment, returns midpoint
-    - [x] Regex enhancement: captures numbered streets (50TH ST, 43RD ST, etc.) → 303/356 → 356/356 matches
-    - [x] Tests: All logic validated on synthetic data + 2017 real data
-    - [x] Code: holos_tools/geocode/cascade.py lines 498–583 (40 insertions)
-    - [x] Expected impact: +14.0pp (57.7% → 71.7%), +249 records, +$4.8M spend
-    - ✓ Deployed to master, ready for production validation
-  - Commits: a52a25a, 9572848, 48ca3ee, ce0af73
+  - Status: **DEBUGGING** (2026-07-17)
+    - [x] ST_LineSubstring algorithm: structure complete, locates FROM/TO intersections, clips segment
+    - [x] Regex enhancement: captures numbered streets (50TH ST, 43RD ST, etc.) + enhanced for [A-Z0-9\-&()]
+    - [x] Fixed SRID mismatch: ST_Point calls now include SRID 4326
+    - [x] Loaded full reference data: 56,002 Chicago centerlines to ref.centerlines
+    - [x] Verified intersection queries: CLARK-ARMITAGE and CLARK-BELDEN intersections found ✓
+    - [~] BLOCKER: Multi-segment street lookup
+      - Problem: SELECT...LIMIT 1 returns only first segment of street; for most streets, both intersection points fall at position 0 on that segment
+      - Solution needed: Find correct segment containing or intersecting both endpoints, OR use all segments and find best match
+      - Impact: Blocks production validation until resolved
+    - [x] Code: holos_tools/geocode/cascade.py (ST_Point SRID + ST_ClosestPoint projection + geometry type filter)
+    - Expected impact: +14.0pp (57.7% → 71.7%), +249 records, +$4.8M spend
+  - Commits: b7d5f5a
 
 - [~] **Tier 2 Part 2: Gazetteer Data Loader (Named-Place Geocoding)** (Component: A - Civic)
   - Owner: Claude Code

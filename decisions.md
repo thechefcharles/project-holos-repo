@@ -1209,3 +1209,54 @@ All 2017 records now include is_truncated boolean:
 - True: Truncated at PDF extraction (requires manual review or partial matching)
 
 **Next Step:** Implement recovery workflow for flagged records (manual OR fuzzy partial matching).
+
+---
+
+## 2026-07-17 — Tier 2 Part 1 Debugging: Multi-Segment Street Lookup Blocker
+
+**Issue:**
+ST_LineSubstring algorithm for bounded street ranges (FROM/TO pattern) works syntactically but fails functionally.
+
+**Root Cause Analysis:**
+1. **SQL structure is correct:** Intersection queries find CLARK-ARMITAGE and CLARK-BELDEN intersections successfully
+2. **Geometry loading is correct:** 56k centerlines loaded with valid SRID:4326 coordinates
+3. **SRID fixed:** ST_Point calls now include SRID 4326 (was mismatch causing early failures)
+4. **BLOCKER:** Multi-segment street lookup — centerline table has one row PER SEGMENT, not per street
+   - e.g., CLARK street has 180 separate row entries (short segments across city)
+   - SELECT...LIMIT 1 returns only the FIRST segment
+   - Both intersection points (ARMITAGE & BELDEN) happen to fall at position 0 on that first segment
+   - Result: ST_LineSubstring(segment, 0, 0) → degenerate POINT instead of LINESTRING
+
+**Why This Matters:**
+- Intersection finding is robust (uses JOIN to find any two intersecting segments)
+- But segment clipping assumes ALL intersections lie on same centerline segment
+- In reality, the two intersections could be far apart, requiring a UNION of multiple segments
+
+**Solutions Considered:**
+1. **Use all segments:** Instead of LIMIT 1, ST_LineMerge(ST_Collect(all CLARK segments)) → single continuous line ✓ BEST
+2. **Find best segment:** Scan all CLARK segments, find one containing or closest to both endpoints (complex)
+3. **Re-project endpoints:** Use ST_ShortestLine between endpoints and CLARK segments (geometrically sound but slow)
+
+**Recommended Fix:**
+Replace the single-segment query with a segment-union query:
+```sql
+SELECT
+    ST_LineSubstring(
+        ST_LineMerge(ST_Collect(c.geom)),
+        LEAST(...), GREATEST(...)
+    ) as segment_geom
+FROM ref.centerlines c
+WHERE ...street_name = 'CLARK'
+GROUP BY street_name  -- Collect all segments for this street
+```
+
+**Implementation Plan:**
+1. Modify `_geocode_bounded_range()` clipped_segment CTE to use GROUP BY + ST_LineMerge
+2. Test with actual CLARK-ARMITAGE-BELDEN range
+3. Re-run cascade validation
+4. Measure actual vs. projected improvement (should be within ±5pp of 71.7%)
+
+**Impact if Unresolved:**
+- Tier 2 Part 1 cannot pass production validation
+- Stage 4 (street_segment) remains at 28.9% success (no FROM/TO bounding)
+- Projected citywide gain of 14.0pp cannot be realized
