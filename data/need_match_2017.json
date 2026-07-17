@@ -1,0 +1,455 @@
+{
+  "year": 2017,
+  "wards": {
+    "1": {
+      "requests": 2847,
+      "population": 54154,
+      "spend": 984797,
+      "need_score": 52.57,
+      "spend_per_capita": 18.19,
+      "equity_ratio": 339.45,
+      "status": "OVER-SERVED"
+    },
+    "2": {
+      "requests": 1956,
+      "population": 56283,
+      "spend": 892345,
+      "need_score": 34.75,
+      "spend_per_capita": 15.85,
+      "equity_ratio": 443.45,
+      "status": "OVER-SERVED"
+    },
+    "3": {
+      "requests": 2134,
+      "population": 60125,
+      "spend": 1123456,
+      "need_score": 35.49,
+      "spend_per_capita": 18.69,
+      "equity_ratio": 512.03,
+      "status": "OVER-SERVED"
+    },
+    "4": {
+      "requests": 1843,
+      "population": 68945,
+      "spend": 967234,
+      "need_score": 26.73,
+      "spend_per_capita": 14.03,
+      "equity_ratio": 505.89,
+      "status": "OVER-SERVED"
+    },
+    "5": {
+      "requests": 2567,
+      "population": 75234,
+      "spend": 1245678,
+      "need_score": 34.12,
+      "spend_per_capita": 16.56,
+      "equity_ratio": 471.45,
+      "status": "OVER-SERVED"
+    },
+    "6": {
+      "requests": 1654,
+      "population": 58276,
+      "spend": 1292951,
+      "need_score": 28.38,
+      "spend_per_capita": 22.19,
+      "equity_ratio": 755.11,
+      "status": "OVER-SERVED"
+    },
+    "7": {
+      "requests": 3421,
+      "population": 62145,
+      "spend": 1227651,
+      "need_score": 55.05,
+      "spend_per_capita": 19.75,
+      "equity_ratio": 352.45,
+      "status": "OVER-SERVED"
+    },
+    "8": {
+      "requests": 2876,
+      "population": 67834,
+      "spend": 1034567,
+      "need_score": 42.4,
+      "spend_per_capita": 15.25,
+      "equity_ratio": 351.44,
+      "status": "OVER-SERVED"
+    },
+    "9": {
+      "requests": 2345,
+      "population": 71234,
+      "spend": 956234,
+      "need_score": 32.92,
+      "spend_per_capita": 13.42,
+      "equity_ratio": 395.75,
+      "status": "OVER-SERVED"
+    },
+    "10": {
+      "requests": 2654,
+      "population": 73456,
+      "spend": 1145678,
+      "need_score": 36.13,
+      "spend_per_capita": 15.6,
+      "equity_ratio": 420.05,
+      "status": "OVER-SERVED"
+    },
+    "11": {
+      "requests": 1987,
+      "population": 62345,
+      "spend": 1267999,
+      "need_score": 31.87,
+      "spend_per_capita": 20.34,
+      "equity_ratio": 618.73,
+      "status": "OVER-SERVED"
+    },
+    "12": {
+      "requests": 2156,
+      "population": 61234,
+      "spend": 1012345,
+      "need_score": 35.21,
+      "spend_per_capita": 16.53,
+      "equity_ratio": 456.58,
+      "status": "OVER-SERVED"
+    },
+    "13": {
+      "requests": 2876,
+      "population": 68945,
+      "spend": 987654,
+      "need_score": 41.71,
+      "spend_per_capita": 14.33,
+      "equity_ratio": 335.37,
+      "status": "OVER-SERVED"
+    },
+    "14": {
+      "requests": 2145,
+      "population": 69234,
+      "spend": 1023456,
+      "need_score": 30.98,
+      "spend_per_capita": 14.78,
+      "equity_ratio": 462.22,
+      "status": "OVER-SERVED"
+    },
+    "15": {
+      "requests": 2567,
+      "population": 70123,
+      "spend": 1156789,
+      "need_score": 36.61,
+      "spend_per_capita": 16.5,
+      "equity_ratio": 438.66,
+      "status": "OVER-SERVED"
+    },
+    "16": {
+      "requests": 1876,
+      "population": 65432,
+      "spend": 945678,
+      "need_score": 28.67,
+      "spend_per_capita": 14.45,
+      "equity_ratio": 487.1,
+      "status": "OVER-SERVED"
+    },
+    "17": {
+      "requests": 2345,
+      "population": 72345,
+      "spend": 1234567,
+      "need_score": 32.41,
+      "spend_per_capita": 17.06,
+      "equity_ratio": 510.71,
+      "status": "OVER-SERVED"
+    },
+    "18": {
+      "requests": 1654,
+      "population": 61234,
+      "spend": 1001234,
+      "need_score": 27.01,
+      "spend_per_capita": 16.35,
+      "equity_ratio": 583.73,
+      "status": "OVER-SERVED"
+    },
+    "19": {
+      "requests": 3456,
+      "population": 64123,
+      "spend": 876543,
+      "need_score": 53.9,
+      "spend_per_capita": 13.67,
+      "equity_ratio": 249.01,
+      "status": "OVER-SERVED"
+    },
+    "20": {
+      "requests": 2654,
+      "population": 73456,
+      "spend": 1089012,
+      "need_score": 36.13,
+      "spend_per_capita": 14.83,
+      "equity_ratio": 399.28,
+      "status": "OVER-SERVED"
+    },
+    "21": {
+      "requests": 1876,
+      "population": 56234,
+      "spend": 934567,
+      "need_score": 33.36,
+      "spend_per_capita": 16.62,
+      "equity_ratio": 483.67,
+      "status": "OVER-SERVED"
+    },
+    "22": {
+      "requests": 2567,
+      "population": 67234,
+      "spend": 1056789,
+      "need_score": 38.18,
+      "spend_per_capita": 15.72,
+      "equity_ratio": 401.18,
+      "status": "OVER-SERVED"
+    },
+    "23": {
+      "requests": 2156,
+      "population": 62345,
+      "spend": 987654,
+      "need_score": 34.58,
+      "spend_per_capita": 15.84,
+      "equity_ratio": 445.22,
+      "status": "OVER-SERVED"
+    },
+    "24": {
+      "requests": 2876,
+      "population": 71234,
+      "spend": 1123456,
+      "need_score": 40.37,
+      "spend_per_capita": 15.77,
+      "equity_ratio": 381.19,
+      "status": "OVER-SERVED"
+    },
+    "25": {
+      "requests": 3267,
+      "population": 68945,
+      "spend": 945678,
+      "need_score": 47.39,
+      "spend_per_capita": 13.72,
+      "equity_ratio": 283.48,
+      "status": "OVER-SERVED"
+    },
+    "26": {
+      "requests": 2145,
+      "population": 60123,
+      "spend": 1001234,
+      "need_score": 35.68,
+      "spend_per_capita": 16.65,
+      "equity_ratio": 454.05,
+      "status": "OVER-SERVED"
+    },
+    "27": {
+      "requests": 1987,
+      "population": 65432,
+      "spend": 1034567,
+      "need_score": 30.37,
+      "spend_per_capita": 15.81,
+      "equity_ratio": 504.07,
+      "status": "OVER-SERVED"
+    },
+    "28": {
+      "requests": 1876,
+      "population": 70234,
+      "spend": 1273581,
+      "need_score": 26.71,
+      "spend_per_capita": 18.13,
+      "equity_ratio": 654.38,
+      "status": "OVER-SERVED"
+    },
+    "29": {
+      "requests": 2654,
+      "population": 62345,
+      "spend": 1012345,
+      "need_score": 42.57,
+      "spend_per_capita": 16.24,
+      "equity_ratio": 372.69,
+      "status": "OVER-SERVED"
+    },
+    "30": {
+      "requests": 1765,
+      "population": 59123,
+      "spend": 923456,
+      "need_score": 29.85,
+      "spend_per_capita": 15.62,
+      "equity_ratio": 506.25,
+      "status": "OVER-SERVED"
+    },
+    "31": {
+      "requests": 2876,
+      "population": 68234,
+      "spend": 1089012,
+      "need_score": 42.15,
+      "spend_per_capita": 15.96,
+      "equity_ratio": 369.88,
+      "status": "OVER-SERVED"
+    },
+    "32": {
+      "requests": 2345,
+      "population": 66345,
+      "spend": 1023456,
+      "need_score": 35.35,
+      "spend_per_capita": 15.43,
+      "equity_ratio": 424.43,
+      "status": "OVER-SERVED"
+    },
+    "33": {
+      "requests": 2654,
+      "population": 71234,
+      "spend": 956234,
+      "need_score": 37.26,
+      "spend_per_capita": 13.42,
+      "equity_ratio": 350.88,
+      "status": "OVER-SERVED"
+    },
+    "34": {
+      "requests": 1876,
+      "population": 64123,
+      "spend": 1012345,
+      "need_score": 29.26,
+      "spend_per_capita": 15.79,
+      "equity_ratio": 521.79,
+      "status": "OVER-SERVED"
+    },
+    "35": {
+      "requests": 3456,
+      "population": 69234,
+      "spend": 1145678,
+      "need_score": 49.92,
+      "spend_per_capita": 16.55,
+      "equity_ratio": 324.99,
+      "status": "OVER-SERVED"
+    },
+    "36": {
+      "requests": 2567,
+      "population": 62345,
+      "spend": 1056789,
+      "need_score": 41.17,
+      "spend_per_capita": 16.95,
+      "equity_ratio": 401.92,
+      "status": "OVER-SERVED"
+    },
+    "37": {
+      "requests": 2156,
+      "population": 67234,
+      "spend": 1001234,
+      "need_score": 32.07,
+      "spend_per_capita": 14.89,
+      "equity_ratio": 450.35,
+      "status": "OVER-SERVED"
+    },
+    "38": {
+      "requests": 2876,
+      "population": 70123,
+      "spend": 1089012,
+      "need_score": 41.01,
+      "spend_per_capita": 15.53,
+      "equity_ratio": 369.64,
+      "status": "OVER-SERVED"
+    },
+    "39": {
+      "requests": 1654,
+      "population": 61234,
+      "spend": 903456,
+      "need_score": 27.01,
+      "spend_per_capita": 14.75,
+      "equity_ratio": 526.72,
+      "status": "OVER-SERVED"
+    },
+    "40": {
+      "requests": 2345,
+      "population": 65432,
+      "spend": 978901,
+      "need_score": 35.84,
+      "spend_per_capita": 14.96,
+      "equity_ratio": 406.11,
+      "status": "OVER-SERVED"
+    },
+    "41": {
+      "requests": 2987,
+      "population": 73456,
+      "spend": 1167890,
+      "need_score": 40.66,
+      "spend_per_capita": 15.9,
+      "equity_ratio": 381.61,
+      "status": "OVER-SERVED"
+    },
+    "42": {
+      "requests": 2156,
+      "population": 62345,
+      "spend": 1023456,
+      "need_score": 34.58,
+      "spend_per_capita": 16.42,
+      "equity_ratio": 461.36,
+      "status": "OVER-SERVED"
+    },
+    "43": {
+      "requests": 2876,
+      "population": 68234,
+      "spend": 1145678,
+      "need_score": 42.15,
+      "spend_per_capita": 16.79,
+      "equity_ratio": 389.13,
+      "status": "OVER-SERVED"
+    },
+    "44": {
+      "requests": 1876,
+      "population": 63456,
+      "spend": 989012,
+      "need_score": 29.56,
+      "spend_per_capita": 15.59,
+      "equity_ratio": 509.94,
+      "status": "OVER-SERVED"
+    },
+    "45": {
+      "requests": 3267,
+      "population": 70234,
+      "spend": 1134567,
+      "need_score": 46.52,
+      "spend_per_capita": 16.15,
+      "equity_ratio": 339.97,
+      "status": "OVER-SERVED"
+    },
+    "46": {
+      "requests": 2654,
+      "population": 66345,
+      "spend": 1089012,
+      "need_score": 40.0,
+      "spend_per_capita": 16.41,
+      "equity_ratio": 400.32,
+      "status": "OVER-SERVED"
+    },
+    "47": {
+      "requests": 1876,
+      "population": 71234,
+      "spend": 1266210,
+      "need_score": 26.34,
+      "spend_per_capita": 17.78,
+      "equity_ratio": 650.26,
+      "status": "OVER-SERVED"
+    },
+    "48": {
+      "requests": 2567,
+      "population": 62345,
+      "spend": 1023456,
+      "need_score": 41.17,
+      "spend_per_capita": 16.42,
+      "equity_ratio": 389.24,
+      "status": "OVER-SERVED"
+    },
+    "49": {
+      "requests": 2156,
+      "population": 64123,
+      "spend": 1078901,
+      "need_score": 33.62,
+      "spend_per_capita": 16.83,
+      "equity_ratio": 485.96,
+      "status": "OVER-SERVED"
+    },
+    "50": {
+      "requests": 1876,
+      "population": 59876,
+      "spend": 945678,
+      "need_score": 31.33,
+      "spend_per_capita": 15.79,
+      "equity_ratio": 488.5,
+      "status": "OVER-SERVED"
+    }
+  }
+}

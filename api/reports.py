@@ -192,6 +192,47 @@ def api_by_category():
     return jsonify(load_by_category_data(year))
 
 
+@app.route("/api/reports/need-match", methods=["GET"])
+def api_need_match():
+    """Return need-match analysis (spending vs. 311 demand)."""
+    year = request.args.get("year", default=2017, type=int)
+
+    need_match_file = DATA_PATH / f"need_match_{year}.json"
+    if not need_match_file.exists():
+        return jsonify({"error": f"Need-match data not available for {year}"}), 404
+
+    with open(need_match_file, 'r') as f:
+        data = json.load(f)
+
+    # Sort by equity issue (most under-served first)
+    sorted_wards = sorted(
+        data["wards"].items(),
+        key=lambda x: x[1]["equity_ratio"]
+    )
+
+    return jsonify({
+        "year": year,
+        "summary": {
+            "over_served": sum(1 for w in data["wards"].values() if w["status"] == "OVER-SERVED"),
+            "fair": sum(1 for w in data["wards"].values() if w["status"] == "FAIR"),
+            "under_served": sum(1 for w in data["wards"].values() if w["status"] == "UNDER-SERVED"),
+        },
+        "wards": [
+            {
+                "ward": int(ward),
+                "requests": wards_data["requests"],
+                "population": wards_data["population"],
+                "spend": f"${wards_data['spend']:,}",
+                "need_score": wards_data["need_score"],
+                "spend_per_capita": f"${wards_data['spend_per_capita']:.2f}",
+                "equity_ratio": wards_data["equity_ratio"],
+                "status": wards_data["status"],
+            }
+            for ward, wards_data in sorted_wards
+        ]
+    })
+
+
 @app.route("/", methods=["GET"])
 def index():
     """Return the reports dashboard HTML."""
@@ -334,6 +375,7 @@ def index():
             <button class="tab-btn active" onclick="switchTab('summary')">Summary</button>
             <button class="tab-btn" onclick="switchTab('by-ward')">By Ward</button>
             <button class="tab-btn" onclick="switchTab('by-category')">By Category</button>
+            <button class="tab-btn" onclick="switchTab('need-match')">Equity</button>
         </div>
 
         <div id="summary" class="tab-content active">
@@ -346,6 +388,10 @@ def index():
 
         <div id="by-category" class="tab-content">
             <div id="by-category-content" class="loading">Loading...</div>
+        </div>
+
+        <div id="need-match" class="tab-content">
+            <div id="need-match-content" class="loading">Loading...</div>
         </div>
     </div>
 
@@ -372,6 +418,8 @@ def index():
                 loadByWard();
             } else if (tab === 'by-category') {
                 loadByCategory();
+            } else if (tab === 'need-match') {
+                loadNeedMatch();
             }
         }
 
@@ -379,6 +427,7 @@ def index():
             loadSummary();
             loadByWard();
             loadByCategory();
+            loadNeedMatch();
         }
 
         async function loadSummary() {
@@ -520,6 +569,71 @@ def index():
                 document.getElementById('by-category-content').innerHTML = html;
             } catch (err) {
                 document.getElementById('by-category-content').innerHTML = `<div class="error">Error loading category data: ${err.message}</div>`;
+            }
+        }
+
+        async function loadNeedMatch() {
+            try {
+                const res = await fetch(`/api/reports/need-match?year=${currentYear}`);
+                const data = await res.json();
+
+                let html = `
+                    <div class="summary-grid">
+                        <div class="metric-card">
+                            <div class="label">Over-Served Wards</div>
+                            <div class="value">${data.summary.over_served}</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="label">Fair-Served Wards</div>
+                            <div class="value">${data.summary.fair}</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="label">Under-Served Wards</div>
+                            <div class="value">${data.summary.under_served}</div>
+                        </div>
+                    </div>
+
+                    <p style="margin: 20px 0; color: #666; font-size: 0.95em;">
+                        <strong>Equity Analysis:</strong> Compares aldermanic spending against 311 service requests and population.
+                        <br/><strong>Over-served:</strong> Spending exceeds complaints (often higher-income wards).
+                        <br/><strong>Under-served:</strong> Spending lags complaints (high-need wards).
+                    </p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ward</th>
+                                <th>311 Requests</th>
+                                <th>Population</th>
+                                <th>Spending</th>
+                                <th>Need Score</th>
+                                <th>Equity Ratio</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                data.wards.forEach(ward => {
+                    const statusColor = ward.status === 'OVER-SERVED' ? '#ff6b6b' :
+                                       ward.status === 'UNDER-SERVED' ? '#ffa500' : '#4caf50';
+                    html += `
+                        <tr style="border-left: 4px solid ${statusColor};">
+                            <td><strong>Ward ${ward.ward}</strong></td>
+                            <td>${ward.requests}</td>
+                            <td>${ward.population.toLocaleString()}</td>
+                            <td>${ward.spend}</td>
+                            <td>${ward.need_score}</td>
+                            <td>${ward.equity_ratio}</td>
+                            <td><strong style="color: ${statusColor};">${ward.status}</strong></td>
+                        </tr>
+                    `;
+                });
+
+                html += `</tbody></table>`;
+                document.getElementById('need-match-content').innerHTML = html;
+            } catch (err) {
+                document.getElementById('need-match-content').innerHTML = `<div class="error">Error loading equity data: ${err.message}</div>`;
             }
         }
 
