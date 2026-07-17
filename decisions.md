@@ -1115,3 +1115,33 @@ LineString records represent **failed geocoding**, not incomplete data. When geo
 - Additional spend located: ~$5.5M (estimated)
 
 **Why this matters:** The 53 records with numbered streets were silently escalated. Combined with ST_LineSubstring clipping, we can now properly geocode nearly 400 street-range records citywide.
+
+### 2026-07-16 — Tier 2 Part 1 Validation Complete
+
+**Validation Results:**
+
+Code Quality:
+- ✓ Compiles without errors (SyntaxWarnings are pre-existing SQL escape sequences)
+- ✓ All changes follow project patterns
+- ✓ Regex patterns tested against 2017 escalated data
+- ✓ ST_LineSubstring logic validated on synthetic test data
+
+Pre-Production Measurements (Based on 2017 Data Analysis):
+- Current baseline: 1,030/1,784 geocoded (57.7%)
+- FROM/TO records currently: 145/501 (28.9% success rate)
+- Escalated FROM/TO (method=none): 356 records
+
+Expected Production Results (Conservative 70% recovery rate):
+- New geocodes from escalated FROM/TO: 356 × 70% = 249 records
+- New citywide total: 1,030 + 249 = 1,279/1,784 (71.7%)
+- Improvement: +14.0 percentage points
+- Additional spend recovered: ~$4.8M
+- Total geocoded spend: $24.6M (vs. $19.8M current)
+
+Deployment Status:
+- ✓ Code committed (4 commits: a52a25a, 9572848, 48ca3ee, 3949b11)
+- ✓ Decisions documented
+- ✓ Tests created and passed
+- ✓ Ready for production geocoding run
+
+Next: Deploy improved cascade to production and run full 2017 re-geocoding to measure actual vs. projected improvement.
