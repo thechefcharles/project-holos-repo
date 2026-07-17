@@ -1087,3 +1087,31 @@ LineString records represent **failed geocoding**, not incomplete data. When geo
 **Next Step:** Test against 2017 dataset to measure actual improvement. Expected: citywide geocoding improvement from 57.8% → 64.8%+.
 
 **Why this matters:** Street segment ranges are 47% of all geocoding failures (501/1077 escalations). This is the highest-ROI remaining improvement after address-range normalizer.
+
+### 2026-07-16 — Regex improvement: Support numbered streets in FROM/TO pattern
+
+**Discovery:** Analysis of 2017 escalated records revealed:
+- 145 records already geocoded with range_bounding (current state)
+- 356 records escalated (method=none) BUT have FROM/TO patterns that weren't detected
+- Total FROM/TO records: 501 (28% of all records)
+
+**Root Cause:** Original regex pattern didn't support numbered streets (50TH ST, 43RD ST, etc.)
+- Old pattern: `[A-Z\s]+?` for street names (letters + spaces only)
+- Missing 53 records with numbered cross-streets
+
+**Solution:** Enhanced regex pattern to:
+- Allow digits: `[A-Z0-9\s\-&\(\)\.]+?`
+- Better boundary detection: `(?:\s+\(|\s*$)` (ends at opening paren or EOL)
+
+**Test Results:**
+- Matches improved: 303 → 356 (all 356 escalated FROM/TO records now detected)
+- Additional records now detectable: +53
+- Total addressable FROM/TO records: 501 (28% of 2017 dataset)
+
+**Expected Impact with both improvements:**
+- Current state: 145 range_bounding records (145/1784 = 8.1%)
+- With ST_LineSubstring + better regex: 145 + (356 × 70%) = ~394/1784 (22.1%)
+- Citywide improvement: 57.7% → 60.8% (+3.1 percentage points)
+- Additional spend located: ~$5.5M (estimated)
+
+**Why this matters:** The 53 records with numbered streets were silently escalated. Combined with ST_LineSubstring clipping, we can now properly geocode nearly 400 street-range records citywide.
