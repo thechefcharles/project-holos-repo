@@ -556,29 +556,54 @@ class GeocodeCascade:
             # Couldn't resolve TO endpoint; escalate
             return None
 
-        # Get the main street centerline segment
-        # For a bounded range, return the full street geometry
-        # (In production, would clip with ST_LineSubstring between the two intersections)
-        sql_segment = """
-            SELECT ST_AsText(geom) as geom_wkt
-            FROM ref.centerlines
-            WHERE UPPER(REGEXP_REPLACE(street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(main_street)s)
-            LIMIT 1
+        # Get the main street centerline segment and clip between intersections
+        # Use ST_LineLocatePoint to find fractional position of each intersection on the street
+        # Then ST_LineSubstring to extract the segment between them
+        # Finally ST_LineInterpolatePoint to get the midpoint for a single point result
+        sql_clipped = """
+            WITH clipped_segment AS (
+                SELECT
+                    ST_LineSubstring(
+                        c.geom,
+                        LEAST(
+                            ST_LineLocatePoint(c.geom, ST_Point(%(from_lon)s, %(from_lat)s)),
+                            ST_LineLocatePoint(c.geom, ST_Point(%(to_lon)s, %(to_lat)s))
+                        ),
+                        GREATEST(
+                            ST_LineLocatePoint(c.geom, ST_Point(%(from_lon)s, %(from_lat)s)),
+                            ST_LineLocatePoint(c.geom, ST_Point(%(to_lon)s, %(to_lat)s))
+                        )
+                    ) as segment_geom
+                FROM ref.centerlines c
+                WHERE UPPER(REGEXP_REPLACE(c.street_name, '\s+(ST|AVE|AVENUE|BLVD|BOULEVARD|STREET|ROAD|RD|DRIVE|DR|LANE|LN|COURT|CT|PLACE|PL|PARK|PK|SQUARE|SQ|TERRACE|TERR|TRAIL|PARKWAY|PKWY)$', '')) = UPPER(%(main_street)s)
+                LIMIT 1
+            )
+            SELECT
+                ST_AsText(segment_geom) as segment_wkt,
+                ST_X(ST_LineInterpolatePoint(segment_geom, 0.5)) as midpoint_lon,
+                ST_Y(ST_LineInterpolatePoint(segment_geom, 0.5)) as midpoint_lat
+            FROM clipped_segment
         """
 
-        result_main = self.query(sql_segment, {"main_street": main_street_clean})
-        if not result_main:
-            # Couldn't find main street in centerlines; escalate
+        result_main = self.query(sql_clipped, {
+            "main_street": main_street_clean,
+            "from_lon": result_from[0]["lon"],
+            "from_lat": result_from[0]["lat"],
+            "to_lon": result_to[0]["lon"],
+            "to_lat": result_to[0]["lat"]
+        })
+        if not result_main or result_main[0].get("midpoint_lon") is None:
+            # Couldn't find main street or clip segment; escalate
             return None
 
-        # Both endpoints resolved; return the street segment
+        # Both endpoints resolved and segment clipped; return the midpoint of the bounded range
         row = result_main[0]
         return GeocodeResult(
             stage=4,
             method="range_bounding",
-            geometry_type="LINESTRING",
-            geometry_wkt=row["geom_wkt"],
-            score=0.88,
+            geometry_type="POINT",
+            coordinates=(row["midpoint_lon"], row["midpoint_lat"]),
+            score=0.85,
             reason=f"Range: {main_street} from {from_street} to {to_street}"
         )
 
