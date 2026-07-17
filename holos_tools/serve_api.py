@@ -37,8 +37,7 @@ def index():
     """Serve the interactive map."""
     # Try multiple paths (local dev, Railway, Vercel)
     possible_paths = [
-        os.path.join(os.path.dirname(__file__), '../..', 'web', 'app.html'),  # Local: web/app.html
-        '/app/docs/2017_map.html',  # Railway legacy path
+        os.path.join(os.path.dirname(__file__), '..', 'web', 'app.html'),  # Local: web/app.html
         '/var/task/web/app.html',   # Vercel/Lambda path
         '/workspace/web/app.html',  # Alt Railway path
     ]
@@ -57,7 +56,7 @@ def dashboard():
     """Serve the dashboard analytics page."""
     # Try multiple paths
     possible_paths = [
-        os.path.join(os.path.dirname(__file__), '../..', 'web', 'dashboard.html'),  # Local: web/dashboard.html
+        os.path.join(os.path.dirname(__file__), '..', 'web', 'dashboard.html'),  # Local: web/dashboard.html
         '/var/task/web/dashboard.html',   # Vercel/Lambda path
         '/workspace/web/dashboard.html',  # Alt Railway path
     ]
@@ -79,8 +78,7 @@ def serve_static(filename):
 
     # Try multiple locations for static files
     possible_dirs = [
-        os.path.join(os.path.dirname(__file__), '../..', 'web'),  # Local: web/
-        '/app/docs',     # Railway legacy
+        os.path.join(os.path.dirname(__file__), '..', 'web'),  # Local: web/
         '/var/task/web', # Vercel/Lambda
         '/workspace/web', # Alt Railway
     ]
