@@ -66,6 +66,31 @@ chicago:
         For Phase 1 pilot: using sample data (data/ward01_building_footprints_sample.geojson).
         Production load: will use full Chicago Data Portal dataset when dataset ID verified.
 
+    # Gazetteer data (named-place geocoding stage)
+    chicago_parks:
+      id: "[[verify_on_portal]]"
+      tier: "public"
+      rights: "public-record"
+      status: "available"
+      role: "named-place geocoding (stage 5 gazetteer); Tier 2 Part 2"
+      notes: |
+        Chicago parks and recreational facilities. Used for matching location strings
+        like "GRANT PARK", "MILLENNIUM PARK", "LINCOLN PARK", etc.
+        Provides: name, centroid (geometry), type, address.
+        Expected records: 600+ parks and facilities
+        Expected geocoding gain: +1pp citywide (25 records at 70% success rate)
+
+    public_facilities:
+      id: "[[verify_on_portal]]"
+      tier: "public"
+      rights: "public-record"
+      status: "available"
+      role: "named-place geocoding (stage 5 gazetteer); Tier 2 Part 2"
+      notes: |
+        Chicago public facilities: libraries, police stations, fire stations, etc.
+        Used to match named locations not in parks dataset.
+        Sources: Chicago Library system, CPD, CFD public data
+
     # building_permits:
     #   id: "[[verify on portal]]"
     #   tier: "public"
