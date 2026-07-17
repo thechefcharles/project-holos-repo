@@ -1,0 +1,4089 @@
+{
+  "year": 2017,
+  "total_projects": 984,
+  "projects_with_conflicts": 240,
+  "conflict_rate": 24.4,
+  "high_risk_count": 240,
+  "conflicts": {
+    "1657 W ERIE ST": {
+      "coordinates": {
+        "lat": 41.89313909,
+        "lon": -87.66940252
+      },
+      "ward": 1,
+      "category": "Curb & Gutter",
+      "cost": 18546.48,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "W WABANSIA AVE & N CALIFORNIA AVE": {
+      "coordinates": {
+        "lat": 41.91235755577759,
+        "lon": -87.69704794062454
+      },
+      "ward": 1,
+      "category": "Curb & Gutter",
+      "cost": 14360.21,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 12,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "N CALIFORNIA AVE & W SHAKESPEARE AVE": {
+      "coordinates": {
+        "lat": 41.9206433495888,
+        "lon": -87.69729115900259
+      },
+      "ward": 1,
+      "category": "Unknown",
+      "cost": 600.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W DIVISION ST & N PAULINA ST": {
+      "coordinates": {
+        "lat": 41.90329820921788,
+        "lon": -87.67042546816337
+      },
+      "ward": 1,
+      "category": "Unknown",
+      "cost": 350.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "BLOOMINGDALE AVE ON W SUPERIOR ST FROM N DAMEN AVE (2000 W) TO N WOLCOTT AVE": {
+      "coordinates": {
+        "lat": 41.89475826154978,
+        "lon": -87.693279352346
+      },
+      "ward": 1,
+      "category": "Street Speed Hump",
+      "cost": 3700.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "200 E DELAWARE PL": {
+      "coordinates": {
+        "lat": 41.89952925,
+        "lon": -87.62130262
+      },
+      "ward": 2,
+      "category": "Curb & Gutter",
+      "cost": 15740.08,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "POD Camera - Ward 2 N MICHIGAN AVE & E LAKE SHORE DR": {
+      "coordinates": {
+        "lat": 41.885753632281,
+        "lon": -87.62450992737703
+      },
+      "ward": 2,
+      "category": "Unknown",
+      "cost": 27011.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "70 E ELM ST": {
+      "coordinates": {
+        "lat": 41.90322778772522,
+        "lon": -87.62588918103006
+      },
+      "ward": 2,
+      "category": "Sidewalk",
+      "cost": 1128.73,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "102 W GERMANIA PL": {
+      "coordinates": {
+        "lat": 41.91064109,
+        "lon": -87.63196377
+      },
+      "ward": 2,
+      "category": "Sidewalk",
+      "cost": 38823.28,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 11,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "1236 N DEARBORN ST": {
+      "coordinates": {
+        "lat": 41.90505096,
+        "lon": -87.63041193
+      },
+      "ward": 2,
+      "category": "Sidewalk",
+      "cost": 1272.98,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "GREENVIEW AVE ON W THOMAS ST FROM N MILWAUKEE AVE (1430 W) TO N ASHLAND": {
+      "coordinates": {
+        "lat": 41.900891411138126,
+        "lon": -87.72088454490468
+      },
+      "ward": 2,
+      "category": "Street Resurfacing",
+      "cost": 24961.05,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "ON E ELM ST FROM N STATE ST (1 E) TO N LAKE SHORE DR": {
+      "coordinates": {
+        "lat": 41.90288922799217,
+        "lon": -87.6340766383817
+      },
+      "ward": 2,
+      "category": "Street Resurfacing",
+      "cost": 245.25,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "WRIGHTWOOD AVE ON W LILL AVE FROM N SOUTHPORT AVE (1400 W) TO N GREENVIEW": {
+      "coordinates": {
+        "lat": 41.92774778514779,
+        "lon": -87.65979857258321
+      },
+      "ward": 2,
+      "category": "Street Speed Hump",
+      "cost": 2941.35,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "AVE ON W WALTON ST FROM N HOYNE AVE (2100 W) TO N LEAVITT ST": {
+      "coordinates": {
+        "lat": 41.89832899821473,
+        "lon": -87.70398513485061
+      },
+      "ward": 2,
+      "category": "Street Speed Hump",
+      "cost": 3700.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S MICHIGAN AVE & E 50TH ST&S INDIANA AVE & E 51ST ST": {
+      "coordinates": {
+        "lat": 41.80292380756617,
+        "lon": -87.62186074301223
+      },
+      "ward": 3,
+      "category": "Alley Resurfacing",
+      "cost": 41174.37,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "W 47TH ST & S PRINCETON AVE&W 48TH PL & S SHIELDS AVE": {
+      "coordinates": {
+        "lat": 41.80754238701233,
+        "lon": -87.63392987239834
+      },
+      "ward": 3,
+      "category": "Concrete Alley",
+      "cost": 9000.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 11,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S STATE ST & E 13TH ST": {
+      "coordinates": {
+        "lat": 41.86574287013866,
+        "lon": -87.62738393825362
+      },
+      "ward": 3,
+      "category": "Pedestrian Refuge Island",
+      "cost": 11166.57,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 12,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "326 W 47TH ST": {
+      "coordinates": {
+        "lat": 41.80932119,
+        "lon": -87.63446337
+      },
+      "ward": 3,
+      "category": "Sidewalk",
+      "cost": 17034.58,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 11,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "351 W 44TH PL": {
+      "coordinates": {
+        "lat": 41.81368396741092,
+        "lon": -87.63561162113244
+      },
+      "ward": 3,
+      "category": "Sidewalk",
+      "cost": 30369.43,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S FORRESTVILLE AVE & E 45TH ST": {
+      "coordinates": {
+        "lat": 41.81307541587598,
+        "lon": -87.61272432603769
+      },
+      "ward": 3,
+      "category": "Street Resurfacing",
+      "cost": 4300.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "554 E 51ST ST": {
+      "coordinates": {
+        "lat": 41.80236329,
+        "lon": -87.61208728
+      },
+      "ward": 4,
+      "category": "Concrete Alley",
+      "cost": 19354.19,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "S DREXEL BLVD & E 42ND ST": {
+      "coordinates": {
+        "lat": 41.817970750533846,
+        "lon": -87.60465572156308
+      },
+      "ward": 4,
+      "category": "Sidewalk",
+      "cost": 21143.52,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 12,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "4232 S COTTAGE GROVE AVE": {
+      "coordinates": {
+        "lat": 41.81756412,
+        "lon": -87.60705169
+      },
+      "ward": 4,
+      "category": "Street Light Upgrade",
+      "cost": 2000.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S ELLIS AVE & E 55TH ST": {
+      "coordinates": {
+        "lat": 41.79501472372312,
+        "lon": -87.60130998606644
+      },
+      "ward": 5,
+      "category": "Alley Apron",
+      "cost": 28888.44,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 6,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "E 61ST ST & S HARPER AVE": {
+      "coordinates": {
+        "lat": 41.78382369136562,
+        "lon": -87.58812530594787
+      },
+      "ward": 5,
+      "category": "Sidewalk",
+      "cost": 15050.76,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S WOODLAWN AVE & E 55TH ST": {
+      "coordinates": {
+        "lat": 41.795066229705306,
+        "lon": -87.59654415961295
+      },
+      "ward": 5,
+      "category": "Sidewalk",
+      "cost": 5397.3,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 24,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "8905 S CRANDON AVE": {
+      "coordinates": {
+        "lat": 41.73303785,
+        "lon": -87.56772796
+      },
+      "ward": 7,
+      "category": "Curb & Gutter",
+      "cost": 11349.17,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 24,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "9141 S SOUTH CHICAGO AVE": {
+      "coordinates": {
+        "lat": 41.72930244,
+        "lon": -87.55420814
+      },
+      "ward": 7,
+      "category": "Pedestrian Refuge Island",
+      "cost": 38999.29,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1645 E 79TH ST": {
+      "coordinates": {
+        "lat": 41.75127965,
+        "lon": -87.58371924
+      },
+      "ward": 8,
+      "category": "Floodlight",
+      "cost": 800.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "7759 S DOBSON AVE": {
+      "coordinates": {
+        "lat": 41.75332445,
+        "lon": -87.59891974
+      },
+      "ward": 8,
+      "category": "Sidewalk",
+      "cost": 8976.7,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 12,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "E 99TH ST & S AVENUE H&E 100TH ST & S AVENUE G": {
+      "coordinates": {
+        "lat": 41.71247666879283,
+        "lon": -87.53381777049182
+      },
+      "ward": 10,
+      "category": "Alley Speed Hump",
+      "cost": 398.35,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "10301 S AVENUE G": {
+      "coordinates": {
+        "lat": 41.70806892,
+        "lon": -87.53139805
+      },
+      "ward": 10,
+      "category": "Sidewalk",
+      "cost": 8567.24,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 24,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "10600 S AVENUE G": {
+      "coordinates": {
+        "lat": 41.70258239,
+        "lon": -87.53193939
+      },
+      "ward": 10,
+      "category": "Sidewalk",
+      "cost": 14938.86,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3258 E 91ST ST": {
+      "coordinates": {
+        "lat": 41.73044135,
+        "lon": -87.54467343
+      },
+      "ward": 10,
+      "category": "Sidewalk",
+      "cost": 24317.44,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "10627 S AVENUE F": {
+      "coordinates": {
+        "lat": 41.70189365,
+        "lon": -87.53017603
+      },
+      "ward": 10,
+      "category": "Sidewalk",
+      "cost": 3933.81,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "13447 S HOUSTON AVE": {
+      "coordinates": {
+        "lat": 41.65046004,
+        "lon": -87.54806616
+      },
+      "ward": 10,
+      "category": "Sidewalk",
+      "cost": 13880.81,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "13257 S HOUSTON AVE": {
+      "coordinates": {
+        "lat": 41.65374571146924,
+        "lon": -87.54838252238048
+      },
+      "ward": 10,
+      "category": "Sidewalk",
+      "cost": 3123.52,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "10005 S AVENUE N": {
+      "coordinates": {
+        "lat": 41.7136621,
+        "lon": -87.53868835
+      },
+      "ward": 10,
+      "category": "Sidewalk",
+      "cost": 2062.82,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "S EMERALD AVE & W 32ND ST&S HALSTED ST & W 33RD ST": {
+      "coordinates": {
+        "lat": 41.82361294250736,
+        "lon": -87.64542731975412
+      },
+      "ward": 11,
+      "category": "Alley Resurfacing",
+      "cost": 31189.15,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "S CANAL ST & W 32ND ST&S STEWART AVE & W 33RD ST": {
+      "coordinates": {
+        "lat": 41.83543580096257,
+        "lon": -87.63679909310609
+      },
+      "ward": 11,
+      "category": "Alley Resurfacing",
+      "cost": 31520.29,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W 31ST ST & S WENTWORTH AVE&W 30TH ST & S WELLS ST": {
+      "coordinates": {
+        "lat": 41.831616308764886,
+        "lon": -87.63236836233642
+      },
+      "ward": 11,
+      "category": "Alley Resurfacing",
+      "cost": 32034.91,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3419 S CARPENTER ST": {
+      "coordinates": {
+        "lat": 41.8321119,
+        "lon": -87.65194711
+      },
+      "ward": 11,
+      "category": "Curb & Gutter",
+      "cost": 3269.73,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "S HALSTED ST & W 26TH ST": {
+      "coordinates": {
+        "lat": 41.84532744919124,
+        "lon": -87.64644895699134
+      },
+      "ward": 11,
+      "category": "Left-Turn Arrow",
+      "cost": 13608.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "439 W 37TH ST": {
+      "coordinates": {
+        "lat": 41.82701853,
+        "lon": -87.63781266
+      },
+      "ward": 11,
+      "category": "Sidewalk",
+      "cost": 8624.99,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "3240 S PARNELL AVE": {
+      "coordinates": {
+        "lat": 41.83509266,
+        "lon": -87.64039207
+      },
+      "ward": 11,
+      "category": "Sidewalk",
+      "cost": 2933.01,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3559 S WALLACE ST": {
+      "coordinates": {
+        "lat": 41.82912901,
+        "lon": -87.64090127
+      },
+      "ward": 11,
+      "category": "Sidewalk",
+      "cost": 1973.6,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S STEWART AVE & W 35TH ST": {
+      "coordinates": {
+        "lat": 41.83087839927716,
+        "lon": -87.63643943762021
+      },
+      "ward": 11,
+      "category": "Viaduct Improvement",
+      "cost": 15688.66,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3136 W 36TH ST": {
+      "coordinates": {
+        "lat": 41.82809607601351,
+        "lon": -87.70358054076712
+      },
+      "ward": 12,
+      "category": "Sidewalk",
+      "cost": 10551.34,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3454 S LEAVITT ST": {
+      "coordinates": {
+        "lat": 41.83060177,
+        "lon": -87.68044559
+      },
+      "ward": 12,
+      "category": "Sidewalk",
+      "cost": 1775.06,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "3747 S WOLCOTT AVE": {
+      "coordinates": {
+        "lat": 41.8254251,
+        "lon": -87.67243976
+      },
+      "ward": 12,
+      "category": "Sidewalk",
+      "cost": 3174.09,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3413 S PAULINA ST": {
+      "coordinates": {
+        "lat": 41.83183792,
+        "lon": -87.66770463
+      },
+      "ward": 12,
+      "category": "Sidewalk",
+      "cost": 3875.01,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5516 S AUSTIN AVE": {
+      "coordinates": {
+        "lat": 41.79202914,
+        "lon": -87.77232119
+      },
+      "ward": 13,
+      "category": "Alley Apron",
+      "cost": 21653.09,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "6401 S KNOX AVE": {
+      "coordinates": {
+        "lat": 41.77652896,
+        "lon": -87.73827773
+      },
+      "ward": 13,
+      "category": "Curb & Gutter",
+      "cost": 1297.85,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "6644 S KOLIN AVE": {
+      "coordinates": {
+        "lat": 41.77179712,
+        "lon": -87.73141749
+      },
+      "ward": 13,
+      "category": "Curb & Gutter",
+      "cost": 5706.37,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 11,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "3623 W 65TH PL": {
+      "coordinates": {
+        "lat": 41.77496679,
+        "lon": -87.71389479
+      },
+      "ward": 13,
+      "category": "Sidewalk",
+      "cost": 6823.31,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 11,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "6050 S MULLIGAN AVE": {
+      "coordinates": {
+        "lat": 41.7817392,
+        "lon": -87.78057168
+      },
+      "ward": 13,
+      "category": "Sidewalk",
+      "cost": 3021.91,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 12,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "5809 S OAK PARK AVE": {
+      "coordinates": {
+        "lat": 41.78635222,
+        "lon": -87.79107853
+      },
+      "ward": 13,
+      "category": "Sidewalk",
+      "cost": 5916.97,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5544 S MOODY AVE": {
+      "coordinates": {
+        "lat": 41.79110178,
+        "lon": -87.77596083
+      },
+      "ward": 13,
+      "category": "Sidewalk",
+      "cost": 1061.68,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 11,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "6330 S KOMENSKY AVE": {
+      "coordinates": {
+        "lat": 41.77772037,
+        "lon": -87.724232
+      },
+      "ward": 13,
+      "category": "Sidewalk",
+      "cost": 1954.78,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5812 S NARRAGANSETT AVE": {
+      "coordinates": {
+        "lat": 41.78637559,
+        "lon": -87.78189394
+      },
+      "ward": 13,
+      "category": "Sidewalk",
+      "cost": 2272.37,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3800 W 66TH ST": {
+      "coordinates": {
+        "lat": 41.77348727,
+        "lon": -87.71791532
+      },
+      "ward": 13,
+      "category": "Street Speed Hump",
+      "cost": 3700.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 18,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "4904 S KOSTNER AVE": {
+      "coordinates": {
+        "lat": 41.80386347,
+        "lon": -87.7335602
+      },
+      "ward": 14,
+      "category": "Alley Speed Hump",
+      "cost": 2100.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S KEELER AVE & W 47TH ST&S TRIPP AVE & W 48TH ST": {
+      "coordinates": {
+        "lat": 41.80688715760371,
+        "lon": -87.72908678462062
+      },
+      "ward": 14,
+      "category": "Alley Speed Hump",
+      "cost": 1400.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 6,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "6401 W 52ND ST": {
+      "coordinates": {
+        "lat": 41.79770704,
+        "lon": -87.78229812
+      },
+      "ward": 14,
+      "category": "Sidewalk",
+      "cost": 3168.37,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "S DAMEN AVE & W 48TH ST&S WINCHESTER AVE & W 49TH ST": {
+      "coordinates": {
+        "lat": 41.80578532238041,
+        "lon": -87.67401040443696
+      },
+      "ward": 15,
+      "category": "Alley Speed Hump",
+      "cost": 1400.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S WINCHESTER AVE & W 48TH ST&S WOLCOTT AVE & W 49TH ST": {
+      "coordinates": {
+        "lat": 41.80579804256956,
+        "lon": -87.67279545694039
+      },
+      "ward": 15,
+      "category": "Alley Speed Hump",
+      "cost": 1400.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S WOOD ST & W 47TH ST&S HERMITAGE AVE & W 48TH ST": {
+      "coordinates": {
+        "lat": 41.80765243015398,
+        "lon": -87.66919653132416
+      },
+      "ward": 15,
+      "category": "Alley Speed Hump",
+      "cost": 4200.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "5316 S HAMILTON AVE": {
+      "coordinates": {
+        "lat": 41.79700177,
+        "lon": -87.6782766
+      },
+      "ward": 16,
+      "category": "Alley Speed Hump",
+      "cost": 1400.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5300 S HOYNE AVE": {
+      "coordinates": {
+        "lat": 41.7974263,
+        "lon": -87.67710674
+      },
+      "ward": 16,
+      "category": "Sidewalk",
+      "cost": 29228.86,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "6700 S HONORE ST": {
+      "coordinates": {
+        "lat": 41.77211911163833,
+        "lon": -87.6700921981274
+      },
+      "ward": 16,
+      "category": "Sidewalk",
+      "cost": 107833.43,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2015 W MARQUETTE RD": {
+      "coordinates": {
+        "lat": 41.77186968,
+        "lon": -87.67433919
+      },
+      "ward": 16,
+      "category": "Sidewalk",
+      "cost": 7652.18,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 11,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "7923 S NORMAL AVE": {
+      "coordinates": {
+        "lat": 41.75005984,
+        "lon": -87.63644674
+      },
+      "ward": 17,
+      "category": "Alley Resurfacing",
+      "cost": 24755.42,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1140 W 79TH ST": {
+      "coordinates": {
+        "lat": 41.75071453,
+        "lon": -87.65302044
+      },
+      "ward": 17,
+      "category": "Alley Resurfacing",
+      "cost": 15039.59,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "6629 S ALBANY AVE": {
+      "coordinates": {
+        "lat": 41.77267927,
+        "lon": -87.7002527
+      },
+      "ward": 17,
+      "category": "Sidewalk",
+      "cost": 3584.82,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "6626 S ALBANY AVE": {
+      "coordinates": {
+        "lat": 41.7726706,
+        "lon": -87.70081485
+      },
+      "ward": 17,
+      "category": "Sidewalk",
+      "cost": 1965.86,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 12,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "S ROCKWELL ST & W 73RD ST&S TALMAN AVE & W 74TH ST": {
+      "coordinates": {
+        "lat": 41.79603727268402,
+        "lon": -87.6897777543742
+      },
+      "ward": 18,
+      "category": "Alley Resurfacing",
+      "cost": 25880.06,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "2840 W 83RD ST": {
+      "coordinates": {
+        "lat": 41.74285703,
+        "lon": -87.6940952
+      },
+      "ward": 18,
+      "category": "Sidewalk",
+      "cost": 747.16,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "8224 S TALMAN AVE": {
+      "coordinates": {
+        "lat": 41.74374941,
+        "lon": -87.68909874
+      },
+      "ward": 18,
+      "category": "Sidewalk",
+      "cost": 1802.69,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W 104TH PL & S MAPLEWOOD AVE": {
+      "coordinates": {
+        "lat": 41.7045330746312,
+        "lon": -87.68527481160126
+      },
+      "ward": 19,
+      "category": "Street Resurfacing",
+      "cost": 20148.15,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "W 53RD ST & S PEORIA ST&W 53RD PL & S HALSTED ST": {
+      "coordinates": {
+        "lat": 41.79409481761798,
+        "lon": -87.6500204799899
+      },
+      "ward": 20,
+      "category": "Alley Resurfacing",
+      "cost": 23037.95,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "S HALSTED ST & W 52ND ST": {
+      "coordinates": {
+        "lat": 41.79976912709866,
+        "lon": -87.64529740059454
+      },
+      "ward": 20,
+      "category": "Signs",
+      "cost": 600.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 18,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S WENTWORTH AVE & W 63RD ST": {
+      "coordinates": {
+        "lat": 41.77998702977734,
+        "lon": -87.63014970093913
+      },
+      "ward": 20,
+      "category": "Viaduct Improvement",
+      "cost": 41182.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "8234 S LOOMIS BLVD": {
+      "coordinates": {
+        "lat": 41.74392727,
+        "lon": -87.65872498
+      },
+      "ward": 21,
+      "category": "Sidewalk",
+      "cost": 23133.54,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "9038 S CARPENTER ST": {
+      "coordinates": {
+        "lat": 41.7293673,
+        "lon": -87.6498093
+      },
+      "ward": 21,
+      "category": "Sidewalk",
+      "cost": 7632.6,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 11,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1008 W 89TH ST": {
+      "coordinates": {
+        "lat": 41.73245745094929,
+        "lon": -87.64874833938937
+      },
+      "ward": 21,
+      "category": "Sidewalk",
+      "cost": 21561.9,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "9100 S UNION AVE": {
+      "coordinates": {
+        "lat": 41.72867337,
+        "lon": -87.64125736
+      },
+      "ward": 21,
+      "category": "Street Speed Hump",
+      "cost": 3700.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "2307 S HOMAN AVE": {
+      "coordinates": {
+        "lat": 41.84962877,
+        "lon": -87.70984026
+      },
+      "ward": 22,
+      "category": "Alley Resurfacing",
+      "cost": 33417.95,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 24,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "2815 S TRUMBULL AVE": {
+      "coordinates": {
+        "lat": 41.84032636,
+        "lon": -87.71078416
+      },
+      "ward": 22,
+      "category": "Alley Resurfacing",
+      "cost": 39682.3,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 18,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2807 S HOMAN AVE": {
+      "coordinates": {
+        "lat": 41.84055375,
+        "lon": -87.70957458
+      },
+      "ward": 22,
+      "category": "Alley Resurfacing",
+      "cost": 41935.14,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2513 S CENTRAL PARK AVE": {
+      "coordinates": {
+        "lat": 41.84573701,
+        "lon": -87.71457624
+      },
+      "ward": 22,
+      "category": "Alley Resurfacing",
+      "cost": 36524.16,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 11,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3021 S KOSTNER AVE": {
+      "coordinates": {
+        "lat": 41.83795527,
+        "lon": -87.73386194
+      },
+      "ward": 22,
+      "category": "Alley Resurfacing",
+      "cost": 42178.07,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2700 S CENTRAL PARK AVE": {
+      "coordinates": {
+        "lat": 41.84243551,
+        "lon": -87.71503508
+      },
+      "ward": 22,
+      "category": "Alley Resurfacing",
+      "cost": 34944.86,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S AVERS AVE & W CERMAK RD&S SPRINGFIELD AVE & W 24TH ST": {
+      "coordinates": {
+        "lat": 41.849773146630426,
+        "lon": -87.72164648479796
+      },
+      "ward": 22,
+      "category": "Alley Resurfacing",
+      "cost": 39195.96,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5711 W 58TH ST": {
+      "coordinates": {
+        "lat": 41.78697652,
+        "lon": -87.7650536
+      },
+      "ward": 23,
+      "category": "Alley Apron",
+      "cost": 14548.43,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3604 W 62ND ST": {
+      "coordinates": {
+        "lat": 41.78085901,
+        "lon": -87.71335193
+      },
+      "ward": 23,
+      "category": "Bollard",
+      "cost": 1014.86,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3700 W 64TH PL": {
+      "coordinates": {
+        "lat": 41.77625407,
+        "lon": -87.71558545
+      },
+      "ward": 23,
+      "category": "Curb & Gutter",
+      "cost": 6857.52,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "6846 W 63RD PL": {
+      "coordinates": {
+        "lat": 41.77685821,
+        "lon": -87.79281614
+      },
+      "ward": 23,
+      "category": "Sidewalk",
+      "cost": 3503.01,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5915 S SAWYER AVE": {
+      "coordinates": {
+        "lat": 41.7857492,
+        "lon": -87.70425392
+      },
+      "ward": 23,
+      "category": "Sidewalk",
+      "cost": 7181.76,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5243 S TRIPP AVE": {
+      "coordinates": {
+        "lat": 41.79740181,
+        "lon": -87.72913444
+      },
+      "ward": 23,
+      "category": "Sidewalk",
+      "cost": 4546.79,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "ON S NAGLE AVE FROM W 54TH ST (5400 S) TO W ARCHER AVE": {
+      "coordinates": {
+        "lat": 41.97605937202843,
+        "lon": -87.78786622118142
+      },
+      "ward": 23,
+      "category": "Street Resurfacing",
+      "cost": 62442.42,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W OGDEN AVE & S MILLARD AVE&W 16TH ST & S LAWNDALE AVE": {
+      "coordinates": {
+        "lat": 41.856484457098475,
+        "lon": -87.7169774450434
+      },
+      "ward": 24,
+      "category": "Alley Resurfacing",
+      "cost": 97720.36,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S HOYNE AVE & W 22ND PL&S LEAVITT ST & W CERMAK RD": {
+      "coordinates": {
+        "lat": 41.86705930648536,
+        "lon": -87.67942631729315
+      },
+      "ward": 25,
+      "category": "Alley Resurfacing",
+      "cost": 33868.31,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "1816 S BLUE ISLAND AVE": {
+      "coordinates": {
+        "lat": 41.85746452,
+        "lon": -87.66185293
+      },
+      "ward": 25,
+      "category": "Alley Speed Hump",
+      "cost": 700.0,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 24,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "S LEAVITT ST & W 18TH PL": {
+      "coordinates": {
+        "lat": 41.85760526731545,
+        "lon": -87.6809013281747
+      },
+      "ward": 25,
+      "category": "Sidewalk",
+      "cost": 38506.92,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2807 W CORTEZ ST": {
+      "coordinates": {
+        "lat": 41.90049641553191,
+        "lon": -87.69708953038732
+      },
+      "ward": 26,
+      "category": "Sidewalk",
+      "cost": 11608.96,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 12,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "3251 W CRYSTAL ST": {
+      "coordinates": {
+        "lat": 41.90358029,
+        "lon": -87.7088164
+      },
+      "ward": 26,
+      "category": "Sidewalk",
+      "cost": 2731.41,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 12,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2521 W DIVISION ST": {
+      "coordinates": {
+        "lat": 41.90298501497822,
+        "lon": -87.69036976206861
+      },
+      "ward": 26,
+      "category": "Sidewalk",
+      "cost": 54697.46,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 24,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "AVE ON W LE MOYNE ST FROM N LAWNDALE AVE (3710 W) TO N RIDGEWAY": {
+      "coordinates": {
+        "lat": 41.907540354730244,
+        "lon": -87.76785558286652
+      },
+      "ward": 26,
+      "category": "Street Resurfacing",
+      "cost": 111795.64,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "801 N TRUMBULL AVE": {
+      "coordinates": {
+        "lat": 41.89552638023512,
+        "lon": -87.7126562512087
+      },
+      "ward": 27,
+      "category": "Alley Resurfacing",
+      "cost": 32528.38,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1418 N LA SALLE DR": {
+      "coordinates": {
+        "lat": 41.908248,
+        "lon": -87.63350445
+      },
+      "ward": 27,
+      "category": "Sidewalk",
+      "cost": 10642.02,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "618 N MONTICELLO AVE": {
+      "coordinates": {
+        "lat": 41.89244388,
+        "lon": -87.71771734
+      },
+      "ward": 27,
+      "category": "Sidewalk",
+      "cost": 4908.27,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3532 W MONROE ST": {
+      "coordinates": {
+        "lat": 41.87980646,
+        "lon": -87.71486623
+      },
+      "ward": 28,
+      "category": "Curb & Gutter",
+      "cost": 16661.26,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "Pedestrian Countdown Signal W MADISON ST & S CICERO AVE": {
+      "coordinates": {
+        "lat": 41.880497997509394,
+        "lon": -87.74527756103481
+      },
+      "ward": 28,
+      "category": "Unknown",
+      "cost": 22076.68,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "702 S LYTLE ST": {
+      "coordinates": {
+        "lat": 41.87300487,
+        "lon": -87.65859219
+      },
+      "ward": 28,
+      "category": "Sidewalk",
+      "cost": 95975.87,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "ON N LAMON AVE FROM W LAKE ST (340 N) TO W FULTON ST": {
+      "coordinates": {
+        "lat": 41.94194846584014,
+        "lon": -87.74942884397247
+      },
+      "ward": 28,
+      "category": "Street Resurfacing",
+      "cost": 310.52,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "200 N LEAMINGTON AVE": {
+      "coordinates": {
+        "lat": 41.88433901067629,
+        "lon": -87.75399179178643
+      },
+      "ward": 28,
+      "category": "Street Speed Hump",
+      "cost": 3700.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "N HARLEM AVE & W PALMER ST": {
+      "coordinates": {
+        "lat": 41.919855629173604,
+        "lon": -87.8061223777673
+      },
+      "ward": 29,
+      "category": "Alley Resurfacing",
+      "cost": 34944.42,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "WABANSIA AVE ON W THOMAS ST FROM N MONITOR AVE (5830 W) TO N MENARD AVE": {
+      "coordinates": {
+        "lat": 41.900891411138126,
+        "lon": -87.72088454490468
+      },
+      "ward": 29,
+      "category": "Street Resurfacing",
+      "cost": 47827.26,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "AVE ON W BLOOMINGDALE AVE FROM N NEVA AVE (7150 W) TO N SAYRE": {
+      "coordinates": {
+        "lat": 41.9142371366382,
+        "lon": -87.67344125193905
+      },
+      "ward": 29,
+      "category": "Street Resurfacing",
+      "cost": 12488.72,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "AVE ON W LE MOYNE DR FROM N PARKSIDE AVE (5630 W) TO N MASSASOIT": {
+      "coordinates": {
+        "lat": 41.907540354730244,
+        "lon": -87.76785558286652
+      },
+      "ward": 29,
+      "category": "Street Resurfacing",
+      "cost": 89452.49,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "ENGLAND AVE ON N MAJOR AVE FROM W NORTH AVE (1600 N) TO W WABANSIA AVE": {
+      "coordinates": {
+        "lat": 41.986633836406064,
+        "lon": -87.7703407932494
+      },
+      "ward": 29,
+      "category": "Street Resurfacing",
+      "cost": 68091.75,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "CORTLAND ST ON N MONITOR AVE FROM W THOMAS ST (1100 N) TO W AUGUSTA": {
+      "coordinates": {
+        "lat": 41.93412911242872,
+        "lon": -87.77242105375606
+      },
+      "ward": 29,
+      "category": "Street Speed Hump",
+      "cost": 3700.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "BLVD ON N MASSASOIT AVE FROM W POTOMAC AVE (1300 N) TO W HIRSCH": {
+      "coordinates": {
+        "lat": 41.79169144070372,
+        "lon": -87.76592656894985
+      },
+      "ward": 29,
+      "category": "Street Speed Hump",
+      "cost": 3700.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3620 W WOLFRAM ST": {
+      "coordinates": {
+        "lat": 41.93302718,
+        "lon": -87.71807813
+      },
+      "ward": 30,
+      "category": "Alley Resurfacing",
+      "cost": 9017.27,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 24,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "3102 N MONITOR AVE": {
+      "coordinates": {
+        "lat": 41.93673168144653,
+        "lon": -87.77251139738603
+      },
+      "ward": 30,
+      "category": "Alley Resurfacing",
+      "cost": 27382.94,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5422 W PARKER AVE N MONITOR AVE & W DIVERSEY AVE&N MARMORA AVE & W GEORGE": {
+      "coordinates": {
+        "lat": 41.931191014610775,
+        "lon": -87.7723206628108
+      },
+      "ward": 30,
+      "category": "Alley Speed Hump",
+      "cost": 700.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2757 N LINDER AVE": {
+      "coordinates": {
+        "lat": 41.93127753147555,
+        "lon": -87.7637885497227
+      },
+      "ward": 30,
+      "category": "Sidewalk",
+      "cost": 10635.45,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "6035 W HENDERSON ST": {
+      "coordinates": {
+        "lat": 41.94097738,
+        "lon": -87.77772267
+      },
+      "ward": 30,
+      "category": "Sidewalk",
+      "cost": 3449.4,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "6049 W MELROSE ST": {
+      "coordinates": {
+        "lat": 41.93913091,
+        "lon": -87.77818084
+      },
+      "ward": 30,
+      "category": "Sidewalk",
+      "cost": 5786.39,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2852 N MOBILE AVE": {
+      "coordinates": {
+        "lat": 41.93256879,
+        "lon": -87.78358313
+      },
+      "ward": 30,
+      "category": "Sidewalk",
+      "cost": 4396.0,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 24,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "AVE ON N AVERS AVE FROM W BELMONT AVE (3200 N) TO W SCHOOL ST": {
+      "coordinates": {
+        "lat": 41.835966244424036,
+        "lon": -87.7206661190663
+      },
+      "ward": 30,
+      "category": "Street Resurfacing",
+      "cost": 46163.54,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "SCHUBERT AVE ON W HENDERSON ST FROM N LONG AVE (5400 W) TO N LINDER AVE": {
+      "coordinates": {
+        "lat": 41.94111547474457,
+        "lon": -87.78268245988988
+      },
+      "ward": 30,
+      "category": "Street Resurfacing",
+      "cost": 50964.57,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "5344 W GEORGE ST": {
+      "coordinates": {
+        "lat": 41.93339049,
+        "lon": -87.76072097
+      },
+      "ward": 31,
+      "category": "Alley Apron",
+      "cost": 13311.02,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "4921 W PARKER AVE": {
+      "coordinates": {
+        "lat": 41.93038009,
+        "lon": -87.74993059
+      },
+      "ward": 31,
+      "category": "Sidewalk",
+      "cost": 10476.67,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "4500 W PARKER AVE": {
+      "coordinates": {
+        "lat": 41.93090564,
+        "lon": -87.7394191
+      },
+      "ward": 31,
+      "category": "Sidewalk",
+      "cost": 22249.48,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "4615 W ALTGELD ST": {
+      "coordinates": {
+        "lat": 41.92600759,
+        "lon": -87.7423997
+      },
+      "ward": 31,
+      "category": "Sidewalk",
+      "cost": 5877.66,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 18,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "AVE ON N LONG AVE FROM W PARKER AVE (2730 N) TO W DIVERSEY AVE": {
+      "coordinates": {
+        "lat": 41.96712378324276,
+        "lon": -87.76256120992774
+      },
+      "ward": 31,
+      "category": "Street Resurfacing",
+      "cost": 110254.38,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "AVE ON W ALTGELD ST FROM N LAVERGNE AVE (5000 W) TO N LECLAIRE AVE": {
+      "coordinates": {
+        "lat": 41.926420906674764,
+        "lon": -87.71652716708493
+      },
+      "ward": 31,
+      "category": "Street Speed Hump",
+      "cost": 3700.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "1720 N MARSHFIELD AVE": {
+      "coordinates": {
+        "lat": 41.9131894,
+        "lon": -87.66923251
+      },
+      "ward": 32,
+      "category": "Alley Apron",
+      "cost": 13238.58,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "2213 N LEAVITT ST ON W ALTGELD ST FROM N ARTESIAN AVE (2430 W) TO N CAMPBELL": {
+      "coordinates": {
+        "lat": 41.926420906674764,
+        "lon": -87.71652716708493
+      },
+      "ward": 32,
+      "category": "Alley Speed Hump",
+      "cost": 700.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 9,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "N DAMEN AVE & W CHURCHILL ST": {
+      "coordinates": {
+        "lat": 41.9147157176932,
+        "lon": -87.67755510272826
+      },
+      "ward": 32,
+      "category": "Arterial Street Bump Outs",
+      "cost": 30000.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 6,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2313 W DICKENS AVE": {
+      "coordinates": {
+        "lat": 41.91893652,
+        "lon": -87.68560098
+      },
+      "ward": 32,
+      "category": "Bollard",
+      "cost": 1839.3,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3204 N OAKLEY AVE": {
+      "coordinates": {
+        "lat": 41.93975121,
+        "lon": -87.68580411
+      },
+      "ward": 32,
+      "category": "Curb & Gutter",
+      "cost": 26833.04,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "1813 N MILWAUKEE AVE": {
+      "coordinates": {
+        "lat": 41.91442309,
+        "lon": -87.68329808
+      },
+      "ward": 32,
+      "category": "Sidewalk",
+      "cost": 4719.03,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "AVE ON W CHARLESTON ST FROM N LEAVITT ST (2200 W) TO N OAKLEY AVE": {
+      "coordinates": {
+        "lat": 41.91997548000309,
+        "lon": -87.6884639129232
+      },
+      "ward": 32,
+      "category": "Street Resurfacing",
+      "cost": 21632.28,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "ASHLAND AVE ON N WOLCOTT AVE FROM W ROSCOE ST (3400 N) TO W HENDERSON": {
+      "coordinates": {
+        "lat": 41.883832506317766,
+        "lon": -87.67425722466244
+      },
+      "ward": 32,
+      "category": "Street Resurfacing",
+      "cost": 24046.62,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 6,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "N OAKLEY AVE ON W WOLFRAM ST FROM N OAKLEY AVE (2250 W) TO N WESTERN AVE": {
+      "coordinates": {
+        "lat": 41.93320665798966,
+        "lon": -87.67732809852106
+      },
+      "ward": 32,
+      "category": "Street Speed Hump",
+      "cost": 3700.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "3614 N ALBANY AVE": {
+      "coordinates": {
+        "lat": 41.94712434,
+        "lon": -87.70566329
+      },
+      "ward": 33,
+      "category": "Alley Apron",
+      "cost": 8678.13,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "3253 W SUNNYSIDE AVE": {
+      "coordinates": {
+        "lat": 41.96298851248808,
+        "lon": -87.71046845976048
+      },
+      "ward": 33,
+      "category": "Alley Apron",
+      "cost": 10236.65,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 11,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2729 W BARRY AVE": {
+      "coordinates": {
+        "lat": 41.9373699,
+        "lon": -87.69711016
+      },
+      "ward": 33,
+      "category": "Alley Apron",
+      "cost": 22000.94,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S THROOP ST & W 106TH PL": {
+      "coordinates": {
+        "lat": 41.70086464668861,
+        "lon": -87.6547981643287
+      },
+      "ward": 34,
+      "category": "Street Cul-de-Sac",
+      "cost": 8478.43,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "S MARTIN ST & W 107TH ST": {
+      "coordinates": {
+        "lat": 41.69948674689232,
+        "lon": -87.65599006326985
+      },
+      "ward": 34,
+      "category": "Street Cul-de-Sac",
+      "cost": 8478.43,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "221 W 105TH ST": {
+      "coordinates": {
+        "lat": 41.70324492,
+        "lon": -87.62910846
+      },
+      "ward": 34,
+      "category": "Street Light Upgrade",
+      "cost": 500.0,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "N KILDARE AVE & W ARMITAGE AVE&N LOWELL AVE & W CORTLAND ST": {
+      "coordinates": {
+        "lat": 41.92633374352348,
+        "lon": -87.73465188421703
+      },
+      "ward": 35,
+      "category": "Alley Resurfacing",
+      "cost": 37261.43,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 24,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "AVE N KIMBALL AVE & W WELLINGTON AVE&N CHRISTIANA AVE & W BARRY": {
+      "coordinates": {
+        "lat": 41.93565242806845,
+        "lon": -87.71237809350148
+      },
+      "ward": 35,
+      "category": "Alley Resurfacing",
+      "cost": 26824.17,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3000 N SAWYER AVE": {
+      "coordinates": {
+        "lat": 41.9358237,
+        "lon": -87.70900779
+      },
+      "ward": 35,
+      "category": "Unknown",
+      "cost": 3000.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 6,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "AVE ON N ST LOUIS AVE FROM W LYNDALE ST (2230 N) TO W BELDEN AVE": {
+      "coordinates": {
+        "lat": 41.8597135081298,
+        "lon": -87.71279158045485
+      },
+      "ward": 35,
+      "category": "Street Speed Hump",
+      "cost": 3700.0,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "2258 N KNOX AVE": {
+      "coordinates": {
+        "lat": 41.92231901,
+        "lon": -87.74286917
+      },
+      "ward": 36,
+      "category": "Curb & Gutter",
+      "cost": 10616.98,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2838 N NEENAH AVE": {
+      "coordinates": {
+        "lat": 41.9321148,
+        "lon": -87.78966618
+      },
+      "ward": 36,
+      "category": "Curb & Gutter",
+      "cost": 2683.08,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "2218 N KILBOURN AVE": {
+      "coordinates": {
+        "lat": 41.92126617935384,
+        "lon": -87.73890752194309
+      },
+      "ward": 36,
+      "category": "Sidewalk",
+      "cost": 22614.11,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3100 N NEWCASTLE AVE": {
+      "coordinates": {
+        "lat": 41.93649405,
+        "lon": -87.79714287
+      },
+      "ward": 36,
+      "category": "Sidewalk",
+      "cost": 29232.2,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1358 N LARAMIE AVE:N LARAMIE AVE & W HIRSCH ST": {
+      "coordinates": {
+        "lat": 41.905874588773344,
+        "lon": -87.75585999237015
+      },
+      "ward": 37,
+      "category": "Curb & Gutter",
+      "cost": 16573.91,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "N CICERO AVE & W DIVISION ST": {
+      "coordinates": {
+        "lat": 41.90235233097792,
+        "lon": -87.74597835713084
+      },
+      "ward": 37,
+      "category": "Pedestrian Countdown Signal",
+      "cost": 20000.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "4400 W THOMAS ST": {
+      "coordinates": {
+        "lat": 41.900684442493876,
+        "lon": -87.73609441948622
+      },
+      "ward": 37,
+      "category": "Sidewalk",
+      "cost": 108929.46,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "ON N LOTUS AVE FROM W OHIO ST (600 N) TO W HURON ST": {
+      "coordinates": {
+        "lat": 41.8939764927265,
+        "lon": -87.76209802060173
+      },
+      "ward": 37,
+      "category": "Street Resurfacing",
+      "cost": 42910.76,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 12,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "AVE ON W CULLOM AVE FROM N LINDER AVE (5500 W) TO N LONG AVE": {
+      "coordinates": {
+        "lat": 41.959025610165334,
+        "lon": -87.73643118882512
+      },
+      "ward": 38,
+      "category": "Street Resurfacing",
+      "cost": 13756.51,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "MERRIMAC AVE ON W WARWICK AVE FROM N CENTRAL AVE (5600 W) TO N LINDER AVE": {
+      "coordinates": {
+        "lat": 41.94889748694226,
+        "lon": -87.74400643967442
+      },
+      "ward": 38,
+      "category": "Street Resurfacing",
+      "cost": 31051.24,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "POTAWATOMIE AVE ON N MAJOR AVE FROM W BYRON ST (3900 N) TO W IRVING PARK RD": {
+      "coordinates": {
+        "lat": 41.986633836406064,
+        "lon": -87.7703407932494
+      },
+      "ward": 38,
+      "category": "Street Resurfacing",
+      "cost": 25793.35,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "W SUNNYSIDE AVE & N MENARD AVE": {
+      "coordinates": {
+        "lat": 41.962287852237836,
+        "lon": -87.77219238068027
+      },
+      "ward": 38,
+      "category": "Street Resurfacing",
+      "cost": 27967.11,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 24,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "AVE ON N OKETO AVE FROM W BYRON ST (3900 N) TO W FOREST PRESERVE": {
+      "coordinates": {
+        "lat": 41.97884104031307,
+        "lon": -87.81189476576051
+      },
+      "ward": 38,
+      "category": "Street Resurfacing",
+      "cost": 12456.97,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 11,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "4825 N KILPATRICK AVE": {
+      "coordinates": {
+        "lat": 41.96859866,
+        "lon": -87.74519468
+      },
+      "ward": 39,
+      "category": "Alley Apron",
+      "cost": 12834.22,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5051 N KENNETH AVE": {
+      "coordinates": {
+        "lat": 41.97295614,
+        "lon": -87.73895162
+      },
+      "ward": 39,
+      "category": "Sidewalk",
+      "cost": 10640.16,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "AVE ON N ROGERS AVE FROM N KOSTNER AVE (5799 N) TO N LOWELL AVE": {
+      "coordinates": {
+        "lat": 41.97698763196606,
+        "lon": -87.75835257576703
+      },
+      "ward": 39,
+      "category": "Street Light Pole Painting",
+      "cost": 20050.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "AVE ON N KNOX AVE FROM W WILSON AVE (4600 N) TO W LELAND AVE": {
+      "coordinates": {
+        "lat": 41.79892032586588,
+        "lon": -87.73924869675491
+      },
+      "ward": 39,
+      "category": "Street Resurfacing",
+      "cost": 23666.85,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 18,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2131 W FARRAGUT AVE": {
+      "coordinates": {
+        "lat": 41.97670223,
+        "lon": -87.68314329
+      },
+      "ward": 40,
+      "category": "Alley Resurfacing",
+      "cost": 20693.49,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 11,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2800 W GREGORY ST": {
+      "coordinates": {
+        "lat": 41.98240297,
+        "lon": -87.69944719
+      },
+      "ward": 40,
+      "category": "Curb & Gutter",
+      "cost": 16003.89,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1610 W BERWYN AVE": {
+      "coordinates": {
+        "lat": 41.97816958,
+        "lon": -87.67024438
+      },
+      "ward": 40,
+      "category": "Curb & Gutter",
+      "cost": 10468.57,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W LAWRENCE AVE & N CAMPBELL AVE": {
+      "coordinates": {
+        "lat": 41.96859281017884,
+        "lon": -87.69134891909313
+      },
+      "ward": 40,
+      "category": "Signs",
+      "cost": 600.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "W LAWRENCE AVE & N WASHTENAW AVE": {
+      "coordinates": {
+        "lat": 41.96855285328369,
+        "lon": -87.69624384112403
+      },
+      "ward": 40,
+      "category": "Signs",
+      "cost": 600.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "2752 W AINSLIE ST": {
+      "coordinates": {
+        "lat": 41.97072421819768,
+        "lon": -87.69845190664309
+      },
+      "ward": 40,
+      "category": "Sidewalk",
+      "cost": 2132.01,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 12,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "WASHTENAW AVE ON N ROCKWELL ST FROM W GLENLAKE AVE (6100 N) TO W PETERSON": {
+      "coordinates": {
+        "lat": 41.78512942508024,
+        "lon": -87.68868138914443
+      },
+      "ward": 40,
+      "category": "Street Resurfacing",
+      "cost": 35272.48,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "N FRANCISCO AVE & W GREGORY ST": {
+      "coordinates": {
+        "lat": 41.98219500353028,
+        "lon": -87.70155568944384
+      },
+      "ward": 40,
+      "category": "Street Traffic Circle",
+      "cost": 1163.26,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5430 N OLCOTT AVE": {
+      "coordinates": {
+        "lat": 41.97857996,
+        "lon": -87.81481869
+      },
+      "ward": 41,
+      "category": "High Definition Camera",
+      "cost": 27011.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 17,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "HWY ON W MYRTLE AVE FROM N OLCOTT AVE (7500 W) TO N ORIOLE AVE": {
+      "coordinates": {
+        "lat": 41.993551560324,
+        "lon": -87.81291472108302
+      },
+      "ward": 41,
+      "category": "Sidewalk",
+      "cost": 66187.79,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "7309 N ODELL AVE ON W TOUHY AVE FROM N HARLEM AVE (7200 W) TO N OZANAM AVE": {
+      "coordinates": {
+        "lat": 42.0114158203608,
+        "lon": -87.81831008034987
+      },
+      "ward": 41,
+      "category": "Sidewalk",
+      "cost": 5328.84,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "HURLBUT ST ON W HAYES AVE FROM N OAK PARK AVE (6800 W) TO N NORMANDY": {
+      "coordinates": {
+        "lat": 41.999982127064676,
+        "lon": -87.80001454027408
+      },
+      "ward": 41,
+      "category": "Street Resurfacing",
+      "cost": 38434.23,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "AVE ON W FITCH AVE FROM N ODELL AVE (7400 W) TO N OCTAVIA AVE": {
+      "coordinates": {
+        "lat": 42.011295111313075,
+        "lon": -87.69390500180126
+      },
+      "ward": 41,
+      "category": "Street Resurfacing",
+      "cost": 23659.54,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "AVE ON N LOLETA AVE FROM N HIAWATHA AVE (6800 N) TO N LEHIGH AVE": {
+      "coordinates": {
+        "lat": 42.00433938112071,
+        "lon": -87.77067461181097
+      },
+      "ward": 41,
+      "category": "Street Resurfacing",
+      "cost": 48091.7,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 11,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "412 N CLARK ST": {
+      "coordinates": {
+        "lat": 41.88967486,
+        "lon": -87.6313685
+      },
+      "ward": 42,
+      "category": "Sidewalk",
+      "cost": 63000.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 6,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1040 N LAKE SHORE DR": {
+      "coordinates": {
+        "lat": 41.90200586,
+        "lon": -87.62471981
+      },
+      "ward": 42,
+      "category": "Sidewalk",
+      "cost": 1599.17,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 6,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "ON N CLINTON ST FROM W KINZIE ST (400 N) TO W LAKE ST": {
+      "coordinates": {
+        "lat": 41.86738925746629,
+        "lon": -87.6407264168527
+      },
+      "ward": 42,
+      "category": "Street Light Pole Painting",
+      "cost": 4200.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "E OHIO ST & N WABASH AVE": {
+      "coordinates": {
+        "lat": 41.89249612695197,
+        "lon": -87.62674686061717
+      },
+      "ward": 42,
+      "category": "Street Light Pole Painting",
+      "cost": 2450.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "ON E OHIO ST FROM N ST CLAIR ST (200 E) TO N FAIRBANKS CT": {
+      "coordinates": {
+        "lat": 41.892380009885095,
+        "lon": -87.67015678035172
+      },
+      "ward": 42,
+      "category": "Street Resurfacing",
+      "cost": 68802.46,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "ON N RUSH ST FROM E SUPERIOR ST (730 N) TO E ONTARIO ST": {
+      "coordinates": {
+        "lat": 41.902083954519085,
+        "lon": -87.62815274021425
+      },
+      "ward": 42,
+      "category": "Street Resurfacing",
+      "cost": 92032.17,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 18,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2143 N CLIFTON AVE": {
+      "coordinates": {
+        "lat": 41.92115844,
+        "lon": -87.65683497
+      },
+      "ward": 43,
+      "category": "Alley Apron",
+      "cost": 6860.18,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "910 W DICKENS AVE": {
+      "coordinates": {
+        "lat": 41.92008132,
+        "lon": -87.65153618
+      },
+      "ward": 43,
+      "category": "Alley Apron",
+      "cost": 10425.34,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W WEBSTER AVE & N SEDGWICK ST": {
+      "coordinates": {
+        "lat": 41.9219606218427,
+        "lon": -87.63893677042908
+      },
+      "ward": 43,
+      "category": "Signs",
+      "cost": 350.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "N CLARK ST & W ROSLYN PL": {
+      "coordinates": {
+        "lat": 41.92733896910815,
+        "lon": -87.64152891459642
+      },
+      "ward": 43,
+      "category": "Signs",
+      "cost": 350.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "1315 W MELROSE ST": {
+      "coordinates": {
+        "lat": 41.94052236,
+        "lon": -87.66210659
+      },
+      "ward": 44,
+      "category": "Alley Apron",
+      "cost": 10025.09,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 6,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "3440 N RACINE AVE": {
+      "coordinates": {
+        "lat": 41.94471972,
+        "lon": -87.65934726
+      },
+      "ward": 44,
+      "category": "Alley Apron",
+      "cost": 6920.26,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "816 W WOLFRAM ST": {
+      "coordinates": {
+        "lat": 41.9338711,
+        "lon": -87.64975885
+      },
+      "ward": 44,
+      "category": "Alley Apron",
+      "cost": 8258.88,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "450 W BRIAR PL N RACINE AVE & W SCHOOL ST&N LAKEWOOD AVE & W HENDERSON": {
+      "coordinates": {
+        "lat": 41.94166038812663,
+        "lon": -87.65902221521328
+      },
+      "ward": 44,
+      "category": "Alley Resurfacing",
+      "cost": 28629.12,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "3407 N HALSTED ST": {
+      "coordinates": {
+        "lat": 41.94388641,
+        "lon": -87.64895326
+      },
+      "ward": 44,
+      "category": "Sidewalk",
+      "cost": 5289.56,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 18,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5529 W GIDDINGS ST": {
+      "coordinates": {
+        "lat": 41.96622651,
+        "lon": -87.76615195
+      },
+      "ward": 45,
+      "category": "Alley Resurfacing",
+      "cost": 10622.03,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 18,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W LAWRENCE AVE & N MENARD AVE": {
+      "coordinates": {
+        "lat": 41.96771875123257,
+        "lon": -87.77236649315232
+      },
+      "ward": 45,
+      "category": "Curb & Gutter",
+      "cost": 13198.81,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "5010 N MEADE AVE": {
+      "coordinates": {
+        "lat": 41.97248697,
+        "lon": -87.78095439
+      },
+      "ward": 45,
+      "category": "Sidewalk",
+      "cost": 5766.02,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 11,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "4151 N DICKINSON AVE": {
+      "coordinates": {
+        "lat": 41.95656642,
+        "lon": -87.75199749
+      },
+      "ward": 45,
+      "category": "Sidewalk",
+      "cost": 3975.31,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 12,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "5136 W IRVING PARK RD": {
+      "coordinates": {
+        "lat": 41.95359089,
+        "lon": -87.75622872
+      },
+      "ward": 45,
+      "category": "Sidewalk",
+      "cost": 20330.51,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "4045 N KOLMAR AVE": {
+      "coordinates": {
+        "lat": 41.95484709,
+        "lon": -87.7415019
+      },
+      "ward": 45,
+      "category": "Sidewalk",
+      "cost": 4436.14,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 12,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W STRONG ST & N NEENAH AVE": {
+      "coordinates": {
+        "lat": 41.97020093618732,
+        "lon": -87.79040492712853
+      },
+      "ward": 45,
+      "category": "Street Bump Outs",
+      "cost": 6327.33,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W STRONG ST & N NASHVILLE AVE": {
+      "coordinates": {
+        "lat": 41.970190128399636,
+        "lon": -87.79161661496855
+      },
+      "ward": 45,
+      "category": "Street Bump Outs",
+      "cost": 6606.41,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "AVE ON N MASON AVE FROM W CARMEN AVE (5100 N) TO W FOSTER AVE": {
+      "coordinates": {
+        "lat": 41.78786509829462,
+        "lon": -87.77066174896677
+      },
+      "ward": 45,
+      "category": "Street Resurfacing",
+      "cost": 81911.51,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1045 W IRVING PARK RD": {
+      "coordinates": {
+        "lat": 41.95426499,
+        "lon": -87.65634564
+      },
+      "ward": 46,
+      "category": "Alley Apron",
+      "cost": 10532.9,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "AVE N FREMONT ST & W GRACE ST&N WILTON AVE & W WAVELAND": {
+      "coordinates": {
+        "lat": 41.95116366612972,
+        "lon": -87.65202014242261
+      },
+      "ward": 46,
+      "category": "Concrete Alley",
+      "cost": 254000.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 10,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "4170 N MARINE DR": {
+      "coordinates": {
+        "lat": 41.95757758,
+        "lon": -87.64657172
+      },
+      "ward": 46,
+      "category": "Sidewalk",
+      "cost": 905.36,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2437 W CUYLER AVE": {
+      "coordinates": {
+        "lat": 41.95474061,
+        "lon": -87.69000608
+      },
+      "ward": 47,
+      "category": "Curb & Gutter",
+      "cost": 3049.39,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 12,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "W FOSTER AVE & N WAYNE AVE": {
+      "coordinates": {
+        "lat": 41.976267140257235,
+        "lon": -87.66355236882859
+      },
+      "ward": 47,
+      "category": "Signs",
+      "cost": 350.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W MONTROSE AVE & N HAMILTON AVE": {
+      "coordinates": {
+        "lat": 41.96141310887939,
+        "lon": -87.68221178352916
+      },
+      "ward": 47,
+      "category": "Signs",
+      "cost": 600.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "W MONTROSE AVE & N HERMITAGE AVE": {
+      "coordinates": {
+        "lat": 41.96154844780182,
+        "lon": -87.6724189890483
+      },
+      "ward": 47,
+      "category": "Signs",
+      "cost": 350.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W MONTROSE AVE & N CAMPBELL AVE": {
+      "coordinates": {
+        "lat": 41.961292022628086,
+        "lon": -87.69180411533215
+      },
+      "ward": 47,
+      "category": "Signs",
+      "cost": 600.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 16,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "Miscellaneous CDOT Projects (2017) N HERMITAGE AVE:W LAWRENCE AVE & N LEAVITT ST": {
+      "coordinates": {
+        "lat": 41.968684735976915,
+        "lon": -87.68404138845166
+      },
+      "ward": 47,
+      "category": "Unknown",
+      "cost": 3430.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 14,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "4252 N DAMEN AVE": {
+      "coordinates": {
+        "lat": 41.95934114,
+        "lon": -87.67919698
+      },
+      "ward": 47,
+      "category": "Sidewalk",
+      "cost": 3828.67,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "5616 N GLENWOOD AVE": {
+      "coordinates": {
+        "lat": 41.9841259,
+        "lon": -87.66525181
+      },
+      "ward": 48,
+      "category": "Alley Apron",
+      "cost": 10447.85,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "5646 N WAYNE AVE": {
+      "coordinates": {
+        "lat": 41.98499363,
+        "lon": -87.66393449
+      },
+      "ward": 48,
+      "category": "Alley Apron",
+      "cost": 9228.63,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 12,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1023 W THORNDALE AVE": {
+      "coordinates": {
+        "lat": 41.99008859094615,
+        "lon": -87.6564336419963
+      },
+      "ward": 48,
+      "category": "Alley Apron",
+      "cost": 10060.74,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1042 W GLENLAKE AVE": {
+      "coordinates": {
+        "lat": 41.99233364414904,
+        "lon": -87.65710179491099
+      },
+      "ward": 48,
+      "category": "Alley Apron",
+      "cost": 8771.51,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 12,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "N WAYNE AVE & N RIDGE AVE": {
+      "coordinates": {
+        "lat": 41.985547147991355,
+        "lon": -87.66320495652143
+      },
+      "ward": 48,
+      "category": "Arterial Street Bump Outs",
+      "cost": 30000.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "W FARRAGUT AVE & N CLARK ST": {
+      "coordinates": {
+        "lat": 41.97710504175998,
+        "lon": -87.66838816553681
+      },
+      "ward": 48,
+      "category": "Signs",
+      "cost": 350.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 6,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "N CLARK ST & W SUMMERDALE AVE": {
+      "coordinates": {
+        "lat": 41.97893097718183,
+        "lon": -87.66831018592498
+      },
+      "ward": 48,
+      "category": "Signs",
+      "cost": 600.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "6216 N GLENWOOD AVE": {
+      "coordinates": {
+        "lat": 41.99510631,
+        "lon": -87.66566424
+      },
+      "ward": 48,
+      "category": "Sidewalk",
+      "cost": 3384.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 7,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "6154 N GLENWOOD AVE": {
+      "coordinates": {
+        "lat": 41.99435430040565,
+        "lon": -87.66527696215766
+      },
+      "ward": 48,
+      "category": "Sidewalk",
+      "cost": 22509.1,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "FOSTER AVE ON N SHERIDAN RD FROM W HOLLYWOOD AVE (5699 N) TO W CATALPA": {
+      "coordinates": {
+        "lat": 41.96706544763711,
+        "lon": -87.6547976892898
+      },
+      "ward": 48,
+      "category": "Street Light Pole Painting",
+      "cost": 3500.0,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "N SHERIDAN RD & W FARWELL AVE&N SHERIDAN RD & W LUNT AVE": {
+      "coordinates": {
+        "lat": 41.999654664971075,
+        "lon": -87.66031197467728
+      },
+      "ward": 49,
+      "category": "Alley Resurfacing",
+      "cost": 44267.8,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 12,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "1510 W CHASE AVE": {
+      "coordinates": {
+        "lat": 42.013871356833455,
+        "lon": -87.66845752603783
+      },
+      "ward": 49,
+      "category": "Sidewalk",
+      "cost": 5937.38,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 19,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "6144 N FRANCISCO AVE": {
+      "coordinates": {
+        "lat": 41.99347334,
+        "lon": -87.70224806
+      },
+      "ward": 50,
+      "category": "Street Light Upgrade",
+      "cost": 500.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 8,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "2211 W TOUHY AVE": {
+      "coordinates": {
+        "lat": 42.01194488,
+        "lon": -87.68662834
+      },
+      "ward": 50,
+      "category": "Street Light Upgrade",
+      "cost": 500.0,
+      "utilities": [
+        {
+          "utility_type": "Gas Main",
+          "distance_ft": 23,
+          "risk_level": "CRITICAL",
+          "notes": "Peoples Gas main - MUST contact LocateRequest before work"
+        }
+      ]
+    },
+    "6210 N BERNARD ST": {
+      "coordinates": {
+        "lat": 41.99418509,
+        "lon": -87.71561033
+      },
+      "ward": 50,
+      "category": "Street Light Upgrade",
+      "cost": 500.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 13,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "ROCKWELL ST ON N ROCKWELL ST FROM W PRATT BLVD (6800 N) TO W FARWELL AVE": {
+      "coordinates": {
+        "lat": 41.78512942508024,
+        "lon": -87.68868138914443
+      },
+      "ward": 50,
+      "category": "Street Resurfacing",
+      "cost": 31207.75,
+      "utilities": [
+        {
+          "utility_type": "Sewer Main",
+          "distance_ft": 15,
+          "risk_level": "MEDIUM",
+          "notes": "City of Chicago sewer line - mark-outs required"
+        }
+      ]
+    },
+    "AVE ON N LEAVITT ST FROM W ARTHUR AVE (6500 N) TO W DEVON AVE": {
+      "coordinates": {
+        "lat": 41.904584675215986,
+        "lon": -87.68218425136243
+      },
+      "ward": 50,
+      "category": "Street Resurfacing",
+      "cost": 70627.41,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 18,
+          "risk_level": "MEDIUM",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    },
+    "BIRCHWOOD AVE ON W ESTES AVE FROM N CALIFORNIA AVE (2800 W) TO N FRANCISCO": {
+      "coordinates": {
+        "lat": 42.01043117387933,
+        "lon": -87.69163291172165
+      },
+      "ward": 50,
+      "category": "Street Speed Hump",
+      "cost": 1850.0,
+      "utilities": [
+        {
+          "utility_type": "Water Main",
+          "distance_ft": 5,
+          "risk_level": "HIGH",
+          "notes": "Chicago Water Authority main line - SUE required before excavation"
+        }
+      ]
+    }
+  }
+}

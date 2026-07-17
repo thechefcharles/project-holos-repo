@@ -218,6 +218,40 @@ def api_trends():
     return jsonify(data)
 
 
+@app.route("/api/subsurface/conflicts", methods=["GET"])
+def api_conflicts():
+    """Return utility conflicts for spending projects."""
+    year = request.args.get("year", default=2017, type=int)
+
+    conflicts_file = DATA_PATH / f"utility_conflicts_{year}.json"
+    if not conflicts_file.exists():
+        return jsonify({"error": f"Conflict data not available for {year}"}), 404
+
+    with open(conflicts_file, 'r') as f:
+        data = json.load(f)
+
+    # Build summary statistics
+    high_risk = sum(1 for conflicts in data["conflicts"].values()
+                   for util in conflicts.get("utilities", [])
+                   if util.get("risk_level") in ["CRITICAL", "HIGH"])
+
+    medium_risk = sum(1 for conflicts in data["conflicts"].values()
+                     for util in conflicts.get("utilities", [])
+                     if util.get("risk_level") == "MEDIUM")
+
+    return jsonify({
+        "year": year,
+        "summary": {
+            "total_projects": data["total_projects"],
+            "projects_with_conflicts": data["projects_with_conflicts"],
+            "conflict_rate": data["conflict_rate"],
+            "high_risk_count": high_risk,
+            "medium_risk_count": medium_risk,
+        },
+        "conflicts": data["conflicts"]
+    })
+
+
 @app.route("/api/reports/need-match", methods=["GET"])
 def api_need_match():
     """Return need-match analysis (spending vs. 311 demand)."""
@@ -403,6 +437,7 @@ def index():
             <button class="tab-btn" onclick="switchTab('by-ward')">By Ward</button>
             <button class="tab-btn" onclick="switchTab('by-category')">By Category</button>
             <button class="tab-btn" onclick="switchTab('need-match')">Equity</button>
+            <button class="tab-btn" onclick="switchTab('utilities')">Utilities</button>
         </div>
 
         <div id="summary" class="tab-content active">
@@ -423,6 +458,10 @@ def index():
 
         <div id="need-match" class="tab-content">
             <div id="need-match-content" class="loading">Loading...</div>
+        </div>
+
+        <div id="utilities" class="tab-content">
+            <div id="utilities-content" class="loading">Loading...</div>
         </div>
     </div>
 
@@ -453,6 +492,8 @@ def index():
                 loadByCategory();
             } else if (tab === 'need-match') {
                 loadNeedMatch();
+            } else if (tab === 'utilities') {
+                loadUtilities();
             }
         }
 
@@ -462,6 +503,7 @@ def index():
             loadByWard();
             loadByCategory();
             loadNeedMatch();
+            loadUtilities();
         }
 
         async function loadSummary() {
@@ -839,6 +881,92 @@ def index():
                 document.getElementById('need-match-content').innerHTML = html;
             } catch (err) {
                 document.getElementById('need-match-content').innerHTML = `<div class="error">Error loading equity data: ${err.message}</div>`;
+            }
+        }
+
+        async function loadUtilities() {
+            try {
+                const res = await fetch(`/api/subsurface/conflicts?year=${currentYear}`);
+                const data = await res.json();
+
+                let html = `
+                    <div class="summary-grid">
+                        <div class="metric-card">
+                            <div class="label">Projects Near Utilities</div>
+                            <div class="value">${data.summary.projects_with_conflicts}</div>
+                            <div style="font-size: 0.8em; margin-top: 8px;">
+                                ${data.summary.conflict_rate}% of all projects
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="label">High-Risk Conflicts</div>
+                            <div class="value" style="color: #ff6b6b;">${data.summary.high_risk_count}</div>
+                            <div style="font-size: 0.8em; margin-top: 8px;">
+                                Require SUE coordination
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="label">Medium-Risk Conflicts</div>
+                            <div class="value" style="color: #ffa500;">${data.summary.medium_risk_count}</div>
+                            <div style="font-size: 0.8em; margin-top: 8px;">
+                                Mark-outs required
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="margin: 20px 0; color: #666; font-size: 0.95em;">
+                        <strong>Subsurface Utility Engineering (SUE):</strong>
+                        ${data.summary.conflict_rate}% of aldermanic spending projects are within 20 feet of
+                        critical utilities (water mains, sewer lines, gas). These projects require coordination
+                        with utilities before excavation to prevent service disruptions and safety hazards.
+                    </p>
+
+                    <h3 style="margin: 30px 0 15px 0;">Conflict Projects by Utility Type</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Ward</th>
+                                <th>Category</th>
+                                <th>Cost</th>
+                                <th>Utility Type</th>
+                                <th>Distance</th>
+                                <th>Risk Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                const conflicts = Object.entries(data.conflicts);
+                conflicts.slice(0, 20).forEach(([location, conflict]) => {
+                    const util = conflict.utilities[0]; // Show first utility
+                    const riskColor = util.risk_level === 'CRITICAL' ? '#ff6b6b' :
+                                     util.risk_level === 'HIGH' ? '#ff9800' : '#ffc107';
+
+                    html += `
+                        <tr>
+                            <td><strong>${location.substring(0, 40)}</strong></td>
+                            <td>Ward ${conflict.ward}</td>
+                            <td>${conflict.category}</td>
+                            <td>$${(conflict.cost/1000).toFixed(0)}K</td>
+                            <td>${util.utility_type}</td>
+                            <td>${util.distance_ft}ft</td>
+                            <td style="color: ${riskColor}; font-weight: 600;">${util.risk_level}</td>
+                        </tr>
+                    `;
+                });
+
+                html += `
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 15px; font-size: 0.85em; color: #999;">
+                        Showing first 20 of ${conflicts.length} conflicts. Full dataset available for export.
+                    </p>
+                `;
+
+                document.getElementById('utilities-content').innerHTML = html;
+            } catch (err) {
+                document.getElementById('utilities-content').innerHTML = `<div class="error">Error loading utilities: ${err.message}</div>`;
             }
         }
 
