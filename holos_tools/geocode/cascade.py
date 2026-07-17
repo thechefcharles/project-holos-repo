@@ -193,7 +193,7 @@ class GeocodeCascade:
         sql = """
             SELECT ST_X(geom) as lon, ST_Y(geom) as lat
             FROM ref.address_points
-            WHERE add_number::numeric = %(house_num)s::numeric
+            WHERE address_number::numeric = %(house_num)s::numeric
               AND UPPER(st_name) = UPPER(%(street_name)s)
         """
         params = {
