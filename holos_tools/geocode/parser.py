@@ -49,6 +49,26 @@ class AddressParser:
     }
 
     @classmethod
+    def _normalize_address_range(cls, location_text: str) -> str:
+        """Convert address ranges to midpoint.
+
+        Examples:
+          "2100-2200 N MAIN ST" -> "2150 N MAIN ST"
+          "100-200 MICHIGAN AVE" -> "150 MICHIGAN AVE"
+
+        Returns the original text if no range is detected.
+        """
+        # Pattern: number-number at start of string
+        range_match = re.match(r'^(\d+)-(\d+)\s+(.+)$', location_text.strip())
+        if range_match:
+            start = int(range_match.group(1))
+            end = int(range_match.group(2))
+            rest = range_match.group(3)
+            midpoint = (start + end) // 2
+            return f"{midpoint} {rest}"
+        return location_text
+
+    @classmethod
     def parse(cls, location_text: str) -> AddressComponents:
         """Parse address into components.
 
@@ -64,6 +84,9 @@ class AddressParser:
         # Preprocess: split on semicolon and take first part (primary address)
         # e.g., "6150 W FLETCHER; 6144-6156 W FLETCHER" -> "6150 W FLETCHER"
         text_to_parse = location_text.split(';')[0].strip()
+
+        # Handle address ranges: "2100-2200 N MAIN ST" -> "2150 N MAIN ST" (midpoint)
+        text_to_parse = cls._normalize_address_range(text_to_parse)
 
         # Try usaddress library first (if available)
         if HAS_USADDRESS:
