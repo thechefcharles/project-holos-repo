@@ -34,6 +34,25 @@ def get_db() -> HolosDB:
 
 @app.route('/', methods=['GET'])
 def index():
+    """Serve the homepage."""
+    # Try multiple paths (local dev, Railway, Vercel)
+    possible_paths = [
+        os.path.join(os.path.dirname(__file__), '..', 'web', 'index.html'),  # Local: web/index.html
+        '/var/task/web/index.html',   # Vercel/Lambda path
+        '/workspace/web/index.html',  # Alt Railway path
+    ]
+
+    for path in possible_paths:
+        expanded = os.path.expanduser(os.path.abspath(path))
+        if os.path.exists(expanded):
+            with open(expanded, 'r') as f:
+                return f.read()
+
+    return '<h1>Home not found</h1><p>Checked paths: ' + '<br>'.join(possible_paths) + '</p>', 404
+
+
+@app.route('/map', methods=['GET'])
+def map_page():
     """Serve the interactive map."""
     # Try multiple paths (local dev, Railway, Vercel)
     possible_paths = [
