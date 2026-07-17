@@ -1175,3 +1175,37 @@ This prevents geocoding of location strings like "GRANT PARK", "MILLENNIUM PARK"
 - Expected: 17/25 (70% success rate with full gazetteer)
 
 **Next:** Load full Chicago parks dataset and test against 2017 data.
+
+### 2026-07-16 — Tier 2 Part 3: PDF Truncation Detection
+
+**Problem:** 2017 menu data has ~63 records with locations truncated by PDF column width limits.
+Example: "ON STREET FROM 1ST TO W" (missing street name after W)
+
+These records are extracted but incomplete, making geocoding impossible on the full location text.
+
+**Solution:** Added truncation detection to MenuAdapter2017Plus:
+- New `is_truncated` flag in SpendingRecord
+- Detects addresses ending with bare directional ([NSEW]) at EOL
+- Regex pattern: `r'(?:FROM|TO|&)\s+[NSEW]\s*$'`
+- Handles edge cases (complete addresses with directionals in middle not flagged)
+
+**Test Results:**
+- ✓ Correctly identifies complete addresses (no false positives)
+- ✓ Correctly identifies truncated addresses (all 3 test cases pass)
+- Edge cases validated
+
+**Impact Path:**
+1. **Immediate:** Flag enables accurate triage of truncated vs. complete records
+2. **Near-term:** Manual review queue for 63 flagged records (high-value targets)
+3. **Future:** Could enable fuzzy matching on partial location + surrounding context
+
+**Expected Improvement:** +2-3pp from manual review/recovery of 63 flagged records
+- Current: 1,279/1,784 (71.7% projected with Parts 1-2)
+- With Part 3: 1,313/1,784 (73.6% if 35 records recovered from manual review)
+
+**Flags in Data:**
+All 2017 records now include is_truncated boolean:
+- False: Complete address (normal geocoding flow)
+- True: Truncated at PDF extraction (requires manual review or partial matching)
+
+**Next Step:** Implement recovery workflow for flagged records (manual OR fuzzy partial matching).
