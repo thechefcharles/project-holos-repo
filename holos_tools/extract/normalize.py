@@ -25,6 +25,7 @@ class SpendingRecord:
     location: str
     cost: float
     source_text: str = ""
+    is_truncated: bool = False  # Detected PDF truncation flag
 
 
 class MasterSchema:
@@ -185,7 +186,13 @@ class MenuAdapter2017Plus:
         if not location or len(location) < 3:
             return None
 
-        return SpendingRecord(
+        # Detect and flag truncated addresses (PDF column width limit)
+        # Pattern: ends with single directional letter (N, S, E, W, &) at end of string
+        # E.g., "ON STREET FROM 1ST TO W" → truncated (missing street name after W)
+        # But "ON STREET FROM W LAKE TO E SHORE" → complete (directional is part of street name)
+        is_truncated = bool(re.search(r'(?:FROM|TO|&)\s+[NSEW]\s*$', location))
+
+        record = SpendingRecord(
             ward=ward,
             year=year,
             category=MasterSchema.normalize_category(category),
@@ -194,14 +201,10 @@ class MenuAdapter2017Plus:
             source_text=text,
         )
 
-        return SpendingRecord(
-            ward=ward,
-            year=year,
-            category=MasterSchema.normalize_category(category),
-            location=location,
-            cost=cost,
-            source_text=text,
-        )
+        # Attach truncation flag as metadata
+        record.is_truncated = is_truncated
+
+        return record
 
 
 def get_adapter_for_year(year: int) -> type:
