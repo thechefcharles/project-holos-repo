@@ -1062,3 +1062,28 @@ LineString records represent **failed geocoding**, not incomplete data. When geo
 **Why this matters:** The fix didn't just recover $240K from Ward 1 infrastructure projects — it revealed that ~$6M in spending was being silently rejected across all 50 wards due to LINESTRING/MULTILINESTRING geometry. This suggests stage 4 has much broader applicability than initially visible.
 
 **Decision:** Pipeline is now validated for production. All 8 cascade stages operational. Ready for Phase 2 (data normalization, multi-year expansion, production deployment).
+
+### 2026-07-16 — Tier 2 Part 1: Street range FROM/TO bounding (ST_LineSubstring)
+
+**Problem:** Street segment stage (stage 4) was returning full street geometry for bounded ranges like "ON BELDEN FROM TALMAN TO WASHTENAW". This failed to properly constrain the segment and didn't provide precise interpolation.
+
+**Root Cause:** The _geocode_bounded_range() method was parsing both intersection points (FROM and TO) correctly but not using them to clip the centerline segment. The code had a stub comment: "In production, would clip with ST_LineSubstring between the two intersections."
+
+**Solution (ST_LineSubstring + ST_LineInterpolatePoint):**
+1. Find both intersection points using ST_Intersects (proven stage 3 pattern)
+2. Use ST_LineLocatePoint to get fractional position (0.0-1.0) of each point on main street
+3. Use LEAST/GREATEST to handle intersections in either order
+4. Use ST_LineSubstring to extract clipped segment between those positions  
+5. Use ST_LineInterpolatePoint(segment, 0.5) to get midpoint of bounded range
+6. Return POINT geometry at midpoint (score 0.85)
+
+**Test Results:**
+- ✓ Regex parsing: "ON STREET FROM X TO Y" patterns work for typical Chicago addresses
+- ✓ Street name cleaning: directional prefixes (N/S/E/W) and suffixes (ST/AVE/BLVD) removed correctly
+- ✓ Ready for production testing
+
+**Expected Impact:** +7pp geocoding coverage (501 records at 70% success rate on street_segment grammar)
+
+**Next Step:** Test against 2017 dataset to measure actual improvement. Expected: citywide geocoding improvement from 57.8% → 64.8%+.
+
+**Why this matters:** Street segment ranges are 47% of all geocoding failures (501/1077 escalations). This is the highest-ROI remaining improvement after address-range normalizer.
