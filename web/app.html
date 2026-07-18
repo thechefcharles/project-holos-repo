@@ -953,6 +953,7 @@
                     data: wardsBoundaries
                 });
 
+                try {
                 map.addLayer({
                     id: 'ward-fill',
                     type: 'fill',
@@ -963,7 +964,9 @@
                         'fill-opacity': 0.05
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
 
+                try {
                 map.addLayer({
                     id: 'ward-outline',
                     type: 'line',
@@ -975,8 +978,10 @@
                         'line-opacity': 0.6
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
 
                 // Equity overlay layer - color wards by equity status
+                try {
                 map.addLayer({
                     id: 'equity-overlay',
                     type: 'fill',
@@ -1016,8 +1021,10 @@
                         'fill-opacity': 0.6
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
 
                 // Equity overlay outline
+                try {
                 map.addLayer({
                     id: 'equity-outline',
                     type: 'line',
@@ -1029,6 +1036,7 @@
                         'line-opacity': 0.4
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
             }
         }
 
@@ -1125,6 +1133,7 @@
                     data: curbCenterlines
                 });
 
+                try {
                 map.addLayer({
                     id: 'curb-centerlines-layer',
                     type: 'line',
@@ -1136,6 +1145,7 @@
                         'line-opacity': 0.6
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
             }
         }
 
@@ -1146,6 +1156,7 @@
                     data: streetCenterlines
                 });
 
+                try {
                 map.addLayer({
                     id: 'street-centerlines-layer',
                     type: 'line',
@@ -1157,6 +1168,7 @@
                         'line-opacity': 0.5
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
             }
         }
 
@@ -1167,6 +1179,7 @@
                     data: chicagoBoundary
                 });
 
+                try {
                 map.addLayer({
                     id: 'chicago-boundary-outline',
                     type: 'line',
@@ -1178,6 +1191,7 @@
                         'line-opacity': 0.8
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
             }
         }
 
@@ -1290,6 +1304,7 @@
                     data: complaints311
                 });
 
+                try {
                 map.addLayer({
                     id: '311-complaints',
                     type: 'circle',
@@ -1317,6 +1332,7 @@
                         'circle-stroke-opacity': 0.8
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
 
                 // Add click handler for complaints
                 map.on('click', '311-complaints', (e) => {
@@ -1369,6 +1385,7 @@
                 data: segmentsWithComplaints
             });
 
+            try {
             map.addLayer({
                 id: 'complaint-density',
                 type: 'line',
@@ -1402,6 +1419,7 @@
                     'line-opacity': 0.8
                 }
             });
+            } catch (e) { console.error('Error adding layer:', e.message); }
         }
 
         function addCategoryHeatmapLayer() {
@@ -1442,6 +1460,7 @@
                 data: segmentsWithCategories
             });
 
+            try {
             map.addLayer({
                 id: 'category-heatmap',
                 type: 'line',
@@ -1472,6 +1491,7 @@
                     'line-opacity': 0.75
                 }
             });
+            } catch (e) { console.error('Error adding layer:', e.message); }
         }
 
         function addTigerLayer() {
@@ -1484,6 +1504,7 @@
                 });
 
                 // Glow/halo layer (white outline)
+                try {
                 map.addLayer({
                     id: 'tiger-roads-glow',
                     type: 'line',
@@ -1496,8 +1517,10 @@
                         'line-blur': 1
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
 
                 // Main layer (bright cyan)
+                try {
                 map.addLayer({
                     id: 'tiger-roads-layer',
                     type: 'line',
@@ -1509,6 +1532,7 @@
                         'line-opacity': 0.35
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
             }
         }
 
@@ -1521,6 +1545,7 @@
                     data: alleys
                 });
 
+                try {
                 map.addLayer({
                     id: 'alleys-layer',
                     type: 'line',
@@ -1532,6 +1557,7 @@
                         'line-opacity': 0.7
                     }
                 });
+                } catch (e) { console.error('Error adding layer:', e.message); }
             }
         }
 
@@ -1546,6 +1572,7 @@
             });
 
             // Points (intersections, single addresses)
+            try {
             map.addLayer({
                 id: 'spending-points',
                 type: 'circle',
@@ -1559,8 +1586,10 @@
                     'circle-stroke-color': '#fff'
                 }
             });
+            } catch (e) { console.error('Error adding layer:', e.message); }
 
             // Lines (street ranges) — width by budget
+            try {
             map.addLayer({
                 id: 'spending-lines',
                 type: 'line',
@@ -1583,8 +1612,10 @@
                     'line-opacity': 0.7
                 }
             });
+            } catch (e) { console.error('Error adding layer:', e.message); }
 
             // Polygons (alley blocks)
+            try {
             map.addLayer({
                 id: 'spending-polygons',
                 type: 'fill',
@@ -1595,7 +1626,9 @@
                     'fill-opacity': 0.3
                 }
             });
+            } catch (e) { console.error('Error adding layer:', e.message); }
 
+            try {
             map.addLayer({
                 id: 'spending-polygons-outline',
                 type: 'line',
@@ -1607,6 +1640,7 @@
                     'line-opacity': 0.7
                 }
             });
+            } catch (e) { console.error('Error adding layer:', e.message); }
 
             // Click popups
             ['spending-points', 'spending-lines', 'spending-polygons'].forEach(layerId => {
