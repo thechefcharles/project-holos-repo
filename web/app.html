@@ -785,6 +785,8 @@
                 if (typeof loadCurbCenterlines === 'function') loadCurbCenterlines();
                 if (typeof loadTigerRoads === 'function') loadTigerRoads();
                 if (typeof loadAlleys === 'function') loadAlleys();
+                // Load spending data - THIS WAS MISSING!
+                if (typeof loadSpendingData === 'function') loadSpendingData('2017');
             }, 100);
 
             // Reload data on move/zoom (throttled)
