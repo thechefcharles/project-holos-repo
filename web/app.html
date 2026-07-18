@@ -1003,7 +1003,7 @@
 
         // Load Chicago boundary
         console.log('Loading Chicago boundary...');
-        fetch('chicago_boundary.geojson')
+        // fetch('chicago_boundary.geojson')  // File not available
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.json();
