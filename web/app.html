@@ -576,6 +576,10 @@
                 <input type="checkbox" id="toggle-311" style="margin-right: 8px; cursor: pointer;">
                 <span>Show 311 Complaints (Pothole/Maintenance)</span>
             </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-complaint-density" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Complaint Density (Heatmap)</span>
+            </label>
         </div>
         <div class="stats">
             <div><span class="stats-number" id="displayed-count">0</span> / <span class="stats-number" id="total-count">0</span> projects</div>
@@ -668,6 +672,7 @@
         let curbCenterlines = null;
         let tigerRoads = null;
         let complaints311 = null;
+        let complaintsBySegment = {}; // {segmentId: {count: n, features: [...]}}
         let mapReady = false;
 
         // Load TIGER roads (reference data, clipped to Chicago boundary)
@@ -918,6 +923,7 @@
                 complaints311 = data;
                 console.log('311 complaints loaded:', data.features.length, 'records');
                 if (mapReady) add311Layer();
+                aggregateComplaintsBySegment();
             })
             .catch(err => console.warn('311 complaints not available:', err.message));
 
@@ -935,6 +941,7 @@
                     streetCenterlines = data;
                     console.log('Street centerlines loaded:', data.features.length, 'features');
                     if (mapReady) addStreetCenterlinesLayer();
+                    aggregateComplaintsBySegment();
                 })
                 .catch(err => console.warn('Street centerlines not available:', err.message));
         }
@@ -1034,6 +1041,52 @@
             }
         }
 
+        function aggregateComplaintsBySegment() {
+            if (!complaints311 || !streetCenterlines) return;
+
+            complaintsBySegment = {};
+            const complaints = complaints311.features || [];
+            const segments = streetCenterlines.features || [];
+
+            complaints.forEach(complaint => {
+                if (complaint.geometry.type !== 'Point') return;
+
+                const complaintPoint = complaint;
+                let nearestSegment = null;
+                let minDistance = Infinity;
+
+                // Find nearest segment to this complaint
+                segments.forEach((segment, idx) => {
+                    if (segment.geometry.type !== 'LineString') return;
+                    try {
+                        const distance = turf.pointToLineDistance(complaintPoint, segment, {units: 'feet'});
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            nearestSegment = idx;
+                        }
+                    } catch (e) {
+                        // Skip invalid geometries
+                    }
+                });
+
+                // Aggregate complaint to nearest segment
+                if (nearestSegment !== null) {
+                    const segmentId = nearestSegment;
+                    if (!complaintsBySegment[segmentId]) {
+                        complaintsBySegment[segmentId] = {
+                            count: 0,
+                            features: [],
+                            segment: segments[segmentId]
+                        };
+                    }
+                    complaintsBySegment[segmentId].count++;
+                    complaintsBySegment[segmentId].features.push(complaint);
+                }
+            });
+
+            console.log(`Aggregated ${complaints.length} complaints to ${Object.keys(complaintsBySegment).length} segments`);
+        }
+
         function add311Layer() {
             if (complaints311 && !map.getSource('complaints-311')) {
                 map.addSource('complaints-311', {
@@ -1093,6 +1146,66 @@
                     map.getCanvas().style.cursor = '';
                 });
             }
+        }
+
+        function addComplaintDensityLayer() {
+            if (!streetCenterlines || !map.getSource('street-centerlines')) return;
+            if (map.getSource('complaint-density')) return;
+
+            // Create GeoJSON with complaint density for each segment
+            const segmentsWithComplaints = {
+                type: 'FeatureCollection',
+                features: (streetCenterlines.features || []).map((segment, idx) => {
+                    const complaints = complaintsBySegment[idx] || {};
+                    return {
+                        ...segment,
+                        properties: {
+                            ...segment.properties,
+                            complaint_count: complaints.count || 0,
+                            segment_index: idx
+                        }
+                    };
+                })
+            };
+
+            map.addSource('complaint-density', {
+                type: 'geojson',
+                data: segmentsWithComplaints
+            });
+
+            map.addLayer({
+                id: 'complaint-density',
+                type: 'line',
+                source: 'complaint-density',
+                layout: {
+                    visibility: 'none',
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'complaint_count'],
+                        0, '#ffffff',
+                        1, '#fff5f0',
+                        2, '#ffe5d9',
+                        3, '#ffccb3',
+                        5, '#ffb380',
+                        10, '#ff8c4d',
+                        15, '#ff6b1a',
+                        20, '#cc5500'
+                    ],
+                    'line-width': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        10, 2,
+                        14, 4
+                    ],
+                    'line-opacity': 0.8
+                }
+            });
         }
 
         function addTigerLayer() {
@@ -1437,6 +1550,16 @@
                     map.setLayoutProperty('311-complaints', 'visibility', visibility);
                 }
             });
+
+            document.getElementById('toggle-complaint-density').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (!map.getLayer('complaint-density')) {
+                    addComplaintDensityLayer();
+                }
+                if (map.getLayer('complaint-density')) {
+                    map.setLayoutProperty('complaint-density', 'visibility', visibility);
+                }
+            });
         }
 
         // Tab switching function
@@ -1475,6 +1598,14 @@
         }
 
         // Segment Modal Functions
+        function getComplaintDataForSegment(feature) {
+            const segmentIndex = feature.properties?.segment_index;
+            if (segmentIndex !== undefined && complaintsBySegment[segmentIndex]) {
+                return complaintsBySegment[segmentIndex];
+            }
+            return null;
+        }
+
         function showSegmentModal(name, feature) {
             const overlay = document.getElementById('segmentModalOverlay');
             const title = document.getElementById('segmentName');
@@ -1528,6 +1659,20 @@
             const overlappingProjects = findOverlappingProjects(feature);
             const totalSpending = overlappingProjects.reduce((sum, p) => sum + p.allocated_cost, 0);
             const costPerFt = segmentLengthFt > 0 ? (totalSpending / segmentLengthFt).toFixed(2) : 0;
+
+            // Get complaint data
+            const complaintData = getComplaintDataForSegment(feature);
+            const complaintCount = complaintData?.count || 0;
+            const costPerComplaint = complaintCount > 0 ? (totalSpending / complaintCount).toFixed(0) : 'N/A';
+
+            const complaintHtml = complaintCount > 0
+                ? `<div style="background: #fff3cd; padding: 10px; border-radius: 4px; border-left: 3px solid #ff6b6b; font-size: 12px; margin-bottom: 10px;">
+                    <div style="color: #d9534f; font-weight: 600;">⚠ ${complaintCount} complaints on this segment</div>
+                    <div style="color: #8a6d3b; font-size: 11px; margin-top: 4px;">Investment per complaint: $${costPerComplaint}</div>
+                  </div>`
+                : '<div style="background: #e8f5e9; padding: 10px; border-radius: 4px; border-left: 3px solid #4caf50; font-size: 12px; margin-bottom: 10px; color: #2e7d32;">✓ No complaints on this segment (2017)</div>';
+
+            html += complaintHtml;
 
             html += `
                 <div class="segment-info-row" style="border: none; padding-top: 15px; margin-top: 10px; border-top: 2px solid #e0e0e0;">
