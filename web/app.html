@@ -769,6 +769,34 @@
             'Community Services': '#9333ea' // purple
         };
 
+        // Initialize map layers when map is ready (must be before any data loads)
+        map.on('load', () => {
+            mapReady = true;
+            addMapLayers();
+            if (wardsBoundaries) addWardLayers();
+            if (curbCenterlines) addCurbCenterlinesLayer();
+            if (streetCenterlines) addStreetCenterlinesLayer();
+            if (chicagoBoundary) addChicagoBoundaryLayer();
+            if (tigerRoads) addTigerLayer();
+            // Load API data with bbox
+            loadStreetCenterlines();
+            loadCurbCenterlines();
+            loadTigerRoads();
+            loadAlleys();
+
+            // Reload data on move/zoom (throttled)
+            let moveTimeout;
+            map.on('moveend', () => {
+                clearTimeout(moveTimeout);
+                moveTimeout = setTimeout(() => {
+                    loadStreetCenterlines();
+                    loadCurbCenterlines();
+                    loadTigerRoads();
+                    loadAlleys();
+                }, 500);
+            });
+        });
+
         // Load TIGER roads (reference data, clipped to Chicago boundary)
         function loadTigerRoads() {
             const bbox = map.getBounds();
@@ -862,34 +890,6 @@
                         opt.textContent = `Ward ${w}`;
                         wardSelect.appendChild(opt);
                     });
-
-                // Initialize map
-                map.on('load', () => {
-                    mapReady = true;
-                    addMapLayers();
-                    if (wardsBoundaries) addWardLayers();
-                    if (curbCenterlines) addCurbCenterlinesLayer();
-                    if (streetCenterlines) addStreetCenterlinesLayer();
-                    if (chicagoBoundary) addChicagoBoundaryLayer();
-                    if (tigerRoads) addTigerLayer();
-                    // Load API data with bbox
-                    loadStreetCenterlines();
-                    loadCurbCenterlines();
-                    loadTigerRoads();
-                    loadAlleys();
-
-                    // Reload data on move/zoom (throttled)
-                    let moveTimeout;
-                    map.on('moveend', () => {
-                        clearTimeout(moveTimeout);
-                        moveTimeout = setTimeout(() => {
-                            loadStreetCenterlines();
-                            loadCurbCenterlines();
-                            loadTigerRoads();
-                            loadAlleys();
-                        }, 500);
-                    });
-                });
             })
             .catch(err => {
                 document.getElementById('error').style.display = 'block';
