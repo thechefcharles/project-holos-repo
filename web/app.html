@@ -393,6 +393,75 @@
             color: #667eea;
             font-weight: 600;
         }
+
+        /* Timeline Slider Styles */
+        .timeline-container {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .timeline-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .timeline-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .timeline-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            border: 2px solid white;
+        }
+
+        .timeline-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            border: 2px solid white;
+        }
+
+        .timeline-years {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #999;
+            margin-top: 8px;
+        }
+
+        .timeline-current {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2563eb;
+            margin-top: 8px;
+        }
     </style>
 </head>
 <body>
@@ -413,6 +482,18 @@
 
     <!-- Map Container -->
     <div id="map"></div>
+
+    <!-- Timeline Slider -->
+    <div class="timeline-container" id="timelineContainer">
+        <div class="timeline-label">📅 Timeline: Scrub to explore spending over time</div>
+        <input type="range" id="timelineSlider" class="timeline-slider" min="0" max="2" value="1" step="1">
+        <div class="timeline-years">
+            <span>2012</span>
+            <span>2017</span>
+            <span>2025</span>
+        </div>
+        <div class="timeline-current" id="timelineCurrent">2017</div>
+    </div>
 
     <!-- Segment Modal -->
     <div class="segment-modal-overlay" id="segmentModalOverlay">
@@ -1601,6 +1682,30 @@
             // Year selector
             document.getElementById('year-filter').addEventListener('change', (e) => {
                 const selectedYear = e.target.value;
+
+                // Update timeline slider to match
+                const yearToSlider = { '2012': 0, '2017': 1, '2025': 2 };
+                if (yearToSlider[selectedYear] !== undefined) {
+                    document.getElementById('timelineSlider').value = yearToSlider[selectedYear];
+                    document.getElementById('timelineCurrent').textContent = selectedYear;
+                }
+
+                loadSpendingData(selectedYear);
+            });
+
+            // Timeline slider
+            document.getElementById('timelineSlider').addEventListener('input', (e) => {
+                const sliderValue = parseInt(e.target.value);
+                const yearMap = { 0: '2012', 1: '2017', 2: '2025' };
+                const selectedYear = yearMap[sliderValue];
+
+                // Update year selector to match
+                document.getElementById('year-filter').value = selectedYear;
+
+                // Update timeline display
+                document.getElementById('timelineCurrent').textContent = selectedYear;
+
+                // Load data for selected year
                 loadSpendingData(selectedYear);
             });
 
