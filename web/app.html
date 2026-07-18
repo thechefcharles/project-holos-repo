@@ -1003,17 +1003,17 @@
 
         // Load Chicago boundary
         console.log('Loading Chicago boundary...');
-        // fetch('chicago_boundary.geojson')  // File not available
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                return res.json();
-            })
-            .then(data => {
-                chicagoBoundary = data;
-                console.log('Chicago boundary loaded');
-                if (mapReady) addChicagoBoundaryLayer();
-            })
-            .catch(err => console.warn('Chicago boundary not available:', err.message));
+        // // fetch('chicago_boundary.geojson')  // File not available
+        // .then(res => {
+        // if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        // return res.json();
+        // })
+        // .then(data => {
+        // chicagoBoundary = data;
+        // console.log('Chicago boundary loaded');
+        // if (mapReady) addChicagoBoundaryLayer();
+        // })
+        // .catch(err => console.warn('Chicago boundary not available:', err.message));
 
         // Load 311 complaints data
         fetch('chicago_311_complaints.geojson')
