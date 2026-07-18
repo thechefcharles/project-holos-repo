@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Chicago",
+        "type": "city"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-87.94, 41.71],
+          [-87.94, 42.02],
+          [-87.52, 42.02],
+          [-87.52, 41.71],
+          [-87.94, 41.71]
+        ]]
+      }
+    }
+  ]
+}
