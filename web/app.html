@@ -772,7 +772,7 @@
         // Initialize map layers when map is ready (must be before any data loads)
         map.on('load', () => {
             mapReady = true;
-            // Defer layer initialization until functions are defined
+            // Defer layer initialization until functions are defined (need longer delay for all functions to load)
             setTimeout(() => {
                 if (typeof addMapLayers === 'function') addMapLayers();
                 if (wardsBoundaries && typeof addWardLayers === 'function') addWardLayers();
@@ -785,7 +785,7 @@
                 if (typeof loadCurbCenterlines === 'function') loadCurbCenterlines();
                 if (typeof loadTigerRoads === 'function') loadTigerRoads();
                 if (typeof loadAlleys === 'function') loadAlleys();
-            }, 10);
+            }, 100);
 
             // Reload data on move/zoom (throttled)
             let moveTimeout;
