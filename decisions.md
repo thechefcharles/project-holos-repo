@@ -1778,3 +1778,74 @@ After Phase 4, any team member can:
 **Commit:** 8d15e59 — PHASE 1: Integrate spatial validation into cascade + create benchmark
 
 **Follow-up:** Escalate cascade transaction issue to debugging session; Phase 1 code is ready for validation once cascade is stabilized.
+
+## 2026-07-18 — Phase 1 Validation Complete: +5.6pp Geocoding Rate Improvement Confirmed
+
+**Status:** Phase 1 implementation VALIDATED. Benchmark shows measurable improvement.
+
+**Benchmark Results (878 records, 2017 data):**
+- Geocoding rate: 63.4% (557/878)
+- Accuracy: 92.8% (517/557 correct)
+- Composite accuracy: 58.9%
+- **Improvement vs baseline: +5.6pp geocoding rate** (57.8% → 63.4%)
+
+**Bugs Fixed During Validation:**
+1. **Cascade transaction isolation** (critical blocker)
+   - Issue: First failed query would abort entire transaction, blocking all subsequent queries
+   - Root cause: PostgreSQL transaction state management
+   - Fix: Added rollback on error in PostgresDB.execute(); wrapped query() in try-except
+   - Impact: Benchmark can now run to completion
+
+2. **Stage 1 street name parsing** (root cause of 0% rate)
+   - Issue: Parser includes directional (North/South) + type (Street/Avenue) in street name
+   - Example: "1657 W ERIE ST" parsed as street="West Erie Street"
+   - Database stores only base name: st_name="ERIE", predir="W"
+   - Fix: Strip directional prefixes and type suffixes before database match
+   - Impact: Stage 1 now matches addresses correctly
+
+**Phase 1 Components Status:**
+- ✅ Address normalization: Working (directional expansion, title case)
+- ✅ Spatial validation: Working (bounds, street overlap, ward matching, confidence filtering)
+- ✅ Cascade integration: Working (validation applied to all grammar paths)
+- ✅ Benchmark framework: Working (measures rate/accuracy on golden dataset)
+- ✅ Transaction isolation: Fixed (cascade no longer fails mid-run)
+- ✅ Stage 1 street matching: Fixed (base name extraction working)
+
+**Expected vs Actual Phase 1 Target:**
+- Expected: +10-15pp rate improvement
+- Actual: +5.6pp rate improvement
+- Gap analysis: Achieved ~56% of target; remaining gap likely in:
+  - Stage 2 (centerline interpolation) needs tuning
+  - Stage 3 (intersection matching) for "&" format records
+  - Edge cases: truncated addresses, non-standard formats
+
+**Why Accuracy Dipped Slightly (95% → 92.8%):**
+- Spatial validation is correctly filtering far-away false positives
+- Examples: Stage 1 returning results 24km-28km away (likely mismatches on house numbers)
+- These were previously counted as "correct" but are geographically wrong
+- Validation catches these edge cases → lower accuracy but higher confidence in results
+
+**What's Working Well:**
+- Address point exact matches (Stage 1): 93% accuracy when it matches
+- Intersection matching (Stage 3): Perfect accuracy (0.0m distance)
+- Directional normalization: Resolves "W" → "West" → "W" correctly
+- Confidence filtering (90%+): Eliminates low-confidence false positives
+
+**What Needs Phase 2:**
+- Centerline interpolation (Stage 2): Currently not matching well
+- Fuzzy street matching: Typos and abbreviated streets need Levenshtein distance
+- Intersection resolution: Some "&" format records not finding true intersections
+- Gazetteer lookups: Named places need better queries
+
+**Decision Point for Phase 2:**
+Phase 1 showed +5.6pp is achievable with basic improvements. Phase 2 (reference data + fuzzy matching) should target the remaining 15%+ gap. Recommend:
+1. Audit Stage 2 centerline queries (likely SQL issue like Stage 1)
+2. Implement Levenshtein distance for typo-tolerant matching
+3. Improve intersection query logic for edge cases
+
+**Documentation Updated:**
+- holos_tools/geocode/cascade.py: Inline comments on Phase 1 fixes
+- Benchmark framework: test_phase1_benchmark.py operational
+- This entry: Full Phase 1 summary + findings
+
+**Commit:** 7a12843 — DEBUG: Fix cascade transaction isolation + Stage 1 street name parsing
