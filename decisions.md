@@ -1906,3 +1906,83 @@ We've achieved 74.6% with zero fuzzy matching or advanced techniques. The remain
 Fuzzy matching should help on typos. Reference data audit will show if missing streets are the blocker.
 
 **Commit:** 8a665cd — PHASE 2: Fix Stage 2 centerline interpolation + adjust validation threshold
+
+## 2026-07-18 — Phase 2 Reference Data Audit: Available Resources & Blockers
+
+**Audit Complete.** Current state assessment for Phase 2 fuzzy matching and Stage 5 gazetteer work.
+
+**DATA CURRENTLY LOADED:**
+- ✓ ref.address_points: 582,504 rows (1,232 unique streets) — Ready for Stage 1
+- ✓ ref.centerlines: 56,002 rows (2,076 unique streets) — Ready for Stage 2
+- ✓ ref.roads_tiger: 73,462 rows (backup/reference)
+- ✓ ref.wards: 50 rows (containment checking)
+- ✗ ref.gazetteer: 0 rows (NEEDS LOADING for Stage 5)
+- ✗ ref.sr311: 0 rows (optional, for need-match baseline)
+- ✗ ref.street_names: 0 rows (optional, for fuzzy matching dictionary)
+
+**PHASE 2 BLOCKERS & DECISIONS:**
+
+**Blocker 1: USPS CASS Data**
+- Status: NOT AVAILABLE
+- Reason: Proprietary, requires USPS postal code certification
+- Impact: Cannot use USPS-sourced address validation
+- Workaround: Use TIGER ROADS + fuzzy matching on open-source data
+- Decision: PROCEED without USPS CASS
+
+**Blocker 2: Chicago ALI (Address Locator Index)**
+- Status: UNKNOWN (need verification)
+- Reason: Proprietary city system, access unclear
+- Impact: Cannot use city's official address reference
+- Workaround: Use address_points + centerlines (already loaded)
+- Decision: PROCEED with open-source reference data
+
+**Blocker 3: Gazetteer (Stage 5)**
+- Status: NEEDS LOADING
+- Data: Chicago parks, public facilities, landmarks
+- Source: Chicago Data Portal (public, Socrata API)
+- Impact: Stage 5 cannot work without this
+- Timeline: ~2 hours to harvest + load
+- Decision: DEFER gazetteer loading (not blocking Phase 2A; impacts Stage 5 only)
+
+**Blocker 4: Fuzzy Matching Dictionary**
+- Status: NEEDS BUILDING
+- Approach: Analyze 225 failing records (878 - 655 geocoded) for patterns
+- Extract common typos, abbreviation variants, missing suffixes
+- Build street_name_variants table from failures
+- Timeline: ~1 hour analysis + dictionary building
+- Decision: PROCEED with failure analysis
+
+**PHASE 2 STRATEGY (Revised):**
+
+**Phase 2A: Fuzzy Matching (No New Data Needed)**
+- Analyze 225 failing records to identify typo patterns
+- Build Levenshtein distance matching (edit distance ≤ 2)
+- Apply to Stage 1, Stage 2 queries
+- Expected gain: +3-5pp (typo-tolerant street matching)
+- Timeline: 3-4 hours
+- Blocker: None (can start immediately)
+
+**Phase 2B: Gazetteer Loading (Optional, Future)**
+- Load Chicago parks, public facilities from Data Portal
+- Implement Stage 5 gazetteer lookup
+- Expected gain: +1-2pp (named-place matching)
+- Timeline: 2-3 hours
+- Blocker: None (optional enhancement)
+
+**Phase 2C: Intersection Resolution (Future)**
+- Improve Stage 3 "&" parsing
+- Use TIGER roads as backup reference
+- Expected gain: +1-2pp
+- Timeline: 2-3 hours
+- Blocker: None (can use existing TIGER data)
+
+**RECOMMENDATION FOR USER:**
+Proceed with Phase 2A (fuzzy matching) immediately. No external data needed.
+Can reach 77-79% rate with fuzzy matching alone. Gazetteer + intersection work
+can follow as Phase 2B/2C if time/priority allows.
+
+**Why Phase 2A Works Without Proprietary Data:**
+- We have 1,232 street names in address_points + 2,076 in centerlines
+- Coverage overlap: ~90% of records use streets in our reference
+- Remaining 25.4% failures are likely: typos (3-5pp), non-standard formats (10-15pp), edge cases (5-10pp)
+- Fuzzy matching targets the typo portion; non-standard requires NLP (Phase 3)
