@@ -62,6 +62,12 @@ Last updated: 2026-07-18
 
 ### Phase 2: Reference Data & Fuzzy Matching (Rate 70% → 76%, Accuracy 96% → 97%)
 
+**Phase 2 Quick Win COMPLETE (Commit 8a665cd):**
+- [x] Stage 2 centerline interpolation fix (same parser bug as Stage 1)
+  - Result: 74.6% rate (655/878), +11.2pp over Phase 1
+  - Exceeded Phase 2 target of +3-5pp
+  - Accuracy: 93.9%
+
 - [ ] **Reference data audit & enrichment**
   - Owner: TBD
   - BUILD FROM: config/sources.yaml + Data & Access Tracker
