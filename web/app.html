@@ -1460,11 +1460,14 @@
                     <div style="font-weight: 600; margin-bottom: 10px; color: #333;">Projects Affecting This Segment:</div>
                 `;
                 overlappingProjects.forEach(project => {
+                    const allocationNote = project.allocation_ratio < 100
+                        ? ` (${project.allocation_ratio}% of $${project.cost.toLocaleString()})`
+                        : ' (full project)';
                     html += `
-                        <div style="padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px;">
-                            <div style="font-weight: 600; color: #333; margin-bottom: 3px;">${escapeHtml(project.category || 'Project')}</div>
-                            <div style="color: #667eea; font-weight: 600;">$${project.allocated_cost.toLocaleString()}</div>
-                            <div style="color: #999; font-size: 12px;">Ward ${project.ward}</div>
+                        <div style="padding: 10px; margin-bottom: 8px; background: #f9f9f9; border-radius: 4px; border-left: 3px solid #667eea; font-size: 13px;">
+                            <div style="font-weight: 600; color: #333; margin-bottom: 4px;">${escapeHtml(project.category || 'Project')}</div>
+                            <div style="color: #667eea; font-weight: 600; margin-bottom: 4px;">$${project.allocated_cost.toLocaleString()}<span style="font-size: 11px; color: #999;">${allocationNote}</span></div>
+                            <div style="color: #999; font-size: 11px;">Ward ${project.ward}</div>
                         </div>
                     `;
                 });
@@ -1488,19 +1491,46 @@
             const segmentGeoJSON = segmentFeature;
             const overlapping = [];
 
+            // Calculate segment length for proportional allocation
+            let segmentLength = 0;
+            if (segmentFeature.geometry && segmentFeature.geometry.type === 'LineString') {
+                segmentLength = turf.length(segmentFeature, {units: 'feet'}) * 5280; // convert to feet
+            }
+
             window.allFeatures.forEach(spendingFeature => {
                 try {
                     // Check if spending feature intersects segment
                     const intersects = turf.booleanIntersects(segmentGeoJSON, spendingFeature);
 
                     if (intersects) {
-                        // For MVP: allocate full cost if any intersection
-                        // Phase 3: Could do proportional allocation based on overlap length
+                        let allocation_ratio = 1.0;
+
+                        // For line projects: calculate proportional allocation based on lengths
+                        if (spendingFeature.geometry && spendingFeature.geometry.type === 'LineString') {
+                            try {
+                                const projectLength = turf.length(spendingFeature, {units: 'feet'}) * 5280;
+                                if (projectLength > 0 && segmentLength > 0) {
+                                    // Allocate based on ratio of segment length to project length
+                                    allocation_ratio = Math.min(1.0, segmentLength / projectLength);
+                                }
+                            } catch (e) {
+                                // Default to 50% if calculation fails
+                                allocation_ratio = 0.5;
+                            }
+                        } else {
+                            // For points/polygons: full allocation if intersects
+                            allocation_ratio = 1.0;
+                        }
+
+                        const fullCost = spendingFeature.properties.cost || 0;
+                        const allocatedCost = fullCost * allocation_ratio;
+
                         overlapping.push({
                             category: spendingFeature.properties.category,
                             ward: spendingFeature.properties.ward,
-                            cost: spendingFeature.properties.cost || 0,
-                            allocated_cost: spendingFeature.properties.cost || 0,
+                            cost: fullCost,
+                            allocated_cost: allocatedCost,
+                            allocation_ratio: (allocation_ratio * 100).toFixed(0),
                             geometry_type: spendingFeature.properties.geometry_type
                         });
                     }
@@ -1510,7 +1540,7 @@
                 }
             });
 
-            // Sort by cost descending
+            // Sort by allocated cost descending
             return overlapping.sort((a, b) => b.allocated_cost - a.allocated_cost);
         }
 
