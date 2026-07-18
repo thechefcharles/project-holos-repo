@@ -527,8 +527,17 @@
         </div>
     </div>
     <div class="controls">
-        <h2>🗺️ 2017 Aldermanic Menu</h2>
+        <h2>🗺️ Aldermanic Spending Map</h2>
         <div id="error" class="error" style="display:none;"></div>
+
+        <!-- Year Selector -->
+        <label for="year-filter" style="display: block; font-weight: 600; margin-bottom: 8px;">Select Year:</label>
+        <select id="year-filter" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; margin-bottom: 15px; cursor: pointer;">
+            <option value="2012">2012 (65 projects, partial)</option>
+            <option value="2017" selected>2017 (878 projects, complete)</option>
+            <option value="2025">2025 (partial data)</option>
+        </select>
+
         <label for="ward-filter">Filter by Ward:</label>
         <select id="ward-filter">
             <option value="">All Wards (50)</option>
@@ -671,33 +680,51 @@
                 .catch(err => console.warn('Alleys not available:', err.message));
         }
 
-        // Load 2017 geodata
-        console.log('Loading 2017 aldermanic spending...');
-        fetch('2017_aldermanic_verified.geojson')
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                return res.json();
-            })
-            .then(data => {
-                console.log('Data loaded:', data.features.length, 'geocoded records');
-                allFeatures = data.features || [];
+        // Year data mapping
+        const yearData = {
+            '2012': { file: '2012_pages_2_20_verified.geojson', name: '2012 Aldermanic Menu' },
+            '2017': { file: '2017_aldermanic_verified.geojson', name: '2017 Aldermanic Menu' },
+            '2025': { file: '2025_menu_classified.geojson', name: '2025 Aldermanic Menu' }
+        };
 
-                // Update stats
-                const totalSpend = allFeatures.reduce((sum, f) => sum + (f.properties.cost || 0), 0);
-                document.getElementById('total-count').textContent = allFeatures.length;
-                document.getElementById('displayed-count').textContent = allFeatures.length;
-                document.getElementById('displayed-spend').textContent = (totalSpend / 1000000).toFixed(1) + 'M';
+        // Function to load spending data for a specific year
+        function loadSpendingData(year) {
+            const yearInfo = yearData[year];
+            if (!yearInfo) return;
 
-                // Build ward list
-                const wards = new Set();
-                allFeatures.forEach(f => {
-                    if (f.properties.ward) wards.add(f.properties.ward);
-                });
-                const wardSelect = document.getElementById('ward-filter');
-                Array.from(wards).sort((a, b) => a - b).forEach(w => {
-                    const opt = document.createElement('option');
-                    opt.value = w;
-                    opt.textContent = `Ward ${w}`;
+            console.log(`Loading ${year} aldermanic spending...`);
+            fetch(yearInfo.file)
+                .then(res => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })
+                .then(data => {
+                    console.log('Data loaded:', data.features.length, 'geocoded records');
+                    allFeatures = data.features || [];
+
+                    // Update header
+                    document.querySelector('.controls h2').textContent = `🗺️ ${yearInfo.name}`;
+
+                    // Update stats
+                    const totalSpend = allFeatures.reduce((sum, f) => sum + (f.properties.cost || 0), 0);
+                    document.getElementById('total-count').textContent = allFeatures.length;
+                    document.getElementById('displayed-count').textContent = allFeatures.length;
+                    document.getElementById('displayed-spend').textContent = (totalSpend / 1000000).toFixed(1) + 'M';
+
+                    // Build ward list
+                    const wards = new Set();
+                    allFeatures.forEach(f => {
+                        if (f.properties.ward) wards.add(f.properties.ward);
+                    });
+                    const wardSelect = document.getElementById('ward-filter');
+                    // Clear existing options except first
+                    while (wardSelect.options.length > 1) {
+                        wardSelect.remove(1);
+                    }
+                    Array.from(wards).sort((a, b) => a - b).forEach(w => {
+                        const opt = document.createElement('option');
+                        opt.value = w;
+                        opt.textContent = `Ward ${w}`;
                     wardSelect.appendChild(opt);
                 });
 
@@ -1106,6 +1133,15 @@
                     map.getCanvas().style.cursor = '';
                 });
             });
+
+            // Year selector
+            document.getElementById('year-filter').addEventListener('change', (e) => {
+                const selectedYear = e.target.value;
+                loadSpendingData(selectedYear);
+            });
+
+            // Initial load of 2017 data
+            loadSpendingData('2017');
 
             // Ward filter
             document.getElementById('ward-filter').addEventListener('change', (e) => {
