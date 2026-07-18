@@ -14,27 +14,30 @@ Last updated: 2026-07-18
 
 ### Phase 1: Foundation & Quick Wins (Rate 57.8% → 70%, Accuracy 95% → 96%)
 
-- [~] **Address normalization (standardize inputs)**
-  - Owner: TBD
+- [~] **Address normalization (standardize inputs)** (Commit 8aa172c started; code deployed 2026-07-18)
+  - Owner: Claude Code
   - AC: 
-    - [x] Directional normalization (E → East, W → West, N → North, S → South)
-    - [x] Street type standardization (St → Street, Ave → Avenue, Blvd → Boulevard, etc)
-    - [x] Title case conversion (ALL CAPS → Title Case)
-    - [x] Whitespace/punctuation cleanup
-    - [x] Handle "FROM/TO" syntax preservation (don't truncate)
-  - Expected impact: +10-15pp on geocoding rate
-  - Documentation: docs/address-normalization-runbook.md (for reuse on 2012/2018-2025)
-  - Next: Validate against 2017 benchmark (250-row test set)
+    - [x] Directional normalization (E → East, W → West, N → North, S → South) — DONE in normalize.py
+    - [x] Street type standardization (St → Street, Ave → Avenue, Blvd → Boulevard, etc) — DONE
+    - [x] Title case conversion (ALL CAPS → Title Case) — DONE via _to_title_case()
+    - [x] Whitespace/punctuation cleanup — DONE
+    - [x] Handle "FROM/TO" syntax preservation (don't truncate) — DONE
+  - Code changes:
+    - holos_tools/geocode/normalize.py: Enhanced with DIRECTIONAL_EXPANSIONS dict + _to_title_case() function
+    - Expected impact: +10-15pp on geocoding rate
+  - Next: Benchmark against 2017 test set to measure actual improvement
 
-- [ ] **Spatial validation (confidence filtering)**
-  - Owner: TBD
+- [~] **Spatial validation (confidence filtering)** (Code deployed 2026-07-18)
+  - Owner: Claude Code
   - AC:
-    - [ ] Chicago bounds check (lat/lon within city limits)
-    - [ ] Street overlap validation (is geocoded point actually on the claimed street?)
-    - [ ] Ward validation (does result match original ward claim?)
-    - [ ] Confidence score filtering (only keep 90%+ matches)
-  - Expected impact: +2-4pp accuracy, filters false positives
-  - Documentation: docs/spatial-validation-logic.md
+    - [x] Chicago bounds check (lat/lon within city limits) — DONE in spatial_validation.py
+    - [x] Street overlap validation (is geocoded point actually on the claimed street?) — DONE
+    - [x] Ward validation (does result match original ward claim?) — DONE
+    - [x] Confidence score filtering (only keep 90%+ matches) — DONE
+  - Code changes:
+    - holos_tools/geocode/spatial_validation.py: New module with SpatialValidator class
+    - Expected impact: +2-4pp accuracy, filters false positives
+  - Next: Integrate into cascade.py and benchmark
 
 ### Phase 2: Reference Data & Fuzzy Matching (Rate 70% → 76%, Accuracy 96% → 97%)
 
