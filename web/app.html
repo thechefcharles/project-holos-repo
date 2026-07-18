@@ -1475,7 +1475,9 @@
         }
 
         function addTigerLayer() {
+            console.log('[addTigerLayer] tigerRoads:', !!tigerRoads, '| source exists:', !!map.getSource('tiger-roads'));
             if (tigerRoads && !map.getSource('tiger-roads')) {
+                console.log('[addTigerLayer] Adding source...');
                 map.addSource('tiger-roads', {
                     type: 'geojson',
                     data: tigerRoads
@@ -1511,7 +1513,9 @@
         }
 
         function addAlleysLayer() {
+            console.log('[addAlleysLayer] alleys:', !!alleys, '| source exists:', !!map.getSource('alleys'));
             if (alleys && !map.getSource('alleys')) {
+                console.log('[addAlleysLayer] Adding source...');
                 map.addSource('alleys', {
                     type: 'geojson',
                     data: alleys
