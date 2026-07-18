@@ -580,6 +580,10 @@
                 <input type="checkbox" id="toggle-complaint-density" style="margin-right: 8px; cursor: pointer;">
                 <span>Show Complaint Density (Heatmap)</span>
             </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-category-heatmap" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Spending by Category (Heatmap)</span>
+            </label>
         </div>
         <div class="stats">
             <div><span class="stats-number" id="displayed-count">0</span> / <span class="stats-number" id="total-count">0</span> projects</div>
@@ -673,7 +677,16 @@
         let tigerRoads = null;
         let complaints311 = null;
         let complaintsBySegment = {}; // {segmentId: {count: n, features: [...]}}
+        let spendingBySegmentAndCategory = {}; // {segmentId: {category: amount, ...}}
         let mapReady = false;
+
+        const categoryColors = {
+            'Streets': '#2563eb',           // blue
+            'Public Safety': '#dc2626',     // red
+            'Parks': '#16a34a',             // green
+            'Sanitation': '#ea580c',        // orange
+            'Community Services': '#9333ea' // purple
+        };
 
         // Load TIGER roads (reference data, clipped to Chicago boundary)
         function loadTigerRoads() {
@@ -739,6 +752,9 @@
                 .then(data => {
                     console.log('Data loaded:', data.features.length, 'geocoded records');
                     allFeatures = data.features || [];
+
+                    // Aggregate spending by category for each segment
+                    aggregateSpendingBySegmentAndCategory();
 
                     // Update header
                     document.querySelector('.controls h2').textContent = `🗺️ ${yearInfo.name}`;
@@ -1087,6 +1103,62 @@
             console.log(`Aggregated ${complaints.length} complaints to ${Object.keys(complaintsBySegment).length} segments`);
         }
 
+        function aggregateSpendingBySegmentAndCategory() {
+            if (!window.allFeatures || !streetCenterlines) return;
+
+            spendingBySegmentAndCategory = {};
+            const segments = streetCenterlines.features || [];
+
+            // Initialize category totals for each segment
+            segments.forEach((segment, idx) => {
+                spendingBySegmentAndCategory[idx] = {
+                    total: 0,
+                    categories: {}
+                };
+            });
+
+            // Aggregate spending by segment and category
+            window.allFeatures.forEach(spendingFeature => {
+                try {
+                    const category = spendingFeature.properties.category || 'Unknown';
+                    const cost = spendingFeature.properties.cost || 0;
+
+                    // Find overlapping segments
+                    segments.forEach((segment, idx) => {
+                        try {
+                            const intersects = turf.booleanIntersects(spendingFeature, segment);
+                            if (intersects) {
+                                // Calculate proportional allocation
+                                let allocation_ratio = 1.0;
+                                if (spendingFeature.geometry && spendingFeature.geometry.type === 'LineString') {
+                                    try {
+                                        const projectLength = turf.length(spendingFeature, {units: 'feet'}) * 5280;
+                                        const segmentLength = turf.length(segment, {units: 'feet'}) * 5280;
+                                        if (projectLength > 0 && segmentLength > 0) {
+                                            allocation_ratio = Math.min(1.0, segmentLength / projectLength);
+                                        }
+                                    } catch (e) {
+                                        allocation_ratio = 0.5;
+                                    }
+                                }
+
+                                const allocatedCost = cost * allocation_ratio;
+                                spendingBySegmentAndCategory[idx].total += allocatedCost;
+                                spendingBySegmentAndCategory[idx].categories[category] =
+                                    (spendingBySegmentAndCategory[idx].categories[category] || 0) + allocatedCost;
+                            }
+                        } catch (e) {
+                            // Skip invalid geometries
+                        }
+                    });
+                } catch (e) {
+                    console.warn('Error processing spending feature:', e);
+                }
+            });
+
+            console.log(`Aggregated spending by category for ${Object.keys(spendingBySegmentAndCategory).length} segments`);
+        }
+
         function add311Layer() {
             if (complaints311 && !map.getSource('complaints-311')) {
                 map.addSource('complaints-311', {
@@ -1204,6 +1276,76 @@
                         14, 4
                     ],
                     'line-opacity': 0.8
+                }
+            });
+        }
+
+        function addCategoryHeatmapLayer() {
+            if (!streetCenterlines || !map.getSource('street-centerlines')) return;
+            if (map.getSource('category-heatmap')) return;
+
+            // Create GeoJSON with dominant category for each segment
+            const segmentsWithCategories = {
+                type: 'FeatureCollection',
+                features: (streetCenterlines.features || []).map((segment, idx) => {
+                    const spending = spendingBySegmentAndCategory[idx] || { total: 0, categories: {} };
+
+                    // Find dominant category
+                    let dominantCategory = 'No Spending';
+                    let maxAmount = 0;
+                    Object.entries(spending.categories).forEach(([category, amount]) => {
+                        if (amount > maxAmount) {
+                            maxAmount = amount;
+                            dominantCategory = category;
+                        }
+                    });
+
+                    return {
+                        ...segment,
+                        properties: {
+                            ...segment.properties,
+                            dominant_category: dominantCategory,
+                            total_spending: spending.total,
+                            category_breakdown: spending.categories,
+                            segment_index: idx
+                        }
+                    };
+                })
+            };
+
+            map.addSource('category-heatmap', {
+                type: 'geojson',
+                data: segmentsWithCategories
+            });
+
+            map.addLayer({
+                id: 'category-heatmap',
+                type: 'line',
+                source: 'category-heatmap',
+                layout: {
+                    visibility: 'none',
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': [
+                        'match',
+                        ['get', 'dominant_category'],
+                        'Streets', '#2563eb',
+                        'Public Safety', '#dc2626',
+                        'Parks', '#16a34a',
+                        'Sanitation', '#ea580c',
+                        'Community Services', '#9333ea',
+                        '#cccccc'  // gray for no spending
+                    ],
+                    'line-width': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        10, 2,
+                        14, 4
+                    ],
+                    'line-opacity': 0.75
                 }
             });
         }
@@ -1429,6 +1571,9 @@
                     // Combine both years
                     allFeatures = [...features2012, ...features2017];
 
+                    // Aggregate spending by category for each segment
+                    aggregateSpendingBySegmentAndCategory();
+
                     // Update header
                     document.querySelector('.controls h2').textContent = '🗺️ Comparison: 2012 vs 2017';
 
@@ -1560,6 +1705,16 @@
                     map.setLayoutProperty('complaint-density', 'visibility', visibility);
                 }
             });
+
+            document.getElementById('toggle-category-heatmap').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (!map.getLayer('category-heatmap')) {
+                    addCategoryHeatmapLayer();
+                }
+                if (map.getLayer('category-heatmap')) {
+                    map.setLayoutProperty('category-heatmap', 'visibility', visibility);
+                }
+            });
         }
 
         // Tab switching function
@@ -1602,6 +1757,14 @@
             const segmentIndex = feature.properties?.segment_index;
             if (segmentIndex !== undefined && complaintsBySegment[segmentIndex]) {
                 return complaintsBySegment[segmentIndex];
+            }
+            return null;
+        }
+
+        function getCategoryDataForSegment(feature) {
+            const segmentIndex = feature.properties?.segment_index;
+            if (segmentIndex !== undefined && spendingBySegmentAndCategory[segmentIndex]) {
+                return spendingBySegmentAndCategory[segmentIndex];
             }
             return null;
         }
@@ -1684,6 +1847,36 @@
                     <span class="segment-info-value highlight">$${costPerFt}</span>
                 </div>
             `;
+
+            // Add category breakdown
+            const categoryData = getCategoryDataForSegment(feature);
+            if (categoryData && categoryData.total > 0 && Object.keys(categoryData.categories).length > 0) {
+                html += `<div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #e0e0e0;">
+                    <div style="font-weight: 600; margin-bottom: 10px; color: #333;">Spending by Category:</div>
+                `;
+
+                // Sort categories by spending amount
+                const sortedCategories = Object.entries(categoryData.categories)
+                    .sort((a, b) => b[1] - a[1]);
+
+                sortedCategories.forEach(([category, amount]) => {
+                    const percentage = categoryData.total > 0 ? ((amount / categoryData.total) * 100).toFixed(1) : 0;
+                    const color = categoryColors[category] || '#cccccc';
+                    html += `
+                        <div style="padding: 8px; margin-bottom: 6px; background: #f9f9f9; border-radius: 4px; border-left: 3px solid ${color}; font-size: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span style="font-weight: 600; color: ${color};">${escapeHtml(category)}</span>
+                                <span style="color: #333; font-weight: 600;">$${amount.toLocaleString()}</span>
+                            </div>
+                            <div style="background: #e0e0e0; border-radius: 2px; height: 6px; overflow: hidden;">
+                                <div style="background: ${color}; height: 100%; width: ${percentage}%;"></div>
+                            </div>
+                            <div style="color: #999; font-size: 11px; margin-top: 2px;">${percentage}% of segment spending</div>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
 
             // List projects affecting this segment
             if (overlappingProjects.length > 0) {
