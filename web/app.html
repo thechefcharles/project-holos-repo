@@ -2149,6 +2149,11 @@
             }
         });
         }
+
+        // Explicitly expose layer functions to global scope
+        window.addChicagoBoundaryLayer = addChicagoBoundaryLayer;
+        window.addTigerLayer = addTigerLayer;
+        window.addAlleysLayer = addAlleysLayer;
     </script>
 </body>
 </html>
