@@ -85,6 +85,106 @@
             border-radius: 3px;
             border-left: 3px solid #d9534f;
         }
+
+        /* Segment Modal Styles */
+        .segment-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .segment-modal-overlay.active {
+            display: flex;
+        }
+
+        .segment-modal {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .segment-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .segment-modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .segment-modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .segment-modal-close:hover {
+            color: #333;
+        }
+
+        .segment-info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .segment-info-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .segment-info-value {
+            color: #333;
+            text-align: right;
+        }
+
+        .segment-info-value.highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .segment-loading {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+        }
+
+        .segment-error {
+            background: #fee;
+            color: #d9534f;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #d9534f;
+        }
+
         .legend {
             position: absolute;
             bottom: 20px;
@@ -312,6 +412,19 @@
 
     <!-- Map Container -->
     <div id="map"></div>
+
+    <!-- Segment Modal -->
+    <div class="segment-modal-overlay" id="segmentModalOverlay">
+        <div class="segment-modal">
+            <div class="segment-modal-header">
+                <h2 class="segment-modal-title" id="segmentName">Segment</h2>
+                <button class="segment-modal-close" onclick="closeSegmentModal()">✕</button>
+            </div>
+            <div id="segmentContent">
+                <div class="segment-loading">Loading segment details...</div>
+            </div>
+        </div>
+    </div>
 
     <!-- Dashboard Container -->
     <div id="dashboard" class="dashboard">
@@ -970,6 +1083,29 @@
                 });
             });
 
+            // Street and alley segment click handlers
+            ['street-centerlines-layer', 'alleys-layer'].forEach(layerId => {
+                map.on('click', layerId, (e) => {
+                    if (e.features.length === 0) return;
+                    const feature = e.features[0];
+                    const props = feature.properties;
+
+                    // Get segment name
+                    const segmentName = props.street_name || props.FULLNAME || 'Unknown Segment';
+
+                    // Show modal with loading state
+                    showSegmentModal(segmentName, feature);
+                });
+
+                map.on('mouseenter', layerId, () => {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+
+                map.on('mouseleave', layerId, () => {
+                    map.getCanvas().style.cursor = '';
+                });
+            });
+
             // Ward filter
             document.getElementById('ward-filter').addEventListener('change', (e) => {
                 const selectedWard = e.target.value;
@@ -1064,6 +1200,100 @@
                 dashboardContainer.classList.add('active');
             }
         }
+
+        // Segment Modal Functions
+        function showSegmentModal(name, feature) {
+            const overlay = document.getElementById('segmentModalOverlay');
+            const title = document.getElementById('segmentName');
+            const content = document.getElementById('segmentContent');
+
+            title.textContent = name;
+
+            // Get feature properties
+            const props = feature.properties;
+            const geometry = feature.geometry;
+
+            // Calculate segment length
+            let length = 'N/A';
+            if (geometry && geometry.type === 'LineString') {
+                length = calculateLength(geometry.coordinates).toFixed(0) + ' ft';
+            }
+
+            // Build HTML content
+            let html = `
+                <div class="segment-info-row">
+                    <span class="segment-info-label">Segment Name:</span>
+                    <span class="segment-info-value">${name}</span>
+                </div>
+                <div class="segment-info-row">
+                    <span class="segment-info-label">Type:</span>
+                    <span class="segment-info-value">${props.street_type || props.class || 'Infrastructure'}</span>
+                </div>
+                <div class="segment-info-row">
+                    <span class="segment-info-label">Length:</span>
+                    <span class="segment-info-value highlight">${length}</span>
+                </div>
+            `;
+
+            // Add address range for streets
+            if (props.from_house_num_l || props.from_house_num_r) {
+                const leftRange = props.from_house_num_l && props.to_house_num_l
+                    ? `${props.from_house_num_l}-${props.to_house_num_l}`
+                    : 'N/A';
+                html += `
+                    <div class="segment-info-row">
+                        <span class="segment-info-label">Address Range (L):</span>
+                        <span class="segment-info-value">${leftRange}</span>
+                    </div>
+                `;
+            }
+
+            html += `
+                <div class="segment-info-row" style="border: none; padding-top: 15px; margin-top: 10px; border-top: 2px solid #e0e0e0;">
+                    <span class="segment-info-label">Spending Allocated:</span>
+                    <span class="segment-info-value highlight">Loading...</span>
+                </div>
+                <div style="margin-top: 15px; padding: 12px; background: #f9f9f9; border-radius: 6px; font-size: 12px; color: #666;">
+                    <strong>ℹ️ Note:</strong> Spending attribution by segment coming in Phase 2. This segment may be affected by nearby projects.
+                </div>
+            `;
+
+            content.innerHTML = html;
+            overlay.classList.add('active');
+        }
+
+        function closeSegmentModal() {
+            const overlay = document.getElementById('segmentModalOverlay');
+            overlay.classList.remove('active');
+        }
+
+        function calculateLength(coordinates) {
+            // Simple Haversine distance calculation
+            const R = 20902231; // Earth's radius in feet
+            let totalDistance = 0;
+
+            for (let i = 0; i < coordinates.length - 1; i++) {
+                const [lon1, lat1] = coordinates[i];
+                const [lon2, lat2] = coordinates[i + 1];
+
+                const dLat = (lat2 - lat1) * Math.PI / 180;
+                const dLon = (lon2 - lon1) * Math.PI / 180;
+                const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                          Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                          Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                totalDistance += R * c;
+            }
+
+            return totalDistance;
+        }
+
+        // Close modal when clicking overlay
+        document.getElementById('segmentModalOverlay').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('segmentModalOverlay')) {
+                closeSegmentModal();
+            }
+        });
     </script>
 </body>
 </html>
