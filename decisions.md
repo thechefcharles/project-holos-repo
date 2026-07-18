@@ -1505,5 +1505,90 @@ Expected improvement: +1.0pp (74.6% cumulative with Part 1)
 - ✓ Phase 6: 311 Service Requests overlay with interactive popups
 - ✓ Phase 7: Complaint-vs-spending comparison heatmap + modal enrichment
 - ✓ Phase 8: Category heatmap showing spending distribution by service type
+- ✓ Phase 9: Historical timeline slider for year-by-year exploration
 
-**Next:** Phase 9 (historical timeline slider: drag 2012→2017→2025 to animate spending changes) or production deployment.
+**Next:** Production deployment or Phase 10 (optional enhancements).
+
+---
+
+## 2026-07-17 — Map Enhancement Phase 9: Historical Timeline Slider COMPLETE
+
+**Accomplishment:** Implemented Phase 9 of the 2017 aldermanic spending map: interactive timeline slider to explore spending across years (2012, 2017, 2025).
+
+**Features Built:**
+
+1. **Timeline Slider Control**
+   - Fixed at bottom of map, persistent and always accessible
+   - Drag to scrub through years: 2012 ← → 2017 ← → 2025
+   - Visual slider with blue drag handle, styled consistently with map controls
+   - Year labels displayed below slider for reference
+
+2. **Current Year Display**
+   - Large, bold blue text showing currently selected year
+   - Updates in real-time as slider moves
+   - Guidance text: "📅 Timeline: Scrub to explore spending over time"
+
+3. **Two-Way Synchronization**
+   - Moving timeline slider updates year dropdown selector
+   - Changing year dropdown updates slider position
+   - Both controls always in sync with current year view
+   - No conflicts or race conditions
+
+4. **Data Updates**
+   - All layers update when year changes (no page reload)
+   - Map refreshes:
+     * Spending locations and data
+     * Category heatmap
+     * Complaint density (if available for year)
+     * Equity overlay
+     * Stats and headers
+   - Modal shows data for selected year only
+
+5. **Smooth Workflow**
+   - Zero-friction navigation between years
+   - Seamless data transitions
+   - Header updates: "🗺️ 2012 Aldermanic Menu" (when slider on 2012)
+   - Stats update: total spending, project count reflect selected year
+
+**Why This Matters:**
+
+- **Temporal Analysis:** "How did spending priorities change from 2012 to 2017?"
+- **Storytelling:** Scrub through time to show budget evolution
+- **Pattern Detection:** "Which categories grew/shrank over time?"
+- **Comparison:** Jump between years to spot differences
+- **Exploration:** Intuitive, no learning curve—users just drag
+
+**Technical Design:**
+
+- Slider values: 0=2012, 1=2017, 2=2025
+- Maps to existing `yearData` object (already supports all 3 years)
+- Reuses `loadSpendingData()` function (no new API needed)
+- Event listeners handle slider↔dropdown synchronization
+- No database queries: all year data already in GeoJSON files
+
+**Example Insights:**
+
+- "2012 to 2017: Streets spending decreased, Parks investment shifted north"
+- "2025: Public Safety budget concentrated in downtown, less in outer wards"
+- "Sanitation spending pattern similar across all three years—consistent policy"
+
+**Integration Points:**
+
+- Coexists seamlessly with all 8 previous phases
+- Works with every overlay, heatmap, and toggle
+- Enhances rather than replaces year selector dropdown
+- Ready for future animated playback (click play button to auto-scrub)
+
+**Map Enhancement Phases Status — COMPLETE:**
+- ✓ Phase 1: Clickable street/alley segments with modal (distance + properties)
+- ✓ Phase 2: Segment-level spending attribution (allocation ratio × project cost)
+- ✓ Phase 3: Equity visualization (color-coded wards: over/under-served)
+- ✓ Phase 4: Year comparison (2012 vs 2017 with Trends tab)
+- ✓ Phase 5: Proportional spending allocation based on geometry overlap
+- ✓ Phase 6: 311 Service Requests overlay with interactive popups
+- ✓ Phase 7: Complaint-vs-spending comparison heatmap + modal enrichment
+- ✓ Phase 8: Category heatmap showing spending distribution by service type
+- ✓ Phase 9: Historical timeline slider for year-by-year exploration
+
+**All 9 core map enhancement phases are now complete.**
+**Ready for production deployment or Phase 10 (animated timeline playback / advanced features).**
