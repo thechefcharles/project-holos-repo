@@ -1628,3 +1628,79 @@ Expected improvement: +1.0pp (74.6% cumulative with Part 1)
 **URL:** https://project-holos-repo-production.up.railway.app/map
 
 **Why this matters:** This is the MVP frontend for the civic transparency platform. All 2012-2017 spending is now queryable, interactive, and georeferenced. Users can explore spending patterns by ward, year, and category. Foundation for subsurface integration (Phase 2+).
+
+## 2026-07-18 — Geocoding Optimization Initiative: Maximize Rate (57.8%→80%+) AND Accuracy (95%→98%+)
+
+**Decision:** Commit to comprehensive geocoding improvement with 3-phase approach + runbook for reuse on all years (2012, 2018-2025).
+
+**Current State (2017 baseline):**
+- Geocoding rate: 57.8% (42% failing to match)
+- Accuracy on successful matches: 95%
+- Composite: 54.7% (100% extraction × 57.8% geocoding × 95% correctness)
+- Problem: 42% of records unmatched, leaving ~1,000 projects ungeolocated
+
+**Root Causes of 42% Failure Rate:**
+1. Address quality: truncated ("123 ADAMS FROM W MONROE TO W MADISON"), non-standard abbreviations, missing unit numbers
+2. Multi-segment streets: spend records specify "street FROM X TO Y" → requires ST_LineSubstring math
+3. Intersection-to-intersection format: harder to match than point addresses
+4. Cascade limitations: some services skip non-standard queries; no fuzzy matching on typos
+
+**Target Improvements:**
+- Phase 1: Rate 57.8% → 70%, Accuracy 95% → 96% (address normalization + spatial validation)
+- Phase 2: Rate 70% → 76%, Accuracy 96% → 97% (reference data enrichment + fuzzy matching + intersection handler)
+- Phase 3: Rate 76% → 80%, Accuracy 97% → 98% (truncation recovery + LLM semantic geocoding + confidence calibration)
+
+**Effort Breakdown:**
+- Phase 1 (Quick wins): 4-6 hours | +10-15pp rate
+- Phase 2 (Reference enrichment): 8-12 hours | +5-8pp rate
+- Phase 3 (Advanced): 12-16 hours | +3-5pp rate
+- Phase 4 (Documentation + reuse): 8-10 hours | runbook for all years
+
+**Phase 1 Actions (Short-term, HIGH ROI):**
+1. Address normalization: Directional standardization (E→East), street-type cleanup (St→Street), title-case conversion, whitespace cleanup
+   - Why: Many addresses are ALL CAPS or abbreviated; small fixes enable matching
+   - Expected: +10-15pp rate improvement
+2. Spatial validation: Chicago bounds check, street overlap check, ward matching, confidence filtering (90%+)
+   - Why: Filters false positives that break accuracy; validates results make geographic sense
+   - Expected: +2-4pp accuracy, prevents cascading errors
+
+**Decision Point (blocks Phase 2):**
+- Do we have access to: USPS CASS database, Chicago ALI (Address Locator Index), or derived intersection tables?
+- If YES: Phase 2 is fast (build from existing data)
+- If NO: Phase 2 is medium (build from open sources like OSM, Census, TIGER)
+- Action: Audit data sources in config/sources.yaml + Data & Access Tracker
+
+**Reusable Runbook (Key Deliverable):**
+After Phase 4, any team member can:
+1. Follow docs/geocoding-runbook.md step-by-step
+2. Apply all optimizations to a new year (2012, 2018-2025)
+3. Benchmark against golden test set (250-row manually verified dataset)
+4. Expect: 75-80% rate, 97%+ accuracy (consistent with 2017)
+
+**Why This Matters:**
+- Current 57.8% rate means ~1,000 projects invisible on the map (no coordinates)
+- Improving to 80% adds ~450 visible projects → better civic transparency
+- Runbook ensures consistency: all years geocoded same way, comparable quality
+- Precision: 98% accuracy means users can trust the visualization (not guessing)
+
+**Documentation Strategy:**
+- decisions.md: This entry (rationale + strategy)
+- docs/address-normalization-runbook.md: Step-by-step for address cleanup (shareable)
+- docs/geocoding-runbook.md: Full pipeline for applying to new years
+- docs/spatial-validation-logic.md: Rules for bounds/street/ward checking
+- holos_tools/geocode/fuzzy_strategy.md: Levenshtein matching approach
+- golden/geocoding_benchmark_2017.csv: 250-row golden test set for QA
+
+**Success Criteria:**
+- ✅ 2017: Rate 80%+, Accuracy 98%+
+- ✅ Runbook written and tested on 2012
+- ✅ 2012 geocoded with same pipeline, achieving 75%+ rate
+- ✅ Year-over-year accuracy comparison table in decisions.md
+- ✅ Any team member can follow runbook and geocode a new year independently
+
+**Risk Mitigation:**
+- Don't over-invest in LLM fallback: diminishing returns <3pp; only use for final edge cases
+- Don't skip spatial validation: accuracy > rate; a 98% accurate 60% rate beats 85% rate with 90% accuracy
+- Document anomalies: if a year geocodes worse than expected, log the reason in decisions.md (e.g., "2012 had non-standard abbreviations")
+
+**Timeline:** Weeks of July-Aug 2026. Parallel work encouraged: Phase 1 & 2 can proceed independently after reference-data audit.

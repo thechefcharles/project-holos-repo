@@ -2,11 +2,141 @@
 
 **Repo-native build task tracker.** Grouped by phase and status. Source of truth for all build work.
 
-Last updated: 2026-07-15
+Last updated: 2026-07-18
 
 ---
 
-## This week (Priority: Ship Phase 1 MVP)
+## Geocoding Optimization Initiative (Active)
+
+**Goal:** Maximize geocoding rate (57.8% → 80%+) AND accuracy (95% → 98%+) for 2017, then productize for all years (2012, 2018–2025)
+
+**Overall Strategy:** 3-phase approach with documentation at each stage to create reusable pipeline
+
+### Phase 1: Foundation & Quick Wins (Rate 57.8% → 70%, Accuracy 95% → 96%)
+
+- [~] **Address normalization (standardize inputs)**
+  - Owner: TBD
+  - AC: 
+    - [x] Directional normalization (E → East, W → West, N → North, S → South)
+    - [x] Street type standardization (St → Street, Ave → Avenue, Blvd → Boulevard, etc)
+    - [x] Title case conversion (ALL CAPS → Title Case)
+    - [x] Whitespace/punctuation cleanup
+    - [x] Handle "FROM/TO" syntax preservation (don't truncate)
+  - Expected impact: +10-15pp on geocoding rate
+  - Documentation: docs/address-normalization-runbook.md (for reuse on 2012/2018-2025)
+  - Next: Validate against 2017 benchmark (250-row test set)
+
+- [ ] **Spatial validation (confidence filtering)**
+  - Owner: TBD
+  - AC:
+    - [ ] Chicago bounds check (lat/lon within city limits)
+    - [ ] Street overlap validation (is geocoded point actually on the claimed street?)
+    - [ ] Ward validation (does result match original ward claim?)
+    - [ ] Confidence score filtering (only keep 90%+ matches)
+  - Expected impact: +2-4pp accuracy, filters false positives
+  - Documentation: docs/spatial-validation-logic.md
+
+### Phase 2: Reference Data & Fuzzy Matching (Rate 70% → 76%, Accuracy 96% → 97%)
+
+- [ ] **Reference data audit & enrichment**
+  - Owner: TBD
+  - BUILD FROM: config/sources.yaml + Data & Access Tracker
+  - AC:
+    - [ ] Check availability: USPS CASS, Chicago ALI, TIGER intersections
+    - [ ] If available: Load into ref.* schema with vintage metadata
+    - [ ] If not available: Build from open sources (OSM, Census, TIGER)
+    - [ ] Derived tables: intersections, alley_block_centroids, address_confidence_map
+  - Decision point: Which sources available? (blocks further work)
+  - Documentation: decisions.md entry on reference data strategy
+
+- [ ] **Fuzzy street matching (Levenshtein for typos/variants)**
+  - Owner: TBD
+  - AC:
+    - [ ] Implement string-distance matching (max 2 edits tolerance)
+    - [ ] Build street-name variant cache (common typos in Chicago address history)
+    - [ ] Fall back to fuzzy for unmatched stage 1/2 results
+    - [ ] Benchmark on 50-row edge-case set
+  - Expected impact: +3-5pp on rate (catches typos, abbreviated streets)
+  - Documentation: holos_tools/geocode/fuzzy_strategy.md
+
+- [ ] **Intersection-specific handler**
+  - Owner: TBD
+  - AC:
+    - [ ] Parse "STREET1 & STREET2" syntax
+    - [ ] Handle "STREET1 AT STREET2" variants
+    - [ ] Spatially join to find true intersection point
+    - [ ] Benchmark on 70-row intersection subset from benchmark
+  - Expected impact: +2-3pp on rate
+
+### Phase 3: Advanced Techniques (Rate 76% → 80%, Accuracy 97% → 98%)
+
+- [ ] **Truncation recovery (NLP for FROM/TO parsing)**
+  - Owner: TBD
+  - AC:
+    - [ ] Use Claude API or regex to recover "123 ADAMS FROM W MONROE TO W MADISON" → city blocks
+    - [ ] Match to street_segment stage where applicable
+    - [ ] Flag recovered records with confidence=recovered (not verified)
+    - [ ] Test on 45-record truncation backlog
+  - Expected impact: +2-3pp on rate (niche but valuable)
+  - Caveat: Recovered records may be lower confidence; document this
+
+- [ ] **LLM semantic geocoding (fallback for truly messy records)**
+  - Owner: TBD
+  - AC:
+    - [ ] For records that fail all 5 stages, use Claude to infer location
+    - [ ] Prompt: "Given messy address: {address}, best guess at Chicago intersection or street?"
+    - [ ] Confidence: manual_llm_inference (lower tier than automated)
+    - [ ] Benchmark cost: ~1¢ per record; only use on non-recoverable failures
+  - Expected impact: +1-2pp on rate (diminishing returns but addresses edge cases)
+
+- [ ] **Accuracy refinement (confidence calibration)**
+  - Owner: TBD
+  - AC:
+    - [ ] Audit 95% accuracy claim: re-validate 100 random "successful" geocodes
+    - [ ] If real accuracy <95%, identify systematic errors
+    - [ ] Implement method-specific confidence (address-point=98%, centerline=92%, etc)
+    - [ ] Document in decisions.md
+
+### Phase 4: Documentation & Reusable Pipeline (Runbook for 2012/2018-2025)
+
+- [ ] **Create geocoding runbook**
+  - Owner: TBD
+  - AC:
+    - [ ] docs/geocoding-runbook.md: step-by-step guide to apply all optimizations to a new year
+    - [ ] Include: data inputs, normalization rules, cascade sequence, validation gates, QA checkpoints
+    - [ ] Include: how to measure success (benchmark test sets, expected rates by stage)
+    - [ ] Include: troubleshooting (why did stage X fail? what to check?)
+  - Reusability: Any team member can follow this to geocode 2012/2018-2025 consistently
+
+- [ ] **Benchmark dataset creation**
+  - Owner: TBD
+  - AC:
+    - [ ] 2017: 250-row "golden" test set (manually verified coordinates)
+    - [ ] Per-grammar breakdown (50 single_address, 50 address_range, 50 intersection, 50 street_segment, 50 multi_location)
+    - [ ] Store in golden/geocoding_benchmark_2017.csv (reference for all future years)
+    - [ ] Document expected rates per grammar in decisions.md
+
+- [ ] **Apply to 2012**
+  - Owner: TBD
+  - BUILD FROM: geocoding-runbook.md
+  - AC:
+    - [ ] Run full pipeline on 2012 data (109 records currently, but full extract planned)
+    - [ ] Measure: rate before/after, accuracy before/after
+    - [ ] Compare to 2017 baseline
+    - [ ] Log results to decisions.md
+
+- [ ] **Apply to 2018-2025 (if data available)**
+  - Owner: TBD
+  - BUILD FROM: geocoding-runbook.md
+  - AC:
+    - [ ] Batch-geocode all years using same pipeline
+    - [ ] Create year-over-year accuracy comparison table
+    - [ ] Identify any year-specific issues (different address formats, schema changes)
+    - [ ] Document anomalies in decisions.md
+
+---
+
+## This week (Priority: Geocoding Optimization)
 
 - [x] **Stand up the hub** (Component: Hub)
   - Owner: Claude Code
