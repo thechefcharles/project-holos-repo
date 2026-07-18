@@ -815,9 +815,16 @@
                 .then(data => {
                     tigerRoads = data;
                     console.log('TIGER roads loaded:', data.features.length);
-                    if (mapReady) addTigerLayer();
+                    if (mapReady) {
+                        try {
+                            addTigerLayer();
+                            console.log('TIGER roads layer added');
+                        } catch (e) {
+                            console.error('Error adding TIGER layer:', e);
+                        }
+                    }
                 })
-                .catch(err => console.warn('TIGER roads not available:', err.message));
+                .catch(err => console.warn('TIGER roads fetch failed:', err.message));
         }
 
         // Load alleys from API (with bbox)
@@ -833,9 +840,16 @@
                 .then(data => {
                     alleys = data;
                     console.log('Alleys loaded:', data.features.length);
-                    if (mapReady) addAlleysLayer();
+                    if (mapReady) {
+                        try {
+                            addAlleysLayer();
+                            console.log('Alleys layer added');
+                        } catch (e) {
+                            console.error('Error adding alleys layer:', e);
+                        }
+                    }
                 })
-                .catch(err => console.warn('Alleys not available:', err.message));
+                .catch(err => console.warn('Alleys fetch failed:', err.message));
         }
 
         // Year data mapping
@@ -1014,17 +1028,24 @@
 
         // Load Chicago boundary
         console.log('Loading Chicago boundary...');
-        // // fetch('chicago_boundary.geojson')  // File not available
-        // .then(res => {
-        // if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        // return res.json();
-        // })
-        // .then(data => {
-        // chicagoBoundary = data;
-        // console.log('Chicago boundary loaded');
-        // if (mapReady) addChicagoBoundaryLayer();
-        // })
-        // .catch(err => console.warn('Chicago boundary not available:', err.message));
+        fetch('chicago_boundary.geojson')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                chicagoBoundary = data;
+                console.log('Chicago boundary loaded');
+                if (mapReady) {
+                    try {
+                        addChicagoBoundaryLayer();
+                        console.log('Chicago boundary layer added');
+                    } catch (e) {
+                        console.error('Error adding boundary layer:', e);
+                    }
+                }
+            })
+            .catch(err => console.warn('Chicago boundary fetch failed:', err.message));
 
         // Load 311 complaints data
         fetch('chicago_311_complaints.geojson')
