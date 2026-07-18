@@ -772,27 +772,30 @@
         // Initialize map layers when map is ready (must be before any data loads)
         map.on('load', () => {
             mapReady = true;
-            addMapLayers();
-            if (wardsBoundaries) addWardLayers();
-            if (curbCenterlines) addCurbCenterlinesLayer();
-            if (streetCenterlines) addStreetCenterlinesLayer();
-            if (chicagoBoundary) addChicagoBoundaryLayer();
-            if (tigerRoads) addTigerLayer();
-            // Load API data with bbox
-            loadStreetCenterlines();
-            loadCurbCenterlines();
-            loadTigerRoads();
-            loadAlleys();
+            // Defer layer initialization until functions are defined
+            setTimeout(() => {
+                if (typeof addMapLayers === 'function') addMapLayers();
+                if (wardsBoundaries && typeof addWardLayers === 'function') addWardLayers();
+                if (curbCenterlines && typeof addCurbCenterlinesLayer === 'function') addCurbCenterlinesLayer();
+                if (streetCenterlines && typeof addStreetCenterlinesLayer === 'function') addStreetCenterlinesLayer();
+                if (chicagoBoundary && typeof addChicagoBoundaryLayer === 'function') addChicagoBoundaryLayer();
+                if (tigerRoads && typeof addTigerLayer === 'function') addTigerLayer();
+                // Load API data with bbox
+                if (typeof loadStreetCenterlines === 'function') loadStreetCenterlines();
+                if (typeof loadCurbCenterlines === 'function') loadCurbCenterlines();
+                if (typeof loadTigerRoads === 'function') loadTigerRoads();
+                if (typeof loadAlleys === 'function') loadAlleys();
+            }, 10);
 
             // Reload data on move/zoom (throttled)
             let moveTimeout;
             map.on('moveend', () => {
                 clearTimeout(moveTimeout);
                 moveTimeout = setTimeout(() => {
-                    loadStreetCenterlines();
-                    loadCurbCenterlines();
-                    loadTigerRoads();
-                    loadAlleys();
+                    if (typeof loadStreetCenterlines === 'function') loadStreetCenterlines();
+                    if (typeof loadCurbCenterlines === 'function') loadCurbCenterlines();
+                    if (typeof loadTigerRoads === 'function') loadTigerRoads();
+                    if (typeof loadAlleys === 'function') loadAlleys();
                 }, 500);
             });
         });
