@@ -567,6 +567,10 @@
                 <input type="checkbox" id="toggle-alleys" style="margin-right: 8px; cursor: pointer;">
                 <span>Show Alleys</span>
             </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-equity" style="margin-right: 8px; cursor: pointer;">
+                <span>Show Equity Overlay (Over/Under-Served)</span>
+            </label>
         </div>
         <div class="stats">
             <div><span class="stats-number" id="displayed-count">0</span> / <span class="stats-number" id="total-count">0</span> projects</div>
@@ -589,6 +593,22 @@
             <div class="legend-swatch" style="background: #66cc00; height: 2px;"></div>
             <span>Polygons — alley blocks</span>
         </div>
+        <div class="legend-section">
+            <div style="font-weight: bold; margin-bottom: 8px; font-size: 12px;">Equity Overlay</div>
+            <div class="legend-item">
+                <div class="legend-swatch" style="background: #ff6b6b; width: 12px; height: 12px; margin: auto;"></div>
+                <span style="font-size: 11px;">Over-served (>1.5× fair share)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-swatch" style="background: #cccccc; width: 12px; height: 12px; margin: auto;"></div>
+                <span style="font-size: 11px;">Fair-served (0.9–1.5×)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-swatch" style="background: #4ecdc4; width: 12px; height: 12px; margin: auto;"></div>
+                <span style="font-size: 11px;">Under-served (<0.9×)</span>
+            </div>
+        </div>
+
         <div class="legend-section">
             <div style="font-weight: bold; margin-bottom: 8px; font-size: 12px;">Quality</div>
             <div style="font-size: 11px; color: #666;">
@@ -802,6 +822,60 @@
                         'line-color': '#666',
                         'line-width': 2,
                         'line-opacity': 0.6
+                    }
+                });
+
+                // Equity overlay layer - color wards by equity status
+                map.addLayer({
+                    id: 'equity-overlay',
+                    type: 'fill',
+                    source: 'wards',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'fill-color': [
+                            'match',
+                            ['get', 'ward_number'],
+                            // Over-served wards (red)
+                            6, '#ff6b6b',
+                            28, '#ff6b6b',
+                            11, '#ff6b6b',
+                            47, '#ff6b6b',
+                            7, '#ff6b6b',
+                            40, '#ff6b6b',
+                            3, '#ff6b6b',
+                            42, '#ff6b6b',
+                            4, '#ff6b6b',
+                            2, '#ff6b6b',
+                            44, '#ff6b6b',
+                            41, '#ff6b6b',
+                            43, '#ff6b6b',
+                            // Under-served wards (blue)
+                            19, '#4ecdc4',
+                            25, '#4ecdc4',
+                            37, '#4ecdc4',
+                            10, '#4ecdc4',
+                            29, '#4ecdc4',
+                            16, '#4ecdc4',
+                            23, '#4ecdc4',
+                            27, '#4ecdc4',
+                            13, '#4ecdc4',
+                            // Fair-served (gray)
+                            '#cccccc'
+                        ],
+                        'fill-opacity': 0.6
+                    }
+                });
+
+                // Equity overlay outline
+                map.addLayer({
+                    id: 'equity-outline',
+                    type: 'line',
+                    source: 'wards',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'line-color': '#333',
+                        'line-width': 1,
+                        'line-opacity': 0.4
                     }
                 });
             }
@@ -1211,6 +1285,17 @@
                 const visibility = e.target.checked ? 'visible' : 'none';
                 if (map.getLayer('alleys-layer')) {
                     map.setLayoutProperty('alleys-layer', 'visibility', visibility);
+                }
+            });
+
+            // Equity overlay toggle
+            document.getElementById('toggle-equity').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('equity-overlay')) {
+                    map.setLayoutProperty('equity-overlay', 'visibility', visibility);
+                }
+                if (map.getLayer('equity-outline')) {
+                    map.setLayoutProperty('equity-outline', 'visibility', visibility);
                 }
             });
         }
