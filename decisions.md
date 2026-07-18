@@ -1428,5 +1428,82 @@ Expected improvement: +1.0pp (74.6% cumulative with Part 1)
 - ✓ Phase 5: Proportional spending allocation based on geometry overlap
 - ✓ Phase 6: 311 Service Requests overlay with interactive popups
 - ✓ Phase 7: Complaint-vs-spending comparison heatmap + modal enrichment
+- ✓ Phase 8: Category heatmap showing spending distribution by service type
 
-**Next:** Phase 8 (category heatmap: spending by category type) or deployment to production.
+**Next:** Phase 9 (historical timeline slider) or deployment to production.
+
+---
+
+## 2026-07-17 — Map Enhancement Phase 8: Spending Category Heatmap COMPLETE
+
+**Accomplishment:** Implemented Phase 8 of the 2017 aldermanic spending map: visualization of spending distribution by service category (Streets, Public Safety, Parks, Sanitation, Community Services).
+
+**Features Built:**
+
+1. **Category-Based Aggregation Engine**
+   - Aggregate spending by segment AND category: stores {total, categories: {category: amount}}
+   - Uses proportional allocation (same as Phase 5)
+   - Bidirectional triggers: aggregation runs after allFeatures loads (both single-year and comparison modes)
+
+2. **Category Heatmap Layer**
+   - New GeoJSON layer: segments colored by dominant spending category
+   - Color palette:
+     * Streets: blue (#2563eb)
+     * Public Safety: red (#dc2626)
+     * Parks: green (#16a34a)
+     * Sanitation: orange (#ea580c)
+     * Community Services: purple (#9333ea)
+     * No Spending: gray (#cccccc)
+   - New toggle: "Show Spending by Category (Heatmap)" in controls panel
+   - Zoom-responsive line width
+   - Opacity 0.75 for legibility
+
+3. **Modal Enhancement: Category Breakdown**
+   - When segment is clicked, modal shows:
+     * Spending breakdown by category with amounts
+     * Horizontal stacked bar chart showing % distribution
+     * Color-coded bars matching category colors
+     * Sorted by spending amount (highest first)
+   - Enables quick analysis: "Which categories invest here?" "Is Parks investment concentrated?"
+
+4. **Data Architecture**
+   - `spendingBySegmentAndCategory[idx]` stores aggregated data per segment
+   - Segments include `category_breakdown` and `dominant_category` properties
+   - Lookup via `getCategoryDataForSegment(feature)`
+   - Fully client-side (no database queries)
+
+**Why This Matters:**
+
+- **Spending Geography:** Shows where each category invests spatially
+  - E.g., "Parks dominate lakefront & major parks, Streets downtown, Public Safety dispersed"
+- **Resource Concentration:** Identifies spending silos
+  - E.g., "Public Safety budget concentrated in South Loop"
+- **Planning:** Supports category-based planning decisions
+  - "Where should we shift Parks spending?" "Is Public Safety underfunded in West Side?"
+- **Transparency:** Makes category investment patterns visible at-a-glance
+
+**Example Insights:**
+
+- Downtown: Streets-dominated (blue), some Public Safety
+- Parks: Green clusters around major parks (Lincoln Park, Grant Park, lakefront)
+- West/South sides: Smaller patches of Sanitation, less Parks investment
+- Community Services: Sparse, concentrated near community centers
+
+**Integration Points:**
+
+- Seamlessly coexists with all previous layers (equity, complaints, 311, year selector, etc.)
+- Category colors consistent with dashboard Trends tab
+- Segment modal enriched without breaking existing UX
+- Toggle control follows established pattern
+
+**Map Enhancement Phases Status:**
+- ✓ Phase 1: Clickable street/alley segments with modal (distance + properties)
+- ✓ Phase 2: Segment-level spending attribution (allocation ratio × project cost)
+- ✓ Phase 3: Equity visualization (color-coded wards: over/under-served)
+- ✓ Phase 4: Year comparison (2012 vs 2017 with Trends tab)
+- ✓ Phase 5: Proportional spending allocation based on geometry overlap
+- ✓ Phase 6: 311 Service Requests overlay with interactive popups
+- ✓ Phase 7: Complaint-vs-spending comparison heatmap + modal enrichment
+- ✓ Phase 8: Category heatmap showing spending distribution by service type
+
+**Next:** Phase 9 (historical timeline slider: drag 2012→2017→2025 to animate spending changes) or production deployment.
