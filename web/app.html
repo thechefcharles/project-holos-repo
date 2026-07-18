@@ -536,6 +536,7 @@
             <option value="2012">2012 (65 projects, partial)</option>
             <option value="2017" selected>2017 (878 projects, complete)</option>
             <option value="2025">2025 (partial data)</option>
+            <option value="comparison">Comparison: 2012 vs 2017</option>
         </select>
 
         <label for="ward-filter">Filter by Ward:</label>
@@ -709,6 +710,13 @@
 
         // Function to load spending data for a specific year
         function loadSpendingData(year) {
+            // Handle comparison mode
+            if (year === 'comparison') {
+                console.log('Loading comparison mode: 2012 vs 2017...');
+                loadComparisonData();
+                return;
+            }
+
             const yearInfo = yearData[year];
             if (!yearInfo) return;
 
@@ -1207,6 +1215,51 @@
                     map.getCanvas().style.cursor = '';
                 });
             });
+
+            // Comparison mode loading function
+            function loadComparisonData() {
+                console.log('Loading comparison data...');
+                Promise.all([
+                    fetch('2012_pages_2_20_verified.geojson').then(r => r.json()),
+                    fetch('2017_aldermanic_verified.geojson').then(r => r.json())
+                ])
+                .then(([data2012, data2017]) => {
+                    // Mark data with year for distinction
+                    const features2012 = (data2012.features || []).map(f => ({
+                        ...f,
+                        properties: { ...f.properties, year: 2012 }
+                    }));
+                    const features2017 = (data2017.features || []).map(f => ({
+                        ...f,
+                        properties: { ...f.properties, year: 2017 }
+                    }));
+
+                    // Combine both years
+                    allFeatures = [...features2012, ...features2017];
+
+                    // Update header
+                    document.querySelector('.controls h2').textContent = '🗺️ Comparison: 2012 vs 2017';
+
+                    // Update stats
+                    const spend2012 = features2012.reduce((sum, f) => sum + (f.properties.cost || 0), 0);
+                    const spend2017 = features2017.reduce((sum, f) => sum + (f.properties.cost || 0), 0);
+                    const change = ((spend2017 - spend2012) / spend2012 * 100).toFixed(1);
+
+                    document.getElementById('total-count').textContent = allFeatures.length;
+                    document.getElementById('displayed-count').textContent = `2012: ${features2012.length}, 2017: ${features2017.length}`;
+                    document.getElementById('displayed-spend').textContent = `2012: $${(spend2012/1000000).toFixed(1)}M → 2017: $${(spend2017/1000000).toFixed(1)}M (${change}%)`;
+
+                    // Show both datasets
+                    map.getSource('spending-2017').setData({
+                        type: 'FeatureCollection',
+                        features: allFeatures
+                    });
+
+                    // Clear ward filter since we're in comparison mode
+                    document.getElementById('ward-filter').value = '';
+                })
+                .catch(err => console.error('Comparison load failed:', err));
+            }
 
             // Year selector
             document.getElementById('year-filter').addEventListener('change', (e) => {
