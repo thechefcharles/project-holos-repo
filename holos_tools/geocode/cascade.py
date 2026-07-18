@@ -12,6 +12,7 @@ from .grammar import GrammarClassifier
 from .normalize import normalize
 from .parser import AddressParser
 from .spatial_validation import SpatialValidator
+from .fuzzy_match import FuzzyMatcher
 
 try:
     import psycopg
@@ -91,6 +92,25 @@ class GeocodeCascade:
         """Initialize cascade with database connection."""
         self.db = db
         self.validator = SpatialValidator(db)
+        # PHASE 2A: Load reference streets for fuzzy matching
+        self._load_reference_streets()
+
+    def _load_reference_streets(self):
+        """Load street names from database for fuzzy matching fallback."""
+        try:
+            cur = self.db.conn.cursor()
+            cur.execute("""
+                SELECT DISTINCT street_name
+                FROM ref.centerlines
+                WHERE street_name IS NOT NULL AND street_name != ''
+                ORDER BY street_name
+            """)
+            streets = [row[0] for row in cur.fetchall()]
+            cur.close()
+            self.fuzzy_matcher = FuzzyMatcher(streets)
+        except Exception as e:
+            # If loading fails, fuzzy matching is just disabled
+            self.fuzzy_matcher = None
 
     def query(self, sql: str, params: dict = None) -> list:
         """Execute query and return results as list of dicts.
@@ -300,6 +320,40 @@ class GeocodeCascade:
                 score=0.97,
                 reason=f"Exact match: {number} {street}"
             )
+
+        # PHASE 2A: Try fuzzy matching if exact match failed
+        if self.fuzzy_matcher and street_cleaned:
+            fuzzy_street, distance = self.fuzzy_matcher.match(street_cleaned, max_distance=2)
+            if fuzzy_street and distance <= 2:
+                # Retry query with fuzzy-matched street
+                fuzzy_sql = """
+                    SELECT ST_X(geom) as lon, ST_Y(geom) as lat
+                    FROM ref.address_points
+                    WHERE add_number::numeric = %(house_num)s::numeric
+                      AND UPPER(st_name) = UPPER(%(street_name)s)
+                """
+                fuzzy_params = {
+                    "house_num": int(number) if isinstance(number, str) else number,
+                    "street_name": fuzzy_street
+                }
+                if predir_normalized:
+                    fuzzy_sql += " AND predir = %(predir)s"
+                    fuzzy_params["predir"] = predir_normalized
+                fuzzy_sql += " LIMIT 1"
+
+                fuzzy_result = self.query(fuzzy_sql, fuzzy_params)
+                if fuzzy_result:
+                    row = fuzzy_result[0]
+                    # Lower score for fuzzy match (not exact)
+                    score = 0.95 - (distance * 0.01)  # 0.95 for distance=0, 0.94 for distance=1, etc.
+                    return GeocodeResult(
+                        stage=1,
+                        method="address_point_fuzzy",
+                        geometry_type="POINT",
+                        coordinates=(row["lon"], row["lat"]),
+                        score=score,
+                        reason=f"Fuzzy match (dist={distance}): {number} {fuzzy_street}"
+                    )
 
         return None
 
