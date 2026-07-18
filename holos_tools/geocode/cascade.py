@@ -110,6 +110,9 @@ class GeocodeCascade:
 
         PHASE 1: Validates bounds, street overlap, ward match, and confidence.
         Returns None if validation fails; never breaks transaction.
+
+        PHASE 2: Adjusted confidence threshold to 0.80 to allow Stage 2 (centerline, 0.88)
+        and Stage 5 (gazetteer, 0.85-0.92) while still filtering very low scores.
         """
         if not result or not result.coordinates:
             return result
@@ -124,7 +127,7 @@ class GeocodeCascade:
                 street_name=street_name,
                 expected_ward=expected_ward,
                 confidence_score=result.score,
-                min_confidence=0.90  # Phase 1 threshold
+                min_confidence=0.80  # Phase 2: lowered from 0.90
             )
 
             if not is_valid:
@@ -301,7 +304,11 @@ class GeocodeCascade:
         return None
 
     def stage_2_centerline(self, norm_text: str, parsed, raw_text: str) -> Optional[GeocodeResult]:
-        """Stage 2: Interpolate on centerline (Bug 4 fix: filter by house range IN SQL, use PostGIS interpolation)."""
+        """Stage 2: Interpolate on centerline (Bug 4 fix: filter by house range IN SQL, use PostGIS interpolation).
+
+        PHASE 2 FIX: Strip directional prefixes and type suffixes from parsed street name
+        to match database schema (same fix as Stage 1).
+        """
         number = parsed.get("number") if isinstance(parsed, dict) else getattr(parsed, "number", None)
         street = parsed.get("street") if isinstance(parsed, dict) else getattr(parsed, "street", None)
 
@@ -312,6 +319,14 @@ class GeocodeCascade:
         try:
             house_num = int(number) if isinstance(number, str) else number
         except (ValueError, TypeError):
+            return None
+
+        # Strip directional prefix from street (parser may include "North/South/East/West")
+        street_cleaned = re.sub(r'^(NORTH|SOUTH|EAST|WEST|N|S|E|W)\s+', '', street.upper()).strip()
+        # Strip type suffix (Street, Avenue, Boulevard, etc.)
+        street_cleaned = re.sub(r'\s+(STREET|AVENUE|AVENUE|BOULEVARD|BLVD|DRIVE|ROAD|LANE|COURT|PLACE|PKWY|EXPRESSWAY|AVE|DR|RD|LN|CT|PL|AV|ST)$', '', street_cleaned).strip()
+
+        if not street_cleaned:
             return None
 
         # Find centerline segment whose house-number range CONTAINS the address
@@ -350,7 +365,7 @@ class GeocodeCascade:
         """
         result = self.query(sql, {
             "house_num": house_num,
-            "street_name": street
+            "street_name": street_cleaned
         })
 
         if result:
