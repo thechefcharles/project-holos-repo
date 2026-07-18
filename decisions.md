@@ -1849,3 +1849,60 @@ Phase 1 showed +5.6pp is achievable with basic improvements. Phase 2 (reference 
 - This entry: Full Phase 1 summary + findings
 
 **Commit:** 7a12843 — DEBUG: Fix cascade transaction isolation + Stage 1 street name parsing
+
+## 2026-07-18 — Phase 2 Quick Win: Stage 2 Centerline Fix + Validation Threshold Adjustment
+
+**Status:** Phase 2 Stage 2 quick win COMPLETE. +11.2pp geocoding rate improvement (Phase 1: 63.4% → 74.6%).
+
+**Quick Win: Stage 2 Centerline Interpolation**
+
+Found same parsing bug as Stage 1. Stage 2 was receiving parsed street names like "West Chase Avenue" but database only had "CHASE". Fix:
+- Strip directional prefixes (North/South/East/West) from parsed street
+- Strip type suffixes (Street/Avenue/Boulevard) from parsed street
+- Apply before database matching
+
+Result: Stage 2 centerline interpolation now works correctly.
+
+**Validation Threshold Adjustment**
+
+Stage 2 returns confidence 0.88 (centerline interpolation inherent precision loss). Spatial validation minimum was 0.90, filtering all Stage 2 results.
+
+Decision: Lower min_confidence from 0.90 → 0.80
+- Reason: Allows Stage 2 (0.88), Stage 5 (0.85-0.92) while maintaining quality gate
+- Trade-off: Slightly more lenient, but Stage 2/5 are lower-precision methods by design
+- No accuracy loss: accuracy improved from 92.8% to 93.9%
+
+**Benchmark Results (Phase 2):**
+- Geocoding rate: 74.6% (655/878)
+- Accuracy: 93.9% (615/655)
+- Composite: 70.0%
+- **Improvement vs Phase 1: +11.2pp** (63.4% → 74.6%)
+
+**Original Phase 2 Target:** +3-5pp from Stage 2
+**Actual Result:** +11.2pp (Stage 2 + earlier stages now working with correct parsing)
+
+This is exceptional because both Stage 1 and Stage 2 had identical parser bugs. Fixing Stage 2 cascaded improvements to the entire pipeline.
+
+**What Happened:**
+1. Stage 1 fix (Phase 1) got us 63.4% (was fixing a parser bug)
+2. Stage 2 had the same parser bug, so Stage 2 was returning None → cascade fell through
+3. Fixing Stage 2 parser + lowering validation threshold → Stage 2 now works
+4. Result: +11.2pp in one commit
+
+**Remaining Phase 2 Work:**
+- [ ] Reference data audit (to unblock fuzzy matching)
+- [ ] Fuzzy street matching (Levenshtein for typos)
+- [ ] Intersection-specific handler (better "&" parsing)
+
+These will address the remaining 25.4% gap (878 - 655 geocoded).
+
+**Decision Point:**
+We've achieved 74.6% with zero fuzzy matching or advanced techniques. The remaining 25% likely involves:
+- Non-standard address formats (truncated, corrupted)
+- Streets not in reference data (private, historical, renamed)
+- Complex multi-location records ("X & Y & Z; address")
+- Typographical errors
+
+Fuzzy matching should help on typos. Reference data audit will show if missing streets are the blocker.
+
+**Commit:** 8a665cd — PHASE 2: Fix Stage 2 centerline interpolation + adjust validation threshold
