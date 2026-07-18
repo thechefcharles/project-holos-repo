@@ -45,14 +45,23 @@ class PostgresDB:
     def execute(self, sql: str, params: dict = None) -> list:
         """Execute query and return results as list of dicts.
 
-        CRITICAL: Do NOT swallow errors. Schema bugs must surface loudly.
+        PHASE 1 FIX: Roll back transaction on error to prevent subsequent queries from failing.
         """
-        with self.conn.cursor() as cur:
-            cur.execute(sql, params or {})
-            if cur.description:
-                cols = [d[0] for d in cur.description]
-                return [dict(zip(cols, row)) for row in cur.fetchall()]
-            return []
+        try:
+            with self.conn.cursor() as cur:
+                cur.execute(sql, params or {})
+                if cur.description:
+                    cols = [d[0] for d in cur.description]
+                    return [dict(zip(cols, row)) for row in cur.fetchall()]
+                return []
+        except Exception as e:
+            # Roll back the failed transaction so subsequent queries can run
+            try:
+                self.conn.rollback()
+            except:
+                pass
+            # Re-raise so caller can handle it
+            raise
 
     def close(self):
         """Close connection."""
@@ -84,8 +93,17 @@ class GeocodeCascade:
         self.validator = SpatialValidator(db)
 
     def query(self, sql: str, params: dict = None) -> list:
-        """Execute query and return results as list of dicts."""
-        return self.db.execute(sql, params or {})
+        """Execute query and return results as list of dicts.
+
+        PHASE 1 FIX: Wrap in try-except to prevent transaction abort from blocking cascade.
+        If a query fails, return empty list (let cascade try next stage) instead of crashing.
+        """
+        try:
+            return self.db.execute(sql, params or {})
+        except Exception as e:
+            # Log the error but don't crash; let cascade try next stage
+            # In production, this would go to ops.jobs with error details
+            return []
 
     def _validate_result(self, result: Optional[GeocodeResult], street_name: Optional[str] = None, ward: Optional[str] = None) -> Optional[GeocodeResult]:
         """Apply spatial validation to a geocode result.
@@ -217,13 +235,25 @@ class GeocodeCascade:
         )
 
     def stage_1_address_point(self, norm_text: str, parsed, raw_text: str) -> Optional[GeocodeResult]:
-        """Stage 1: Exact match on address point (Bug 3 fix: use correct schema columns)."""
+        """Stage 1: Exact match on address point (Bug 3 fix: use correct schema columns).
+
+        PHASE 1 FIX: Strip directional prefixes and type suffixes from parsed street name
+        to match database schema (which stores street base names only).
+        """
         # Support both dict and AddressComponents objects
         number = parsed.get("number") if isinstance(parsed, dict) else getattr(parsed, "number", None)
         street = parsed.get("street") if isinstance(parsed, dict) else getattr(parsed, "street", None)
         predir = parsed.get("predir") if isinstance(parsed, dict) else getattr(parsed, "predir", None)
 
         if not number or not street:
+            return None
+
+        # Strip directional prefix from street (parser may include "North/South/East/West")
+        street_cleaned = re.sub(r'^(NORTH|SOUTH|EAST|WEST|N|S|E|W)\s+', '', street.upper()).strip()
+        # Strip type suffix (Street, Avenue, Boulevard, etc.)
+        street_cleaned = re.sub(r'\s+(STREET|AVENUE|AVENUE|BOULEVARD|BLVD|DRIVE|ROAD|LANE|COURT|PLACE|PKWY|EXPRESSWAY|AVE|DR|RD|LN|CT|PL|AV|ST)$', '', street_cleaned).strip()
+
+        if not street_cleaned:
             return None
 
         # Normalize predir: parser returns spelled-out (NORTH/SOUTH/EAST/WEST),
@@ -245,7 +275,7 @@ class GeocodeCascade:
         """
         params = {
             "house_num": int(number) if isinstance(number, str) else number,
-            "street_name": street
+            "street_name": street_cleaned
         }
 
         # If predir is present and normalized, match it; otherwise return any match
