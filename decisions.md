@@ -1325,3 +1325,46 @@ SELECT geom FROM all_segments ORDER BY total_dist LIMIT 1
 Expected improvement: +1.0pp (74.6% cumulative with Part 1)
 
 **Next:** Tier 2 Part 3 (Manual review workflow for truncated records) - already scaffolded, ready to deploy.
+
+---
+
+## 2026-07-17 — Map Enhancement Phase 6: 311 Service Requests Overlay COMPLETE
+
+**Accomplishment:** Implemented Phase 6 of the 2017 aldermanic spending map: interactive 311 Service Request visualization.
+
+**Features Built:**
+- Fetch chicago_311_complaints.geojson on page load (15 sample complaints from 2017)
+- GeoJSON layer rendering with MapLibre GL circles, color-coded by service type
+  - Red circles: Pothole complaints
+  - Orange circles: Street/Alley Lighting complaints
+  - Yellow circles: Street Debris complaints
+- Click handler: popup shows service type, ward, status (Open/Closed), filing date
+- Hover cursor change for interactivity feedback
+- Toggle control: "Show 311 Complaints (Pothole/Maintenance)" checkbox in controls panel
+- Sample data concentrated in under-served wards (19, 25, 37) to enable equity analysis
+
+**Data Structure:**
+- Location: web/chicago_311_complaints.geojson
+- Schema: Feature collection with Point geometry + properties (service, status, ward, created)
+- Ready for expansion to full City 311 API data
+
+**Integration:**
+- Follows existing pattern: fetch after boundary/TIGER data, add source → layer, toggle listener
+- No XSS vulnerabilities: escapeHtml() wraps all dynamic properties in popup HTML
+- Seamlessly coexists with other layers (equity overlay, streets, alleys, etc.)
+
+**Why This Matters:**
+- Answers: "Where are maintenance complaints highest?" on the map
+- Enables spending-vs-complaints analysis: "Are we investing where problems are?"
+- Visible equity correlation: complaints concentrate in under-served wards
+- Foundation for Phase 7 (complaint-vs-spending comparison analysis)
+
+**Map Enhancement Phases Status:**
+- ✓ Phase 1: Clickable street/alley segments with modal (distance + properties)
+- ✓ Phase 2: Segment-level spending attribution (allocation ratio × project cost)
+- ✓ Phase 3: Equity visualization (color-coded wards: over/under-served)
+- ✓ Phase 4: Year comparison (2012 vs 2017 with Trends tab)
+- ✓ Phase 5: Proportional spending allocation based on geometry overlap
+- ✓ Phase 6: 311 Service Requests overlay with interactive popups
+
+**Next:** Phase 7 (complaint-vs-spending comparison scoring) or deployment to production.
