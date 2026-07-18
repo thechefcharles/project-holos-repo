@@ -834,8 +834,8 @@
                     console.log('Data loaded:', data.features.length, 'geocoded records');
                     allFeatures = data.features || [];
 
-                    // Aggregate spending by category for each segment
-                    aggregateSpendingBySegmentAndCategory();
+                    // Aggregate spending by category for each segment (non-blocking)
+                    setTimeout(() => aggregateSpendingBySegmentAndCategory(), 100);
 
                     // Update header
                     document.querySelector('.controls h2').textContent = `🗺️ ${yearInfo.name}`;
@@ -1652,8 +1652,8 @@
                     // Combine both years
                     allFeatures = [...features2012, ...features2017];
 
-                    // Aggregate spending by category for each segment
-                    aggregateSpendingBySegmentAndCategory();
+                    // Aggregate spending by category for each segment (non-blocking)
+                    setTimeout(() => aggregateSpendingBySegmentAndCategory(), 100);
 
                     // Update header
                     document.querySelector('.controls h2').textContent = '🗺️ Comparison: 2012 vs 2017';
