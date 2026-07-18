@@ -39,6 +39,12 @@ You are working on **Project Holos**: converting messy civic records into a geor
 10. Log every decision a future teammate would need in `/decisions.md`
     (append-only; never edit history).
 
+## Agent Rules for This Project
+
+**Screenshots:** When the user uploads a screenshot, **always** read it with the Read tool first before analyzing or responding. Do not assume content from previous screenshots.
+
+**CLAUDE.md updates:** Only update this file if the user explicitly requests it or if adding a critical operational rule that affects all future work. Keep it focused and authoritative.
+
 ## Coordinate & datum policy
 - Storage & web: **EPSG:4326** (WGS84) on all hub geometry columns.
 - Engineering math & DXF: **EPSG:3435** (IL State Plane East, US ft). Reproject
