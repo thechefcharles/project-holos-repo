@@ -1201,6 +1201,18 @@
             }
         }
 
+        // HTML escape function
+        function escapeHtml(str) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            };
+            return String(str).replace(/[&<>"']/g, c => map[c]);
+        }
+
         // Segment Modal Functions
         function showSegmentModal(name, feature) {
             const overlay = document.getElementById('segmentModalOverlay');
@@ -1219,26 +1231,27 @@
                 length = calculateLength(geometry.coordinates).toFixed(0) + ' ft';
             }
 
-            // Build HTML content
+            // Build HTML content with escaped values
+            const segmentType = escapeHtml(props.street_type || props.class || 'Infrastructure');
             let html = `
                 <div class="segment-info-row">
                     <span class="segment-info-label">Segment Name:</span>
-                    <span class="segment-info-value">${name}</span>
+                    <span class="segment-info-value">${escapeHtml(name)}</span>
                 </div>
                 <div class="segment-info-row">
                     <span class="segment-info-label">Type:</span>
-                    <span class="segment-info-value">${props.street_type || props.class || 'Infrastructure'}</span>
+                    <span class="segment-info-value">${segmentType}</span>
                 </div>
                 <div class="segment-info-row">
                     <span class="segment-info-label">Length:</span>
-                    <span class="segment-info-value highlight">${length}</span>
+                    <span class="segment-info-value highlight">${escapeHtml(length)}</span>
                 </div>
             `;
 
             // Add address range for streets
             if (props.from_house_num_l || props.from_house_num_r) {
                 const leftRange = props.from_house_num_l && props.to_house_num_l
-                    ? `${props.from_house_num_l}-${props.to_house_num_l}`
+                    ? `${escapeHtml(props.from_house_num_l)}-${escapeHtml(props.to_house_num_l)}`
                     : 'N/A';
                 html += `
                     <div class="segment-info-row">
