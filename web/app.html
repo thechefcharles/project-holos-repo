@@ -6,6 +6,7 @@
     <title>Project Holos — 2017 Aldermanic Menu Spending Map</title>
     <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js" integrity="sha384-C8SvKhT0WT55AOw5pvwVG699JuuZgN0KFt/4wtpRPhSl+TzRYqDUravAfuy13vJK" crossorigin="anonymous"></script>
     <link href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-lwiCiEXwjwuSiTeYhtgeL/ADQBiUjDsQkKHCwT0j+8iKuBrb7skjKQAYQ+cpZspI" crossorigin="anonymous" />
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js" crossorigin="anonymous"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; }
@@ -1227,8 +1228,10 @@
 
             // Calculate segment length
             let length = 'N/A';
+            let segmentLengthFt = 0;
             if (geometry && geometry.type === 'LineString') {
-                length = calculateLength(geometry.coordinates).toFixed(0) + ' ft';
+                segmentLengthFt = calculateLength(geometry.coordinates);
+                length = segmentLengthFt.toFixed(0) + ' ft';
             }
 
             // Build HTML content with escaped values
@@ -1261,18 +1264,80 @@
                 `;
             }
 
+            // Find spending projects that intersect this segment
+            const overlappingProjects = findOverlappingProjects(feature);
+            const totalSpending = overlappingProjects.reduce((sum, p) => sum + p.allocated_cost, 0);
+            const costPerFt = segmentLengthFt > 0 ? (totalSpending / segmentLengthFt).toFixed(2) : 0;
+
             html += `
                 <div class="segment-info-row" style="border: none; padding-top: 15px; margin-top: 10px; border-top: 2px solid #e0e0e0;">
-                    <span class="segment-info-label">Spending Allocated:</span>
-                    <span class="segment-info-value highlight">Loading...</span>
+                    <span class="segment-info-label">Total Spending:</span>
+                    <span class="segment-info-value highlight">$${totalSpending.toLocaleString()}</span>
                 </div>
-                <div style="margin-top: 15px; padding: 12px; background: #f9f9f9; border-radius: 6px; font-size: 12px; color: #666;">
-                    <strong>ℹ️ Note:</strong> Spending attribution by segment coming in Phase 2. This segment may be affected by nearby projects.
+                <div class="segment-info-row">
+                    <span class="segment-info-label">Cost per Foot:</span>
+                    <span class="segment-info-value highlight">$${costPerFt}</span>
                 </div>
             `;
 
+            // List projects affecting this segment
+            if (overlappingProjects.length > 0) {
+                html += `<div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #e0e0e0;">
+                    <div style="font-weight: 600; margin-bottom: 10px; color: #333;">Projects Affecting This Segment:</div>
+                `;
+                overlappingProjects.forEach(project => {
+                    html += `
+                        <div style="padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px;">
+                            <div style="font-weight: 600; color: #333; margin-bottom: 3px;">${escapeHtml(project.category || 'Project')}</div>
+                            <div style="color: #667eea; font-weight: 600;">$${project.allocated_cost.toLocaleString()}</div>
+                            <div style="color: #999; font-size: 12px;">Ward ${project.ward}</div>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            } else {
+                html += `
+                    <div style="margin-top: 15px; padding: 12px; background: #e8f5e9; border-radius: 6px; border-left: 4px solid #4caf50; font-size: 12px; color: #2e7d32;">
+                        ✓ No spending projects allocated to this segment (2017)
+                    </div>
+                `;
+            }
+
             content.innerHTML = html;
             overlay.classList.add('active');
+        }
+
+        function findOverlappingProjects(segmentFeature) {
+            // Find all spending features that intersect or overlap this segment
+            if (!window.allFeatures) return [];
+
+            const segmentGeoJSON = segmentFeature;
+            const overlapping = [];
+
+            window.allFeatures.forEach(spendingFeature => {
+                try {
+                    // Check if spending feature intersects segment
+                    const intersects = turf.booleanIntersects(segmentGeoJSON, spendingFeature);
+
+                    if (intersects) {
+                        // For MVP: allocate full cost if any intersection
+                        // Phase 3: Could do proportional allocation based on overlap length
+                        overlapping.push({
+                            category: spendingFeature.properties.category,
+                            ward: spendingFeature.properties.ward,
+                            cost: spendingFeature.properties.cost || 0,
+                            allocated_cost: spendingFeature.properties.cost || 0,
+                            geometry_type: spendingFeature.properties.geometry_type
+                        });
+                    }
+                } catch (e) {
+                    // Skip if geometry is invalid
+                    console.warn('Geometry error:', e);
+                }
+            });
+
+            // Sort by cost descending
+            return overlapping.sort((a, b) => b.allocated_cost - a.allocated_cost);
         }
 
         function closeSegmentModal() {
