@@ -895,6 +895,17 @@
                         opt.textContent = `Ward ${w}`;
                         wardSelect.appendChild(opt);
                     });
+
+                    // Update map layer with new data
+                    if (map.getSource('spending-2017')) {
+                        map.getSource('spending-2017').setData({
+                            type: 'FeatureCollection',
+                            features: allFeatures
+                        });
+                    } else {
+                        // If layer doesn't exist yet, create it
+                        addMapLayers();
+                    }
             })
             .catch(err => {
                 document.getElementById('error').style.display = 'block';
