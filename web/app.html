@@ -572,6 +572,10 @@
                 <input type="checkbox" id="toggle-equity" style="margin-right: 8px; cursor: pointer;">
                 <span>Show Equity Overlay (Over/Under-Served)</span>
             </label>
+            <label style="display: flex; align-items: center; cursor: pointer; margin-top: 8px;">
+                <input type="checkbox" id="toggle-311" style="margin-right: 8px; cursor: pointer;">
+                <span>Show 311 Complaints (Pothole/Maintenance)</span>
+            </label>
         </div>
         <div class="stats">
             <div><span class="stats-number" id="displayed-count">0</span> / <span class="stats-number" id="total-count">0</span> projects</div>
@@ -663,6 +667,7 @@
         let streetCenterlines = null;
         let curbCenterlines = null;
         let tigerRoads = null;
+        let complaints311 = null;
         let mapReady = false;
 
         // Load TIGER roads (reference data, clipped to Chicago boundary)
@@ -903,6 +908,19 @@
             })
             .catch(err => console.warn('Chicago boundary not available:', err.message));
 
+        // Load 311 complaints data
+        fetch('chicago_311_complaints.geojson')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                complaints311 = data;
+                console.log('311 complaints loaded:', data.features.length, 'records');
+                if (mapReady) add311Layer();
+            })
+            .catch(err => console.warn('311 complaints not available:', err.message));
+
         // Load street centerlines from API (with bbox)
         function loadStreetCenterlines() {
             const bbox = map.getBounds();
@@ -1012,6 +1030,67 @@
                         'line-width': 3,
                         'line-opacity': 0.8
                     }
+                });
+            }
+        }
+
+        function add311Layer() {
+            if (complaints311 && !map.getSource('complaints-311')) {
+                map.addSource('complaints-311', {
+                    type: 'geojson',
+                    data: complaints311
+                });
+
+                map.addLayer({
+                    id: '311-complaints',
+                    type: 'circle',
+                    source: 'complaints-311',
+                    layout: { visibility: 'none' },
+                    paint: {
+                        'circle-radius': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            10, 4,
+                            14, 6
+                        ],
+                        'circle-color': [
+                            'match',
+                            ['get', 'service'],
+                            'Pothole', '#ff6b6b',
+                            'Street/Alley Lighting', '#ffa500',
+                            'Street Debris', '#ffeb3b',
+                            '#666'
+                        ],
+                        'circle-opacity': 0.7,
+                        'circle-stroke-width': 1,
+                        'circle-stroke-color': '#fff',
+                        'circle-stroke-opacity': 0.8
+                    }
+                });
+
+                // Add click handler for complaints
+                map.on('click', '311-complaints', (e) => {
+                    const props = e.features[0].properties;
+                    const popup = new maplibregl.Popup()
+                        .setLngLat(e.lngLat)
+                        .setHTML(`
+                            <div style="font-size: 13px;">
+                                <div style="font-weight: 600; margin-bottom: 4px; color: #333;">${escapeHtml(props.service)}</div>
+                                <div style="color: #666; margin-bottom: 3px;">Ward ${props.ward}</div>
+                                <div style="color: #999; font-size: 12px;">Status: ${escapeHtml(props.status)}</div>
+                                <div style="color: #999; font-size: 12px;">Filed: ${props.created}</div>
+                            </div>
+                        `)
+                        .addTo(map);
+                });
+
+                map.on('mouseenter', '311-complaints', () => {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+
+                map.on('mouseleave', '311-complaints', () => {
+                    map.getCanvas().style.cursor = '';
                 });
             }
         }
@@ -1349,6 +1428,13 @@
                 }
                 if (map.getLayer('equity-outline')) {
                     map.setLayoutProperty('equity-outline', 'visibility', visibility);
+                }
+            });
+
+            document.getElementById('toggle-311').addEventListener('change', (e) => {
+                const visibility = e.target.checked ? 'visible' : 'none';
+                if (map.getLayer('311-complaints')) {
+                    map.setLayoutProperty('311-complaints', 'visibility', visibility);
                 }
             });
         }
