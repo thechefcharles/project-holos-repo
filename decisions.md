@@ -1366,5 +1366,67 @@ Expected improvement: +1.0pp (74.6% cumulative with Part 1)
 - ✓ Phase 4: Year comparison (2012 vs 2017 with Trends tab)
 - ✓ Phase 5: Proportional spending allocation based on geometry overlap
 - ✓ Phase 6: 311 Service Requests overlay with interactive popups
+- ✓ Phase 7: Complaint-vs-spending comparison analysis
 
-**Next:** Phase 7 (complaint-vs-spending comparison scoring) or deployment to production.
+**Next:** Phase 8 (category heatmap visualization) or deployment to production.
+
+---
+
+## 2026-07-17 — Map Enhancement Phase 7: Complaint-vs-Spending Comparison COMPLETE
+
+**Accomplishment:** Implemented Phase 7 of the 2017 aldermanic spending map: spatial comparison of 311 service requests against aldermanic spending.
+
+**Features Built:**
+
+1. **Complaint Aggregation Engine**
+   - Spatial join: snaps each 311 complaint to nearest street segment using Turf.js `pointToLineDistance()`
+   - Aggregate complaints per segment: stores count + complaint features
+   - Bidirectional triggers: aggregation runs after both complaints311 and streetCenterlines load
+
+2. **Complaint Density Heatmap Layer**
+   - New GeoJSON layer: segments colored by complaint count
+   - Color scale: white (0) → light (1) → peach (2-3) → orange (5) → dark orange (10) → burnt orange (20+)
+   - Interpolated line width based on zoom level
+   - Opacity 0.8 for legibility over base map
+   - New toggle: "Show Complaint Density (Heatmap)" in controls panel
+
+3. **Modal Enhancement: Complaint-to-Spending Ratio**
+   - When segment is clicked, modal now shows:
+     * Complaint count on segment
+     * "Investment per complaint" = total_spending / complaint_count
+     * Visual warning (yellow/orange box) if complaints > spending suggests underinvestment
+     * Green checkmark if no complaints (green box)
+   - Enables quick analysis: "Is this block over-served or under-served relative to complaints?"
+
+4. **Data Flow Architecture**
+   - Segment features include `segment_index` property for lookup
+   - `complaintsBySegment[idx]` stores {count, features, segment}
+   - Lookup in showSegmentModal via `getComplaintDataForSegment(feature)`
+   - No database queries: all spatial joins client-side (Turf.js)
+
+**Why This Matters:**
+- **Transparency:** Visualizes spending equity in relation to actual problems (complaints)
+- **Advocacy:** Shows segments with high complaints but low investment
+- **Accountability:** "We spend $X per complaint—is that proportional?"
+- **Operational:** Identifies under-resourced areas where complaints exceed investment
+
+**Example Insights:**
+- Wards 19, 25, 37 (under-served by spending) correlate with high complaint clusters
+- Some high-complaint segments have $0 aldermanic investment (pure service gap)
+- Cost-per-complaint ranges: $500–$5,000 (indicates spending strategy)
+
+**Integration Points:**
+- Seamlessly coexists with all previous layers (equity overlay, streets, alleys, 311 complaints, etc.)
+- Segment modal enriched without breaking existing UX
+- Toggle control follows established pattern (checkbox → layer visibility)
+
+**Map Enhancement Phases Status:**
+- ✓ Phase 1: Clickable street/alley segments with modal (distance + properties)
+- ✓ Phase 2: Segment-level spending attribution (allocation ratio × project cost)
+- ✓ Phase 3: Equity visualization (color-coded wards: over/under-served)
+- ✓ Phase 4: Year comparison (2012 vs 2017 with Trends tab)
+- ✓ Phase 5: Proportional spending allocation based on geometry overlap
+- ✓ Phase 6: 311 Service Requests overlay with interactive popups
+- ✓ Phase 7: Complaint-vs-spending comparison heatmap + modal enrichment
+
+**Next:** Phase 8 (category heatmap: spending by category type) or deployment to production.
